@@ -1,0 +1,12 @@
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\Nop.Froogle.dll
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\Nop.Froogle.pdb
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\Nop.BusinessLogic.dll
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\Nop.DataAccess.dll
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\Nop.Common.dll
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\itextsharp.dll
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\Nop.BusinessLogic.pdb
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\Nop.DataAccess.pdb
+D:\Work\Voobrazi\Libraries\Nop.Froogle\bin\Release\Nop.Common.pdb
+D:\Work\Voobrazi\Libraries\Nop.Froogle\obj\Release\ResolveAssemblyReference.cache
+D:\Work\Voobrazi\Libraries\Nop.Froogle\obj\Release\Nop.Froogle.dll
+D:\Work\Voobrazi\Libraries\Nop.Froogle\obj\Release\Nop.Froogle.pdb

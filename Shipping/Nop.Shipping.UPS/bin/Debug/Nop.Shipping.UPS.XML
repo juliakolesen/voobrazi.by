@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nop.Shipping.UPS</name>
+    </assembly>
+    <members>
+        <member name="T:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSComputationMethod">
+            <summary>
+            UPS computation method
+            </summary>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSComputationMethod.GetShippingOptions(NopSolutions.NopCommerce.BusinessLogic.Shipping.ShipmentPackage,System.String@)">
+            <summary>
+             Gets available shipping options
+            </summary>
+            <param name="ShipmentPackage">Shipment package</param>
+            <param name="Error">Error</param>
+            <returns>Shipping options</returns>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSComputationMethod.GetFixedRate(NopSolutions.NopCommerce.BusinessLogic.Shipping.ShipmentPackage)">
+            <summary>
+            Gets fixed shipping rate (if shipping rate computation method allows it and the rate can be calculated before checkout).
+            </summary>
+            <param name="ShipmentPackage">Shipment package</param>
+            <returns>Fixed shipping rate; or null if shipping rate could not be calculated before checkout</returns>
+        </member>
+        <member name="T:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPackagingType">
+            <summary>
+            UPSP packaging type
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPackagingType.CustomerSuppliedPackage">
+            <summary>
+            Customer supplied package
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPackagingType.Letter">
+            <summary>
+            Letter
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPackagingType.Tube">
+            <summary>
+            Tube
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPackagingType.PAK">
+            <summary>
+            PAK
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPackagingType.ExpressBox">
+            <summary>
+            ExpressBox
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPackagingType._10KgBox">
+            <summary>
+            _10 Kg Box
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPackagingType._25KgBox">
+            <summary>
+            _25 Kg Box
+            </summary>
+        </member>
+        <member name="T:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSCustomerClassification">
+            <summary>
+            UPS customer lassification
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSCustomerClassification.Retail">
+            <summary>
+            Retail
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSCustomerClassification.Wholesale">
+            <summary>
+            Wholesale
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSCustomerClassification.Occasional">
+            <summary>
+            Occasional
+            </summary>
+        </member>
+        <member name="T:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPickupType">
+            <summary>
+            UPS pickup type
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPickupType.DailyPickup">
+            <summary>
+            Daily pickup
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPickupType.CustomerCounter">
+            <summary>
+            Customer counter
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPickupType.OneTimePickup">
+            <summary>
+            One time pickup
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPickupType.OnCallAir">
+            <summary>
+            On call air
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPickupType.SuggestedRetailRates">
+            <summary>
+            Suggested retail rates
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPickupType.LetterCenter">
+            <summary>
+            Letter center
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Shipping.Methods.UPS.UPSPickupType.AirServiceCenter">
+            <summary>
+            Air service center
+            </summary>
+        </member>
+    </members>
+</doc>

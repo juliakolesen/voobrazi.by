@@ -1,0 +1,656 @@
+﻿
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	CUSTOMER ACCOUNT
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.AccountPage
+{
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	padding-left: 0;
+}
+
+.AccountPage .title
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	text-transform: uppercase;
+	clear: both;
+}
+
+.AccountPage .body
+{
+	margin: 0px 0 0 0;
+	padding: 0px 0 0 0;
+	font-size: 11px;
+	color: #555;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	CUSTOMER INFO
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.CustomerInfoBox
+{
+	margin: 0px 0 0 0;
+	padding: 5px 5px 5px 5px;
+	font-size: 11px;
+	color: #555;
+}
+
+.CustomerInfoBox .SectionTitle
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	clear: both;
+	font-size: 12px;
+}
+
+.CustomerInfoBox .SectionBody
+{
+	text-align: left;
+	padding: 10px;
+	height: auto;
+}
+
+.CustomerInfoBox .Button
+{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.CustomerAddresses
+{
+	margin: 0px 0 0 0;
+	padding: 5px 5px 5px 5px;
+	font-size: 11px;
+	color: #555;
+	background-color: inherit;
+}
+
+.CustomerAddresses .SectionTitle
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	clear: both;
+	font-size: 12px;
+}
+
+.CustomerAddresses .AdressList
+{
+}
+
+.CustomerAddresses .AdressList .AddressItem
+{
+	text-align: left;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #d7d7d7;
+	height: auto;
+}
+
+.CustomerAddresses .AddButton
+{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	float: right;
+	text-align: right;
+}
+
+.CustomerOrders
+{
+	margin: 0px 0 0 0;
+	padding: 5px 5px 5px 5px;
+	font-size: 11px;
+	color: #555;
+	background-color: inherit;
+}
+
+.CustomerOrders .OrderList
+{
+}
+
+.CustomerOrders .OrderList .OrderItem
+{
+	text-align: left;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #d7d7d7;
+	height: auto;
+}
+
+.CustomerPassRecovery
+{
+	padding: 5px 5px 5px 5px;
+	font-size: 11px;
+	color: #555;
+	background-color: inherit;
+}
+
+.CustomerInfoBox .SectionBody
+{
+	text-align: left;
+	padding: 10px;
+	border: 1px solid #d7d7d7;
+	height: auto;
+}
+
+.blockBordered
+{
+	border: 1px solid rgb(232, 230, 210);
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	LOGIN PAGE
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.LoginPage
+{
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	padding-left: 0;
+}
+
+.LoginPage .title
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	text-transform: uppercase;
+	clear: both;
+}
+
+.LoginPage .wrapper
+{
+	width: 600px;
+	margin-top: 10px;
+	padding-left: 5px;
+	font-size: 11px;
+	color: #555;
+}
+
+.LoginPage .wrapper .new-wrapper
+{
+	float: left;
+	width: 50%;
+}
+
+.LoginPage .wrapper .new-wrapper .RegisterTitle
+{
+	text-align: center;
+	margin: 0px 10px 0px 10px;
+	font-weight: bold;
+}
+
+.LoginPage .wrapper .new-wrapper .RegisterBlock
+{
+	text-align: center;
+	margin: 10px 10px 10px 10px;
+	padding: 15px 5px 5px 5px;
+	border: solid 1px #d3d3d3;
+	height: 240px;
+	vertical-align: top;
+}
+
+.LoginPage .wrapper .new-wrapper .CheckoutAsGuestOrRegisterBlock
+{
+	text-align: left;
+	margin: 10px 10px 10px 10px;
+	padding: 15px 5px 5px 5px;
+	border: solid 1px #d3d3d3;
+	height: 240px;
+	vertical-align: top;
+}
+
+.LoginPage .wrapper .returning-wrapper
+{
+	float: right;
+	width: 50%;
+}
+
+.LoginPage .wrapper .returning-wrapper .LoginTitle
+{
+	text-align: center;
+	margin: 0px 10px 0px 10px;
+	font-weight: bold;
+}
+
+.LoginPage .wrapper .returning-wrapper .LoginBlock
+{
+	text-align: left;
+	margin: 10px 10px 10px 10px;
+	padding: 15px 5px 5px 5px;
+	border: solid 1px #d3d3d3;
+	height: 240px;
+}
+
+.LoginTableContainer
+{
+	vertical-align: middle;
+}
+
+.LoginTableContainer .Row
+{
+}
+
+.LoginTableContainer .Row .ItemName
+{
+	padding: 10px 10px 10px 0px;
+	display: block;
+	white-space: nowrap;
+	padding-right: 10px;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+.LoginTableContainer .Row .ItemValue
+{
+	padding: 10px 0px 10px 0px;
+	vertical-align: middle;
+}
+
+.LoginPage .ForgotPassword
+{
+	font-weight: bold;
+}
+
+.LoginPage .LoginButton
+{
+	float: right;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-align: center;
+	clear: both;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	REGISTRATION
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.RegistrationPage
+{
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	padding-left: 0;
+}
+
+.RegistrationPage .title
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	text-transform: uppercase;
+	clear: both;
+}
+
+.RegistrationPage .body
+{
+	margin: 0px 0 0 0;
+	padding: 0px 0 0 0;
+	font-size: 11px;
+	color: #555;
+	background-color: inherit;
+}
+
+.RegistrationPage .SectionTitle
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	clear: both;
+	font-size: 12px;
+}
+
+.RegistrationPage .SectionBody
+{
+	text-align: left;
+	padding: 10px;
+	border: 1px solid #d7d7d7;
+	height: auto;
+}
+
+.RegistrationPage .Button
+{
+	float: right;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-align: center;
+	clear: both;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	PASSWORD RECOVERY
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.PasswordRecoveryPage
+{
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	padding-left: 0;
+}
+
+.PasswordRecoveryPage .title
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	text-transform: uppercase;
+	clear: both;
+}
+
+.PasswordRecoveryPage .body
+{
+	margin: 0px 0 0 0;
+	padding: 0px 0 0 0;
+	font-size: 11px;
+	color: #555;
+	background-color: inherit;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	AVATAR
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.CustomerAvatar
+{
+	padding: 10px;	
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	ACCOUNT ACTIVATION
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.AccountActivationPage
+{
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	padding-left: 0;
+}
+
+.AccountActivationPage .title
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	text-transform: uppercase;
+	clear: both;
+}
+
+.AccountActivationPage .body
+{
+	margin: 0px 0 0 0;
+	padding: 0px 0 0 0;
+	font-size: 11px;
+	color: #555;
+	background-color: inherit;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	ADDRESS EDIT PAGE
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.AddressEditPage
+{
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	padding-left: 0;
+}
+
+.AddressEditPage .title
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	text-transform: uppercase;
+	clear: both;
+}
+
+.AddressEditPage .body
+{
+	margin: 0px 0 0 0;
+	padding: 0px 0 0 0;
+	font-size: 11px;
+	color: #555;
+	background-color: inherit;
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	PRIVATE MESSAGES
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+.sendpmbox
+{
+    background-color:#EEEEEE;
+    border:1px solid #A0A0A0;
+    color:#555555;
+    display:block;
+    float:left;
+    font-family:Arial;
+    font-size:10px;
+    font-weight:bold;
+    margin:2px 0 2px 2px;
+    padding:2px 2px 2px 2px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+
+.sendpmbox .pmlinkbutton
+{
+    line-height:14px;
+    padding:2px 6px 2px 18px;
+	background: url('images/ico-pm.png') no-repeat;
+}
+
+.privatemessagesend
+{
+	background: url('images/pm-footer-bg.gif') repeat-x bottom;
+}
+
+.privatemessagesend .title
+{
+	background: url('images/pm-header-bg.gif') repeat-x 50%;
+	color: #FFF;
+	border: solid 1px #6a6a6a;
+	height: 28px;
+	line-height: 28px;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.privatemessagesend .wrapper
+{
+	padding: 5px 5px 5px 5px;
+}
+
+.privatemessagesend table.postmessage
+{
+	width: 100%;
+	vertical-align: middle;
+	border-collapse: collapse;
+}
+
+.privatemessagesend table.postmessage td
+{
+	padding: 4px 4px 4px 4px;
+}
+
+.privatemessagesend table.postmessage td.fieldname
+{
+	font-weight: bold;
+	width: 20%;
+	color: #555;
+}
+
+.privatemessagesend table.postmessage td.options
+{
+	text-align: right;
+}
+
+
+
+.privatemessageview
+{
+	background: url('images/pm-footer-bg.gif') repeat-x bottom;
+}
+
+.privatemessageview .title
+{
+	background: url('images/pm-header-bg.gif') repeat-x 50%;
+	color: #FFF;
+	border: solid 1px #6a6a6a;
+	height: 28px;
+	line-height: 28px;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.privatemessageview .wrapper
+{
+	padding: 5px 5px 5px 5px;
+}
+
+.privatemessageview table.viewmessage
+{
+	width: 100%;
+	vertical-align: middle;
+	border-collapse: collapse;
+}
+
+.privatemessageview table.viewmessage td
+{
+	padding: 4px 4px 4px 4px;
+}
+
+.privatemessageview table.viewmessage td.fieldname
+{
+	font-weight: bold;
+	width: 20%;
+	color: #555;
+}
+
+.privatemessageview table.viewmessage a
+{
+	color: #ff9933;
+	text-decoration: underline;
+}
+
+.privatemessageview table.viewmessage td.options
+{
+	text-align: right;
+}
+
+.PrivateMessagesPage
+{
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+	padding-left: 0;
+}
+
+.PrivateMessagesPage .title
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	text-transform: uppercase;
+	clear: both;
+}
+
+.PrivateMessagesPage .body
+{
+	margin: 0px 0 0 0;
+	padding: 0px 0 0 0;
+	font-size: 11px;
+	color: #555;
+}
+
+.PrivateMessagesBox
+{
+	margin: 0px 0 0 0;
+	padding: 5px 5px 5px 5px;
+	font-size: 11px;
+	color: #555;
+}
+
+.PrivateMessagesBox .SectionTitle
+{
+	padding: 10px 10px 5px 0px;
+	font-weight: bold;
+	clear: both;
+	font-size: 12px;
+}
+
+.PrivateMessagesBox .SectionBody
+{
+	text-align: left;
+	padding: 10px;
+	height: auto;
+}
+
+.PrivateMessagesBox .Button
+{
+	margin-bottom: 5px;
+	margin-top: 5px;
+	text-align: left;
+}
+
+
+.pmgridtablestyle
+{
+	font-family: arial;
+	font-size: 11px;
+	border: 1px solid #808080;
+	background-color: #FFFFFF;
+	margin-left: 0px;
+	width: 100%;
+}
+
+.pmgridtablestyle td a
+{
+	text-decoration: none;
+}
+
+.pmgridaltrowstyle
+{
+	background-color: #F4FAFF;
+}
+
+.pmgridheaderstyle th
+{
+	background: url('images/grid-bg.gif') repeat-x 50%;
+	color: #fff;
+	padding: 5px 10px 5px 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	border: solid 1px #676767;
+}
+
+.pmgridrowstyle td, .pmgridaltrowstyle td
+{
+	padding: 4px 10px 4px 10px;
+	border-right: solid 1px #A0C0E7;
+	border-right-color: #808080;
+}
+
+.pmgridpagerstyle
+{
+	height: 28px;
+	background: url(Images/grid_header_back.png) repeat-x;
+	background: #EEEEEE;
+	vertical-align: middle;
+}

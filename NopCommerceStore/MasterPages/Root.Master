@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.Master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.root" %>
+
+<%@ Register TagPrefix="nopCommerce" TagName="Header" Src="~/Modules/Header.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="HeaderMenu" Src="~/Modules/HeaderMenu.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="Footer" Src="~/Modules/Footer.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="WebAnalytics" Src="~/Modules/WebAnalytics.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+	<title></title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+</head>
+<body>
+	<form id="form1" runat="server">
+	<ajaxToolkit:ToolkitScriptManager runat="Server" EnableScriptGlobalization="true"
+		EnableScriptLocalization="true" ID="ScriptManager1" />
+	<div align="center">
+		<table width="1000" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="register">
+					<nopCommerce:Header ID="ctrlHeader" runat="server" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<nopCommerce:HeaderMenu ID="ctrlHeaderMenu" runat="server" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<asp:ContentPlaceHolder ID="cph1" runat="server">
+					</asp:ContentPlaceHolder>
+				</td>
+			</tr>
+			<tr valign="middle">
+				<td class="footer">
+					<nopCommerce:Footer ID="ctrlFooter" runat="server" />
+				</td>
+			</tr>
+		</table>
+	</div>
+	<nopCommerce:WebAnalytics ID="ctrlWebAnalytics" runat="server" />
+	</form>
+</body>
+</html>

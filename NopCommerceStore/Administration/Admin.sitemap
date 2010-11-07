@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap enableLocalization="true" xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Home"  description="Administration Home" nopResourceTitle="Admin.Sitemap.HomeTitle" nopResourceDescription="Admin.Sitemap.HomeDescription">
+    <!-- Home -->
+    <siteMapNode title="Dashboard"  url="~/Administration/default.aspx" IconUrl="~/Administration/Common/ico-dashboard.png" description="View the dashboard" nopResourceTitle="Admin.Sitemap.DashboardTitle" nopResourceDescription="Admin.Sitemap.DashboardDescription" />
+    <!-- End Home -->
+
+    <!-- Catalog -->
+    <siteMapNode title="Catalog" url="~/Administration/CatalogHome.aspx" IconUrl="~/Administration/Common/ico-catalog.png" description="Catalog Home" nopResourceTitle="Admin.Sitemap.CatalogTitle" nopResourceDescription="Admin.Sitemap.CatalogDescription" >
+      <siteMapNode title="Categories" url="~/Administration/Categories.aspx" description="Manage Product Categories" nopResourceTitle="Admin.Sitemap.CategoriesTitle" nopResourceDescription="Admin.Sitemap.CategoriesDescription" />
+
+      <siteMapNode title="Products" url="~/Administration/ProductsHome.aspx" description="Products Home" nopResourceTitle="Admin.Sitemap.ProductsHomeTitle" nopResourceDescription="Admin.Sitemap.ProductsHomeDescription" >
+        <siteMapNode title="Manage Products" url="~/Administration/Products.aspx" description="Manage Products" nopResourceTitle="Admin.Sitemap.ProductsTitle" nopResourceDescription="Admin.Sitemap.ProductsDescription" />
+        <siteMapNode title="Manage Reviews" url="~/Administration/ProductReviews.aspx" description="Manage Product Reviews" nopResourceTitle="Admin.Sitemap.ProductReviewsTitle" nopResourceDescription="Admin.Sitemap.ProductReviewsDescription" />
+        <siteMapNode title="Low Stock Report" url="~/Administration/ProductVariantsLowStock.aspx" description="View Low Product Stock Report" nopResourceTitle="Admin.Sitemap.LowStockReportTitle" nopResourceDescription="Admin.Sitemap.LowStockReportDescription" />
+      </siteMapNode>
+
+      <siteMapNode title="Attributes" url="~/Administration/AttributesHome.aspx" description="Attributes Home" nopResourceTitle="Admin.Sitemap.AttributesHomeTitle" nopResourceDescription="Admin.Sitemap.AttributesHomeDescription" >
+        <siteMapNode title="Product Attributes" url="~/Administration/ProductAttributes.aspx" description="Manage Product Attributes" nopResourceTitle="Admin.Sitemap.ProductAttributesTitle" nopResourceDescription="Admin.Sitemap.ProductAttributesDescription" />
+        <siteMapNode title="Product Specifications" url="~/Administration/SpecificationAttributes.aspx" description="Manage Specification Attributes" nopResourceTitle="Admin.Sitemap.SpecificationAttributesTitle" nopResourceDescription="Admin.Sitemap.SpecificationAttributesDescription" />
+      </siteMapNode>
+
+      <siteMapNode title="Manufacturers" url="~/Administration/Manufacturers.aspx" description="Manage Product Manufacturers" nopResourceTitle="Admin.Sitemap.ManufacturersTitle" nopResourceDescription="Admin.Sitemap.ManufacturersDescription" />
+    </siteMapNode>
+    <!-- End Catalog -->
+
+    <!-- Sales -->
+    <siteMapNode title="Sales" url="~/Administration/SalesHome.aspx" IconUrl="~/Administration/Common/ico-sales.png" description="Sales Home" nopResourceTitle="Admin.Sitemap.SalesHomeTitle" nopResourceDescription="Admin.Sitemap.SalesHomeDescription" >
+      <siteMapNode title="Orders" url="~/Administration/Orders.aspx" description="Manage Customer Orders" nopResourceTitle="Admin.Sitemap.OrdersTitle" nopResourceDescription="Admin.Sitemap.OrdersDescription" />
+      <siteMapNode title="Sales Report" url="~/Administration/SalesReport.aspx" description="View Sales Report" nopResourceTitle="Admin.Sitemap.SalesReportTitle" nopResourceDescription="Admin.Sitemap.SalesReportDescription" />
+    </siteMapNode>
+    <!-- End Sales -->
+
+    <!-- Customers -->
+    <siteMapNode title="Customers" url="~/Administration/CustomersHome.aspx" IconUrl="~/Administration/Common/ico-customers.png" description="Customers Home" nopResourceTitle="Admin.Sitemap.CustomersHomeTitle" nopResourceDescription="Admin.Sitemap.CustomersHomeDescription" >
+      <siteMapNode title="Manage Customers" url="~/Administration/Customers.aspx" description="Manage Customers" nopResourceTitle="Admin.Sitemap.CustomersTitle" nopResourceDescription="Admin.Sitemap.CustomersDescription" />
+      <siteMapNode title="Customer Roles" url="~/Administration/CustomerRoles.aspx" description="Manage Customer Roles" nopResourceTitle="Admin.Sitemap.CustomerRolesTitle" nopResourceDescription="Admin.Sitemap.CustomerRolesDescription" />
+    </siteMapNode>
+    <!-- End Customers -->
+
+    <!-- Promotions -->
+    <siteMapNode title="Promotions" url="~/Administration/PromotionsHome.aspx" IconUrl="~/Administration/Common/ico-promotions.png" description="Promotions Home" nopResourceTitle="Admin.Sitemap.PromotionsHomeTitle" nopResourceDescription="Admin.Sitemap.PromotionsHomeDescription" >
+      <siteMapNode title="Affiliates" url="~/Administration/Affiliates.aspx" description="Manage Affiliates" nopResourceTitle="Admin.Sitemap.AffiliatesTitle" nopResourceDescription="Admin.Sitemap.AffiliatesDescription" />
+      <siteMapNode title="Campaigns" url="~/Administration/Campaigns.aspx" description="Manage Campaigns" nopResourceTitle="Admin.Sitemap.CampaignsTitle" nopResourceDescription="Admin.Sitemap.CampaignsDescription" />
+      <siteMapNode title="Discounts" url="~/Administration/Discounts.aspx" description="Manage Discounts" nopResourceTitle="Admin.Sitemap.DiscountsTitle" nopResourceDescription="Admin.Sitemap.DiscountsDescription" />
+      <siteMapNode title="Price Lists" url="~/Administration/Pricelist.aspx" description="Manage Price Lists" nopResourceTitle="Admin.Sitemap.PricelistTitle" nopResourceDescription="Admin.Sitemap.PricelistDescription" />
+      <siteMapNode title="Providers" url="~/Administration/PromotionProvidersHome.aspx" description="Promotion Providers Home" nopResourceTitle="Admin.Sitemap.PromotionProvidersHomeTitle" nopResourceDescription="Admin.Sitemap.PromotionProvidersHomeDescription" >
+        <siteMapNode title="Froogle" url="~/Administration/Froogle.aspx" description="Manage Froogle Provider" nopResourceTitle="Admin.Sitemap.FroogleTitle" nopResourceDescription="Admin.Sitemap.FroogleDescription" />
+      </siteMapNode>
+    </siteMapNode>
+    <!-- End Promotions -->
+
+    <!-- Content Management -->
+    <siteMapNode title="Content&#160;Management" url="~/Administration/ContentManagementHome.aspx" IconUrl="~/Administration/Common/ico-content.png" description="Content Management Home" nopResourceTitle="Admin.Sitemap.ContentManagementHomeTitle" nopResourceDescription="Admin.Sitemap.ContentManagementHomeDescription" >
+      <siteMapNode title="Polls" url="~/Administration/Polls.aspx" description="Manage Polls" nopResourceTitle="Admin.Sitemap.PollsTitle" nopResourceDescription="Admin.Sitemap.PollsDescription" />
+      <siteMapNode title="News" url="~/Administration/NewsHome.aspx" description="News Home" nopResourceTitle="Admin.Sitemap.NewsHomeTitle" nopResourceDescription="Admin.Sitemap.NewsHomeDescription" >
+        <siteMapNode title="News Settings" url="~/Administration/NewsSettings.aspx" description="Manage News Settings" nopResourceTitle="Admin.Sitemap.NewsSettingsTitle" nopResourceDescription="Admin.Sitemap.NewsSettingsDescription" />
+        <siteMapNode title="Manage News" url="~/Administration/News.aspx" description="Manage News" nopResourceTitle="Admin.Sitemap.NewsTitle" nopResourceDescription="Admin.Sitemap.NewsDescription" />
+        <siteMapNode title="News comments" url="~/Administration/NewsComments.aspx" description="Manage News Comments" nopResourceTitle="Admin.Sitemap.NewsCommentsTitle" nopResourceDescription="Admin.Sitemap.NewsCommentsDescription" />
+      </siteMapNode>
+      <siteMapNode title="Blog" url="~/Administration/BlogHome.aspx" description="Blog Home" nopResourceTitle="Admin.Sitemap.BlogHomeTitle" nopResourceDescription="Admin.Sitemap.BlogHomeDescription" >
+        <siteMapNode title="Blog Settings" url="~/Administration/BlogSettings.aspx" description="Manage Blog Settings" nopResourceTitle="Admin.Sitemap.BlogSettingsTitle" nopResourceDescription="Admin.Sitemap.BlogSettingsDescription" />
+        <siteMapNode title="Manage Blog" url="~/Administration/Blog.aspx" description="Manage Blog" nopResourceTitle="Admin.Sitemap.BlogTitle" nopResourceDescription="Admin.Sitemap.BlogDescription" />
+        <siteMapNode title="Blog comments" url="~/Administration/BlogComments.aspx" description="Manage Blog Comments" nopResourceTitle="Admin.Sitemap.BlogCommentsTitle" nopResourceDescription="Admin.Sitemap.BlogCommentsDescription" />
+      </siteMapNode>
+      <siteMapNode title="Topics" url="~/Administration/Topics.aspx" description="Manage Topics" nopResourceTitle="Admin.Sitemap.TopicsTitle" nopResourceDescription="Admin.Sitemap.TopicsDescription" />
+      <siteMapNode title="Forums" url="~/Administration/ForumsHome.aspx" description="Forums Home" nopResourceTitle="Admin.Sitemap.ForumsHomeTitle" nopResourceDescription="Admin.Sitemap.ForumsHomeDescription" >
+        <siteMapNode title="Forums Settings" url="~/Administration/ForumsSettings.aspx" description="Manage Forums Settings" nopResourceTitle="Admin.Sitemap.ForumsSettingsTitle" nopResourceDescription="Admin.Sitemap.ForumsSettingsDescription" />
+        <siteMapNode title="Forums" url="~/Administration/Forums.aspx" description="Manage Forums" nopResourceTitle="Admin.Sitemap.ForumsTitle" nopResourceDescription="Admin.Sitemap.ForumsDescription" />
+      </siteMapNode>
+      <siteMapNode title="Templates" url="~/Administration/TemplatesHome.aspx" description="Templates Home" nopResourceTitle="Admin.Sitemap.TemplatesHomeTitle" nopResourceDescription="Admin.Sitemap.TemplatesHomeDescription" >
+        <siteMapNode title="Product Templates" url="~/Administration/ProductTemplates.aspx" description="Manage Product Templates" nopResourceTitle="Admin.Sitemap.ProductTemplatesTitle" nopResourceDescription="Admin.Sitemap.ProductTemplatesDescription" />
+        <siteMapNode title="Category Templates" url="~/Administration/CategoryTemplates.aspx" description="Manage Category Templates" nopResourceTitle="Admin.Sitemap.CategoryTemplatesTitle" nopResourceDescription="Admin.Sitemap.CategoryTemplatesDescription" />
+        <siteMapNode title="Manufacturer Templates" url="~/Administration/ManufacturerTemplates.aspx" description="Manage Manufacturer Templates" nopResourceTitle="Admin.Sitemap.ManufacturerTemplatesTitle" nopResourceDescription="Admin.Sitemap.ManufacturerTemplatesDescription" />
+        <siteMapNode title="Message templates" url="~/Administration/MessageTemplates.aspx" description="Manage Message Templates" nopResourceTitle="Admin.Sitemap.MessageTemplatesTitle" nopResourceDescription="Admin.Sitemap.MessageTemplatesDescription" />
+      </siteMapNode>
+      <siteMapNode title="Localization" url="~/Administration/LocaleStringResources.aspx" description="Manage Store Localization" nopResourceTitle="Admin.Sitemap.LocaleStringResourcesTitle" nopResourceDescription="Admin.Sitemap.LocaleStringResourcesDescription" />
+    </siteMapNode>
+    <!-- End Content Management -->
+
+    <!-- Configuration -->
+    <siteMapNode title="Configuration" url="~/Administration/ConfigurationHome.aspx" IconUrl="~/Administration/Common/ico-configuration.png" description="Configuration Home" nopResourceTitle="Admin.Sitemap.ConfigurationTitle" nopResourceDescription="Admin.Sitemap.ConfigurationDescription" >
+      <siteMapNode title="Global Settings" url="~/Administration/GlobalSettings.aspx" description="Configure Global Settings" nopResourceTitle="Admin.Sitemap.GlobalSettingsTitle" nopResourceDescription="Admin.Sitemap.GlobalSettingsDescription" />
+      <siteMapNode title="Blacklist" url="~/Administration/Blacklist.aspx" description="Manage banned IP addresses and networks" nopResourceTitle="Admin.Sitemap.BlacklistTitle" nopResourceDescription="Admin.Sitemap.BlacklistDescription" />
+      <siteMapNode title="Payment" url="~/Administration/PaymentSettingsHome.aspx" description="Payment Settings Home" nopResourceTitle="Admin.Sitemap.PaymentSettingsHomeTitle" nopResourceDescription="Admin.Sitemap.PaymentSettingsHomeDescription" >
+        <siteMapNode title="Credit Cards" url="~/Administration/CreditCardTypes.aspx" description="Manage Credit Cards" nopResourceTitle="Admin.Sitemap.CreditCardTypesTitle" nopResourceDescription="Admin.Sitemap.CreditCardTypesDescription" />
+        <siteMapNode title="Payment Methods" url="~/Administration/PaymentMethods.aspx" description="Manage Payment Methods" nopResourceTitle="Admin.Sitemap.PaymentMethodsTitle" nopResourceDescription="Admin.Sitemap.PaymentMethodsDescription" />
+      </siteMapNode>
+      <siteMapNode title="Tax" url="~/Administration/TaxSettingsHome.aspx" description="Tax Home" nopResourceTitle="Admin.Sitemap.TaxSettingsHomeTitle" nopResourceDescription="Admin.Sitemap.TaxSettingsHomeDescription" >
+        <siteMapNode title="Tax Settings" url="~/Administration/TaxSettings.aspx" description="Manage Tax Settings" nopResourceTitle="Admin.Sitemap.TaxSettingsTitle" nopResourceDescription="Admin.Sitemap.TaxSettingsDescription" />
+        <siteMapNode title="Tax Providers" url="~/Administration/TaxProviders.aspx" description="Manage Tax Providers" nopResourceTitle="Admin.Sitemap.TaxProvidersTitle" nopResourceDescription="Admin.Sitemap.TaxProvidersDescription" />
+        <siteMapNode title="Tax Classes" url="~/Administration/TaxCategories.aspx" description="Manage Product Tax Classes" nopResourceTitle="Admin.Sitemap.TaxCategoriesTitle" nopResourceDescription="Admin.Sitemap.TaxCategoriesDescription" />
+      </siteMapNode>
+      <siteMapNode title="Shipping" url="~/Administration/ShippingSettingsHome.aspx" description="Shipping Settings Home" nopResourceTitle="Admin.Sitemap.ShippingSettingsHomeTitle" nopResourceDescription="Admin.Sitemap.ShippingSettingsHomeDescription" >
+        <siteMapNode title="Shipping Settings" url="~/Administration/ShippingSettings.aspx" description="Manage Shipping Settings" nopResourceTitle="Admin.Sitemap.ShippingSettingsTitle" nopResourceDescription="Admin.Sitemap.ShippingSettingsDescription" />
+        <siteMapNode title="Shipping Methods" url="~/Administration/ShippingMethods.aspx" description="Manage Shipping Methods" nopResourceTitle="Admin.Sitemap.ShippingMethodsTitle" nopResourceDescription="Admin.Sitemap.ShippingMethodsDescription" />
+        <siteMapNode title="Shipping Rate Computation" url="~/Administration/ShippingRateComputationMethods.aspx" description="Manage Shipping Rate Computation Methods" nopResourceTitle="Admin.Sitemap.ShippingRateComputationMethodsTitle" nopResourceDescription="Admin.Sitemap.ShippingRateComputationMethodsDescription" />
+      </siteMapNode>
+      <siteMapNode title="Location" url="~/Administration/LocationSettingsHome.aspx" description="Location Settings Home" nopResourceTitle="Admin.Sitemap.LocationSettingsHomeTitle" nopResourceDescription="Admin.Sitemap.LocationSettingsHomeDescription" >
+        <siteMapNode title="Countries" url="~/Administration/Countries.aspx" description="Manage Countries" nopResourceTitle="Admin.Sitemap.CountriesTitle" nopResourceDescription="Admin.Sitemap.CountriesDescription" />
+        <siteMapNode title="States/Provinces" url="~/Administration/StateProvinces.aspx" description="Manage States / Provinces" nopResourceTitle="Admin.Sitemap.StateProvincesTitle" nopResourceDescription="Admin.Sitemap.StateProvincesDescription" />
+        <siteMapNode title="Languages" url="~/Administration/Languages.aspx" description="Configure Language Settings" nopResourceTitle="Admin.Sitemap.LanguagesTitle" nopResourceDescription="Admin.Sitemap.LanguagesDescription" />
+        <siteMapNode title="Currencies" url="~/Administration/Currencies.aspx" description="Manage Store Currencies" nopResourceTitle="Admin.Sitemap.CurrenciesTitle" nopResourceDescription="Admin.Sitemap.CurrenciesDescription" />
+        <siteMapNode title="Warehouses" url="~/Administration/Warehouses.aspx" description="Manage Warehouses" nopResourceTitle="Admin.Sitemap.WarehousesTitle" nopResourceDescription="Admin.Sitemap.WarehousesDescription" />
+      </siteMapNode>
+      <siteMapNode title="All Settings" url="~/Administration/Settings.aspx" description="Manage All Settings" nopResourceTitle="Admin.Sitemap.SettingsTitle" nopResourceDescription="Admin.Sitemap.SettingsDescription" />
+    </siteMapNode>
+    <!-- End Configuration -->
+
+    <!-- System -->
+    <siteMapNode title="System" url="~/Administration/SystemHome.aspx" IconUrl="~/Administration/Common/ico-system.png" description="System Home" nopResourceTitle="Admin.Sitemap.SystemHomeTitle" nopResourceDescription="Admin.Sitemap.SystemHomeDescription" >
+      <siteMapNode title="Log" url="~/Administration/Logs.aspx" description="View Application Log" nopResourceTitle="Admin.Sitemap.LogsTitle" nopResourceDescription="Admin.Sitemap.LogsDescription" />
+      <siteMapNode title="Message queue" url="~/Administration/MessageQueue.aspx" description="Manage Message Queue" nopResourceTitle="Admin.Sitemap.MessageQueueTitle" nopResourceDescription="Admin.Sitemap.MessageQueueDescription" />
+    </siteMapNode>
+    <!-- System -->
+
+    <!-- Help -->
+    <!--<siteMapNode title="Help" url="~/Administration/HelpHome.aspx" IconUrl="~/Administration/Common/ico-help.png" description="Help Home" nopResourceTitle="Admin.Sitemap.HelpHomeTitle" nopResourceDescription="Admin.Sitemap.HelpHomeDescription" >
+      <siteMapNode title="Help Topics" url="http://www.nopcommerce.com/Documentation.aspx" description="View Help Topics" nopResourceTitle="Admin.Sitemap.HelpTopicsTitle" nopResourceDescription="Admin.Sitemap.HelpTopicsDescription" />
+      <siteMapNode title="Community Forums" url="http://www.nopcommerce.com/Boards/" description="Visit nopCommerce Community Forum" target="_blank" nopResourceTitle="Admin.Sitemap.CommunityForumsTitle" nopResourceDescription="Admin.Sitemap.CommunityForumsDescription" />
+    </siteMapNode>-->
+    <!-- End Help -->
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,103 @@
+//------------------------------------------------------------------------------
+// The contents of this file are subject to the nopCommerce Public License Version 1.0 ("License"); you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at  http://www.nopCommerce.com/License.aspx. 
+// 
+// Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+// See the License for the specific language governing rights and limitations under the License.
+// 
+// The Original Code is nopCommerce.
+// The Initial Developer of the Original Code is NopSolutions.
+// All Rights Reserved.
+// 
+// Contributor(s): _______. 
+//------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace NopSolutions.NopCommerce.DataAccess.Messages
+{
+    /// <summary>
+    /// Represents a queued email
+    /// </summary>
+    public partial class DBQueuedEmail : BaseDBEntity
+    {
+        #region Ctor
+        /// <summary>
+        /// Creates a new instance of the DBQueuedEmail class
+        /// </summary>
+        public DBQueuedEmail()
+        {
+        }
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// Gets or sets the ueued email identifier
+        /// </summary>
+        public int QueuedEmailID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the priority
+        /// </summary>
+        public int Priority { get; set; }
+
+        /// <summary>
+        /// Gets or sets the From property
+        /// </summary>
+        public string From { get; set; }
+
+        /// <summary>
+        /// Gets or sets the FromName property
+        /// </summary>
+        public string FromName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the To property
+        /// </summary>
+        public string To { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ToName property
+        /// </summary>
+        public string ToName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Cc
+        /// </summary>
+        public string Cc { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Bcc
+        /// </summary>
+        public string Bcc { get; set; }
+
+        /// <summary>
+        /// Gets or sets the subject
+        /// </summary>
+        public string Subject { get; set; }
+
+        /// <summary>
+        /// Gets or sets the body
+        /// </summary>
+        public string Body { get; set; }
+
+        /// <summary>
+        /// Gets or sets the date and time of item creation
+        /// </summary>
+        public DateTime CreatedOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets the send tries
+        /// </summary>
+        public int SendTries { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sent date and time
+        /// </summary>
+        public DateTime? SentOn { get; set; }
+        #endregion
+    }
+
+}

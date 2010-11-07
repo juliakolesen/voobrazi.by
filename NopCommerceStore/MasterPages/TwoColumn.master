@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root.Master" AutoEventWireup="true"
+	CodeBehind="TwoColumn.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.TwoColumn" %>
+
+<%@ Register TagPrefix="nopCommerce" TagName="PriceRangeFilter" Src="~/Modules/PriceRangeFilter.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ProductSpecificationFilter" Src="~/Modules/ProductSpecificationFilter.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
+	<table cellpadding="0" cellspacing="0">
+		<tr valign="top">
+			<td align="center" width="320">
+				<asp:ContentPlaceHolder ID="cph2" runat="server">
+					<nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+				</asp:ContentPlaceHolder>
+				<img src="<%= Page.ResolveUrl("~/images/ff_images/orchid.jpg") %>" alt="" /><br />
+				<span class="parameters">Подбор по параметрам:</span>
+				<table width="320" border="0" cellspacing="0" cellpadding="0" class="podbor">
+					<tr valign="top">
+						<td width="40%">
+							<nopCommerce:PriceRangeFilter ID="ctrlPriceRangeFilter" runat="server" />
+							<nopCommerce:ProductSpecificationFilter ID="ctrlProductSpecificationFilter" runat="server" />
+						</td>
+					</tr>
+				</table>
+				<style>
+					div.label div.label-text p
+					{
+						margin: 0;
+						padding: 0;
+					}
+				</style>
+				<div class="label" align="center">
+					<div class="label-text">
+						<nopCommerce:Topic ID="topic" runat="server" TopicName="MinskDelivery" />
+					</div>
+				</div>
+			</td>
+			<td class="second_cont">
+				<div align="center" runat="server" id="divLeader" style="width: 315px; height: 237px;"
+					class="lider-banner">
+					<asp:HyperLink runat="server" ID="hlLeader" title="Лидеры продаж">
+						<img src="<%= Page.ResolveUrl("~/images/ff_images/lider-banner.jpg") %>" alt="" width="315"
+							height="53" />
+						<asp:Image runat="server" Height="184" ID="imgLeader" />
+					</asp:HyperLink>
+				</div>
+				<div align="center" runat="server" id="divUnique" class="uniq-banner" style="width: 343px; height: 237px;">
+					<asp:HyperLink runat="server" ID="hlUnique" title="Уникальное предложение">
+						<img src="<%= Page.ResolveUrl("~/images/ff_images/uniq-banner.jpg") %>" height="53"
+							alt="" />
+						<asp:Image runat="server" Height="184" ID="imgUnique" />
+					</asp:HyperLink>
+				</div>
+				<asp:ContentPlaceHolder ID="cph1" runat="server">
+				</asp:ContentPlaceHolder>
+			</td>
+		</tr>
+	</table>
+</asp:Content>

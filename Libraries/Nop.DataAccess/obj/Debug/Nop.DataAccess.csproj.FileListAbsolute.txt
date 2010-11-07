@@ -1,0 +1,15 @@
+D:\Work\FF\Libraries\Nop.DataAccess\bin\Debug\Nop.DataAccess.dll
+D:\Work\FF\Libraries\Nop.DataAccess\bin\Debug\Nop.DataAccess.pdb
+D:\Work\FF\Libraries\Nop.DataAccess\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\FF\Libraries\Nop.DataAccess\obj\Debug\Nop.DataAccess.dll
+D:\Work\FF\Libraries\Nop.DataAccess\obj\Debug\Nop.DataAccess.pdb
+D:\Scjaarge\FancyFlora\Libraries\Nop.DataAccess\bin\Debug\Nop.DataAccess.dll
+D:\Scjaarge\FancyFlora\Libraries\Nop.DataAccess\bin\Debug\Nop.DataAccess.pdb
+D:\Scjaarge\FancyFlora\Libraries\Nop.DataAccess\obj\Debug\ResolveAssemblyReference.cache
+D:\Scjaarge\FancyFlora\Libraries\Nop.DataAccess\obj\Debug\Nop.DataAccess.dll
+D:\Scjaarge\FancyFlora\Libraries\Nop.DataAccess\obj\Debug\Nop.DataAccess.pdb
+D:\Work\Voobrazi\Libraries\Nop.DataAccess\bin\Debug\Nop.DataAccess.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess\bin\Debug\Nop.DataAccess.pdb
+D:\Work\Voobrazi\Libraries\Nop.DataAccess\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Voobrazi\Libraries\Nop.DataAccess\obj\Debug\Nop.DataAccess.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess\obj\Debug\Nop.DataAccess.pdb

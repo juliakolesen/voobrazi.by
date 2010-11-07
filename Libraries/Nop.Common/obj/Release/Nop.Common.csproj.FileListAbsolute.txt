@@ -1,0 +1,5 @@
+D:\Work\Voobrazi\Libraries\Nop.Common\bin\Release\Nop.Common.dll
+D:\Work\Voobrazi\Libraries\Nop.Common\bin\Release\Nop.Common.pdb
+D:\Work\Voobrazi\Libraries\Nop.Common\obj\Release\ResolveAssemblyReference.cache
+D:\Work\Voobrazi\Libraries\Nop.Common\obj\Release\Nop.Common.dll
+D:\Work\Voobrazi\Libraries\Nop.Common\obj\Release\Nop.Common.pdb

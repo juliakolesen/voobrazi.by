@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{499E7B72-D9AF-4435-8C69-BBE841C86F03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NopSolutions.NopCommerce.DataAccess</RootNamespace>
+    <AssemblyName>Nop.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Nop.DataAccess.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audit\DBLog.cs" />
+    <Compile Include="Audit\DBLogCollection.cs" />
+    <Compile Include="Audit\DBSearchLog.cs" />
+    <Compile Include="Audit\DBSearchLogCollection.cs" />
+    <Compile Include="BaseDBEntity.cs" />
+    <Compile Include="BaseDBEntityCollection.cs" />
+    <Compile Include="BaseDBProvider.cs" />
+    <Compile Include="Categories\DBCategory.cs" />
+    <Compile Include="Categories\DBCategoryCollection.cs" />
+    <Compile Include="Categories\DBProductCategory.cs" />
+    <Compile Include="Categories\DBProductCategoryCollection.cs" />
+    <Compile Include="Configuration\Settings\DBSetting.cs" />
+    <Compile Include="Configuration\Settings\DBSettingCollection.cs" />
+    <Compile Include="Content\Blog\DBBlogComment.cs" />
+    <Compile Include="Content\Blog\DBBlogCommentCollection.cs" />
+    <Compile Include="Content\Blog\DBBlogPost.cs" />
+    <Compile Include="Content\Blog\DBBlogPostCollection.cs" />
+    <Compile Include="Content\Forums\DBForumSubscription.cs" />
+    <Compile Include="Content\Forums\DBForumSubscriptionCollection.cs" />
+    <Compile Include="Content\Forums\DBPrivateMessage.cs" />
+    <Compile Include="Content\Forums\DBPrivateMessageCollection.cs" />
+    <Compile Include="Content\Forums\DBForumPost.cs" />
+    <Compile Include="Content\Forums\DBForumPostCollection.cs" />
+    <Compile Include="Content\Forums\DBForumTopicCollection.cs" />
+    <Compile Include="Content\Forums\DBForumTopic.cs" />
+    <Compile Include="Content\Forums\DBForumGroup.cs" />
+    <Compile Include="Content\Forums\DBForumCollection.cs" />
+    <Compile Include="Content\Forums\DBForum.cs" />
+    <Compile Include="Content\Forums\DBForumGroupCollection.cs" />
+    <Compile Include="Content\Forums\DBForumProvider.cs" />
+    <Compile Include="Content\News\DBNews.cs" />
+    <Compile Include="Content\News\DBNewsCollection.cs" />
+    <Compile Include="Content\News\DBNewsComment.cs" />
+    <Compile Include="Content\News\DBNewsCommentCollection.cs" />
+    <Compile Include="Content\Polls\DBPoll.cs" />
+    <Compile Include="Content\Polls\DBPollAnswer.cs" />
+    <Compile Include="Content\Polls\DBPollAnswerCollection.cs" />
+    <Compile Include="Content\Polls\DBPollCollection.cs" />
+    <Compile Include="Content\Topics\DBLocalizedTopic.cs" />
+    <Compile Include="Content\Topics\DBLocalizedTopicCollection.cs" />
+    <Compile Include="Content\Topics\DBTopic.cs" />
+    <Compile Include="Content\Topics\DBTopicCollection.cs" />
+    <Compile Include="Content\Topics\DBTopicProvider.cs" />
+    <Compile Include="Customer\DBAddress.cs" />
+    <Compile Include="Customer\DBAddressCollection.cs" />
+    <Compile Include="Customer\DBCustomer.cs" />
+    <Compile Include="Customer\DBCustomerAttribute.cs" />
+    <Compile Include="Customer\DBCustomerAttributeCollection.cs" />
+    <Compile Include="Customer\DBCustomerCollection.cs" />
+    <Compile Include="Customer\DBCustomerRole.cs" />
+    <Compile Include="Customer\DBCustomerRoleCollection.cs" />
+    <Compile Include="Customer\DBCustomerSession.cs" />
+    <Compile Include="Customer\DBCustomerSessionCollection.cs" />
+    <Compile Include="DBProviderCollection.cs" />
+    <Compile Include="DBProviderManager.cs" />
+    <Compile Include="DBProviderSection.cs" />
+    <Compile Include="DBProviderSectionNameAttribute.cs" />
+    <Compile Include="Maintenance\DBMaintenanceProvider.cs" />
+    <Compile Include="Orders\DBBestSellersReportLine.cs" />
+    <Compile Include="Orders\DBOrderAverageReportLine.cs" />
+    <Compile Include="Orders\DBOrderProvider.cs" />
+    <Compile Include="Products\DBTierPriceCollection.cs" />
+    <Compile Include="Products\DBTierPrice.cs" />
+    <Compile Include="Products\DBPricelist.cs" />
+    <Compile Include="Products\DBPricelistCollection.cs" />
+    <Compile Include="Products\DBProductVariantPricelist.cs" />
+    <Compile Include="Products\DBProductVariantPricelistCollection.cs" />
+    <Compile Include="Messages\DBQueuedEmail.cs" />
+    <Compile Include="Messages\DBQueuedEmailCollection.cs" />
+    <Compile Include="Products\Specs\DBSpecificationAttributeOption.cs" />
+    <Compile Include="Products\Specs\DBSpecificationAttributeOptionCollection.cs" />
+    <Compile Include="Products\Specs\DBSpecificationAttributeOptionFilter.cs" />
+    <Compile Include="Products\Specs\DBSpecificationAttributeOptionFilterCollection.cs" />
+    <Compile Include="Promo\Affiliates\DBAffiliateProvider.cs" />
+    <Compile Include="Content\Blog\DBBlogProvider.cs" />
+    <Compile Include="Promo\Campaigns\DBCampaignProvider.cs" />
+    <Compile Include="Categories\DBCategoryProvider.cs" />
+    <Compile Include="Security\DBBannedIpAddress.cs" />
+    <Compile Include="Security\DBBannedIpAddressCollection.cs" />
+    <Compile Include="Security\DBBannedIpNetwork.cs" />
+    <Compile Include="Security\DBBannedIpNetworkCollection.cs" />
+    <Compile Include="Security\DBBlacklistProvider.cs" />
+    <Compile Include="Directory\DBCountryProvider.cs" />
+    <Compile Include="Payment\DBCreditCardTypeProvider.cs" />
+    <Compile Include="Directory\DBCurrencyProvider.cs" />
+    <Compile Include="Customer\DBCustomerProvider.cs" />
+    <Compile Include="Promo\Discounts\DBDiscountProvider.cs" />
+    <Compile Include="Media\DBDownloadProvider.cs" />
+    <Compile Include="Directory\DBLanguageProvider.cs" />
+    <Compile Include="Localization\DBLocaleStringResourceProvider.cs" />
+    <Compile Include="Audit\DBLogProvider.cs" />
+    <Compile Include="Manufacturers\DBManufacturerProvider.cs" />
+    <Compile Include="Templates\DBTemplateProvider.cs" />
+    <Compile Include="Measures\DBMeasureProvider.cs" />
+    <Compile Include="Messages\DBMessageTemplateProvider.cs" />
+    <Compile Include="Content\News\DBNewsProvider.cs" />
+    <Compile Include="Payment\DBPaymentMethodProvider.cs" />
+    <Compile Include="Payment\DBPaymentStatusProvider.cs" />
+    <Compile Include="Media\DBPictureProvider.cs" />
+    <Compile Include="Content\Polls\DBPollProvider.cs" />
+    <Compile Include="Products\Attributes\DBProductAttributeProvider.cs" />
+    <Compile Include="Products\DBProductProvider.cs" />
+    <Compile Include="Audit\DBSearchLogProvider.cs" />
+    <Compile Include="Configuration\Settings\DBSettingProvider.cs" />
+    <Compile Include="Shipping\DBShippingByTotalProvider.cs" />
+    <Compile Include="Shipping\DBShippingByWeightAndCountryProvider.cs" />
+    <Compile Include="Shipping\DBShippingByWeightProvider.cs" />
+    <Compile Include="Shipping\DBShippingMethodProvider.cs" />
+    <Compile Include="Shipping\DBShippingRateComputationMethodProvider.cs" />
+    <Compile Include="Shipping\DBShippingStatusProvider.cs" />
+    <Compile Include="Orders\DBShoppingCartProvider.cs" />
+    <Compile Include="Products\Specs\DBSpecificationAttributeProvider.cs" />
+    <Compile Include="Directory\DBStateProvinceProvider.cs" />
+    <Compile Include="Tax\DBTaxRateProvider.cs" />
+    <Compile Include="Tax\DBTaxCategoryProvider.cs" />
+    <Compile Include="Tax\DBTaxProviderProvider.cs" />
+    <Compile Include="Warehouses\DBWarehouseProvider.cs" />
+    <Compile Include="Directory\DBCountry.cs" />
+    <Compile Include="Directory\DBCountryCollection.cs" />
+    <Compile Include="Directory\DBCurrency.cs" />
+    <Compile Include="Directory\DBCurrencyCollection.cs" />
+    <Compile Include="Directory\DBLanguage.cs" />
+    <Compile Include="Directory\DBLanguageCollection.cs" />
+    <Compile Include="Directory\DBStateProvince.cs" />
+    <Compile Include="Directory\DBStateProvinceCollection.cs" />
+    <Compile Include="Localization\DBLocaleStringResource.cs" />
+    <Compile Include="Localization\DBLocaleStringResourceCollection.cs" />
+    <Compile Include="Manufacturers\DBManufacturer.cs" />
+    <Compile Include="Manufacturers\DBManufacturerCollection.cs" />
+    <Compile Include="Manufacturers\DBProductManufacturer.cs" />
+    <Compile Include="Manufacturers\DBProductManufacturerCollection.cs" />
+    <Compile Include="Measures\DBMeasureDimension.cs" />
+    <Compile Include="Measures\DBMeasureDimensionCollection.cs" />
+    <Compile Include="Measures\DBMeasureWeight.cs" />
+    <Compile Include="Measures\DBMeasureWeightCollection.cs" />
+    <Compile Include="Media\DBDownload.cs" />
+    <Compile Include="Media\DBDownloadCollection.cs" />
+    <Compile Include="Media\DBPicture.cs" />
+    <Compile Include="Media\DBPictureCollection.cs" />
+    <Compile Include="Messages\DBLocalizedMessageTemplate.cs" />
+    <Compile Include="Messages\DBLocalizedMessageTemplateCollection.cs" />
+    <Compile Include="Messages\DBMessageTemplate.cs" />
+    <Compile Include="Messages\DBMessageTemplateCollection.cs" />
+    <Compile Include="Orders\DBOrder.cs" />
+    <Compile Include="Orders\DBOrderCollection.cs" />
+    <Compile Include="Orders\DBOrderNote.cs" />
+    <Compile Include="Orders\DBOrderNoteCollection.cs" />
+    <Compile Include="Orders\DBOrderProductVariant.cs" />
+    <Compile Include="Orders\DBOrderProductVariantCollection.cs" />
+    <Compile Include="Orders\DBOrderStatus.cs" />
+    <Compile Include="Orders\DBOrderStatusCollection.cs" />
+    <Compile Include="Orders\DBShoppingCart.cs" />
+    <Compile Include="Orders\DBShoppingCartItem.cs" />
+    <Compile Include="Payment\DBCreditCardType.cs" />
+    <Compile Include="Payment\DBCreditCardTypeCollection.cs" />
+    <Compile Include="Payment\DBPaymentMethod.cs" />
+    <Compile Include="Payment\DBPaymentMethodCollection.cs" />
+    <Compile Include="Payment\DBPaymentStatus.cs" />
+    <Compile Include="Payment\DBPaymentStatusCollection.cs" />
+    <Compile Include="Products\Attributes\DBProductAttribute.cs" />
+    <Compile Include="Products\Attributes\DBProductAttributeCollection.cs" />
+    <Compile Include="Products\Attributes\DBProductVariantAttribute.cs" />
+    <Compile Include="Products\Attributes\DBProductVariantAttributeCollection.cs" />
+    <Compile Include="Products\Attributes\DBProductVariantAttributeValue.cs" />
+    <Compile Include="Products\Attributes\DBProductVariantAttributeValueCollection.cs" />
+    <Compile Include="Products\DBProduct.cs" />
+    <Compile Include="Products\DBProductCollection.cs" />
+    <Compile Include="Products\DBProductPicture.cs" />
+    <Compile Include="Products\DBProductPictureCollection.cs" />
+    <Compile Include="Products\DBProductReview.cs" />
+    <Compile Include="Products\DBProductReviewCollection.cs" />
+    <Compile Include="Products\DBProductType.cs" />
+    <Compile Include="Products\DBProductTypeCollection.cs" />
+    <Compile Include="Products\DBProductVariant.cs" />
+    <Compile Include="Products\DBProductVariantCollection.cs" />
+    <Compile Include="Products\DBRelatedProduct.cs" />
+    <Compile Include="Products\DBRelatedProductCollection.cs" />
+    <Compile Include="Products\Specs\DBProductSpecificationAttribute.cs" />
+    <Compile Include="Products\Specs\DBProductSpecificationAttributeCollection.cs" />
+    <Compile Include="Products\Specs\DBSpecificationAttribute.cs" />
+    <Compile Include="Products\Specs\DBSpecificationAttributeCollection.cs" />
+    <Compile Include="Promo\Affiliates\DBAffiliate.cs" />
+    <Compile Include="Promo\Affiliates\DBAffiliateCollection.cs" />
+    <Compile Include="Promo\Campaigns\DBCampaign.cs" />
+    <Compile Include="Promo\Campaigns\DBCampaignCollection.cs" />
+    <Compile Include="Promo\Discounts\DBDiscount.cs" />
+    <Compile Include="Promo\Discounts\DBDiscountCollection.cs" />
+    <Compile Include="Promo\Discounts\DBDiscountRequirement.cs" />
+    <Compile Include="Promo\Discounts\DBDiscountRequirementCollection.cs" />
+    <Compile Include="Promo\Discounts\DBDiscountType.cs" />
+    <Compile Include="Promo\Discounts\DBDiscountTypeCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shipping\DBShippingByTotal.cs" />
+    <Compile Include="Shipping\DBShippingByTotalCollection.cs" />
+    <Compile Include="Shipping\DBShippingByWeight.cs" />
+    <Compile Include="Shipping\DBShippingByWeightAndCountry.cs" />
+    <Compile Include="Shipping\DBShippingByWeightAndCountryCollection.cs" />
+    <Compile Include="Shipping\DBShippingByWeightCollection.cs" />
+    <Compile Include="Shipping\DBShippingMethod.cs" />
+    <Compile Include="Shipping\DBShippingMethodCollection.cs" />
+    <Compile Include="Shipping\DBShippingRateComputationMethod.cs" />
+    <Compile Include="Shipping\DBShippingRateComputationMethodCollection.cs" />
+    <Compile Include="Shipping\DBShippingStatus.cs" />
+    <Compile Include="Shipping\DBShippingStatusCollection.cs" />
+    <Compile Include="Tax\DBTaxRate.cs" />
+    <Compile Include="Tax\DBTaxRateCollection.cs" />
+    <Compile Include="Tax\DBTaxCategory.cs" />
+    <Compile Include="Tax\DBTaxCategoryCollection.cs" />
+    <Compile Include="Tax\DBTaxProvider.cs" />
+    <Compile Include="Tax\DBTaxProviderCollection.cs" />
+    <Compile Include="Templates\DBCategoryTemplate.cs" />
+    <Compile Include="Templates\DBCategoryTemplateCollection.cs" />
+    <Compile Include="Templates\DBManufacturerTemplate.cs" />
+    <Compile Include="Templates\DBManufacturerTemplateCollection.cs" />
+    <Compile Include="Templates\DBProductTemplate.cs" />
+    <Compile Include="Templates\DBProductTemplateCollection.cs" />
+    <Compile Include="Warehouses\DBWarehouse.cs" />
+    <Compile Include="Warehouses\DBWarehouseCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

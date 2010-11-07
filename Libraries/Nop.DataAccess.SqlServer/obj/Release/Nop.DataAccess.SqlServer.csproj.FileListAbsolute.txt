@@ -1,0 +1,14 @@
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Nop.DataAccess.SqlServer.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Nop.DataAccess.SqlServer.pdb
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Nop.DataAccess.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Microsoft.Practices.ObjectBuilder2.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\bin\Release\Nop.DataAccess.pdb
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\obj\Release\ResolveAssemblyReference.cache
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\obj\Release\Nop.DataAccess.SqlServer.dll
+D:\Work\Voobrazi\Libraries\Nop.DataAccess.SqlServer\obj\Release\Nop.DataAccess.SqlServer.pdb

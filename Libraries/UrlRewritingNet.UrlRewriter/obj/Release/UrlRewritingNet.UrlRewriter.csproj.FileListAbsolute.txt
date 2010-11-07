@@ -1,0 +1,5 @@
+D:\Work\Voobrazi\Libraries\UrlRewritingNet.UrlRewriter\bin\Release\UrlRewritingNet.UrlRewriter.dll
+D:\Work\Voobrazi\Libraries\UrlRewritingNet.UrlRewriter\bin\Release\UrlRewritingNet.UrlRewriter.pdb
+D:\Work\Voobrazi\Libraries\UrlRewritingNet.UrlRewriter\obj\Release\ResolveAssemblyReference.cache
+D:\Work\Voobrazi\Libraries\UrlRewritingNet.UrlRewriter\obj\Release\UrlRewritingNet.UrlRewriter.dll
+D:\Work\Voobrazi\Libraries\UrlRewritingNet.UrlRewriter\obj\Release\UrlRewritingNet.UrlRewriter.pdb

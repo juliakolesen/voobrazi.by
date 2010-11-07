@@ -1,0 +1,15 @@
+D:\Work\FF\Libraries\Nop.Common\bin\Debug\Nop.Common.dll
+D:\Work\FF\Libraries\Nop.Common\bin\Debug\Nop.Common.pdb
+D:\Work\FF\Libraries\Nop.Common\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\FF\Libraries\Nop.Common\obj\Debug\Nop.Common.dll
+D:\Work\FF\Libraries\Nop.Common\obj\Debug\Nop.Common.pdb
+D:\Scjaarge\FancyFlora\Libraries\Nop.Common\bin\Debug\Nop.Common.dll
+D:\Scjaarge\FancyFlora\Libraries\Nop.Common\bin\Debug\Nop.Common.pdb
+D:\Scjaarge\FancyFlora\Libraries\Nop.Common\obj\Debug\ResolveAssemblyReference.cache
+D:\Scjaarge\FancyFlora\Libraries\Nop.Common\obj\Debug\Nop.Common.dll
+D:\Scjaarge\FancyFlora\Libraries\Nop.Common\obj\Debug\Nop.Common.pdb
+D:\Work\Voobrazi\Libraries\Nop.Common\bin\Debug\Nop.Common.dll
+D:\Work\Voobrazi\Libraries\Nop.Common\bin\Debug\Nop.Common.pdb
+D:\Work\Voobrazi\Libraries\Nop.Common\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Voobrazi\Libraries\Nop.Common\obj\Debug\Nop.Common.dll
+D:\Work\Voobrazi\Libraries\Nop.Common\obj\Debug\Nop.Common.pdb

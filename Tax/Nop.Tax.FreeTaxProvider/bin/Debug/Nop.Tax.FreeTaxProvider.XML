@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nop.Tax.FreeTaxProvider</name>
+    </assembly>
+    <members>
+        <member name="T:NopSolutions.NopCommerce.Tax.FreeTaxProvider">
+            <summary>
+            Free tax provider
+            </summary>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Tax.FreeTaxProvider.GetTaxRate(NopSolutions.NopCommerce.BusinessLogic.Tax.CalculateTaxRequest,System.String@)">
+            <summary>
+            Gets tax rate
+            </summary>
+            <param name="calculateTaxRequest">Tax calculation request</param>
+            <param name="Error">Error</param>
+            <returns>Tax</returns>
+        </member>
+    </members>
+</doc>

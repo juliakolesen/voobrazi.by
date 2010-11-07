@@ -1,0 +1,1101 @@
+﻿.foo
+{
+}
+/****************************************************************************************************/
+/* The contents of this file are subject to the nopCommerce Public License Version 1.0 ("License"); you may not use this file except in compliance with the License.
+/* You may obtain a copy of the License at  http://www.nopCommerce.com/License.aspx. 
+/* 
+/* Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. 
+/* See the License for the specific language governing rights and limitations under the License.
+/* 
+/* The Original Code is nopCommerce.
+/* The Initial Developer of the Original Code is NopSolutions.
+/* All Rights Reserved.
+/* 
+/* Contributor(s): RetroViz Design. 
+/****************************************************************************************************/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	FORUM MAIN
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.forumsmain
+{
+}
+
+.forumsmain .forumsmainheader
+{
+	border-bottom: solid 1px #f3f3f3;
+	height: 20px;
+}
+
+.forumsmain .forumsmainheader .currenttime
+{
+	font-size: 0.9em;
+	color: #555;
+	float: left;
+}
+
+.forumsmain .forumsmainheader .forumsearchbox
+{
+	float: right;
+	text-align: right;
+}
+
+.forumsmain .forumgroups
+{
+	margin-top: 10px;
+}
+
+.forumsmain .activediscussions
+{
+	margin-top: 50px;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	FORUM GROUP
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.forumgrouppage .forumsearchbox
+{
+	text-align: right;
+}
+
+.forumgroup
+{
+	
+}
+
+.forumgroups .forumgroup .grouptitle
+{
+	font-size: 1.1em;
+}
+
+.forumgroup .grouptitle a
+{
+	font-weight: bold;
+}
+
+.forumgroup table.groups
+{
+	margin-top: 10px;
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 15px;
+}
+
+.forumgroup table.groups td
+{
+	padding: 3px 0 3px 0;
+}
+
+.forumgroup tr.groupheader
+{
+	font-weight: bold;
+}
+
+.forumgroup tr.groupheader td
+{
+	background: #7692B9;
+	color: #FFF;
+	border-right: solid 1px #6a6a6a;
+	height: 20px;
+}
+
+.forumgroup tr.groupheader td.forumname
+{
+	width: 55%;
+	text-align: left;
+	padding-left: 3px;
+}
+
+.forumgroup tr.groupheader td.topics
+{
+	width: 10%;
+}
+
+.forumgroup tr.groupheader td.posts
+{
+	width: 10%;
+}
+
+.forumgroup tr.groupheader td.lastpost
+{
+	width: 25%;
+}
+
+.forumgroup tr.forum td.image div
+{
+	text-align: left;
+	width: 36px;
+	height: 36px;
+	background: url('images/ico-forum.gif') no-repeat 40% 40%;
+}
+
+.forumgroup tr.forum td
+{
+	border-bottom: 1px solid #c5c5c5;
+	vertical-align: middle;
+	padding-left: 3px;
+}
+
+.forumgroup tr.forum td.forumname
+{
+	text-align: left;
+	width: 55%;
+}
+
+.forumgroup tr.forum td.forumname .forumtitle
+{
+	font-weight: bold;
+	font-size: 1.1em;
+	line-height: 18px;
+}
+
+.forumgroup tr.forum td.forumname .forumdescription
+{
+	font-size: 0.9em;
+	color: #555;
+}
+
+.forumgroup tr.forum td.lastpost
+{
+	font-size: 0.8em;
+	color: #555;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	FORUM PAGE
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.forum
+{
+}
+
+.forum .forumheader
+{
+}
+
+.forum .top .foruminfo
+{
+	float: left;
+}
+
+.forum .top .foruminfo .forumname
+{
+	font-weight: bold;
+	font-size: 1.2em;
+	line-height: 25px;
+}
+
+.forum .top .foruminfo .forumdescription
+{
+	color: #555;
+}
+
+.forum .top .actions
+{
+	float: right;
+	text-align: right;
+}
+
+.forum .top .actions .newtopic
+{
+	background: url('images/ico-forum-post-add.gif') no-repeat;
+	padding: 0 10px 3px 20px;
+}
+
+.forum .top .actions .watchforum
+{
+	background: url('images/ico-forum-watch.gif') no-repeat;
+	padding-left: 20px;
+}
+
+.forum .top .actions .forumsearchbox
+{
+	padding-top: 5px;
+}
+
+.forum .topicsgroup
+{
+	
+}
+
+.forum table.topics
+{
+	width: 100%;
+	border-collapse: collapse;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.forum table.topics td
+{
+	padding: 3px 0 3px 0;
+}
+
+.forum table.topics tr.forumheader
+{
+	font-weight: bold;
+}
+
+.forum table.topics tr.forumheader td
+{
+	background: #7692B9;
+	color: #FFF;
+	border-right: solid 1px #6a6a6a;
+	height: 20px;
+}
+
+.forum table.topics tr.forumheader td.topicname
+{
+	width: 55%;
+	text-align: left;
+	padding-left: 3px;
+}
+
+.forum table.topics tr.forumheader td.replies
+{
+	width: 10%;
+}
+
+.forum table.topics tr.forumheader td.views
+{
+	width: 10%;
+}
+
+.forum table.topics tr.forumheader td.lastpost
+{
+	width: 25%;
+}
+
+.forum table.topics tr.topic td
+{
+	border-bottom: 1px solid #c5c5c5;
+	vertical-align: middle;
+	padding-left: 3px;
+}
+
+.forum table.topics tr.topic td.image div
+{
+	text-align: left;
+	width: 36px;
+	height: 36px;
+	background: url('images/ico-forum.gif') no-repeat 40% 40%;
+}
+
+.forum table.topics tr.topic td.topicname
+{
+	text-align: left;
+	width: 55%;
+}
+
+.forum table.topics tr.topic td.topicname .topictype
+{
+	font-size: 0.9em;
+	line-height: 18px;
+}
+
+.forum table.topics tr.topic td.topicname .topictitle
+{
+	font-weight: bold;
+	font-size: 1.1em;
+	line-height: 18px;
+}
+
+.forum table.topics tr.topic td.topicname .topicstarter
+{
+	font-size: 0.9em;
+	color: #555;
+}
+
+.forum table.topics tr.topic td.topicname .topicspager
+{
+	font-size: 0.9em;
+	color: #555;
+}
+
+.forum table.topics tr.topic td.lastpost
+{
+	font-size: 0.8em;
+	color: #555;
+}
+
+.forum table.topics tr.topic .post
+{
+	text-align: left;
+	width: 36px;
+	height: 36px;
+	background: url('images/ico-forum-post.gif') no-repeat 40% 40%;
+}
+
+.forum table.topics tr.topic .postannoucement
+{
+	text-align: left;
+	width: 36px;
+	height: 36px;
+	background: url('images/ico-forum-post-high.gif') no-repeat 40% 40%;
+}
+
+.forum .pager
+{
+	text-align: right;
+	padding: 5px 3px 5px 0;
+}
+
+.forum .pager a:link
+{
+	color: #555;
+}
+
+.forum .pager span
+{
+	color: #3664A5;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	FORUM TOPIC EDIT
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.postedit
+{
+	
+}
+
+.postedit .title
+{
+	background: #7692B9;
+	color: #FFF;
+	border: solid 1px #6a6a6a;
+	height: 28px;
+	line-height: 28px;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.postedit .wrapper
+{
+	padding: 5px 5px 5px 5px;
+}
+
+.postedit table.posttopic
+{
+	width: 100%;
+	vertical-align: middle;
+	border-collapse: collapse;
+}
+
+.postedit table.posttopic td
+{
+	padding: 4px 4px 4px 4px;
+}
+
+.postedit table.posttopic td.fieldname
+{
+	font-weight: bold;
+	width: 20%;
+	color: #555;
+}
+
+.postedit table.posttopic td.options
+{
+	text-align: right;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	MOVE TOPIC
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.moveforumtopic
+{
+	
+}
+
+.moveforumtopic .title
+{
+	background: #7692B9;
+	color: #FFF;
+	border: solid 1px #6a6a6a;
+	height: 28px;
+	line-height: 28px;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.moveforumtopic .wrapper
+{
+	padding: 5px 5px 5px 5px;
+}
+
+.moveforumtopic table.movetopic
+{
+	width: 100%;
+	vertical-align: middle;
+	border-collapse: collapse;
+}
+
+.moveforumtopic table.movetopic td
+{
+	padding: 4px 4px 4px 4px;
+}
+
+.moveforumtopic table.movetopic td.fieldname
+{
+	font-weight: bold;
+	width: 30%;
+	color: #555;
+	white-space: nowrap;
+}
+
+.moveforumtopic table.movetopic td.options
+{
+	text-align: left;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	VIEW FORUM TOPIC
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.forumtopic
+{
+	
+}
+
+.forumtopic .title
+{
+	background: #7692B9;
+	color: #FFF;
+	border: solid 1px #6a6a6a;
+	height: 28px;
+	line-height: 28px;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.forumtopic .title .topicname
+{
+	float: left;
+}
+
+.forumtopic .title .manage
+{
+	float: right;
+	text-align: right;
+}
+
+.forumtopic .title .manage a
+{
+	color: #F3F3F3;
+}
+
+.forumtopic .topicheader
+{
+	padding: 5px 5px 5px 5px;
+	background: #F3F3F3;
+	border-bottom: solid 1px #6a6a6a;
+	height: 16px;
+}
+
+.forumtopic .topicheader .topicoptions, .topicfooter .topicoptions
+{
+	float: right;
+	text-align: right;
+}
+
+.forumtopic .topicheader .topicoptions a, .topicfooter .topicoptions a
+{
+	font-weight: bold;
+}
+
+.forumtopic .posts
+{
+}
+
+.topicfooter
+{
+	padding: 5px 5px 5px 5px;
+	background: #F3F3F3;
+	border-top: solid 1px #6a6a6a;
+	height: 16px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	FORUM POST
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.forumpost
+{
+	border-bottom: solid 1px #E3E3E3;
+}
+
+.postinfo
+{
+	width: 170px;
+	float: left;
+	padding: 5px;
+	height: 100%;
+	border-right: solid 1px #F3F3F3;
+}
+
+.postinfo .manage
+{
+	line-height: 20px;
+}
+
+.postinfo .manage a
+{
+	font-weight: bold;
+	color: #555;
+}
+
+.postinfo .userinfo
+{
+	padding-top: 5px;
+}
+
+.postinfo .userinfo a.username
+{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.postinfo .userinfo span.username
+{
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.postinfo .userinfo .avatar
+{
+	margin: 5px 0 5px 0;
+}
+
+.postinfo .userinfo .avatar .avatarImg
+{
+	border: solid 2px rgb(206, 219, 225) !important;
+}
+
+.postinfo .userinfo .userstats
+{
+	font-size: 0.9em;
+	text-align: left;
+	font-weight: bold;
+	color: #555;
+}
+
+.postinfo .userinfo .userstats .statvalue
+{
+	font-weight: normal;
+}
+
+.postcontent
+{
+	margin-left: 180px;
+	border-left: solid 1px #F3F3F3;
+}
+
+.postcontent .posttime
+{
+	font-weight: bold;
+	line-height: 20px;
+	padding: 3px;
+	background: #e3f3f3;
+}
+
+.postcontent .posttime .statvalue
+{
+	font-weight: normal;
+}
+
+.postcontent .postbody
+{
+	padding: 3px;
+}
+
+.postcontent .postbody a
+{
+	color: #3664A5;
+	text-decoration: underline;
+}
+
+
+.postcontent .postbody .posttext
+{
+}
+
+.postcontent .signature
+{
+	border-color:#DDDDDD;
+	border-style:solid;
+	border-width:1px 0 0;
+	font-size:90%;
+	margin:1em 8px 8px;
+	padding:1em 0 20px;
+	text-align:left;
+	font-style: italic;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	FORUM SEARCH BOX
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.forumsearchbox
+{
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	FORUM SEARCH PAGE
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.forumsearch
+{
+}
+
+.forumsearch .forumSearchPanel
+{
+}
+
+.forumsearch .forumSearchPanel .title
+{
+	font-size: 1.2em;
+	padding: 0 0 5px 0;
+	font-weight: bold;
+	clear: both;
+}
+
+.forumsearch .forumSearchPanel .searchInput
+{
+}
+
+.forumsearch .forumSearchPanel .searchError
+{
+	color: Red;
+}
+
+.forumsearch .forumSearchPanel .searchResults
+{
+}
+
+.forumsearch .topicsgroup
+{
+	
+}
+
+.forumsearch table.topics
+{
+	width: 100%;
+	border-collapse: collapse;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.forumsearch table.topics td
+{
+	padding: 3px 0 3px 0;
+}
+
+.forumsearch table.topics tr.forumheader
+{
+	font-weight: bold;
+}
+
+.forumsearch table.topics tr.forumheader td
+{
+	background: #7692B9;
+	color: #FFF;
+	border-right: solid 1px #6a6a6a;
+	height: 20px;
+}
+
+.forumsearch table.topics tr.forumheader td.topicname
+{
+	width: 55%;
+	text-align: left;
+	padding-left: 3px;
+}
+
+.forumsearch table.topics tr.forumheader td.replies
+{
+	width: 10%;
+}
+
+.forumsearch table.topics tr.forumheader td.views
+{
+	width: 10%;
+}
+
+.forumsearch table.topics tr.forumheader td.lastpost
+{
+	width: 25%;
+}
+
+.forumsearch table.topics tr.topic td
+{
+	border-bottom: 1px solid #c5c5c5;
+	vertical-align: middle;
+	padding-left: 3px;
+}
+
+.forumsearch table.topics tr.topic td.image div
+{
+	text-align: left;
+	width: 36px;
+	height: 36px;
+	background: url('images/ico-forum.gif') no-repeat 40% 40%;
+}
+
+.forumsearch table.topics tr.topic td.topicname
+{
+	text-align: left;
+	width: 55%;
+}
+
+.forumsearch table.topics tr.topic td.topicname .topictype
+{
+	font-size: 0.9em;
+	line-height: 18px;
+}
+
+.forumsearch table.topics tr.topic td.topicname .topictitle
+{
+	font-weight: bold;
+	font-size: 1.1em;
+	line-height: 18px;
+}
+
+.forumsearch table.topics tr.topic td.topicname .topicstarter
+{
+	font-size: 0.9em;
+	color: #555;
+}
+
+.forumsearch table.topics tr.topic td.lastpost
+{
+	font-size: 0.8em;
+	color: #555;
+}
+
+.forumsearch table.topics tr.topic .post
+{
+	text-align: left;
+	width: 36px;
+	height: 36px;
+	background: url('images/ico-forum-post.gif') no-repeat 40% 40%;
+}
+
+.forumsearch table.topics tr.topic .postannoucement
+{
+	text-align: left;
+	width: 36px;
+	height: 36px;
+	background: url('images/ico-forum-post-high.gif') no-repeat 40% 40%;
+}
+
+.forumsearch .pager
+{
+	text-align: right;
+	padding: 5px 3px 5px 0;
+}
+
+.forumsearch .pager a:link
+{
+	color: #555;
+}
+
+.forumsearch .pager span
+{
+	color: #ff9933;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	PROFILE PAGE
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.profilepage
+{
+}
+
+.profilepage .title
+{
+	background: #7692B9;
+	color: #FFF;
+	border: solid 1px #6a6a6a;
+	height: 28px;
+	line-height: 28px;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.profilepage .body
+{
+}
+
+.profilepage .body .profileInfoBox
+{
+	border-bottom: solid 1px #e3e3e3;
+	margin-bottom: 15px;
+}
+
+.profilepage .body .profileInfoBox .title
+{
+}
+
+.profilepage .body .profileInfoBox .profileStat
+{
+	font-weight: bold;
+	padding: 2px;
+}
+
+.profilepage .body .profileInfoBox .profileStat .profileStatValue
+{
+	font-weight: normal;
+	color: #555;
+}
+
+.profilepage .body .profileInfoBox .userDetails
+{
+	width: 180px;
+	float: left;
+	padding: 10px;
+	height: 100%;
+	border-right: solid 1px #F3F3F3;
+	text-align: center;
+}
+
+.profilepage .body .profileInfoBox .userDetails .avatar
+{
+	margin-bottom: 5px;
+}
+
+.profilepage .body .profileInfoBox .userDetails .avatar .avatarImg
+{
+	border: solid 2px rgb(206, 219, 225) !important;
+}
+
+.profilepage .body .profileInfoBox .userStats
+{
+	margin-left: 200px;
+	border-left: solid 1px #F3F3F3;
+	padding: 10px;
+}
+
+.profilepage .body .profileInfoBox .userStats .sectionTitle
+{
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.profilepage .body .userLastPosts
+{
+	
+}
+
+.profilepage .body .userLastPosts .sectionTitle
+{
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.profilepage .body .userLastPosts .topic
+{
+	border: solid 1px #F3F3F3;
+	margin-bottom: 10px;
+}
+
+.profilepage .body .userLastPosts .topicTitle
+{
+	font-weight: bold;
+	line-height: 20px;
+	background: #e3f3f3;
+	padding: 3px;
+}
+
+.profilepage .body .userLastPosts .topicBody
+{
+	padding: 10px;
+}	
+
+.profilepage .body .userLastPosts .topicData
+{
+	background: #f3f3f3;
+	padding: 3px;
+	color: #555;
+	font-size: 0.9em;
+}	
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	BREADCRUMB
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.forumbreadcrumb
+{
+	padding: 0px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 1.1em;
+}
+
+.forumbreadcrumb a
+{
+	text-decoration: none;
+	color: #3a3a3a;
+}
+
+.forumbreadcrumb a:hover
+{
+	color: #3664A5;
+	text-decoration: none;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	BB CODE EDITOR
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.toolbar
+{
+	padding: 2px;
+	display: inline;
+}
+
+.toolbar .button
+{
+	background: url('images/bbeditor-button-bg.gif') repeat-x;
+	padding: 2px;
+	margin-right: 2px;
+	border: #cec6b5 1px solid;
+}
+
+.toolbar .button:hover
+{
+	border: #333 1px solid;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+	ACTIVE DISCUSSIONS
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+.activediscussions .activediscussionstitle
+{
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.activediscussions .topicsgroup
+{
+	
+}
+
+.activediscussions table.topics
+{
+	width: 100%;
+	border-collapse: collapse;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.activediscussions table.topics td
+{
+	padding: 3px 0 3px 0;
+}
+
+.activediscussions table.topics tr.activediscussionsheader
+{
+	font-weight: bold;
+}
+
+.activediscussions table.topics tr.activediscussionsheader td
+{
+	background: #7692B9;
+	color: #FFF;
+	border-right: solid 1px #6a6a6a;
+	height: 20px;
+}
+
+.activediscussions table.topics tr.activediscussionsheader td.topicname
+{
+	width: 55%;
+	text-align: left;
+	padding-left: 3px;
+}
+
+.activediscussions table.topics tr.activediscussionsheader td.replies
+{
+	width: 10%;
+}
+
+.activediscussions table.topics tr.activediscussionsheader td.views
+{
+	width: 10%;
+}
+
+.activediscussions table.topics tr.activediscussionsheader td.lastpost
+{
+	width: 25%;
+}
+
+.activediscussions table.topics tr.topic td
+{
+	border-bottom: 1px solid #c5c5c5;
+	vertical-align: middle;
+	padding-left: 3px;
+}
+
+.activediscussions table.topics tr.topic td.topicname
+{
+	text-align: left;
+	width: 55%;
+}
+
+.activediscussions table.topics tr.topic td.topicname .topictitle
+{
+	font-weight: bold;
+	font-size: 1.1em;
+	line-height: 18px;
+}
+
+.activediscussions table.topics tr.topic td.topicname .topicstarter
+{
+	font-size: 0.9em;
+	color: #555;
+}
+
+.activediscussions table.topics tr.topic td.lastpost
+{
+	font-size: 0.8em;
+	color: #555;
+}

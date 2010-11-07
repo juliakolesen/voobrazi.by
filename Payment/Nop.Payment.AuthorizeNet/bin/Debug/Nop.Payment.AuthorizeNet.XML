@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nop.Payment.AuthorizeNet</name>
+    </assembly>
+    <members>
+        <member name="T:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.TransactMode">
+            <summary>
+            Represents an Authorize.NET payment processor transaction mode
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.TransactMode.Authorize">
+            <summary>
+            Authorize transaction mode
+            </summary>
+        </member>
+        <member name="F:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.TransactMode.AuthorizeAndCapture">
+            <summary>
+            Authorize and capture transaction mode
+            </summary>
+        </member>
+        <member name="T:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor">
+            <summary>
+            Authorize.Net payment processor
+            </summary>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.#ctor">
+            <summary>
+            Creates a new instance of the AuthorizeNetPaymentProcessor class
+            </summary>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.GetCurrentTransactionMode">
+            <summary>
+            Gets current transaction mode
+            </summary>
+            <returns>Current transaction mode</returns>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.InitSettings">
+            <summary>
+            Initializes the Authorize.NET payment processor
+            </summary>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.GetAuthorizeNETUrl">
+            <summary>
+            Gets Authorize.NET URL
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.ProcessPayment(NopSolutions.NopCommerce.BusinessLogic.Payment.PaymentInfo,NopSolutions.NopCommerce.BusinessLogic.CustomerManagement.Customer,System.Guid,NopSolutions.NopCommerce.BusinessLogic.Payment.ProcessPaymentResult@)">
+            <summary>
+            Process payment
+            </summary>
+            <param name="paymentInfo">Payment info required for an order processing</param>
+            <param name="customer">Customer</param>
+            <param name="OrderGuid">Unique order identifier</param>
+            <param name="processPaymentResult">Process payment result</param>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.PostProcessPayment(NopSolutions.NopCommerce.BusinessLogic.Orders.Order)">
+            <summary>
+            Post process payment (payment gateways that require redirecting)
+            </summary>
+            <param name="order">Order</param>
+            <returns>The error status, or String.Empty if no errors</returns>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.GetAdditionalHandlingFee">
+            <summary>
+            Gets additional handling fee
+            </summary>
+            <returns>Additional handling fee</returns>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.Capture(NopSolutions.NopCommerce.BusinessLogic.Orders.Order,NopSolutions.NopCommerce.BusinessLogic.Payment.ProcessPaymentResult@)">
+            <summary>
+            Captures payment (from admin panel)
+            </summary>
+            <param name="order">Order</param>
+            <param name="processPaymentResult">Process payment result</param>
+        </member>
+        <member name="P:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.APIVersion">
+            <summary>
+            Gets Authorize.NET API version
+            </summary>
+        </member>
+        <member name="P:NopSolutions.NopCommerce.Payment.Methods.AuthorizeNET.AuthorizeNetPaymentProcessor.CanCapture">
+            <summary>
+            Gets a value indicating whether capture is allowed from admin panel
+            </summary>
+        </member>
+    </members>
+</doc>

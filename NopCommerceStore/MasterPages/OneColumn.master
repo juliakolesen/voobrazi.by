@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root.Master" AutoEventWireup="true"
+	CodeBehind="OneColumn.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.OneColumn" %>
+
+<%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
+	<style type="text/css">
+		div.label div.label-text p
+		{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+	<table cellpadding="0" cellspacing="0">
+		<tr valign="top">
+			<td align="center" width="320">
+				<asp:ContentPlaceHolder ID="cph2" runat="server">
+					<nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+				</asp:ContentPlaceHolder>
+				<div class="label" align="center">
+					<div class="label-text">
+						<nopCommerce:Topic ID="topic" runat="server" TopicName="MinskDelivery" />
+					</div>
+				</div>
+			</td>
+			<td class="second_cont">
+				<div class="container" style="margin-top: 40px;width:757px;">
+					<div class="cont_top" style="width: 757px; background: transparent url(../../images/ff_images/header2.gif) no-repeat scroll center center;">
+						<div class="titl">
+							<%=Page.Title %></div>
+					</div>
+					<div class="cont_middle" style="width: 757px; background: transparent url(../../images/ff_images/middle2.gif) repeat-y scroll center center;">
+						<div class="text">
+							<asp:ContentPlaceHolder ID="cph1" runat="server">
+							</asp:ContentPlaceHolder>
+						</div>
+					</div>
+					<div class="cont_bottom" style="width: 757px; background: transparent url(../../images/ff_images/bottom2.gif) no-repeat scroll center center;">
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</asp:Content>

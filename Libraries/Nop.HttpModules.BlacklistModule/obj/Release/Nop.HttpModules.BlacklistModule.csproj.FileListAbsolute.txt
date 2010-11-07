@@ -1,0 +1,12 @@
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\Nop.HttpModules.BlacklistModule.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\Nop.HttpModules.BlacklistModule.pdb
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\Nop.BusinessLogic.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\Nop.DataAccess.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\Nop.Common.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\itextsharp.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\Nop.BusinessLogic.pdb
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\Nop.DataAccess.pdb
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\bin\Release\Nop.Common.pdb
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\obj\Release\ResolveAssemblyReference.cache
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\obj\Release\Nop.HttpModules.BlacklistModule.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.BlacklistModule\obj\Release\Nop.HttpModules.BlacklistModule.pdb

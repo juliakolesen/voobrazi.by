@@ -1,0 +1,12 @@
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\Nop.HttpModules.MembershipModule.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\Nop.HttpModules.MembershipModule.pdb
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\Nop.BusinessLogic.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\Nop.Common.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\Nop.DataAccess.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\itextsharp.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\Nop.BusinessLogic.pdb
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\Nop.Common.pdb
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\bin\Release\Nop.DataAccess.pdb
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\obj\Release\ResolveAssemblyReference.cache
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\obj\Release\Nop.HttpModules.MembershipModule.dll
+D:\Work\Voobrazi\Libraries\Nop.HttpModules.MembershipModule\obj\Release\Nop.HttpModules.MembershipModule.pdb

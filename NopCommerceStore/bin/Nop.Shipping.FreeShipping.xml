@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nop.Shipping.FreeShipping</name>
+    </assembly>
+    <members>
+        <member name="T:NopSolutions.NopCommerce.Shipping.Methods.FreeShippingCM.FreeShippingComputationMethod">
+            <summary>
+            Free shipping computation method
+            </summary>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Shipping.Methods.FreeShippingCM.FreeShippingComputationMethod.GetShippingOptions(NopSolutions.NopCommerce.BusinessLogic.Shipping.ShipmentPackage,System.String@)">
+            <summary>
+             Gets available shipping options
+            </summary>
+            <param name="ShipmentPackage">Shipment package</param>
+            <param name="Error">Error</param>
+            <returns>Shipping options</returns>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Shipping.Methods.FreeShippingCM.FreeShippingComputationMethod.GetFixedRate(NopSolutions.NopCommerce.BusinessLogic.Shipping.ShipmentPackage)">
+            <summary>
+            Gets fixed shipping rate (if shipping rate computation method allows it and the rate can be calculated before checkout).
+            </summary>
+            <param name="ShipmentPackage">Shipment package</param>
+            <returns>Fixed shipping rate; or null if shipping rate could not be calculated before checkout</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nop.Froogle</name>
+    </assembly>
+    <members>
+        <member name="T:NopSolutions.NopCommerce.Froogle.FroogleService">
+            <summary>
+            Froogle service
+            </summary>
+        </member>
+        <member name="M:NopSolutions.NopCommerce.Froogle.FroogleService.GenerateFeed(System.IO.Stream)">
+            <summary>
+            Generate froogle feed
+            </summary>
+            <param name="stream">Stream</param>
+        </member>
+    </members>
+</doc>
