@@ -9,6 +9,10 @@
 	}
 </script>
 
+	<style>
+		.seccont_top .titl { padding-top: 13px;}
+	</style>
+
 <div class="seccont_middle">
 	<div class="text">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -23,6 +27,7 @@
 					<asp:Label runat="server" ID="lblPrice1" />
 					руб<br />
 					<br />
+					</p>
 					<p runat="server" id="pUniqueProposal" visible="false" class="smaller">
 						<span class="pink">*</span> ƒл€ этого товара действует уникальное предложение по
 						доставке в любую точку города ћинска.</p>

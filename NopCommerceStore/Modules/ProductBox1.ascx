@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.ProductBox1Control"
 	CodeBehind="ProductBox1.ascx.cs" %>
+
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<td>
@@ -14,7 +15,7 @@
 		</tr>
 		<tr>
 			<td>
-				<div align="left" id="divProductInfoLink" runat="server" style="cursor:pointer;"><img src="/images/ff_images/recycle.jpg" alt="" height="30" /> заказать</div>
+				<div align="left" id="divProductInfoLink" style="cursor:pointer;" onclick='document.location.href=document.getElementById("<%=hlImageLink.ClientID %>").href;'><img src="/images/ff_images/recycle.jpg" alt="" height="30" /> заказать</div>
 			</td>
 		</tr>
 		<tr>

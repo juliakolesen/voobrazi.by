@@ -15,7 +15,6 @@
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.IO;
@@ -31,7 +30,6 @@ using NopSolutions.NopCommerce.BusinessLogic.Localization;
 using NopSolutions.NopCommerce.BusinessLogic.Manufacturers;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.Common.Utils;
-using System.Linq;
 
 namespace NopSolutions.NopCommerce.Web.Administration.Modules
 {
@@ -68,22 +66,21 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             }
         }
 
-        protected List<Product> GetProducts()
+        protected ProductCollection GetProducts()
         {
             string productName = txtProductName.Text;
             int categoryID = ParentCategory.SelectedCategoryId;
             int manufacturerID = int.Parse(this.ddlManufacturer.SelectedItem.Value);
 
-            int totalRecords = 0;
+            int totalRecords = 0;            
             ProductCollection products = ProductManager.GetAllProducts(categoryID, manufacturerID, null,
                 null, null, productName, false, int.MaxValue, 0, null, out totalRecords);
-
-            return products.OrderBy(p => p.Name).ToList<Product>();
+            return products;
         }
 
         protected void BindGrid()
         {
-            List<Product> products = GetProducts();
+            ProductCollection products = GetProducts();
             if (products.Count > 0)
             {
                 this.gvProducts.Visible = true;
@@ -120,8 +117,8 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 try
                 {
                     string fileName = string.Format("products_{0}.xml", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
-
-                    List<Product> products = GetProducts();
+                    
+                    ProductCollection products = GetProducts();
                     string xml = ExportManager.ExportProductsToXML(products);
                     CommonHelper.WriteResponseXML(xml, fileName);
                 }
@@ -131,7 +128,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 }
             }
         }
-
+        
         protected void btnExportXLS_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
@@ -140,7 +137,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 {
                     string fileName = string.Format("products_{0}.xls", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
                     string filePath = string.Format("{0}files\\ExportImport\\{1}", HttpContext.Current.Request.PhysicalApplicationPath, fileName);
-                    List<Product> products = GetProducts();
+                    ProductCollection products = GetProducts();
 
                     ExportManager.ExportProductsToXLS(filePath, products);
                     CommonHelper.WriteResponseXLS(filePath, fileName);

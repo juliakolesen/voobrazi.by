@@ -25,141 +25,139 @@ using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
 using NopSolutions.NopCommerce.BusinessLogic.SEO;
 using NopSolutions.NopCommerce.BusinessLogic.Tax;
 using NopSolutions.NopCommerce.Common.Utils;
-using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
-    public partial class ProductInfoControl : BaseNopUserControl
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!Page.IsPostBack)
-                BindData();
-        }
+	public partial class ProductInfoControl : BaseNopUserControl
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			if (!Page.IsPostBack)
+				BindData();
+		}
 
-        protected void BindData()
-        {
-            Product product = ProductManager.GetProductByID(ProductID);
-            if (product != null)
-            {
-                ProductVariantCollection productVariantCollection = product.ProductVariants;
-                ProductVariant productVariant = null;
-                if (productVariantCollection.Count > 0)
-                {
-                    if (!product.HasMultipleVariants)
-                    {
-                        productVariant = productVariantCollection[0];
+		protected void BindData()
+		{
+			Product product = ProductManager.GetProductByID(ProductID);
+			if (product != null)
+			{
+				ProductVariantCollection productVariantCollection = product.ProductVariants;
+				if (productVariantCollection.Count > 0)
+				{
+					if (!product.HasMultipleVariants)
+					{
+						ProductVariant productVariant = productVariantCollection[0];
 
-                        decimal finalPriceWithoutDiscountBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
+						decimal oldPriceBase = TaxManager.GetPrice(productVariant, productVariant.OldPrice);
+						decimal finalPriceWithoutDiscountBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
 
-                        lblPrice2.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
-                        lblPrice1.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
-                    }
-                    else
-                    {
-                        productVariant = product.MinimalPriceProductVariant;
-                        if (productVariant != null)
-                        {
-                            decimal fromPriceBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
-                            decimal fromPrice = CurrencyManager.ConvertCurrency(fromPriceBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-                            lblPrice2.Text = String.Format(GetLocaleResourceString("Products.PriceRangeFromText"), PriceHelper.FormatPrice(fromPrice));
-                            lblPrice1.Text = String.Format(GetLocaleResourceString("Products.PriceRangeFromText"), PriceHelper.FormatPrice(fromPrice));
-                        }
-                    }
-                }
-                lbOrder.Visible = lbOrderAndCheckout.Visible = productVariant != null && productVariant.StockQuantity > 0;
+						decimal oldPrice = CurrencyManager.ConvertCurrency(oldPriceBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
+						decimal finalPriceWithoutDiscount = CurrencyManager.ConvertCurrency(finalPriceWithoutDiscountBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
 
-                lProductName.Text = Server.HtmlEncode(product.Name);
-                lShortDescription.Text = product.ShortDescription;
-                lFullDescription.Text = product.FullDescription;
+						lblPrice2.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
+						lblPrice1.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
+					}
+					else
+					{
+						ProductVariant productVariant = product.MinimalPriceProductVariant;
+						if (productVariant != null)
+						{
+							decimal fromPriceBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
+							decimal fromPrice = CurrencyManager.ConvertCurrency(fromPriceBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
+							lblPrice2.Text = String.Format(GetLocaleResourceString("Products.PriceRangeFromText"), PriceHelper.FormatPrice(fromPrice));
+							lblPrice1.Text = String.Format(GetLocaleResourceString("Products.PriceRangeFromText"), PriceHelper.FormatPrice(fromPrice));
+						}
+					}
+				}
 
-                ProductPictureCollection productPictures = product.ProductPictures;
-                if (productPictures.Count > 1)
-                {
-                    defaultImage.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].PictureID, 335);
-                    defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                    defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                }
-                else if (productPictures.Count == 1)
-                {
-                    defaultImage.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].PictureID, 335);
-                    defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                    defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                }
-                else
-                {
-                    defaultImage.ImageUrl = PictureManager.GetDefaultPictureUrl(335);
-                    defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                    defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                }
+				lProductName.Text = Server.HtmlEncode(product.Name);
+				lShortDescription.Text = product.ShortDescription;
+				lFullDescription.Text = product.FullDescription;
 
-                aImg.HRef = PictureManager.GetPictureUrl(productPictures[0].PictureID);
+				ProductPictureCollection productPictures = product.ProductPictures;
+				if (productPictures.Count > 1)
+				{
+					defaultImage.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].PictureID, 335);
+					defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+					defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+				}
+				else if (productPictures.Count == 1)
+				{
+					defaultImage.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].PictureID, 335);
+					defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+					defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+				}
+				else
+				{
+					defaultImage.ImageUrl = PictureManager.GetDefaultPictureUrl(335);
+					defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+					defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+				}
 
-                lbOrder.CommandArgument = product.ProductID.ToString();
-                lbOrderAndCheckout.CommandArgument = product.ProductID.ToString();
+				aImg.HRef = PictureManager.GetPictureUrl(productPictures[0].PictureID);
 
-                StringBuilder attributes = new StringBuilder();
-                foreach (ProductSpecificationAttribute psa in SpecificationAttributeManager.GetProductSpecificationAttributesByProductID(product.ProductID, false, null))
-                {
-                    if (psa.SpecificationAttribute.Name == "Уникальное предложение")
-                        pUniqueProposal.Visible = psa.SpecificationAttributeOption.Name == "Да";
-                    else
-                        attributes.AppendFormat(@"<p><span class=""pink"">{0}:</span> {1}</p>", psa.SpecificationAttribute.Name, psa.SpecificationAttributeOption.Name);
-                }
+				lbOrder.CommandArgument = product.ProductID.ToString();
+				lbOrderAndCheckout.CommandArgument = product.ProductID.ToString();
 
-                lblAttributes.Text += attributes.ToString();
-            }
-            else
-                Visible = false;
-        }
+				StringBuilder attributes = new StringBuilder();
+				foreach (ProductSpecificationAttribute psa in SpecificationAttributeManager.GetProductSpecificationAttributesByProductID(product.ProductID, false, null))
+				{
+					if (psa.SpecificationAttribute.Name == "Уникальное предложение")
+						pUniqueProposal.Visible = psa.SpecificationAttributeOption.Name == "Да";
+					else
+						attributes.AppendFormat(@"<p><span class=""pink"">{0}:</span> {1}</p>", psa.SpecificationAttribute.Name, psa.SpecificationAttributeOption.Name);
+				}
 
-        protected override void OnPreRender(EventArgs e)
-        {
-            string jquery = CommonHelper.GetStoreLocation() + "Scripts/jquery-1.3.2.min.js";
-            Page.ClientScript.RegisterClientScriptInclude(jquery, jquery);
+				lblAttributes.Text += attributes.ToString();
+			}
+			else
+				Visible = false;
+		}
 
-            string slimBox = CommonHelper.GetStoreLocation() + "Scripts/slimbox2.js";
-            Page.ClientScript.RegisterClientScriptInclude(slimBox, slimBox);
+		protected override void OnPreRender(EventArgs e)
+		{
+			string slimBox = CommonHelper.GetStoreLocation() + "Scripts/slimbox2.js";
+			Page.ClientScript.RegisterClientScriptInclude(slimBox, slimBox);
 
-            base.OnPreRender(e);
-        }
+			base.OnPreRender(e);
+		}
 
-        protected void btnAddToCart_Click(object sender, CommandEventArgs e)
-        {
-            int productID = Convert.ToInt32(e.CommandArgument);
-            int productVariantID = 0;
-            if (ProductManager.DirectAddToCartAllowed(productID, out productVariantID))
-            {
-                List<string> addToCartWarnings = ShoppingCartManager.AddToCart(ShoppingCartTypeEnum.ShoppingCart,
-                    productVariantID, string.Empty, 1);
-                string productURL = SEOHelper.GetProductURL(productID);
-                Response.Redirect(productURL);
-            }
-            else
-            {
-                string productURL = SEOHelper.GetProductURL(productID);
-                Response.Redirect(productURL);
-            }
-        }
+		protected void btnAddToCart_Click(object sender, CommandEventArgs e)
+		{
+			int productID = Convert.ToInt32(e.CommandArgument);
+			int productVariantID = 0;
+			if (ProductManager.DirectAddToCartAllowed(productID, out productVariantID))
+			{
+				List<string> addToCartWarnings = ShoppingCartManager.AddToCart(ShoppingCartTypeEnum.ShoppingCart,
+					productVariantID, string.Empty, 1);
+				string productURL = SEOHelper.GetProductURL(productID);
+				Response.Redirect(productURL);
+			}
+			else
+			{
+				string productURL = SEOHelper.GetProductURL(productID);
+				Response.Redirect(productURL);
+			}
+		}
 
-        public int ProductID
-        {
-            get
-            {
-                return CommonHelper.QueryStringInt("ProductID");
-            }
-        }
+		public int ProductID
+		{
+			get
+			{
+				return CommonHelper.QueryStringInt("ProductID");
+			}
+		}
 
-        protected void lbOrderAndCheckout_Click(object sender, CommandEventArgs e)
-        {
-            int productID = Convert.ToInt32(e.CommandArgument);
-            int productVariantID = 0;
-            if (ProductManager.DirectAddToCartAllowed(productID, out productVariantID))
-                ShoppingCartManager.AddToCart(ShoppingCartTypeEnum.ShoppingCart, productVariantID, string.Empty, 1);
+		protected void lbOrderAndCheckout_Click(object sender, CommandEventArgs e)
+		{
+			int productID = Convert.ToInt32(e.CommandArgument);
+			int productVariantID = 0;
+			if (ProductManager.DirectAddToCartAllowed(productID, out productVariantID))
+				ShoppingCartManager.AddToCart(ShoppingCartTypeEnum.ShoppingCart, productVariantID, string.Empty, 1);
 
-            string productURL = SEOHelper.GetProductURL(productID);
-            Response.Redirect("/ShoppingCart.aspx");
-        }
+			string productURL = SEOHelper.GetProductURL(productID);
+			Response.Redirect("/ShoppingCart.aspx");
+		}
 
-    }
+	}
 }

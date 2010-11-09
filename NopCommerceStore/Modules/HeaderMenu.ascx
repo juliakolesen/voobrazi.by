@@ -2,7 +2,7 @@
 	CodeBehind="HeaderMenu.ascx.cs" %>
 <%--<%@ Register TagPrefix="nopCommerce" TagName="SearchBox" Src="~/Modules/SearchBox.ascx" %>--%>
 <div class="menu">
-	<table width="730" border="0" cellspacing="0" cellpadding="0" align="center" class="menu_tbl">
+	<table width="690" border="0" cellspacing="0" cellpadding="0" align="center" class="menu_tbl">
 		<tr valign="middle">
 			<td>
 				<a class="about" title="О нас" href="<%=Page.ResolveUrl("~/Default.aspx")%>"></a>

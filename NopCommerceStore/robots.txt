@@ -29,3 +29,8 @@ Disallow: /StoreClosed.htm
 Disallow: /TwoCheckoutReturn.aspx
 Disallow: /Wishlist.aspx
 Disallow: /WorldpayReturn.aspx
+Disallow: /*?Price*
+Disallow: /*?*
+Disallow: Clean-param: ? /Products/*aspx
+Disallow: Clean-param: PageIndex /Category/*aspx
+Host: www.voobrazi.by

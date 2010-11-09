@@ -12,22 +12,9 @@
 // Contributor(s): _______. 
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Globalization;
-using System.Text;
-using System.Web;
 using NopSolutions.NopCommerce.BusinessLogic;
-using NopSolutions.NopCommerce.BusinessLogic.Caching;
-using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
 using NopSolutions.NopCommerce.BusinessLogic.Content.Forums;
-using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
-using NopSolutions.NopCommerce.BusinessLogic.Messages;
-using NopSolutions.NopCommerce.BusinessLogic.Profile;
-using NopSolutions.NopCommerce.BusinessLogic.Utils.Html;
 
 namespace NopSolutions.NopCommerce.Web
 {

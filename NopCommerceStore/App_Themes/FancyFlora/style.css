@@ -24,7 +24,7 @@ h2 {	font-size: 12px;}
 .register
 {
 	text-align: right;
-	padding: 20px 10px;
+	padding: 10px 10px;
 	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: 16px;
 	color: #901f78;
@@ -60,71 +60,71 @@ a.about
 {
 	display: block;
 	background: url(../../images/ff_images/menu/about.gif) 0 0;
-	width: 94px;
-	height: 22px;
+	width: 89px;
+	height: 21px;
 }
 a.about:hover
 {
 	display: block;
-	background: url(../../images/ff_images/menu/about.gif) 0 22px;
-	width: 94px;
-	height: 22px;
+	background: url(../../images/ff_images/menu/about.gif) 0 21px;
+	width: 89px;
+	height: 21px;
 }
 a.salon
 {
 	display: block;
 	background: url(../../images/ff_images/menu/salon.gif) 0 0;
-	width: 89px;
-	height: 21px;
+	width: 84px;
+	height: 20px;
 }
 a.salon:hover
 {
 	display: block;
-	background: url(../../images/ff_images/menu/salon.gif) 0 21px;
-	width: 89px;
-	height: 21px;
+	background: url(../../images/ff_images/menu/salon.gif) 0 20px;
+	width: 84px;
+	height: 20px;
 }
 a.clients
 {
 	display: block;
 	background: url(../../images/ff_images/menu/clients.gif) 0 0;
-	width: 298px;
-	height: 29px;
+	width: 280px;
+	height: 27px;
 	margin-top: 8px;
 }
 a.clients:hover
 {
 	display: block;
-	background: url(../../images/ff_images/menu/clients.gif) 0 29px;
-	width: 298px;
-	height: 29px;
+	background: url(../../images/ff_images/menu/clients.gif) 0 27px;
+	width: 280px;
+	height: 27px;
 }
 a.contacts
 {
 	display: block;
 	background: url(../../images/ff_images/menu/contacts.gif) 0 0;
-	width: 134px;
-	height: 21px;
+	width: 125px;
+	height: 20px;
 }
 a.contacts:hover
 {
 	display: block;
-	background: url(../../images/ff_images/menu/contacts.gif) 0 21px;
-	width: 134px;
-	height: 21px;
+	background: url(../../images/ff_images/menu/contacts.gif) 0 20px;
+	width: 125px;
+	height: 20px;
 }
 
 .mainimg
 {
-	height: 590px;
-	background: url(../../images/ff_images/mainimg.jpg) center bottom no-repeat;
+	height: 470px;
+	background: url(../../images/ff_images/mainimg1.jpg) right top no-repeat;
 	text-align: left;
 }
 
 .submenu
 {
 	width: 245px;
-	padding: 30px 0 0 30px;
+	padding: 20px 0 0 30px;
 	text-align: left;
 }
 .submenu a, .submenu a:visited
@@ -143,6 +143,7 @@ a.contacts:hover
 
 .item_1
 {
+	margin-top: 10px;
 }
 .item_2
 {
@@ -172,7 +173,7 @@ a.contacts:hover
 {
 	margin-top: 15px;
 }
-.item_1 a, .item_2 a, .item_3 a, .item_4 a, .item_5 a, .item_6 a, .item_7 a, .item_8 a
+.item_0 a, .item_1 a, .item_2 a, .item_3 a, .item_4 a, .item_5 a, .item_6 a, .item_7 a, .item_8 a
 {
 	outline: none;
 }
@@ -210,13 +211,14 @@ a.contacts:hover
 .container
 {
 	text-align: center;
-	width: 1005px;
+	width: 995px;
+    margin-top:15px;
 }
 .cont_top
 {
-	width: 1005px;
+	width: 995px;
 	height: 40px;
-	background: url(../../images/ff_images/header.gif) center no-repeat;
+	background: url(../../images/ff_images/header.gif) left center no-repeat;
 }
 .cont_top .titl
 {
@@ -227,7 +229,7 @@ a.contacts:hover
 }
 .cont_middle
 {
-	width: 1005px;
+	width: 995px;
 	background: url(../../images/ff_images/middle.gif) repeat-y;
 	text-align: left;
 	font-size: 14px;
@@ -248,7 +250,7 @@ a.contacts:hover
 }
 .cont_middle .text
 {
-	padding: 30px 40px 1px 40px;
+	padding: 10px 20px 1px;
 }
 .salonimg
 {
@@ -256,7 +258,7 @@ a.contacts:hover
 }
 .cont_bottom
 {
-	width: 1005px;
+	width: 995px;
 	height: 23px;
 	background: url(../../images/ff_images/bottom.gif) center no-repeat;
 }
@@ -456,7 +458,7 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 .ordercontainer
 {
 	text-align: center;
-	width: 757px;
+	width: 705px;
 	display: block;
 	margin-top: 45px;
 	margin-left: 10px;
@@ -464,16 +466,16 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 .seccontainer
 {
 	text-align: center;
-	width: 757px;
+	width: 705px;
 	display: block;
 	margin-top: 300px;
 	margin-left: 10px;
 }
 .seccont_top
 {
-	width: 757px;
+	width: 705px;
 	height: 40px;
-	background: url(../../images/ff_images/secheader.gif) center no-repeat;
+	background: url(../../images/ff_images/secheader.gif) left center no-repeat;
 }
 .seccont_top .titl
 {
@@ -484,7 +486,7 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 }
 .seccont_middle
 {
-	width: 757px;
+	width: 705px;
 	background: url(../../images/ff_images/secmiddle.gif) repeat-y;
 	text-align: left;
 	font-size: 14px;
@@ -505,11 +507,11 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 }
 .seccont_middle .text
 {
-	padding: 20px 40px 1px 40px;
+	padding: 0px 30px 1px 30px !important;
 }
 .seccont_bottom
 {
-	width: 757px;
+	width: 705px;
 	height: 24px;
 	background: url(../../images/ff_images/secbottom.gif) center no-repeat;
 }
@@ -519,7 +521,7 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 	font-size: 16px;
 	color: #fd3355;
 	text-align: center;
-	padding: 20px 0;
+	padding: 10px 0;
 }
 .navigator a, .navigator a:visited
 {
@@ -547,6 +549,7 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 	font-size: 12px;
 	color: #696768;
 	line-height: 24px;
+    width:33%;
 }
 .flow_item_
 {

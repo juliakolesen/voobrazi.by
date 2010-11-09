@@ -27,7 +27,7 @@
 						<div class="SelectAddressTitle">
 							Использовать текущие сведения о заказчике:
 						</div>
-						<asp:DataList ID="dlAddress" runat="server" RepeatColumns="2" RepeatDirection="Horizontal"
+						<asp:DataList ID="dlAddress" runat="server" RepeatColumns="1" RepeatDirection="Horizontal"
 							RepeatLayout="Table" ItemStyle-CssClass="ItemBox">
 							<ItemTemplate>
 								<nopCommerce:AddressDisplay ID="adAddress" runat="server" Address='<%# Container.DataItem %>'

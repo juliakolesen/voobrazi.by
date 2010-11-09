@@ -24,18 +24,18 @@
 				</div>
 			</td>
 			<td class="second_cont">
-				<div class="container" style="margin-top: 40px;width:757px;">
-					<div class="cont_top" style="width: 757px; background: transparent url(../../images/ff_images/header2.gif) no-repeat scroll center center;">
+				<div class="container" style="margin-top: 20px;width:705px;">
+					<div class="cont_top" style="width: 705px; background: transparent url(../../images/ff_images/header2.gif) no-repeat scroll center left;">
 						<div class="titl">
 							<%=Page.Title %></div>
 					</div>
-					<div class="cont_middle" style="width: 757px; background: transparent url(../../images/ff_images/middle2.gif) repeat-y scroll center center;">
+					<div class="cont_middle" style="width: 705px; background: transparent url(../../images/ff_images/middle2.gif) repeat-y scroll center center;">
 						<div class="text">
 							<asp:ContentPlaceHolder ID="cph1" runat="server">
 							</asp:ContentPlaceHolder>
 						</div>
 					</div>
-					<div class="cont_bottom" style="width: 757px; background: transparent url(../../images/ff_images/bottom2.gif) no-repeat scroll center center;">
+					<div class="cont_bottom" style="width: 705px; background: transparent url(../../images/ff_images/bottom2.gif) no-repeat scroll center center;">
 					</div>
 				</div>
 			</td>

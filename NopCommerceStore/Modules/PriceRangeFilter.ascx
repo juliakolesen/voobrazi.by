@@ -3,15 +3,15 @@
 <p class="headers">
 	&raquo;По цене:</p>
 <asp:Panel CssClass="var" runat="server" ID="pnlPriceRangeSelector">
-	<asp:DataList ID="rptrPriceRange" RepeatColumns="2" RepeatDirection="Vertical" runat="server"
+	<asp:DataList ID="rptrPriceRange" RepeatColumns="1" RepeatDirection="Vertical" runat="server"
 		OnItemDataBound="rptrPriceRange_ItemDataBound">
 		<ItemTemplate>
 			<asp:HyperLink ID="hlPriceRange" runat="server"></asp:HyperLink>
 		</ItemTemplate>
-		<SeparatorTemplate>
-			<br />
-		</SeparatorTemplate>
 	</asp:DataList>
+		<!--<SeparatorTemplate>
+			<br />
+		</SeparatorTemplate>-->
 </asp:Panel>
 <asp:Panel runat="server" ID="pnlSelectedPriceRange" Visible="false">
 	<span class="inpL"></span>

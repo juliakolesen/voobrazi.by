@@ -192,11 +192,11 @@ namespace NopSolutions.NopCommerce.Web.Modules
 				//hfLastSA.Value = currentSA;
 				usedSA.Add(currentSA);
 				if (cnt == 1)
-					retVal = String.Format("<table width=\"100%\"><tr><td valign=\"top\" style=\"vertical-align:top;\"><p class=\"headers\">» {0}</p><div class=\"var\">", Server.HtmlEncode(currentSA));
+					retVal = String.Format("<table width=\"100%\"><tr><td valign=\"top\" width=\"50%\" style=\"vertical-align:top;\"><p class=\"headers\">» {0}</p><div class=\"var\">", Server.HtmlEncode(currentSA));
 				else if (CountSpecificationAttributes() == cnt)
-					retVal = String.Format("</div></td></tr><tr><td valign=\"top\" style=\"vertical-align:top;\" colspan='2'><p class=\"headers\">» {0}</p><div class=\"var\">", Server.HtmlEncode(currentSA));
+					retVal = String.Format("</div></td>{0}<p class=\"headers\">» {1}</p><div class=\"var\">", cnt % 2 == 1 ? "</tr><tr><td valign=\"top\" style=\"vertical-align:top;\" colspan='2'>" : "<td valign=\"top\" width=\"50%\" style=\"vertical-align:top;\">", Server.HtmlEncode(currentSA));
 				else
-                    retVal = String.Format("</div></td></tr><tr><td valign=\"top\" style=\"vertical-align:top;\"><p class=\"headers\">» {0}</p><div class=\"var\">", Server.HtmlEncode(currentSA));
+					retVal = String.Format("</div></td>{0}<td valign=\"top\" width=\"50%\" style=\"vertical-align:top;\"><p class=\"headers\">» {1}</p><div class=\"var\">", cnt % 2 == 1 ? "</tr><tr>" : "", Server.HtmlEncode(currentSA));
 				//retVal = tmp + " " + retVal;
 			}
 

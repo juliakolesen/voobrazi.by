@@ -10,13 +10,13 @@
 				<tr>
 		</HeaderTemplate>
 		<ItemTemplate>
-			<td align="center">
+			<td width="96" align="center">
 				<div class="small-price">
 					<div class="price">
 						<asp:Label runat="server" ID="lblPrice" /></div>
 				</div>
 				<asp:HyperLink ID="hlProduct" runat="server">
-					<asp:Image ID="hlImageLink" Width="84" Height="76" runat="server" /></asp:HyperLink>
+					<asp:Image ID="hlImageLink" Height="82" runat="server" /></asp:HyperLink>
 			</td>
 		</ItemTemplate>
 		<FooterTemplate>

@@ -28,51 +28,54 @@ namespace NopSolutions.NopCommerce.Web.Modules
 		#region Classes
 		public class NopCommerceLi : WebControl, INamingContainer
 		{
-			readonly string[] firstLevelImages = new[] { "flowers", "svadba", "bouquets", "plants", "gorshok", "care", "vase", "gifts", "letter" };
+			readonly string[] firstLevelImages = new[] { "ny", "flowers", "svadba", "bouquets", "plants", "gorshok", "care", "vase", "gifts", "letter" };
 
 			protected override void Render(HtmlTextWriter writer)
 			{
 				if (Level == 0)
 				{
-					if (ParentId <= 9)
+					if (ParentId <= 10)
 					{
 						int hSpace = 0;
 						switch (ParentId)
 						{
 							case 1:
-								hSpace = 4;
-								break;
-							case 2:
-								hSpace = 6;
-								break;
-							case 3:
-							case 4:
-							case 5:
 								hSpace = 10;
 								break;
+							case 2:
+								hSpace = 4;
+								break;
+							case 3:
+								hSpace = 6;
+								break;
+							case 4:
+							case 5:
 							case 6:
-								hSpace = 8;
+								hSpace = 10;
 								break;
 							case 7:
-								hSpace = 14;
+								hSpace = 8;
 								break;
 							case 8:
+								hSpace = 14;
+								break;
 							case 9:
+							case 10:
 								hSpace = 7;
 								break;
 							default:
 								break;
 						}
 
-						writer.WriteLine(string.Format("<div class=\"item_{0}\">", ParentId));
-						writer.WriteLine(string.Format("<a href=\"javascript:void(0);\" onclick=\"show_div('div_{0}')\" title=\"{1}\">", ParentId, Title));
-						writer.WriteLine(string.Format("<img src=\"" + Page.ResolveUrl("~/images/ff_images/submenu/{0}.jpg") + "\" alt=\"\" hspace=\"{1}\" {2} />{3}</a></div>", firstLevelImages[ParentId - 1], hSpace, ParentId == 8 ? "align=\"absmiddle\"" : "", Title));
+						writer.WriteLine(string.Format("<div class=\"item_{0}\">", ParentId - 1));
+						writer.WriteLine(string.Format("<a href=\"javascript:void(0);\" onclick=\"show_div('div_{0}')\" title=\"{1}\">", ParentId - 1, Title));
+						writer.WriteLine(string.Format("<img src=\"" + Page.ResolveUrl("~/images/ff_images/submenu/{0}.jpg") + "\" alt=\"\" hspace=\"{1}\" {2} />{3}</a></div>", firstLevelImages[ParentId - 1], hSpace, ParentId == 9 ? "align=\"absmiddle\"" : "", Title));
 					}
 				}
 				else if (Level == 1)
 				{
 					if (Id == 1)
-						writer.WriteLine(string.Format("<div id=\"div_{0}\" class=\"div_1\" style=\"display: none;\">", ParentId));
+						writer.WriteLine(string.Format("<div id=\"div_{0}\" class=\"div_1\" style=\"display: none;\">", ParentId - 1));
 
 					writer.WriteLine(string.Format("<img src=\"" + Page.ResolveUrl("~/images/ff_images/submenu/subitem.jpg") + "\" alt=\"\" />"));
 					writer.WriteLine(string.Format("<a href=\"{0}\" title=\"{1}\">{1}</a>", NavigateUrl, Title));

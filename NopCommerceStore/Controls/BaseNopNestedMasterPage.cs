@@ -12,26 +12,7 @@
 // Contributor(s): _______. 
 //------------------------------------------------------------------------------
 
-using System;
-using System.Configuration;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using NopSolutions.NopCommerce.BusinessLogic;
-using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
-using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
-using NopSolutions.NopCommerce.BusinessLogic.Directory;
-using NopSolutions.NopCommerce.BusinessLogic.Localization;
-using NopSolutions.NopCommerce.BusinessLogic.Promo.Affiliates;
-using NopSolutions.NopCommerce.BusinessLogic.SEO;
-using NopSolutions.NopCommerce.Common.Utils;
 
 namespace NopSolutions.NopCommerce.Web
 {
