@@ -13,15 +13,10 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Globalization;
-using System.Text;
 using NopSolutions.NopCommerce.BusinessLogic.Caching;
-using NopSolutions.NopCommerce.DataAccess.Tax;
-using NopSolutions.NopCommerce.DataAccess;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
+using NopSolutions.NopCommerce.DataAccess;
+using NopSolutions.NopCommerce.DataAccess.Tax;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Tax
 {

@@ -1,5 +1,0 @@
-D:\Work\Voobrazi\Libraries\Nop.DataAccess\bin\Release\Nop.DataAccess.dll
-D:\Work\Voobrazi\Libraries\Nop.DataAccess\bin\Release\Nop.DataAccess.pdb
-D:\Work\Voobrazi\Libraries\Nop.DataAccess\obj\Release\ResolveAssemblyReference.cache
-D:\Work\Voobrazi\Libraries\Nop.DataAccess\obj\Release\Nop.DataAccess.dll
-D:\Work\Voobrazi\Libraries\Nop.DataAccess\obj\Release\Nop.DataAccess.pdb

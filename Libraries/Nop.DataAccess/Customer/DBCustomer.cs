@@ -13,12 +13,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace NopSolutions.NopCommerce.DataAccess.CustomerManagement
 {

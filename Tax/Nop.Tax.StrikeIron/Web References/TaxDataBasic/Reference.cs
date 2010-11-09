@@ -13,16 +13,11 @@
 // 
 #pragma warning disable 1591
 
-namespace NopSolutions.NopCommerce.Tax.TaxDataBasic {
-    using System;
-    using System.Web.Services;
-    using System.Diagnostics;
-    using System.Web.Services.Protocols;
-    using System.ComponentModel;
-    using System.Xml.Serialization;
-    
-    
-    /// <remarks/>
+namespace NopSolutions.NopCommerce.Tax.TaxDataBasic
+{
+
+
+	/// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.1")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]

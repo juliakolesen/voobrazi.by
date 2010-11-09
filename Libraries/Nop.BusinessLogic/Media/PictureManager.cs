@@ -16,10 +16,10 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Web;
-using NopSolutions.NopCommerce.DataAccess.Media;
-using NopSolutions.NopCommerce.DataAccess;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
 using NopSolutions.NopCommerce.Common.Utils;
+using NopSolutions.NopCommerce.DataAccess;
+using NopSolutions.NopCommerce.DataAccess.Media;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Media
 {

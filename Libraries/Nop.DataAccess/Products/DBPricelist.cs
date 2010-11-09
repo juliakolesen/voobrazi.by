@@ -13,9 +13,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Text;
-using NopSolutions.NopCommerce.DataAccess;
 
 namespace NopSolutions.NopCommerce.DataAccess.Products
 {

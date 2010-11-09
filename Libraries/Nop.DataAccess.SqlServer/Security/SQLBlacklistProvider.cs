@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NopSolutions.NopCommerce.DataAccess.Security;
-using Microsoft.Practices.EnterpriseLibrary.Data;
-using NopSolutions.NopCommerce.DataAccess;
-using System.Data.Common;
-using System.Data;
-using System.Configuration.Provider;
 using System.Collections.Specialized;
+using System.Configuration.Provider;
+using System.Data;
+using System.Data.Common;
+using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace NopSolutions.NopCommerce.DataAccess.Security
 {

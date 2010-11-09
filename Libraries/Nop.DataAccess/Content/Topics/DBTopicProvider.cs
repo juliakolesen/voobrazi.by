@@ -13,16 +13,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Globalization;
-using System.Text;
-using System.Configuration.Provider;
-using System.Configuration;
-using System.Web.Hosting;
-using System.Collections.Specialized;
-using System.Web.Configuration;
 
 namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
 {

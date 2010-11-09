@@ -12,9 +12,6 @@
 // Contributor(s): _______. 
 //------------------------------------------------------------------------------
 
-using System;
-using System.Data;
-using System.Xml;
 
 namespace NopSolutions.NopCommerce.DataAccess.Products.Specs
 {

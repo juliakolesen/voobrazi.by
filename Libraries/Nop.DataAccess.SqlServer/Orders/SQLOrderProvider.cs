@@ -18,8 +18,6 @@ using System.Collections.Specialized;
 using System.Configuration.Provider;
 using System.Data;
 using System.Data.Common;
-using System.Globalization;
-using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace NopSolutions.NopCommerce.DataAccess.Orders

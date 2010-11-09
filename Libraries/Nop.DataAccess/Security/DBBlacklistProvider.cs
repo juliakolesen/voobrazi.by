@@ -13,14 +13,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Configuration.Provider;
-using System.Web.Configuration;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Web.Hosting;
 
 namespace NopSolutions.NopCommerce.DataAccess.Security
 {

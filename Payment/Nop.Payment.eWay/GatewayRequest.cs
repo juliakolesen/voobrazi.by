@@ -1,4 +1,3 @@
-using System;
 
 namespace NopSolutions.NopCommerce.Payment.Methods.eWay
 {

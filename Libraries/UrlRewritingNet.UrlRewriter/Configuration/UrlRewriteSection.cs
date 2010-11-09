@@ -27,13 +27,7 @@
  * For further informations see: http://www.urlrewriting.net/
  */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Configuration;
-using System.Web;
-using System.Configuration.Provider;
-using UrlRewritingNet.Configuration.Provider;
 
 namespace UrlRewritingNet.Configuration
 {

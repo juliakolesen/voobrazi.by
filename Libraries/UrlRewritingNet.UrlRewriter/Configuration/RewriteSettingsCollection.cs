@@ -28,13 +28,7 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Configuration;
-using System.Web;
-using System.Security.Permissions;
-using UrlRewritingNet.Web;
-using System.Xml;
 
 namespace UrlRewritingNet.Configuration
 {

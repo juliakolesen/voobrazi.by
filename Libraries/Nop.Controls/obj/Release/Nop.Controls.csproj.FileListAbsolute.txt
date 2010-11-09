@@ -1,7 +1,0 @@
-D:\Work\Voobrazi\Libraries\Nop.Controls\bin\Release\Nop.Controls.dll
-D:\Work\Voobrazi\Libraries\Nop.Controls\bin\Release\Nop.Controls.pdb
-D:\Work\Voobrazi\Libraries\Nop.Controls\bin\Release\Nop.Common.dll
-D:\Work\Voobrazi\Libraries\Nop.Controls\bin\Release\Nop.Common.pdb
-D:\Work\Voobrazi\Libraries\Nop.Controls\obj\Release\ResolveAssemblyReference.cache
-D:\Work\Voobrazi\Libraries\Nop.Controls\obj\Release\Nop.Controls.dll
-D:\Work\Voobrazi\Libraries\Nop.Controls\obj\Release\Nop.Controls.pdb

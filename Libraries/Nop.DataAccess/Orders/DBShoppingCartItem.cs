@@ -13,7 +13,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
 namespace NopSolutions.NopCommerce.DataAccess.Orders

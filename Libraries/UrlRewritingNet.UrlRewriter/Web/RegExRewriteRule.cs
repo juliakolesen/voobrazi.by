@@ -27,9 +27,6 @@
  * For further informations see: http://www.urlrewriting.net/
  */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 using UrlRewritingNet.Configuration;
 

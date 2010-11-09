@@ -28,14 +28,9 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Configuration;
-using System.Text.RegularExpressions;
-using UrlRewritingNet.Web;
-using System.Web;
-using System.Security.Permissions;
 using System.Collections.Specialized;
+using System.Configuration;
+using UrlRewritingNet.Web;
 
 namespace UrlRewritingNet.Configuration
 {

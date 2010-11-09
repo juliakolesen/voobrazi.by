@@ -18,7 +18,6 @@ using System.Configuration.Provider;
 using System.Data;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
-using System.Xml;
 
 namespace NopSolutions.NopCommerce.DataAccess.Products.Specs
 {

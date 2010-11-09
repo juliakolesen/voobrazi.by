@@ -12,10 +12,6 @@
 // Contributor(s): _______. 
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using NopSolutions.NopCommerce.BusinessLogic.Products.Attributes;
 
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes

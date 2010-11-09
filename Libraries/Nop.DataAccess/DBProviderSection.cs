@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Configuration.Provider;
-using System.Configuration;
-using System.Web;
+﻿using System.Configuration;
 using System.Security.Permissions;
+using System.Web;
 
 namespace NopSolutions.NopCommerce.DataAccess
 {

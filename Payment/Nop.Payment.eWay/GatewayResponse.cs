@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Xml;
-using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.Common;
 
 namespace NopSolutions.NopCommerce.Payment.Methods.eWay

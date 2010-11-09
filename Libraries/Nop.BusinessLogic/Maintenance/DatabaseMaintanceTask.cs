@@ -12,13 +12,7 @@
 // Contributor(s): _______. 
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
 using System.Xml;
-using NopSolutions.NopCommerce.BusinessLogic.Audit;
 using NopSolutions.NopCommerce.BusinessLogic.Tasks;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Maintenance

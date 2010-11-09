@@ -28,8 +28,6 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using UrlRewritingNet.Configuration;
 
 namespace UrlRewritingNet.Web

@@ -18,9 +18,9 @@ using System.Diagnostics;
 using System.Text;
 using System.Web;
 using System.Xml;
+using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
 using NopSolutions.NopCommerce.BusinessLogic.Directory;
 using NopSolutions.NopCommerce.BusinessLogic.Tax;
-using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Products.Attributes
 {

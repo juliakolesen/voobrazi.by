@@ -28,14 +28,12 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
-using UrlRewritingNet.Configuration.Provider;
-using System.Web.Configuration;
-using UrlRewritingNet.Configuration;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.Web;
-using System.Collections.Specialized;
+using System.Web.Configuration;
+using UrlRewritingNet.Configuration;
+using UrlRewritingNet.Configuration.Provider;
 
 namespace UrlRewritingNet.Web
 {

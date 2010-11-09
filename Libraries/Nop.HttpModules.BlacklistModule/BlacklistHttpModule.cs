@@ -14,9 +14,8 @@
 
 using System;
 using System.Web;
-using NopSolutions.NopCommerce.BusinessLogic;
-using NopSolutions.NopCommerce.BusinessLogic.Security;
 using NopSolutions.NopCommerce.BusinessLogic.Installation;
+using NopSolutions.NopCommerce.BusinessLogic.Security;
 
 namespace NopSolutions.NopCommerce.HttpModules
 {

@@ -13,14 +13,11 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
-using System.Text;
+using System.Web.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
-using Microsoft.Practices.EnterpriseLibrary.Data.Oracle;
-using System.Web.Configuration;
-using System.Configuration;
 
 namespace NopSolutions.NopCommerce.DataAccess
 {

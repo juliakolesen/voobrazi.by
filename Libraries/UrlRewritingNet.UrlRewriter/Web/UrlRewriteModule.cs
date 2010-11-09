@@ -28,16 +28,11 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Web;
-using System.Configuration;
 using System.IO;
-using System.Text.RegularExpressions;
-using System.Web.UI;
-using System.Security;
-using System.Security.Permissions;
+using System.Text;
 using System.Threading;
+using System.Web;
+using System.Web.UI;
 using UrlRewritingNet.Configuration;
 
 namespace UrlRewritingNet.Web

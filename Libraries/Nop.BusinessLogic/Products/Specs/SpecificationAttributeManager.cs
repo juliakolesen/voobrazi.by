@@ -16,8 +16,6 @@ using NopSolutions.NopCommerce.BusinessLogic.Caching;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
 using NopSolutions.NopCommerce.DataAccess;
 using NopSolutions.NopCommerce.DataAccess.Products.Specs;
-using System.Data;
-using System.Xml;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Products.Specs
 {

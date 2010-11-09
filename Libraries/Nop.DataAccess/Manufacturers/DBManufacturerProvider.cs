@@ -13,16 +13,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Globalization;
-using System.Text;
-using System.Configuration;
-using System.Configuration.Provider;
-using System.Web.Hosting;
-using System.Web.Configuration;
-using System.Collections.Specialized;
 
 namespace NopSolutions.NopCommerce.DataAccess.Manufacturers
 {
