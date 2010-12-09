@@ -586,6 +586,12 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=../../images/ff_images/middle.png,sizingMethod=scale);
 }
 
+div.not_available{
+    height:38px; 
+    line-height:38px;
+    vertical-align:bottom; 
+}
+
 .information
 {
 	font-size: 16px;
