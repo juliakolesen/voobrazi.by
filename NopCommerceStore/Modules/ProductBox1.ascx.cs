@@ -94,8 +94,17 @@ namespace NopSolutions.NopCommerce.Web.Modules
 				else
 				{
 					lblPrice.Visible = false;
-				}
-			}
+                }
+
+                #region scjaarge's change
+                if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty)
+                {
+                    hlImageLink.NavigateUrl = "javascript:return void(0);";
+                    divProductInfoLink.Visible = false;
+                    notAvailable.Visible = true;
+                }
+                #endregion scjaarge's change
+            }
 		}
 
 		protected void btnProductDetails_Click(object sender, CommandEventArgs e)

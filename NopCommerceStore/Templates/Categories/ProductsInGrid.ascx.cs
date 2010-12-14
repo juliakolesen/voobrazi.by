@@ -80,9 +80,9 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
 			if (productCollection.Count > 0)
 			{
-				productsPager.PageSize = pageSize;
-				productsPager.TotalRecords = totalRecords;
-				productsPager.PageIndex = CurrentPageIndex;
+                productsPagerBottom.PageSize = productsPager.PageSize = pageSize;
+                productsPagerBottom.TotalRecords = productsPager.TotalRecords = totalRecords;
+                productsPagerBottom.PageIndex = productsPager.PageIndex = CurrentPageIndex;
 				Session.Add("productsPager", productsPager);
 
 				dlProducts.DataSource = productCollection;
