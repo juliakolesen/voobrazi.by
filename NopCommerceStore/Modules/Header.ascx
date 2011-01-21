@@ -34,7 +34,7 @@
 
 </script>
 			<a href="/" title="Воображение">
-				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo_snow.gif")%>" alt="" /></a></div>
+				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" /></a></div>
 		
 		<span style="padding-right:15px;"><nopCommerce:Topic ID="ContactPhones" runat="server" TopicName="ContactPhones" /></span>
 		
