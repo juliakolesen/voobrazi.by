@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="AboutUs.aspx.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
@@ -3123,12 +3124,6 @@
     <Compile Include="Contacts.aspx.designer.cs">
       <DependentUpon>Contacts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ContactUs.aspx.cs">
-      <DependentUpon>ContactUs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ContactUs.aspx.designer.cs">
-      <DependentUpon>ContactUs.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Controls\BaseNopNestedMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -4355,6 +4350,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ImageHttpHandler\ImageHttpHandler.csproj">
+      <Project>{D261AF85-0A5D-475E-99E2-8C00CF4DCD9E}</Project>
+      <Name>ImageHttpHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Libraries\Nop.BusinessLogic\Nop.BusinessLogic.csproj">
       <Project>{EDF31192-A159-48DA-A737-9935A8A5BC18}</Project>
       <Name>Nop.BusinessLogic</Name>
@@ -4763,7 +4762,6 @@
     <Content Include="CompareProducts.aspx" />
     <Content Include="ConditionsInfo.aspx" />
     <Content Include="Contacts.aspx" />
-    <Content Include="ContactUs.aspx" />
     <Content Include="css\closelabel.gif" />
     <Content Include="css\loading.gif" />
     <Content Include="css\nextlabel.gif" />
@@ -5206,6 +5204,7 @@
     <Content Include="images\ff_images\middle2.gif" />
     <Content Include="images\ff_images\submenu\letter.jpg" />
     <Content Include="images\ff_images\submenu\ny.jpg" />
+    <Content Include="images\ff_images\submenu\vd.png" />
     <Content Include="images\ff_images\uniq-banner2.jpg" />
     <Content Include="images\icon_rss.gif" />
     <Content Include="images\noDefaultImage.gif" />

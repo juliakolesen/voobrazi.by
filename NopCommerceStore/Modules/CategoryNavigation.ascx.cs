@@ -28,7 +28,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 		#region Classes
 		public class NopCommerceLi : WebControl, INamingContainer
 		{
-			readonly string[] firstLevelImages = new[] { "ny", "flowers", "svadba", "bouquets", "plants", "gorshok", "care", "vase", "gifts", "letter" };
+			readonly string[] firstLevelImages = new[] { "vd", "flowers", "svadba", "bouquets", "plants", "gorshok", "care", "vase", "gifts", "letter" };
 
 			protected override void Render(HtmlTextWriter writer)
 			{
