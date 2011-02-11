@@ -48,11 +48,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 					{
 						ProductVariant productVariant = productVariantCollection[0];
 
-						decimal oldPriceBase = TaxManager.GetPrice(productVariant, productVariant.OldPrice);
 						decimal finalPriceWithoutDiscountBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
-
-						decimal oldPrice = CurrencyManager.ConvertCurrency(oldPriceBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-						decimal finalPriceWithoutDiscount = CurrencyManager.ConvertCurrency(finalPriceWithoutDiscountBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
 
 						lblPrice2.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
 						lblPrice1.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
@@ -80,12 +76,16 @@ namespace NopSolutions.NopCommerce.Web.Modules
 					defaultImage.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].PictureID, 335);
 					defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
 					defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+
+					aImg.HRef = PictureManager.GetPictureUrl(productPictures[0].PictureID);
 				}
 				else if (productPictures.Count == 1)
 				{
 					defaultImage.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].PictureID, 335);
 					defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
 					defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+
+					aImg.HRef = PictureManager.GetPictureUrl(productPictures[0].PictureID);
 				}
 				else
 				{
@@ -94,10 +94,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
 					defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
 				}
 
-				aImg.HRef = PictureManager.GetPictureUrl(productPictures[0].PictureID);
-
 				lbOrder.CommandArgument = product.ProductID.ToString();
 				lbOrderAndCheckout.CommandArgument = product.ProductID.ToString();
+				tblOrderButtons.Visible = productVariantCollection.Count != 0 && productVariantCollection[0].StockQuantity != 0;
+
 
 				StringBuilder attributes = new StringBuilder();
 				foreach (ProductSpecificationAttribute psa in SpecificationAttributeManager.GetProductSpecificationAttributesByProductID(product.ProductID, false, null))

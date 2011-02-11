@@ -72,11 +72,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 					{
 						ProductVariant productVariant = productVariantCollection[0];
 
-						decimal oldPriceBase = TaxManager.GetPrice(productVariant, productVariant.OldPrice);
 						decimal finalPriceWithoutDiscountBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
-
-						decimal oldPrice = CurrencyManager.ConvertCurrency(oldPriceBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-						decimal finalPriceWithoutDiscount = CurrencyManager.ConvertCurrency(finalPriceWithoutDiscountBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
 
 						lblPrice.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
 					}
@@ -94,17 +90,13 @@ namespace NopSolutions.NopCommerce.Web.Modules
 				else
 				{
 					lblPrice.Visible = false;
-                }
+				}
 
-                #region scjaarge's change
-                if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty)
-                {
-                    hlImageLink.NavigateUrl = "javascript:return void(0);";
-                    divProductInfoLink.Visible = false;
-                    notAvailable.Visible = true;
-                }
-                #endregion scjaarge's change
-            }
+				#region scjaarge's change
+				if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty)
+					litOrderOrNa.Text = "Нет в наличии";
+				#endregion scjaarge's change
+			}
 		}
 
 		protected void btnProductDetails_Click(object sender, CommandEventArgs e)

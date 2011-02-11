@@ -17,10 +17,8 @@
             <div runat="server" align="left" id="divProductInfoLink" style="cursor: pointer;"
                 onclick='document.location.href=document.getElementById("<%=hlImageLink.ClientID %>").href;'>
                 <img src="/images/ff_images/recycle.jpg" alt="" height="30" />
-                заказать</div>
-            <div class="not_available" align="left" runat="server" id="notAvailable" visible="false">
-                Нет в продаже
-            </div>
+                <a onclick='document.location.href=document.getElementById("<%=hlImageLink.ClientID %>").href;'><asp:Label runat="server" ID="litOrderOrNa" Text="заказать" /></a>
+			</div>
         </td>
     </tr>
     <tr valign="top">

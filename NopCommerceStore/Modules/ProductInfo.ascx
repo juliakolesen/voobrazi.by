@@ -27,7 +27,6 @@
 					<asp:Label runat="server" ID="lblPrice1" />
 					руб<br />
 					<br />
-					</p>
 					<p runat="server" id="pUniqueProposal" visible="false" class="smaller">
 						<span class="pink">*</span> ƒл€ этого товара действует уникальное предложение по
 						доставке в любую точку города ћинска.</p>
@@ -43,9 +42,8 @@
 							<img src="/Images/zoom-icon7.gif" alt="" style="position: relative; bottom:238px; right:30px; cursor:pointer;" />
 						</a>
 					</div>
-					<%--					<br />
---%>
-					<table cellpadding="0" cellspacing="0">
+
+					<table runat="server" id="tblOrderButtons" cellpadding="0" cellspacing="0">
 						<tr>
 							<td>
 								<asp:LinkButton ID="lbOrder" runat="server" CssClass="button-order" OnCommand="btnAddToCart_Click" />
