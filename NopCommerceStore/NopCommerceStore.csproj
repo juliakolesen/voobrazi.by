@@ -5859,7 +5859,9 @@
     <Content Include="Modules\TierPrices.ascx" />
     <Content Include="Modules\TaxDisplayTypeSelector.ascx" />
     <Content Include="UrlRewriting.config" />
-    <Content Include="web.config" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
