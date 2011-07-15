@@ -80,21 +80,21 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             List<int> categoriesId = new List<int>();
             try
             {
-                if (Application["CategoriesToHideUnavailableProducts"] == null)
+                if (Application["CategoriesToShowUnavailableProducts"] == null)
                 {
-                    foreach (string categoryId in ConfigurationManager.AppSettings["CategoriesToHideUnavailableProducts"].Split(";".ToCharArray(), StringSplitOptions.RemoveEmptyEntries))
+                    foreach (string categoryId in ConfigurationManager.AppSettings["CategoriesToShowUnavailableProducts"].Split(";".ToCharArray(), StringSplitOptions.RemoveEmptyEntries))
                         categoriesId.Add(int.Parse(categoryId));
-                    Application.Add("CategoriesToHideUnavailableProducts", categoriesId);
+                    Application.Add("CategoriesToShowUnavailableProducts", categoriesId);
                 }
                 else
                 {
-                    categoriesId = (List<int>)Application["CategoriesToHideUnavailableProducts"];
+                    categoriesId = (List<int>)Application["CategoriesToShowUnavailableProducts"];
                 }
             }
             catch (Exception) { }
 
             List<Product> productsToBind = new List<Product>();
-            if (categoriesId.Contains(CategoryID))
+            if (!categoriesId.Contains(CategoryID))
             {
                 foreach (Product product in productCollection)
                     if (product.ProductVariants[0].StockQuantity > 0)

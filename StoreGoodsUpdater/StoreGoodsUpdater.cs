@@ -2,6 +2,8 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Xml;
+
+using NopSolutions.NopCommerce.BusinessLogic.Audit;
 using NopSolutions.NopCommerce.BusinessLogic.Caching;
 using NopSolutions.NopCommerce.BusinessLogic.Tasks;
 using OpenPOP.MIME;
@@ -44,20 +46,59 @@ namespace Scjaarge.NopTasks
 
                     foreach (string row in rows)
                     {
-                        string[] cols = row.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-                        if (cols[2].Contains("."))
-                            continue;
-                        string sku = cols[0];
-                        decimal price = decimal.Parse(cols[1]);
-                        int quantity = int.Parse(cols[2]);
-
-                        using (var command = new SqlCommand(UpdateQuery, connection))
+                        try
                         {
-                            command.Parameters.Add(new SqlParameter("@Sku", sku));
-                            command.Parameters.Add(new SqlParameter("@Price", price));
-                            command.Parameters.Add(new SqlParameter("@StockQuantity", quantity));
+                            string[] cols = row.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+                            if (cols[2].Contains("."))
+                                continue;
+                            string sku = cols[0];
+                            decimal price = decimal.Parse(cols[1]);
+                            int quantity = int.Parse(cols[2]);
 
-                            command.ExecuteNonQuery();
+                            decimal height = -1;
+                            decimal diameter = -1;
+                            if (cols.Length == 5)
+                            {
+                                height = int.Parse(cols[3]);
+                                diameter = int.Parse(cols[4]);
+                            }
+
+                            using (var command = new SqlCommand(UpdateQuery, connection))
+                            {
+                                command.Parameters.Add(new SqlParameter("@Sku", sku));
+                                command.Parameters.Add(new SqlParameter("@Price", price));
+                                command.Parameters.Add(new SqlParameter("@StockQuantity", quantity));
+
+                                command.ExecuteNonQuery();
+
+                                if (height != -1)
+                                {
+                                    int attributeId;
+                                    if (height < 11) attributeId = 1;
+                                    else if (height >= 11 && height < 16) attributeId = 2;
+                                    else if (height >= 16 && height < 21) attributeId = 3;
+                                    else if (height >= 21 && height < 26) attributeId = 4;
+                                    else if (height >= 26 && height < 31) attributeId = 5;
+                                    else if (height >= 31 && height < 50) attributeId = 6;
+                                    else if (height >= 50) attributeId = 7;
+                                }
+
+                                if (diameter != -1)
+                                {
+                                    int attributeId;
+                                    if (height < 11) attributeId = 1;
+                                    else if (height >= 11 && height < 16) attributeId = 1;
+                                    else if (height >= 16 && height < 21) attributeId = 1;
+                                    else if (height >= 21 && height < 26) attributeId = 1;
+                                    else if (height >= 26 && height < 31) attributeId = 1;
+                                    else if (height >= 31 && height < 50) attributeId = 1;
+                                    else if (height >= 50) attributeId = 1;
+                                }
+                            }
+                        }
+                        catch (Exception exc)
+                        {
+                            LogManager.InsertLog(LogTypeEnum.AdministrationArea, string.Format("Error while sync with 1C. The line is '{0}'.", row), exc);
                         }
                     }
                 }
