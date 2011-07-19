@@ -14,7 +14,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Web.UI.WebControls;
 using NopSolutions.NopCommerce.BusinessLogic.Categories;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
@@ -77,42 +76,14 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             ProductCollection productCollection = ProductManager.GetAllProducts(CategoryID,
                 0, null, ((TwoColumn)Page.Master).MinPriceConverted, ((TwoColumn)Page.Master).MaxPriceConverted, pageSize, CurrentPageIndex, ((TwoColumn)Page.Master).PSOFilterOption, out totalRecords);
 
-            List<int> categoriesId = new List<int>();
-            try
-            {
-                if (Application["CategoriesToShowUnavailableProducts"] == null)
-                {
-                    foreach (string categoryId in ConfigurationManager.AppSettings["CategoriesToShowUnavailableProducts"].Split(";".ToCharArray(), StringSplitOptions.RemoveEmptyEntries))
-                        categoriesId.Add(int.Parse(categoryId));
-                    Application.Add("CategoriesToShowUnavailableProducts", categoriesId);
-                }
-                else
-                {
-                    categoriesId = (List<int>)Application["CategoriesToShowUnavailableProducts"];
-                }
-            }
-            catch (Exception) { }
-
-            List<Product> productsToBind = new List<Product>();
-            if (!categoriesId.Contains(CategoryID))
-            {
-                foreach (Product product in productCollection)
-                    if (product.ProductVariants[0].StockQuantity > 0)
-                        productsToBind.Add(product);
-            }
-            else
-            {
-                foreach (Product product in productCollection)
-                    productsToBind.Add(product);
-            }
-            if (productsToBind.Count > 0)
+            if (productCollection.Count > 0)
             {
                 productsPagerBottom.PageSize = productsPager.PageSize = pageSize;
                 productsPagerBottom.TotalRecords = productsPager.TotalRecords = totalRecords;
                 productsPagerBottom.PageIndex = productsPager.PageIndex = CurrentPageIndex;
                 Session.Add("productsPager", productsPager);
 
-                dlProducts.DataSource = productsToBind;
+                dlProducts.DataSource = productCollection;
                 dlProducts.DataBind();
             }
             else
