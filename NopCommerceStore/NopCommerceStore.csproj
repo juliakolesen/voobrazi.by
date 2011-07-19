@@ -25,6 +25,7 @@
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -4489,6 +4490,10 @@
       <Project>{8E00DA87-C4EC-4E72-AC41-801A1116AB96}</Project>
       <Name>Nop.Shipping.USPS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StoreGoodsUpdater\Scjaarge.NopTasks.csproj">
+      <Project>{BE0203BE-4A76-4674-9C11-F6C49F70CFF0}</Project>
+      <Name>Scjaarge.NopTasks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tax\Nop.Tax.FixedRateTaxProvider\Nop.Tax.FixedRateTaxProvider.csproj">
       <Project>{082B65A7-CDC8-471B-88A9-BA017FC9E80F}</Project>
       <Name>Nop.Tax.FixedRateTaxProvider</Name>
@@ -5715,7 +5720,9 @@
     <Content Include="Boards\Forum.aspx" />
     <Content Include="Boards\ForumGroup.aspx" />
     <Content Include="Boards\Default.aspx" />
-    <Content Include="ConnectionStrings.config" />
+    <Content Include="ConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Themes\administration\Admin.skin" />
     <Content Include="eWayMerchantReturn.aspx" />
     <Content Include="images\checked.gif" />
