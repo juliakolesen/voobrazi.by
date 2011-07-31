@@ -83,73 +83,78 @@ namespace Scjaarge.NopTasks
                                     command.Parameters.Add(new SqlParameter("@Sku", sku));
                                     Product product = null;
 
-                                    bool updateHeightDescription = false;
-                                    int saoHeightID = 0;
+                                    int saoHeightId = 0;
                                     if (heightParsed && height != 0)
                                     {
                                         product = GetProduct(connection, sku);
 
-                                        if (height < 11) saoHeightID = 54;
-                                        else if (height >= 11 && height < 16) saoHeightID = 55;
-                                        else if (height >= 16 && height < 21) saoHeightID = 56;
-                                        else if (height >= 21 && height < 26) saoHeightID = 57;
-                                        else if (height >= 26 && height < 31) saoHeightID = 58;
-                                        else if (height >= 31 && height < 50) saoHeightID = 64;
-                                        else if (height >= 50) saoHeightID = 60;
+                                        if (height < 11) saoHeightId = 54;
+                                        else if (height >= 11 && height < 16) saoHeightId = 55;
+                                        else if (height >= 16 && height < 21) saoHeightId = 56;
+                                        else if (height >= 21 && height < 26) saoHeightId = 57;
+                                        else if (height >= 26 && height < 31) saoHeightId = 58;
+                                        else if (height >= 31 && height < 50) saoHeightId = 64;
+                                        else if (height >= 50) saoHeightId = 60;
 
-                                        if (product != null && !SAOExists(connection, product.ID, saoHeightID))
+                                        if (product != null && !SaoExists(connection, product.Id, saoHeightId))
                                         {
-                                            updateHeightDescription = true;
-                                            InsertSAO(connection, product.ID, saoHeightID);
+                                            InsertSao(connection, product.Id, saoHeightId);
                                         }
 
                                     }
 
-                                    bool updateDiameterDescription = false;
-                                    int saoDiameterID = 0;
+                                    int saoDiameterId = 0;
                                     if (diameterParsed && diameter != 0)
                                     {
                                         if (product == null)
                                             product = GetProduct(connection, sku);
 
-                                        if (diameter < 11) saoDiameterID = 16;
-                                        else if (diameter >= 11 && diameter < 16) saoDiameterID = 18;
-                                        else if (diameter >= 16 && diameter < 21) saoDiameterID = 48;
-                                        else if (diameter >= 21 && diameter < 26) saoDiameterID = 49;
-                                        else if (diameter >= 26 && diameter < 31) saoDiameterID = 50;
-                                        else if (diameter >= 31 && diameter < 50) saoDiameterID = 51;
-                                        else if (diameter >= 50) saoDiameterID = 52;
+                                        if (diameter < 11) saoDiameterId = 16;
+                                        else if (diameter >= 11 && diameter < 16) saoDiameterId = 18;
+                                        else if (diameter >= 16 && diameter < 21) saoDiameterId = 48;
+                                        else if (diameter >= 21 && diameter < 26) saoDiameterId = 49;
+                                        else if (diameter >= 26 && diameter < 31) saoDiameterId = 50;
+                                        else if (diameter >= 31 && diameter < 50) saoDiameterId = 51;
+                                        else if (diameter >= 50) saoDiameterId = 52;
 
-                                        if (product != null && !SAOExists(connection, product.ID, saoDiameterID))
+                                        if (product != null && !SaoExists(connection, product.Id, saoDiameterId))
                                         {
-                                            updateDiameterDescription = true;
-                                            InsertSAO(connection, product.ID, saoDiameterID);
+                                            InsertSao(connection, product.Id, saoDiameterId);
                                         }
                                     }
 
-                                    if (updateDiameterDescription && updateHeightDescription)
+                                    if (product != null)
                                     {
-                                        if (!product.ShortDescription.ToLower().Contains("(см)"))
-                                            product.ShortDescription = (product.ShortDescription == string.Empty ? "" : "<br />") + string.Format("{0}X{1}(см)", height, diameter);
-                                        if (!product.FullDescription.ToLower().Contains("высота"))
-                                            product.FullDescription = (product.FullDescription == string.Empty ? "" : "<br />") + string.Format("Высота - {0} см", height);
-                                        if (!product.FullDescription.ToLower().Contains("диаметр"))
-                                            product.FullDescription = (product.FullDescription == string.Empty ? "" : "<br />") + string.Format("Диаметр - {0} см", diameter);
+                                        string oldShortDescription = product.ShortDescription;
+                                        string oldFullDescription = product.FullDescription;
+
+                                        if (diameterParsed && heightParsed)
+                                        {
+                                            if (!product.ShortDescription.ToLower().Contains("(см)"))
+                                                product.ShortDescription += (product.ShortDescription == string.Empty ? "" : "<br />") + string.Format("{0}X{1}(см)", height, diameter);
+                                            if (!product.FullDescription.ToLower().Contains("высота"))
+                                                product.FullDescription += (product.FullDescription == string.Empty ? "" : "<br />") + string.Format("Высота - {0} см", height);
+                                            if (!product.FullDescription.ToLower().Contains("диаметр"))
+                                                product.FullDescription += (product.FullDescription == string.Empty ? "" : "<br />") + string.Format("Диаметр - {0} см", diameter);
+                                        }
+                                        else if (heightParsed)
+                                        {
+                                            if (!product.ShortDescription.Contains(string.Format("{0}X-(см)", height)))
+                                                product.ShortDescription += (product.ShortDescription == string.Empty ? "" : "<br />") + string.Format("{0}X-(см)", height);
+                                            if (!product.FullDescription.ToLower().Contains("высота"))
+                                                product.FullDescription += (product.FullDescription == string.Empty ? "" : "<br />") + string.Format("Высота - {0} см", height);
+                                        }
+                                        else if (diameterParsed)
+                                        {
+                                            if (!product.ShortDescription.Contains(string.Format("-X{0}(см)", diameter)))
+                                                product.ShortDescription += (product.ShortDescription == string.Empty ? "" : "<br />") + string.Format("-X{0}(см)", diameter);
+                                            if (!product.FullDescription.ToLower().Contains("диаметр"))
+                                                product.FullDescription += (product.FullDescription == string.Empty ? "" : "<br />") + string.Format("Диаметр - {0} см", diameter);
+                                        }
+
+                                        if (oldShortDescription != product.ShortDescription || oldFullDescription != product.FullDescription)
+                                            UpdateProduct(connection, product);
                                     }
-                                    else if (updateHeightDescription)
-                                    {
-                                        product.ShortDescription = (product.ShortDescription == string.Empty ? "" : "<br />") + string.Format("{0}X-(см)", height);
-                                        if (!product.FullDescription.ToLower().Contains("высота"))
-                                            product.FullDescription = (product.FullDescription == string.Empty ? "" : "<br />") + string.Format("Высота - {0} см", height);
-                                    }
-                                    else if (updateDiameterDescription)
-                                    {
-                                        product.ShortDescription = (product.ShortDescription == string.Empty ? "" : "<br />") + string.Format("-X{0}(см)", diameter);
-                                        if (!product.FullDescription.ToLower().Contains("диаметр"))
-                                            product.FullDescription = (product.FullDescription == string.Empty ? "" : "<br />") + string.Format("Диаметр - {0} см", diameter);
-                                    }
-                                    if (updateDiameterDescription || updateHeightDescription)
-                                        UpdateProduct(connection, product);
                                 }
                             }
                         }
@@ -166,7 +171,7 @@ namespace Scjaarge.NopTasks
             NopCache.Clear();
         }
 
-        private Product GetProduct(SqlConnection connection, string sku)
+        private static Product GetProduct(SqlConnection connection, string sku)
         {
             using (var command = new SqlCommand(SelectProductQuery, connection))
             {
@@ -175,18 +180,18 @@ namespace Scjaarge.NopTasks
                 {
                     while (reader.Read())
                     {
-                        return new Product { ID = reader.GetInt32(0), ShortDescription = reader.GetString(1), FullDescription = reader.GetString(2) };
+                        return new Product { Id = reader.GetInt32(0), ShortDescription = reader.GetString(1), FullDescription = reader.GetString(2) };
                     }
                 }
             }
             return null;
         }
 
-        private void UpdateProduct(SqlConnection connection, Product product)
+        private static void UpdateProduct(SqlConnection connection, Product product)
         {
             using (var command = new SqlCommand(UpdateProductQuery, connection))
             {
-                command.Parameters.Add(new SqlParameter("@ProductID", product.ID));
+                command.Parameters.Add(new SqlParameter("@ProductID", product.Id));
                 command.Parameters.Add(new SqlParameter("@ShortDescription", product.ShortDescription));
                 command.Parameters.Add(new SqlParameter("@FullDescription", product.FullDescription));
 
@@ -194,30 +199,30 @@ namespace Scjaarge.NopTasks
             }
         }
 
-        private bool SAOExists(SqlConnection connection, int productId, int saoID)
+        private static bool SaoExists(SqlConnection connection, int productId, int saoId)
         {
             using (var command = new SqlCommand(CheckSaoQuery, connection))
             {
                 command.Parameters.Add(new SqlParameter("@productId", productId));
-                command.Parameters.Add(new SqlParameter("@saoID", saoID));
+                command.Parameters.Add(new SqlParameter("@saoID", saoId));
 
                 return Convert.ToInt32(command.ExecuteScalar()) == 0 ? false : true;
             }
         }
 
-        private void InsertSAO(SqlConnection connection, int productId, int saoID)
+        private static void InsertSao(SqlConnection connection, int productId, int saoId)
         {
             using (var command = new SqlCommand(InsertSaoQuery, connection))
             {
                 command.Parameters.Add(new SqlParameter("@productId", productId));
-                command.Parameters.Add(new SqlParameter("@saoID", saoID));
+                command.Parameters.Add(new SqlParameter("@saoID", saoId));
                 command.ExecuteNonQuery();
             }
         }
 
         private class Product
         {
-            public int ID;
+            public int Id;
             public string ShortDescription;
             public string FullDescription;
         }
