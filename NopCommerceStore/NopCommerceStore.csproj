@@ -383,6 +383,13 @@
     <Compile Include="Administration\Modules\ManufacturerProductAdd.ascx.designer.cs">
       <DependentUpon>ManufacturerProductAdd.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\Payment\WebPay\ConfigurePaymentMethod.ascx.cs">
+      <DependentUpon>ConfigurePaymentMethod.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Payment\WebPay\ConfigurePaymentMethod.ascx.designer.cs">
+      <DependentUpon>ConfigurePaymentMethod.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\popup.master.cs">
       <DependentUpon>popup.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4607,6 +4614,7 @@
     <Content Include="Administration\Payment\PayPalStandard\ConfigurePaymentMethod.ascx" />
     <Content Include="Administration\Payment\PSIGate\ConfigurePaymentMethod.ascx" />
     <Content Include="Administration\Payment\TwoCheckout\ConfigurePaymentMethod.ascx" />
+    <Content Include="Administration\Payment\WebPay\ConfigurePaymentMethod.ascx" />
     <Content Include="Administration\Payment\Worldpay\ConfigurePaymentMethod.ascx" />
     <Content Include="Administration\PollAdd.aspx" />
     <Content Include="Administration\PollDetails.aspx" />

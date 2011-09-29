@@ -1,4 +1,5 @@
-Ôªøusing System;
+
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -45,11 +46,21 @@ namespace Nop.Payment.WebPay
         {
             var remotePostHelper = new RemotePost { FormName = "WebPeyForm", Url = GetWebPayUrl() };
 
-            OrderManager.UpdateOrder(order);
+            OrderManager.UpdateOrder(order.OrderID, order.OrderGUID, order.CustomerID, order.CustomerLanguageID, order.CustomerTaxDisplayType, order.OrderSubtotalInclTax, order.OrderSubtotalExclTax, order.OrderShippingInclTax,
+                order.OrderShippingExclTax, order.PaymentMethodAdditionalFeeInclTax, order.PaymentMethodAdditionalFeeExclTax, order.OrderTax, order.OrderTotal, order.OrderDiscount, order.OrderSubtotalInclTaxInCustomerCurrency, 
+                order.OrderShippingExclTaxInCustomerCurrency, order.OrderShippingInclTaxInCustomerCurrency, order.OrderShippingExclTaxInCustomerCurrency, order.PaymentMethodAdditionalFeeInclTaxInCustomerCurrency, 
+                order.PaymentMethodAdditionalFeeExclTaxInCustomerCurrency, order.OrderTaxInCustomerCurrency, order.OrderTotalInCustomerCurrency, order.CustomerCurrencyCode, order.OrderWeight, order.AffiliateID,
+                order.OrderStatus, order.AllowStoringCreditCardNumber, order.CardType, order.CardName, order.CardNumber, order.MaskedCreditCardNumber, order.CardCVV2, order.CardExpirationMonth, order.CardExpirationYear, 
+                order.PaymentMethodID, order.PaymentMethodName, order.AuthorizationTransactionID, order.AuthorizationTransactionCode, order.AuthorizationTransactionResult, order.CaptureTransactionID, order.CaptureTransactionResult, 
+                order.PurchaseOrderNumber, order.PaymentStatus, order.BillingFirstName, order.BillingLastName, order.BillingPhoneNumber, order.BillingEmail, order.BillingFaxNumber, order.BillingCompany, order.BillingAddress1,
+                order.BillingAddress2, order.BillingCity, order.BillingStateProvince, order.BillingStateProvinceID, order.BillingZipPostalCode, order.BillingCountry, order.BillingCountryID, order.ShippingStatus,
+                order.ShippingFirstName, order.ShippingLastName, order.ShippingPhoneNumber, order.ShippingEmail, order.ShippingFaxNumber, order.ShippingCompany, order.ShippingAddress1, order.ShippingAddress2,
+                order.ShippingCity, order.ShippingStateProvince, order.ShippingStateProvinceID, order.ShippingZipPostalCode, order.ShippingCountry, order.ShippingCountryID, order.ShippingMethod,
+                order.ShippingRateComputationMethodID, order.ShippedDate, order.Deleted, order.CreatedOn);
 
             remotePostHelper.Add("*scart", "");
             remotePostHelper.Add("wsb_storeid", StoreId);
-            remotePostHelper.Add("wsb_store", "¬´–î–æ –¥–∏–≤–∞–Ω–∞¬ª");
+            remotePostHelper.Add("wsb_store", "´ƒÓ ‰Ë‚‡Ì‡ª");
             remotePostHelper.Add("wsb_order_num", order.OrderID.ToString());
             remotePostHelper.Add("wsb_currency_id", CurrencyId);
             remotePostHelper.Add("wsb_version", "2");
@@ -83,7 +94,7 @@ namespace Nop.Payment.WebPay
             }
 
             remotePostHelper.Add("wsb_tax", "0");
-            remotePostHelper.Add("wsb_shipping_name", "–î–æ—Å—Ç–∞–≤–∫–∞ –∫—É—Ä—å–µ—Ä–æ–º");
+            remotePostHelper.Add("wsb_shipping_name", "ƒÓÒÚ‡‚Í‡ ÍÛ¸ÂÓÏ");
             remotePostHelper.Add("wsb_shipping_price", order.OrderShippingExclTax.ToString());
             remotePostHelper.Add("wsb_total", ((int)order.OrderTotal).ToString());
             if (!string.IsNullOrEmpty(order.ShippingEmail))
