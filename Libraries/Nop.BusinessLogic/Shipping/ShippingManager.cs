@@ -90,7 +90,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
             //TODO set values from warehouses or shipping origin
             shipmentPackage.CountryFrom = null;
             shipmentPackage.StateProvinceFrom = null;
-            shipmentPackage.ZipPostalCodeFrom = string.Empty;
+            shipmentPackage.ZipPostalCodeFrom = String.Empty;
             return shipmentPackage;
 
         }
@@ -105,7 +105,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
         /// <returns>Shopping cart weight</returns>
         public static decimal GetShoppingCartTotalWeigth(ShoppingCart Cart)
         {
-            decimal totalWeight = decimal.Zero;
+            decimal totalWeight = Decimal.Zero;
             foreach (ShoppingCartItem shoppingCartItem in Cart)
                 totalWeight += shoppingCartItem.TotalWeigth;
             return totalWeight;
@@ -118,7 +118,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
         /// <returns>Shipping total</returns>
         public static decimal? GetShoppingCartShippingTotal(ShoppingCart Cart)
         {
-            string Error = string.Empty;
+            string Error = String.Empty;
             return GetShoppingCartShippingTotal(Cart, ref Error);
         }
 
@@ -142,7 +142,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
         /// <returns>Shipping total</returns>
         public static decimal? GetShoppingCartShippingTotal(ShoppingCart Cart, Customer customer)
         {
-            string Error = string.Empty;
+            string Error = String.Empty;
             return GetShoppingCartShippingTotal(Cart, customer, ref Error);
         }
 
@@ -179,7 +179,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
         public static decimal? GetShoppingCartShippingTotal(ShoppingCart Cart,
             Customer customer, bool includingTax)
         {
-            string Error = string.Empty;
+            string Error = String.Empty;
             return GetShoppingCartShippingTotal(Cart, customer, includingTax, ref Error);
         }
 
@@ -198,7 +198,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
 
             bool isFreeShipping = IsFreeShipping(Cart, customer);
             if (isFreeShipping)
-                return decimal.Zero;
+                return Decimal.Zero;
 
             ShippingOption lastShippingOption = null;            
             if (customer != null)
@@ -223,7 +223,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
                     shippingAddress = customer.ShippingAddress;
                 }
                 ShipmentPackage ShipmentPackage = CreateShipmentPackage(Cart, customer, shippingAddress);
-                ShippingRateComputationMethod activeShippingRateComputationMethod = ShippingManager.ActiveShippingRateComputationMethod;
+                ShippingRateComputationMethod activeShippingRateComputationMethod = ActiveShippingRateComputationMethod;
                 if (activeShippingRateComputationMethod == null)
                     throw new NopException("Shipping rate computation method could not be loaded");
                 IShippingRateComputationMethod iShippingRateComputationMethod = Activator.CreateInstance(Type.GetType(activeShippingRateComputationMethod.ClassName)) as IShippingRateComputationMethod;
@@ -272,11 +272,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
         /// <returns>Additional shipping charge</returns>
         public static decimal GetShoppingCartAdditionalShippingCharge(ShoppingCart Cart, Customer customer)
         {
-            decimal additionalShippingCharge = decimal.Zero;
+            decimal additionalShippingCharge = Decimal.Zero;
 
             bool isFreeShipping = IsFreeShipping(Cart, customer);
             if (isFreeShipping)
-                return decimal.Zero;
+                return Decimal.Zero;
 
             foreach (ShoppingCartItem shoppingCartItem in Cart)
                 additionalShippingCharge += shoppingCartItem.AdditionalShippingCharge;
@@ -300,7 +300,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
             bool isFreeShipping = IsFreeShipping(Cart, customer);
 
             ShipmentPackage ShipmentPackage = CreateShipmentPackage(Cart, customer, ShippingAddress);
-            ShippingRateComputationMethod activeShippingRateComputationMethod = ShippingManager.ActiveShippingRateComputationMethod;
+            ShippingRateComputationMethod activeShippingRateComputationMethod = ActiveShippingRateComputationMethod;
             if (activeShippingRateComputationMethod == null)
                 throw new NopException("Shipping rate computation method could not be loaded");
             IShippingRateComputationMethod iShippingRateComputationMethod = Activator.CreateInstance(Type.GetType(activeShippingRateComputationMethod.ClassName)) as IShippingRateComputationMethod;
@@ -312,7 +312,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
             
             if (isFreeShipping)
             {
-                shippingOptions.ForEach(so => so.Rate = decimal.Zero);
+                shippingOptions.ForEach(so => so.Rate = Decimal.Zero);
             }
 
             shippingOptions.ForEach(so => so.Rate = Math.Round(so.Rate, 2));
@@ -323,6 +323,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
         #endregion
 
         #region Properties
+
         /// <summary>
         /// Gets or sets an active shipping rate computation method
         /// </summary>
@@ -361,7 +362,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
             {
                 int countryID = 0;
                 int stateProvinceID = 0;
-                string zipPostalCode = string.Empty;
+                string zipPostalCode = String.Empty;
 
                 if (value != null)
                 {

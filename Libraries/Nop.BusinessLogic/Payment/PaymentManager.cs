@@ -13,6 +13,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
 using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
 using NopSolutions.NopCommerce.BusinessLogic.Orders;
 using NopSolutions.NopCommerce.Common;
@@ -25,6 +26,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Payment
     public partial class PaymentManager
     {
         #region Methods
+
         /// <summary>
         /// Process payment
         /// </summary>

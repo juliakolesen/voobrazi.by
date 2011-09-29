@@ -26,6 +26,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
     <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -104,23 +105,16 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutSalon.aspx.cs">
@@ -4342,6 +4336,9 @@
     <Compile Include="TwoCheckoutReturn.aspx.designer.cs">
       <DependentUpon>TwoCheckoutReturn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebPay.ashx.cs">
+      <DependentUpon>WebPay.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4453,6 +4450,10 @@
     <ProjectReference Include="..\Payment\Nop.Payment.TwoCheckout\Nop.Payment.TwoCheckout.csproj">
       <Project>{2DF66133-1618-4935-921E-BFF784735C3A}</Project>
       <Name>Nop.Payment.TwoCheckout</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Payment\Nop.Payment.WebPay\Nop.Payment.WebPay.csproj">
+      <Project>{7E2A1C36-D0FB-48DB-A609-F9145E770179}</Project>
+      <Name>Nop.Payment.WebPay</Name>
     </ProjectReference>
     <ProjectReference Include="..\Payment\Nop.Payment.Worldpay\Nop.Payment.Worldpay.csproj">
       <Project>{52E712D4-946B-4DFE-B7AD-A1383AEE9146}</Project>
@@ -5869,6 +5870,7 @@
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="WebPay.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
