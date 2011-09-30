@@ -1,4 +1,4 @@
-
+п»ї
 using System;
 using System.Security.Cryptography;
 using System.Text;
@@ -60,7 +60,7 @@ namespace Nop.Payment.WebPay
 
             remotePostHelper.Add("*scart", "");
             remotePostHelper.Add("wsb_storeid", StoreId);
-            remotePostHelper.Add("wsb_store", "«До дивана»");
+            remotePostHelper.Add("wsb_store", "В«Р”Рѕ РґРёРІР°РЅР°В»");
             remotePostHelper.Add("wsb_order_num", order.OrderID.ToString());
             remotePostHelper.Add("wsb_currency_id", CurrencyId);
             remotePostHelper.Add("wsb_version", "2");
@@ -94,7 +94,7 @@ namespace Nop.Payment.WebPay
             }
 
             remotePostHelper.Add("wsb_tax", "0");
-            remotePostHelper.Add("wsb_shipping_name", "Доставка курьером");
+            remotePostHelper.Add("wsb_shipping_name", "Р”РѕСЃС‚Р°РІРєР° РєСѓСЂСЊРµСЂРѕРј");
             remotePostHelper.Add("wsb_shipping_price", order.OrderShippingExclTax.ToString());
             remotePostHelper.Add("wsb_total", ((int)order.OrderTotal).ToString());
             if (!string.IsNullOrEmpty(order.ShippingEmail))
