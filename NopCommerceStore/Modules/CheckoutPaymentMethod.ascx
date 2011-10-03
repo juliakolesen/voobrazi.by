@@ -8,6 +8,11 @@
     </div>
     <div class="clear">
     </div>
+
+    <div runat="server" id="divAdditionalPaymentInfo" Visible="false" style="color: #FA386E;">
+        <br/>Вероятно, попытка оплатить заказ кредитной картой оказалась неудачной. Выберите другой способ оплаты, либо попробуйте еще раз оплату кредитной картой.
+    </div>
+
     <div class="CheckoutData">
         <nopCommerce:PaypalExpressButton runat="server" ID="btnPaypalExpressButton"></nopCommerce:PaypalExpressButton>
         <br />
@@ -25,12 +30,13 @@
                 </asp:DataList>
                 <div class="clear">
                 </div>
+                <br />
                 <div class="SelectButton">
-                    <asp:Button runat="server" ID="btnNextStep" Text="<% $NopResources:Checkout.NextButton %>"
-                        OnClick="btnNextStep_Click" SkinID="PaymentMethodNextStepButton" />
+                    <asp:Button runat="server" ID="btnNextStep" Text="Дальше" OnClick="btnNextStep_Click" SkinID="PaymentMethodNextStepButton" />
                 </div>
             </div>
         </asp:PlaceHolder>
+        <br />
         <div class="clear">
         </div>
         <asp:PlaceHolder runat="server" ID="phNoPaymentMethods" Visible="false">

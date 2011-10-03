@@ -985,12 +985,12 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
 				//    throw new NopException("Email is not valid");
 				//}
 
-				//PaymentMethod paymentMethod = PaymentMethodManager.GetPaymentMethodByID(paymentInfo.PaymentMethodID);
-				//if (paymentMethod == null)
-				//    throw new NopException("Payment method couldn't be loaded");
+                PaymentMethod paymentMethod = PaymentMethodManager.GetPaymentMethodByID(paymentInfo.PaymentMethodID);
+                if (paymentMethod == null)
+                    throw new NopException("Payment method couldn't be loaded");
 
-				//if (!paymentMethod.IsActive)
-				//    throw new NopException("Payment method is not active");
+                if (!paymentMethod.IsActive)
+                    throw new NopException("Payment method is not active");
 
 				if (paymentInfo.CreditCardCVV2 == null)
 					paymentInfo.CreditCardCVV2 = string.Empty;
@@ -1210,8 +1210,8 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
 						 processPaymentResult.AllowStoringCreditCardNumber ? SecurityHelper.Encrypt(paymentInfo.CreditCardCVV2) : string.Empty,
 						 SecurityHelper.Encrypt(paymentInfo.CreditCardExpireMonth.ToString()),
 						 SecurityHelper.Encrypt(paymentInfo.CreditCardExpireYear.ToString()),
-						 0,//paymentMethod.PaymentMethodID,
-						 "",//paymentMethod.Name,
+						 paymentMethod.PaymentMethodID,
+						 paymentMethod.Name,
 						 processPaymentResult.AuthorizationTransactionID,
 						 processPaymentResult.AuthorizationTransactionCode,
 						 processPaymentResult.AuthorizationTransactionResult,

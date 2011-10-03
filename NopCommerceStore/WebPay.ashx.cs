@@ -24,7 +24,7 @@ namespace NopCommerceStore
                         context.Response.Redirect("~/checkoutcompleted.aspx");
                         break;
                     case "failed":
-                        context.Response.Redirect(string.Format("~/checkoutconfirm.aspx?OrderId={0}", request["orderId"]));
+                        context.Response.Redirect(string.Format("~/CheckoutPaymentMethod.aspx?OrderId={0}", request["orderId"]));
                         break;
                 }
             }

@@ -15,7 +15,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Payment.WebPay
                 if (secretKey == null)
                 {
                     SettingManager.AddSetting("PaymentMethod.WebPay.UseSandbox", "true", string.Empty);
-                    SettingManager.AddSetting("PaymentMethod.WebPay.StoreName", "«До дивана»", string.Empty);
+                    SettingManager.AddSetting("PaymentMethod.WebPay.StoreName", "voobrazi.by", string.Empty);
                     SettingManager.AddSetting("PaymentMethod.WebPay.ReturnUrl", string.Format("{0}{1}", Request.Url.GetLeftPart(UriPartial.Authority), "WebPay/Success.aspx"), string.Empty);
                     SettingManager.AddSetting("PaymentMethod.WebPay.CancelUrl", string.Format("{0}{1}", Request.Url.GetLeftPart(UriPartial.Authority), "WebPay/Cancel.aspx"), string.Empty);
                     SettingManager.AddSetting("PaymentMethod.WebPay.NotifyUrl", string.Format("{0}{1}", Request.Url.GetLeftPart(UriPartial.Authority), "WebPay/Notify.aspx"), string.Empty);

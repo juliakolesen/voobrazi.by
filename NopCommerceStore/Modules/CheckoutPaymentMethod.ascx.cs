@@ -14,26 +14,17 @@
 
 
 using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Text;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
 using NopSolutions.NopCommerce.BusinessLogic.Directory;
 using NopSolutions.NopCommerce.BusinessLogic.Orders;
 using NopSolutions.NopCommerce.BusinessLogic.Payment;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
-using NopSolutions.NopCommerce.BusinessLogic.Shipping;
 using NopSolutions.NopCommerce.BusinessLogic.Tax;
 using NopSolutions.NopCommerce.Common.Utils;
- 
+
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
@@ -63,10 +54,13 @@ namespace NopSolutions.NopCommerce.Web.Modules
             {
                 int paymentMethodID = this.SelectedPaymentMethodID;
                 PaymentMethod paymentMethod = PaymentMethodManager.GetPaymentMethodByID(paymentMethodID);
+                PaymentInfo pi = new PaymentInfo();
+                pi.PaymentMethodID = paymentMethodID;
+                PaymentInfo = pi;
                 if (paymentMethod != null && paymentMethod.IsActive)
                 {
-                    NopContext.Current.User =CustomerManager.SetLastPaymentMethodID(NopContext.Current.User.CustomerID, paymentMethodID);
-                    Response.Redirect("~/CheckoutPaymentInfo.aspx");
+                    NopContext.Current.User = CustomerManager.SetLastPaymentMethodID(NopContext.Current.User.CustomerID, paymentMethodID);
+                    Response.Redirect(string.Format("~/CheckoutConfirm.aspx{0}", Request["OrderId"] != null ? "?OrderId=" + Request["OrderId"] : ""));
                 }
             }
         }
@@ -94,11 +88,11 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 foreach (PaymentMethod pm in paymentMethods)
                     if (pm.SystemKeyword == "GoogleCheckout")
                         googleCheckoutPaymentMethod = pm;
-                
+
                 bool hasButtonMethods = false;
                 if (paypalExpressPaymentMethod != null && paypalExpressPaymentMethod.IsActive)
                     hasButtonMethods = true;
-                    
+
                 PaymentMethodCollection boundPaymentMethods = new PaymentMethodCollection();
                 foreach (PaymentMethod pm in paymentMethods)
                     if (pm != paypalExpressPaymentMethod && pm != googleCheckoutPaymentMethod)
@@ -131,7 +125,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         phSelectPaymentMethod.Visible = false;
                         phNoPaymentMethods.Visible = false;
                         NopContext.Current.User = CustomerManager.SetLastPaymentMethodID(NopContext.Current.User.CustomerID, paymentMethods[0].PaymentMethodID);
-                        Response.Redirect("~/CheckoutPaymentInfo.aspx");
+                        Response.Redirect("~/CheckoutConfirm.aspx");
                     }
                 }
                 else
@@ -142,6 +136,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     dlPaymentMethod.DataBind();
                 }
             }
+
+            divAdditionalPaymentInfo.Visible = Request["OrderId"] != null;
         }
 
         public int SelectedPaymentMethodID
@@ -159,6 +155,14 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     }
                 }
                 return selectedPaymentMethodID;
+            }
+        }
+
+        protected PaymentInfo PaymentInfo
+        {
+            set
+            {
+                this.Session["OrderPaymentInfo"] = value;
             }
         }
     }

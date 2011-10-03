@@ -15,7 +15,6 @@
 
 using System;
 using System.Text;
-using System.Web.UI.WebControls;
 using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.BusinessLogic.Audit;
 using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
@@ -30,127 +29,136 @@ using NopSolutions.NopCommerce.Common.Utils;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
-	public partial class CheckoutConfirmControl : BaseNopUserControl
-	{
-		ShoppingCart Cart;
+    public partial class CheckoutConfirmControl : BaseNopUserControl
+    {
+        ShoppingCart Cart;
 
-		protected void btnNextStep_Click(object sender, EventArgs e)
-		{
-			if (Page.IsValid)
-			{
-				try
-				{
-					PaymentInfo paymentInfo = new PaymentInfo(); //this.PaymentInfo;
-					//if (paymentInfo == null)
-					//    Response.Redirect("~/CheckoutPaymentInfo.aspx");
-					paymentInfo.BillingAddress = NopContext.Current.User.BillingAddress;
-					paymentInfo.ShippingAddress = NopContext.Current.User.ShippingAddress;
-					paymentInfo.CustomerLanguage = NopContext.Current.WorkingLanguage;
-					paymentInfo.CustomerCurrency = NopContext.Current.WorkingCurrency;
+        protected void btnNextStep_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                try
+                {
+                    PaymentInfo paymentInfo = this.PaymentInfo;
+                    //if (paymentInfo == null)
+                    //    Response.Redirect("~/CheckoutPaymentInfo.aspx");
+                    paymentInfo.BillingAddress = NopContext.Current.User.BillingAddress;
+                    paymentInfo.ShippingAddress = NopContext.Current.User.ShippingAddress;
+                    paymentInfo.CustomerLanguage = NopContext.Current.WorkingLanguage;
+                    paymentInfo.CustomerCurrency = NopContext.Current.WorkingCurrency;
 
-					int orderID = 0;
-					string result = OrderManager.PlaceOrder(paymentInfo, NopContext.Current.User, out orderID);
-					this.PaymentInfo = null;
-					Order order = OrderManager.GetOrderByID(orderID);
-					if (!String.IsNullOrEmpty(result))
-					{
-						lError.Text = Server.HtmlEncode(result);
-						return;
-					}
-					else
-					{
-						//PaymentManager.PostProcessPayment(order);
-					}
+                    int orderId = 0;
+                    string result = "";
+                    if (Request["OrderId"] == null)
+                        result = OrderManager.PlaceOrder(paymentInfo, NopContext.Current.User, out orderId);
+                    else
+                        orderId = int.Parse(Request["OrderId"]);
 
-					string subj = "Заказ в магазине Voobrazi.by";
-					StringBuilder body = new StringBuilder();
-					body.AppendFormat("Доставка: {0}<br /><br />", ((bool)Session["Delivery"]) ? "Курьером" : "Самовывоз").AppendLine();
-					body.AppendFormat("<b>Заказчик</b><br />").AppendLine();
-					body.AppendFormat("ФИО: {0} {1}<br />", paymentInfo.BillingAddress.FirstName, paymentInfo.BillingAddress.LastName).AppendLine();
-					body.AppendFormat("Телефоны: {0} {1}<br />", paymentInfo.BillingAddress.PhoneNumber, !string.IsNullOrEmpty(paymentInfo.BillingAddress.FaxNumber) ? ", " + paymentInfo.BillingAddress.FaxNumber : "").AppendLine();
-					body.AppendFormat("Адрес: {0} {1}<br />", paymentInfo.BillingAddress.City, paymentInfo.BillingAddress.Address1).AppendLine();
-					body.AppendFormat("Email: {0}<br /><br />", !string.IsNullOrEmpty(NopContext.Current.User.BillingAddress.Email) ? NopContext.Current.User.BillingAddress.Email : NopContext.Current.User.Email).AppendLine();
-					body.AppendFormat("Комментарии: {0}<br /><br />", tbComments.Text).AppendLine();
+                    this.PaymentInfo = null;
+                    Order order = OrderManager.GetOrderByID(orderId);
+                    if (!String.IsNullOrEmpty(result))
+                    {
+                        lError.Text = Server.HtmlEncode(result);
+                        return;
+                    }
 
-					if (Session["fn"] != null)
-					{
-						body.AppendLine();
-						body.Append("<b>Получатель не заказчик</b><br />").AppendLine();
-						body.AppendFormat("ФИО: {0} {1}<br />", Session["fn"], Session["ln"]).AppendLine();
-						body.AppendFormat("Телефон: {0}<br />", Session["pn"]).AppendLine();
-						body.AppendFormat("Адрес: {0}<br />", Session["address"]).AppendLine();
-						body.AppendFormat("Дополнительная информация: {0}<br />", Session["ai"]).AppendLine();
-					}
-					body.AppendFormat("Уведомление о доставке: {0} | {1}<br />", chbByMail.Checked ? "Письмом на Email" : "", chbSMS.Checked ? "СМС сообщение" : "").AppendLine();
+                    if (Request["OrderId"] != null)
+                    {
+                        order.PaymentMethodID = paymentInfo.PaymentMethodID;
+                        order.PaymentMethodName = PaymentMethodManager.GetPaymentMethodByID(paymentInfo.PaymentMethodID).Name;
+                    }
 
-					body.AppendFormat("<br /><br /> Заказано:<br />");
+                    PaymentManager.PostProcessPayment(order);
 
-					decimal total = 0;
-					foreach (OrderProductVariant variant in order.OrderProductVariants)
-					{
-						body.AppendFormat(" - {0} ({1}) x {2}шт. -- {3}; <br />", variant.ProductVariant.Product.Name, PriceHelper.FormatShippingPrice(variant.ProductVariant.Price, true), variant.Quantity, PriceHelper.FormatShippingPrice(variant.ProductVariant.Price * variant.Quantity, true));
-						total += variant.ProductVariant.Price * variant.Quantity;
-					}
+                    string subj = "Заказ в магазине Voobrazi.by";
+                    StringBuilder body = new StringBuilder();
+                    body.AppendFormat("Доставка: {0}<br /><br />", ((bool)Session["Delivery"]) ? "Курьером" : "Самовывоз").AppendLine();
+                    body.AppendFormat("<b>Заказчик</b><br />").AppendLine();
+                    body.AppendFormat("ФИО: {0} {1}<br />", paymentInfo.BillingAddress.FirstName, paymentInfo.BillingAddress.LastName).AppendLine();
+                    body.AppendFormat("Телефоны: {0} {1}<br />", paymentInfo.BillingAddress.PhoneNumber, !string.IsNullOrEmpty(paymentInfo.BillingAddress.FaxNumber) ? ", " + paymentInfo.BillingAddress.FaxNumber : "").AppendLine();
+                    body.AppendFormat("Адрес: {0} {1}<br />", paymentInfo.BillingAddress.City, paymentInfo.BillingAddress.Address1).AppendLine();
+                    body.AppendFormat("Email: {0}<br /><br />", !string.IsNullOrEmpty(NopContext.Current.User.BillingAddress.Email) ? NopContext.Current.User.BillingAddress.Email : NopContext.Current.User.Email).AppendLine();
+                    body.AppendFormat("Комментарии: {0}<br /><br />", tbComments.Text).AppendLine();
 
-					string shipping = GetLocaleResourceString("ShoppingCart.ShippingNotRequired");
+                    if (Session["fn"] != null)
+                    {
+                        body.AppendLine();
+                        body.Append("<b>Получатель не заказчик</b><br />").AppendLine();
+                        body.AppendFormat("ФИО: {0} {1}<br />", Session["fn"], Session["ln"]).AppendLine();
+                        body.AppendFormat("Телефон: {0}<br />", Session["pn"]).AppendLine();
+                        body.AppendFormat("Адрес: {0}<br />", Session["address"]).AppendLine();
+                        body.AppendFormat("Дополнительная информация: {0}<br />", Session["ai"]).AppendLine();
+                    }
+                    body.AppendFormat("Уведомление о доставке: {0} | {1}<br />", chbByMail.Checked ? "Письмом на Email" : "", chbSMS.Checked ? "СМС сообщение" : "").AppendLine();
 
-					bool shoppingCartRequiresShipping = ShippingManager.ShoppingCartRequiresShipping(Cart) && Session["SelfOrder"] == null;
-					if (shoppingCartRequiresShipping)
-					{
-						decimal? shoppingCartShippingBase = ShippingManager.GetShoppingCartShippingTotal(Cart, NopContext.Current.User);
-						if (shoppingCartShippingBase.HasValue)
-						{
-							decimal shoppingCartShipping = CurrencyManager.ConvertCurrency(shoppingCartShippingBase.Value, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-							shipping = PriceHelper.FormatShippingPrice(shoppingCartShipping, true);
-							total += shoppingCartShipping;
-						}
-					}
+                    body.AppendFormat("<br /><br /> Заказано:<br />");
 
-					body.AppendFormat("Доставка: {0}<br />", shipping).AppendLine();
-					body.AppendFormat("<b>Итого:</b> {0}<br />", total).AppendLine();
+                    decimal total = 0;
+                    foreach (OrderProductVariant variant in order.OrderProductVariants)
+                    {
+                        body.AppendFormat(" - {0} ({1}) x {2}шт. -- {3}; <br />", variant.ProductVariant.Product.Name, PriceHelper.FormatShippingPrice(variant.ProductVariant.Price, true), variant.Quantity, PriceHelper.FormatShippingPrice(variant.ProductVariant.Price * variant.Quantity, true));
+                        total += variant.ProductVariant.Price * variant.Quantity;
+                    }
 
-					body.AppendFormat("<br />Дополнительная информация: {0}<br />", Session["ai"]).AppendLine();
+                    string shipping = GetLocaleResourceString("ShoppingCart.ShippingNotRequired");
 
-					MessageManager.SendEmail(subj, body.ToString(), MessageManager.AdminEmailAddress, MessageManager.AdminEmailAddress);
-					Session.Remove("SelfOrder");
-					Response.Redirect("~/CheckoutCompleted.aspx");
-				}
-				catch (Exception exc)
-				{
-					Session.Remove("SelfOrder");
-					LogManager.InsertLog(LogTypeEnum.OrderError, exc.Message, exc);
-					lError.Text = Server.HtmlEncode("Во время обработки заказа произошла ошибка. Для выполнения заказа, пожалуйста, свяжитесь с администратором. Контактную информацию можно найти на странице Контакты.");
-				}
-			}
-		}
+                    bool shoppingCartRequiresShipping = ShippingManager.ShoppingCartRequiresShipping(Cart) && Session["SelfOrder"] == null;
+                    if (shoppingCartRequiresShipping)
+                    {
+                        decimal? shoppingCartShippingBase = ShippingManager.GetShoppingCartShippingTotal(Cart, NopContext.Current.User);
+                        if (shoppingCartShippingBase.HasValue)
+                        {
+                            decimal shoppingCartShipping = CurrencyManager.ConvertCurrency(shoppingCartShippingBase.Value, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
+                            shipping = PriceHelper.FormatShippingPrice(shoppingCartShipping, true);
+                            total += shoppingCartShipping;
+                        }
+                    }
 
-		protected void Page_Load(object sender, EventArgs e)
-		{
-			if ((NopContext.Current.User == null) || (NopContext.Current.User.IsGuest && !CustomerManager.AnonymousCheckoutAllowed))
-			{
-				string loginURL = CommonHelper.GetLoginPageURL(true);
-				Response.Redirect(loginURL);
-			}
+                    body.AppendFormat("Доставка: {0}<br />", shipping).AppendLine();
+                    body.AppendFormat("<b>Итого:</b> {0}<br />", total).AppendLine();
 
-			Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
-			if (Cart.Count == 0)
-				Response.Redirect("~/ShoppingCart.aspx");
+                    body.AppendFormat("<br />Дополнительная информация: {0}<br />", Session["ai"]).AppendLine();
 
-			btnNextStep.Attributes.Add("onclick", "this.disabled = true;" + Page.ClientScript.GetPostBackEventReference(this.btnNextStep, ""));
-		}
+                    MessageManager.SendEmail(subj, body.ToString(), MessageManager.AdminEmailAddress, MessageManager.AdminEmailAddress);
+                    Session.Remove("SelfOrder");
+                    Response.Redirect("~/CheckoutCompleted.aspx");
+                }
+                catch (Exception exc)
+                {
+                    Session.Remove("SelfOrder");
+                    LogManager.InsertLog(LogTypeEnum.OrderError, exc.Message, exc);
+                    lError.Text = Server.HtmlEncode("Во время обработки заказа произошла ошибка. Для выполнения заказа, пожалуйста, свяжитесь с администратором. Контактную информацию можно найти на странице Контакты.");
+                }
+            }
+        }
 
-		protected PaymentInfo PaymentInfo
-		{
-			get
-			{
-				if (this.Session["OrderPaymentInfo"] != null)
-					return (PaymentInfo)(this.Session["OrderPaymentInfo"]);
-				return null;
-			}
-			set
-			{
-				this.Session["OrderPaymentInfo"] = value;
-			}
-		}
-	}
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if ((NopContext.Current.User == null) || (NopContext.Current.User.IsGuest && !CustomerManager.AnonymousCheckoutAllowed))
+            {
+                string loginURL = CommonHelper.GetLoginPageURL(true);
+                Response.Redirect(loginURL);
+            }
+
+            Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
+            if (Cart.Count == 0)
+                Response.Redirect("~/ShoppingCart.aspx");
+
+            btnNextStep.Attributes.Add("onclick", "this.disabled = true;" + Page.ClientScript.GetPostBackEventReference(this.btnNextStep, ""));
+        }
+
+        protected PaymentInfo PaymentInfo
+        {
+            get
+            {
+                if (this.Session["OrderPaymentInfo"] != null)
+                    return (PaymentInfo)(this.Session["OrderPaymentInfo"]);
+                return null;
+            }
+            set
+            {
+                this.Session["OrderPaymentInfo"] = value;
+            }
+        }
+    }
 }

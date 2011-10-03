@@ -4,6 +4,6 @@
 <%@ Register Src="~/Modules/OrderProgress.ascx" TagName="OrderProgress" TagPrefix="nopCommerce" %>
 <%@ Register TagPrefix="nopCommerce" TagName="CheckoutPaymentMethod" Src="~/Modules/CheckoutPaymentMethod.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="Server">
-    <nopCommerce:OrderProgress ID="OrderProgressControl" runat="server" OrderProgressStep="Payment" />
+    <%--<nopCommerce:OrderProgress ID="OrderProgressControl" runat="server" OrderProgressStep="Payment" />--%>
     <nopCommerce:CheckoutPaymentMethod ID="ctrlCheckoutPaymentMethod" runat="server" />
 </asp:Content>
