@@ -1278,8 +1278,6 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
 							scSubTotalInclTaxInCustomerCurrency, scSubTotalExclTaxInCustomerCurrency,
 							attributeDescription, sc.Quantity, discountAmountInclTax, discountAmountExclTax, 0);
 
-						ShoppingCartManager.DeleteShoppingCartItem(sc.ShoppingCartItemID, false);
-
 						ProductManager.AdjustInventory(sc.ProductVariantID, true, sc.Quantity);
 					}
 

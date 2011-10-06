@@ -432,7 +432,7 @@
                                         <%#GetProductVariantUnitPrice(Container.DataItem as OrderProductVariant)%>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="<% $NopResources:Admin.OrderDetails.Products.Quantity %>"
+                                <asp:BoundField DataField="Quantity"
                                     HeaderText="Quantity" HeaderStyle-HorizontalAlign="Center" ItemStyle-Width="10%"
                                     ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                                 <asp:TemplateField HeaderText="<% $NopResources:Admin.OrderDetails.Products.Discount %>"

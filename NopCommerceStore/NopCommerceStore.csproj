@@ -4343,8 +4343,12 @@
     <Compile Include="TwoCheckoutReturn.aspx.designer.cs">
       <DependentUpon>TwoCheckoutReturn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebPay.ashx.cs">
-      <DependentUpon>WebPay.ashx</DependentUpon>
+    <Compile Include="WebPay.aspx.cs">
+      <DependentUpon>WebPay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPay.aspx.designer.cs">
+      <DependentUpon>WebPay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
@@ -5359,6 +5363,7 @@
     <Content Include="Templates\Payment\Worldpay\PaymentModule.ascx" />
     <Content Include="Templates\Products\VariantsInGrid.ascx" />
     <Content Include="TwoCheckoutReturn.aspx" />
+    <Content Include="WebPay.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="WorldpayReturn.aspx" />
   </ItemGroup>
@@ -5878,7 +5883,6 @@
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebPay.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

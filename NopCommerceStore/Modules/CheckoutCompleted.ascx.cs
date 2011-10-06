@@ -50,6 +50,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 Order lastOrder = orderCollection[0];
                 lblOrderNumber.Text = lastOrder.OrderID.ToString();
                 hlOrderDetails.NavigateUrl = string.Format("{0}OrderDetails.aspx?OrderID={1}", CommonHelper.GetStoreLocation(), lastOrder.OrderID);
+
+                var shoppingCart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
+                foreach (ShoppingCartItem sc in shoppingCart)
+                    ShoppingCartManager.DeleteShoppingCartItem(sc.ShoppingCartItemID, false);
             }
         }
 
