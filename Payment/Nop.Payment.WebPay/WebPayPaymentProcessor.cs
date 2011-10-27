@@ -92,7 +92,7 @@ namespace Nop.Payment.WebPay
                 var pv = order.OrderProductVariants[i];
                 remotePostHelper.Add(string.Format("wsb_invoice_item_name[{0}]", i), pv.ProductVariant.Product.Name);
                 remotePostHelper.Add(string.Format("wsb_invoice_item_quantity[{0}]", i), pv.Quantity.ToString());
-                remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), AddServiceFee(pv.PriceExclTax).ToString());
+                remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), AddServiceFee(pv.UnitPriceExclTax).ToString());
             }
 
             remotePostHelper.Add("wsb_tax", "0");
@@ -109,7 +109,7 @@ namespace Nop.Payment.WebPay
 
         private decimal CalculateTotalServiceFee(IEnumerable<OrderProductVariant> orderProducts)
         {
-            var retVal = orderProducts.Sum(orderProduct => AddServiceFee(orderProduct.PriceExclTax) * orderProduct.Quantity);
+            var retVal = orderProducts.Sum(orderProduct => AddServiceFee(orderProduct.UnitPriceExclTax) * orderProduct.Quantity);
             retVal += AddServiceFee(SettingManager.GetSettingValueDecimalNative("ShippingRateComputationMethod.FixedRate.Rate"));
             return retVal;
         }
