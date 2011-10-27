@@ -24,6 +24,7 @@
                             <nopCommerce:GlobalRadioButton runat="server" ID="rdPaymentMethod" Checked="false"
                                 GroupName="paymentMethodGroup" />
                             <%#Server.HtmlEncode(Eval("VisibleName").ToString()) %>
+                            <div style="font-weight:bold;"><%#Server.HtmlEncode(Eval("Description").ToString()) %></div>
                             <%#Server.HtmlEncode(FormatPaymentMethodInfo(((PaymentMethod)Container.DataItem)))%>
                         </div>
                     </ItemTemplate>

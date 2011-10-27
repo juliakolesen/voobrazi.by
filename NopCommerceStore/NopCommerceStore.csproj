@@ -5248,6 +5248,7 @@
     <Content Include="images\sp.gif" />
     <Content Include="images\uniq-banner2.jpg" />
     <Content Include="images\UpdateProgress.gif" />
+    <Content Include="images\VisaMastercard.gif" />
     <Content Include="images\zoom-icon7.gif" />
     <Content Include="Install\install.aspx" />
     <Content Include="Scripts\slimbox2.js" />

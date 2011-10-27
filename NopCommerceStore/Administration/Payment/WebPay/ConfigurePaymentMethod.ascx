@@ -80,4 +80,12 @@
             <asp:TextBox runat="server" Width="450" ID="tbPassword" />
         </td>
     </tr>
+    <tr>
+        <td>
+            Service Fee: 
+        </td>
+        <td>
+            <asp:TextBox runat="server" Width="450" ID="tbServiceFee" />
+        </td>
+    </tr>
 </table>

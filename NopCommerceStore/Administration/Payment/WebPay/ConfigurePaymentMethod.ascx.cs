@@ -11,8 +11,8 @@ namespace NopSolutions.NopCommerce.Web.Administration.Payment.WebPay
         {
             if (!Page.IsPostBack)
             {
-                var secretKey = SettingManager.GetSettingByName("PaymentMethod.WebPay.UseSandbox");
-                if (secretKey == null)
+                var setting = SettingManager.GetSettingByName("PaymentMethod.WebPay.UseSandbox");
+                if (setting == null)
                 {
                     SettingManager.AddSetting("PaymentMethod.WebPay.UseSandbox", "true", string.Empty);
                     SettingManager.AddSetting("PaymentMethod.WebPay.StoreName", "voobrazi.by", string.Empty);
@@ -21,6 +21,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Payment.WebPay
                     SettingManager.AddSetting("PaymentMethod.WebPay.NotifyUrl", string.Format("{0}{1}", Request.Url.GetLeftPart(UriPartial.Authority), "WebPay/Notify.aspx"), string.Empty);
                     SettingManager.AddSetting("PaymentMethod.WebPay.ShippingName", "Стоимость доставки", string.Empty);
                 }
+
+                setting = SettingManager.GetSettingByName("PaymentMethod.WebPay.ServiceFee");
+                if (setting == null)
+                {
+                    SettingManager.AddSetting("PaymentMethod.WebPay.ServiceFee", "6", string.Empty);
+                }
+
                 BindData();
             }
         }
@@ -34,6 +41,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Payment.WebPay
             tbCancelUrl.Text = SettingManager.GetSettingValue("PaymentMethod.WebPay.CancelUrl");
             tbNotifyUrl.Text = SettingManager.GetSettingValue("PaymentMethod.WebPay.NotifyUrl");
             tbShippingName.Text = SettingManager.GetSettingValue("PaymentMethod.WebPay.ShippingName");
+            tbServiceFee.Text = SettingManager.GetSettingValue("PaymentMethod.WebPay.ServiceFee");
         }
 
         public void Save()
@@ -44,6 +52,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Payment.WebPay
             SettingManager.SetParam("PaymentMethod.WebPay.CancelUrl", tbCancelUrl.Text);
             SettingManager.SetParam("PaymentMethod.WebPay.NotifyUrl", tbNotifyUrl.Text);
             SettingManager.SetParam("PaymentMethod.WebPay.ShippingName", tbShippingName.Text);
+            SettingManager.SetParam("PaymentMethod.WebPay.ServiceFee", tbServiceFee.Text);
         }
     }
 }

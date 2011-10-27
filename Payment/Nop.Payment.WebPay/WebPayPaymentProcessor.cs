@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -17,7 +19,7 @@ namespace Nop.Payment.WebPay
         {
             get
             {
-                return UseSandBox ? "92E6467729814FC4BF365C3C820042AD" : "92E6467729814FC4BF365C3C820042AD";
+                return UseSandBox ? "92E6467729814FC4BF365C3C820042AD" : "25A591BD53304045B0FB1E5293B4733E";
             }
         }
 
@@ -25,7 +27,7 @@ namespace Nop.Payment.WebPay
         {
             get
             {
-                return UseSandBox ? "994668300" : "994668300";
+                return UseSandBox ? "994668300" : "813689890";
             }
         }
 
@@ -73,7 +75,7 @@ namespace Nop.Payment.WebPay
             signatureBulder.Append(order.OrderID);
             signatureBulder.Append(UseSandBox ? "1" : "0");
             signatureBulder.Append(CurrencyId);
-            signatureBulder.Append(((int)order.OrderTotal).ToString());
+            signatureBulder.Append(((int)CalculateTotalServiceFee(order.OrderProductVariants)).ToString());
             signatureBulder.Append(Sk);
 
             byte[] buffer = Encoding.Default.GetBytes(signatureBulder.ToString());
@@ -90,19 +92,32 @@ namespace Nop.Payment.WebPay
                 var pv = order.OrderProductVariants[i];
                 remotePostHelper.Add(string.Format("wsb_invoice_item_name[{0}]", i), pv.ProductVariant.Product.Name);
                 remotePostHelper.Add(string.Format("wsb_invoice_item_quantity[{0}]", i), pv.Quantity.ToString());
-                remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), pv.PriceExclTax.ToString());
+                remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), AddServiceFee(pv.PriceExclTax).ToString());
             }
 
             remotePostHelper.Add("wsb_tax", "0");
             remotePostHelper.Add("wsb_shipping_name", "Доставка курьером");
-            remotePostHelper.Add("wsb_shipping_price", order.OrderShippingExclTax.ToString());
-            remotePostHelper.Add("wsb_total", ((int)order.OrderTotal).ToString());
+            remotePostHelper.Add("wsb_shipping_price", AddServiceFee(order.OrderShippingExclTax).ToString());
+            remotePostHelper.Add("wsb_total", ((int)CalculateTotalServiceFee(order.OrderProductVariants)).ToString());
             if (!string.IsNullOrEmpty(order.ShippingEmail))
                 remotePostHelper.Add("wsb_email", order.ShippingEmail);
             remotePostHelper.Add("wsb_phone", order.ShippingPhoneNumber);
 
             remotePostHelper.Post();
             return string.Empty;
+        }
+
+        private decimal CalculateTotalServiceFee(IEnumerable<OrderProductVariant> orderProducts)
+        {
+            var retVal = orderProducts.Sum(orderProduct => AddServiceFee(orderProduct.PriceExclTax) * orderProduct.Quantity);
+            retVal += AddServiceFee(SettingManager.GetSettingValueDecimalNative("ShippingRateComputationMethod.FixedRate.Rate"));
+            return retVal;
+        }
+
+        private decimal AddServiceFee(decimal price)
+        {
+            decimal priceWithFee = price + ((price / 100) * SettingManager.GetSettingValueInteger("PaymentMethod.WebPay.ServiceFee"));
+            return Math.Ceiling(priceWithFee / 100) * 100;
         }
 
         private static bool UseSandBox

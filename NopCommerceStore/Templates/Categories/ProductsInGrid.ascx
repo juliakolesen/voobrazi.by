@@ -24,6 +24,7 @@
     </div>
     <div class="seccont_middle">
         <div class="navigator">
+            <div style="float:left;color:#000;font-size:0.8em;">&nbsp;&nbsp;&nbsp;Принимаем к оплате: <img width="87" src="/images/VisaMastercard.gif" height="28" /></div>
             <nopCommerce:Pager runat="server" ID="productsPager" FirstButtonText="" LastButtonText=""
                 NextButtonText="»" PreviousButtonText="«" CurrentPageText="Pager.CurrentPage" />
         </div>
