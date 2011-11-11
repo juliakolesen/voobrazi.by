@@ -109,7 +109,7 @@ namespace Nop.Payment.WebPay
 
         private decimal CalculateTotalServiceFee(IEnumerable<OrderProductVariant> orderProducts)
         {
-            var retVal = orderProducts.Sum(orderProduct => AddServiceFee(orderProduct.PriceExclTax) * orderProduct.Quantity);
+            var retVal = orderProducts.Sum(orderProduct => AddServiceFee(orderProduct.UnitPriceExclTax) * orderProduct.Quantity);
             retVal += AddServiceFee(SettingManager.GetSettingValueDecimalNative("ShippingRateComputationMethod.FixedRate.Rate"));
             return retVal;
         }
