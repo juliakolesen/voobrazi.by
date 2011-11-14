@@ -1,11 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.ProductBox1Control"
     CodeBehind="ProductBox1.ascx.cs" %>
+
+    <%@ Register TagPrefix="nopCommerce" TagName="ProductPrice" Src="~/Modules/ProductPrice.ascx" %>
+
 <table cellpadding="0" cellspacing="0">
     <tr valign="top">
         <td>
             <div class="middle-price">
                 <div class="price">
-                    <asp:Literal ID="lblPrice" runat="server" /></div>
+                    <asp:Literal ID="lblPrice" runat="server" />
+                </div>
             </div>
             <div style="height: 198px; width: 196px;">
                 <asp:HyperLink ID="hlImageLink" runat="server" />

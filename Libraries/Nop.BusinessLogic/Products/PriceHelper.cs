@@ -24,6 +24,9 @@ using NopSolutions.NopCommerce.BusinessLogic.Tax;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Products
 {
+    using System.Web;
+    using Utils;
+
     /// <summary>
     /// Price helper
     /// </summary>
@@ -139,7 +142,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             Discount preferredDiscount = DiscountManager.GetPreferredDiscount(allowedDiscounts, finalPriceWithoutDiscount);
             return preferredDiscount;
         }
-      
+
         /// <summary>
         /// Gets a tier price
         /// </summary>
@@ -151,7 +154,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             TierPriceCollection tierPrices = productVariant.TierPrices;
 
             int previousQty = 1;
-            decimal previousPrice = productVariant.Price;            
+            decimal previousPrice = productVariant.Price;
             foreach (TierPrice tierPrice in tierPrices)
             {
                 if (Quantity < tierPrice.Quantity)
@@ -160,18 +163,18 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
                 if (tierPrice.Quantity < previousQty)
                     continue;
 
-                previousPrice = tierPrice.Price; 
+                previousPrice = tierPrice.Price;
                 previousQty = tierPrice.Quantity;
             }
 
-            return  previousPrice;
+            return previousPrice;
         }
 
         #endregion
 
         #region Methods
 
-       
+
         /// <summary>
         /// Gets the final price
         /// </summary>
@@ -218,6 +221,12 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             }
             if (result < decimal.Zero)
                 result = decimal.Zero;
+
+            if (HttpContext.Current.Request.Cookies["Currency"] != null && HttpContext.Current.Request.Cookies["Currency"].Value == "USD")
+            {
+                result = Math.Round(PriceConverter.ToUsd(result));
+            }
+
             return result;
         }
 
@@ -599,7 +608,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
         {
             return FormatPrice(Price, ShowCurrency, TargetCurrency, Language, priceIncludesTax, ShowTax);
         }
-        
+
         /// <summary>
         /// Formats the shipping price
         /// </summary>
@@ -609,7 +618,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
         /// <param name="Language">Language</param>
         /// <param name="priceIncludesTax">A value indicating whether price includes tax</param>
         /// <returns>Price</returns>
-        public static string FormatShippingPrice(decimal Price, bool ShowCurrency, string CurrencyCode, 
+        public static string FormatShippingPrice(decimal Price, bool ShowCurrency, string CurrencyCode,
             Language Language, bool priceIncludesTax)
         {
             Currency currency = CurrencyManager.GetCurrencyByCode(CurrencyCode);

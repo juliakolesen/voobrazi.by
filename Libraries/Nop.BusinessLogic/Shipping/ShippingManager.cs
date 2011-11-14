@@ -22,6 +22,9 @@ using NopSolutions.NopCommerce.Common;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
 {
+    using System.Web;
+    using Utils;
+
     /// <summary>
     /// Shipping manager
     /// </summary>
@@ -191,7 +194,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
         /// <param name="includingTax">A value indicating whether calculated price should include tax</param>
         /// <param name="Error">Error</param>
         /// <returns>Shipping total</returns>
-        public static decimal? GetShoppingCartShippingTotal(ShoppingCart Cart, 
+        public static decimal? GetShoppingCartShippingTotal(ShoppingCart Cart,
             Customer customer, bool includingTax, ref string Error)
         {
             decimal? shippingTotal = null;
@@ -200,7 +203,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
             if (isFreeShipping)
                 return Decimal.Zero;
 
-            ShippingOption lastShippingOption = null;            
+            ShippingOption lastShippingOption = null;
             if (customer != null)
             {
                 lastShippingOption = customer.LastShippingOption;
@@ -238,7 +241,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
                        customer,
                        ref Error);
                 }
-            }            
+            }
 
             if (!shippingTotal.HasValue)
             {
@@ -246,7 +249,14 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
             }
             else
             {
-                shippingTotal = Math.Round(shippingTotal.Value, 2);
+                if (HttpContext.Current.Request.Cookies["Currency"] != null && HttpContext.Current.Request.Cookies["Currency"].Value == "USD")
+                {
+                    shippingTotal = Math.Round(PriceConverter.ToUsd(shippingTotal.Value));
+                }
+                else
+                {
+                    shippingTotal = Math.Round(shippingTotal.Value, 2);
+                }
             }
             return shippingTotal;
         }
@@ -309,7 +319,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
 
             decimal additionalShippingCharge = GetShoppingCartAdditionalShippingCharge(Cart, customer);
             shippingOptions.ForEach(so => so.Rate += additionalShippingCharge);
-            
+
             if (isFreeShipping)
             {
                 shippingOptions.ForEach(so => so.Rate = Decimal.Zero);
@@ -341,7 +351,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
                     SettingManager.SetParam("Shipping.ShippingRateComputationMethod.ActiveID", value.ShippingRateComputationMethodID.ToString());
             }
         }
-        
+
         /// <summary>
         /// Gets or sets a default shipping origin address
         /// </summary>

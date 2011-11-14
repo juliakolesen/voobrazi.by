@@ -26,136 +26,141 @@ using NopSolutions.NopCommerce.BusinessLogic.Tax;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
-	public partial class ProductBox1Control : BaseNopUserControl
-	{
-		Product product;
 
-		protected void Page_Load(object sender, EventArgs e)
-		{
-		}
+    public partial class ProductBox1Control : BaseNopUserControl
+    {
+        Product product;
 
-		public override void DataBind()
-		{
-			base.DataBind();
-			BindData();
-		}
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        }
 
-		private void BindData()
-		{
-			if (product != null)
-			{
-				string productURL = SEOHelper.GetProductURL(product);
+        public override void DataBind()
+        {
+            base.DataBind();
+            BindData();
+        }
 
-				hlProduct.Text = Server.HtmlEncode(product.Name);
+        private void BindData()
+        {
+            if (product != null)
+            {
+                string productURL = SEOHelper.GetProductURL(product);
 
-				ProductPictureCollection productPictures = product.ProductPictures;
-				if (productPictures.Count > 0)
-				{
-					hlImageLink.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].Picture, ProductImageSize, true);
-					hlImageLink.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageLinkTitleFormat"), product.Name);
-					hlImageLink.Text = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-				}
-				else
-				{
-					hlImageLink.ImageUrl = PictureManager.GetDefaultPictureUrl(this.ProductImageSize);
-					hlImageLink.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageLinkTitleFormat"), product.Name);
-					hlImageLink.Text = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-				}
-				hlImageLink.NavigateUrl = productURL;
+                hlProduct.Text = Server.HtmlEncode(product.Name);
 
-				lShortDescription.Text = product.ShortDescription;
+                ProductPictureCollection productPictures = product.ProductPictures;
+                if (productPictures.Count > 0)
+                {
+                    hlImageLink.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].Picture, ProductImageSize, true);
+                    hlImageLink.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageLinkTitleFormat"), product.Name);
+                    hlImageLink.Text = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+                }
+                else
+                {
+                    hlImageLink.ImageUrl = PictureManager.GetDefaultPictureUrl(this.ProductImageSize);
+                    hlImageLink.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageLinkTitleFormat"), product.Name);
+                    hlImageLink.Text = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+                }
+                hlImageLink.NavigateUrl = productURL;
 
-				ProductVariantCollection productVariantCollection = product.ProductVariants;
-				if (productVariantCollection.Count > 0)
-				{
-					if (!product.HasMultipleVariants)
-					{
-						ProductVariant productVariant = productVariantCollection[0];
+                lShortDescription.Text = product.ShortDescription;
 
-						decimal finalPriceWithoutDiscountBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
+                ProductVariantCollection productVariantCollection = product.ProductVariants;
+                if (productVariantCollection.Count > 0)
+                {
+                    if (!product.HasMultipleVariants)
+                    {
+                        ProductVariant productVariant = productVariantCollection[0];
 
-						lblPrice.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
-					}
-					else
-					{
-						ProductVariant productVariant = product.MinimalPriceProductVariant;
-						if (productVariant != null)
-						{
-							decimal fromPriceBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
-							decimal fromPrice = CurrencyManager.ConvertCurrency(fromPriceBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-							lblPrice.Text = String.Format(GetLocaleResourceString("Products.PriceRangeFromText"), PriceHelper.FormatPrice(fromPrice));
-						}
-					}
-				}
-				else
-				{
-					lblPrice.Visible = false;
-				}
+                        decimal finalPriceWithoutDiscountBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
 
-				#region scjaarge's change
-				if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty)
-					litOrderOrNa.Text = "Нет в наличии";
-				#endregion scjaarge's change
-			}
-		}
+                        lblPrice.Text = PriceHelper.FormatPrice(finalPriceWithoutDiscountBase);
+                        if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
+                        {
+                            lblPrice.Text += "$";
+                        }
+                    }
+                    else
+                    {
+                        ProductVariant productVariant = product.MinimalPriceProductVariant;
+                        if (productVariant != null)
+                        {
+                            decimal fromPriceBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
+                            decimal fromPrice = CurrencyManager.ConvertCurrency(fromPriceBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
+                            lblPrice.Text = String.Format(GetLocaleResourceString("Products.PriceRangeFromText"), PriceHelper.FormatPrice(fromPrice));
+                        }
+                    }
+                }
+                else
+                {
+                    lblPrice.Visible = false;
+                }
 
-		protected void btnProductDetails_Click(object sender, CommandEventArgs e)
-		{
-			int productID = Convert.ToInt32(e.CommandArgument);
-			string productURL = SEOHelper.GetProductURL(productID);
-			Response.Redirect(productURL);
-		}
+                #region scjaarge's change
+                if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty)
+                    litOrderOrNa.Text = "Нет в наличии";
+                #endregion scjaarge's change
+            }
+        }
 
-		protected void btnAddToCart_Click(object sender, CommandEventArgs e)
-		{
-			int productID = Convert.ToInt32(e.CommandArgument);
-			int productVariantID = 0;
-			if (ProductManager.DirectAddToCartAllowed(productID, out productVariantID))
-			{
-				List<string> addToCartWarnings = ShoppingCartManager.AddToCart(ShoppingCartTypeEnum.ShoppingCart,
-					productVariantID, string.Empty, 1);
-				if (addToCartWarnings.Count == 0)
-				{
-					Response.Redirect("~/ShoppingCart.aspx");
-				}
-				else
-				{
-					string productURL = SEOHelper.GetProductURL(productID);
-					Response.Redirect(productURL);
-				}
-			}
-			else
-			{
-				string productURL = SEOHelper.GetProductURL(productID);
-				Response.Redirect(productURL);
-			}
-		}
+        protected void btnProductDetails_Click(object sender, CommandEventArgs e)
+        {
+            int productID = Convert.ToInt32(e.CommandArgument);
+            string productURL = SEOHelper.GetProductURL(productID);
+            Response.Redirect(productURL);
+        }
 
-		public Product Product
-		{
-			get
-			{
-				return product;
-			}
-			set
-			{
-				product = value;
-			}
-		}
+        protected void btnAddToCart_Click(object sender, CommandEventArgs e)
+        {
+            int productID = Convert.ToInt32(e.CommandArgument);
+            int productVariantID = 0;
+            if (ProductManager.DirectAddToCartAllowed(productID, out productVariantID))
+            {
+                List<string> addToCartWarnings = ShoppingCartManager.AddToCart(ShoppingCartTypeEnum.ShoppingCart,
+                    productVariantID, string.Empty, 1);
+                if (addToCartWarnings.Count == 0)
+                {
+                    Response.Redirect("~/ShoppingCart.aspx");
+                }
+                else
+                {
+                    string productURL = SEOHelper.GetProductURL(productID);
+                    Response.Redirect(productURL);
+                }
+            }
+            else
+            {
+                string productURL = SEOHelper.GetProductURL(productID);
+                Response.Redirect(productURL);
+            }
+        }
 
-		public int ProductImageSize
-		{
-			get
-			{
-				if (ViewState["ProductImageSize"] == null)
-					return SettingManager.GetSettingValueInteger("Media.Product.ThumbnailImageSize", 196);
-				else
-					return (int)ViewState["ProductImageSize"];
-			}
-			set
-			{
-				ViewState["ProductImageSize"] = value;
-			}
-		}
-	}
+        public Product Product
+        {
+            get
+            {
+                return product;
+            }
+            set
+            {
+                product = value;
+            }
+        }
+
+        public int ProductImageSize
+        {
+            get
+            {
+                if (ViewState["ProductImageSize"] == null)
+                    return SettingManager.GetSettingValueInteger("Media.Product.ThumbnailImageSize", 196);
+                else
+                    return (int)ViewState["ProductImageSize"];
+            }
+            set
+            {
+                ViewState["ProductImageSize"] = value;
+            }
+        }
+    }
 }

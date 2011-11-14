@@ -4,10 +4,12 @@
 <%@ Register TagPrefix="nopCommerce" TagName="LanguageSelector" Src="~/Modules/LanguageSelector.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="TaxDisplayTypeSelector" Src="~/Modules/TaxDisplayTypeSelector.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
+
 <asp:LoginView ID="topLoginView" runat="server">
 	<AnonymousTemplate>
 		<a href="<%=Page.ResolveUrl("~/Login.aspx")%>" title="Вход">Вход</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;<a
-			href="<%=Page.ResolveUrl("~/Register.aspx")%>" title="Регистрация">Регистрация</a><br /><br />
+			href="<%=Page.ResolveUrl("~/Register.aspx")%>" title="Регистрация">Регистрация</a>
+            <br /><br />
 		<div class="logo">
 
 <script type="text/javascript">
@@ -49,7 +51,8 @@
 				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" width="299"
 					height="90" /></a></div>
 		Добро пожаловать, <span class="name">
-			<%=Page.User.Identity.Name %></span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;<a href="<%=Page.ResolveUrl("~/Logout.aspx")%>" title="Выйти">Выйти</a><br />
+			<%=Page.User.Identity.Name %></span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;<a href="<%=Page.ResolveUrl("~/Logout.aspx")%>" title="Выйти">Выйти</a>
+            <br />
 		
 		<span style="padding-right:15px;"><nopCommerce:Topic ID="ContactPhones2" runat="server" TopicName="ContactPhones2" /></span>
 		
@@ -59,6 +62,13 @@
 		<span class="amount_text">товаров</span>)</a>
 	</LoggedInTemplate>
 </asp:LoginView>
+<br />
+Валюта:
+<asp:DropDownList id="ddlCur1" runat="server" OnSelectedIndexChanged="DdlCurSelectedValueChanged" AutoPostBack="true">
+    <asp:ListItem Value="BYR" Text="Белорусские рубли" />
+    <asp:ListItem Value="USD" Text="Доллары США" />
+</asp:DropDownList>
+
 <% if (Page.User.IsInRole("Admin"))
    { %>
 <li><a href="<%=Page.ResolveUrl("~/Administration/Default.aspx")%>" class="ico-admin">
