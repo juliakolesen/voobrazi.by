@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web.Modules {
+namespace NopCommerceStore.Administration {
     
     
-    public partial class HeaderControl {
+    public partial class UsdRate {
         
         /// <summary>
-        /// topLoginView control.
+        /// tbUsdRate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView topLoginView;
+        protected global::System.Web.UI.WebControls.TextBox tbUsdRate;
         
         /// <summary>
-        /// ddlCur1 control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCur1;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
     }
 }

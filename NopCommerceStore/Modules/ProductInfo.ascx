@@ -24,8 +24,7 @@
 						<asp:Literal ID="lShortDescription" runat="server" /></p>
 					<asp:Label runat="server" ID="lblAttributes" />
 					<span class="pink">Цена:</span>
-					<asp:Label runat="server" ID="lblPrice1" />
-					руб<br />
+					<asp:Label runat="server" ID="lblPrice1" /><br />
 					<br />
 					<p runat="server" id="pUniqueProposal" visible="false" class="smaller">
 						<span class="pink">*</span> Для этого товара действует уникальное предложение по

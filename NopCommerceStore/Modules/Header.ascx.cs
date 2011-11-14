@@ -13,27 +13,24 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Text;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using NopSolutions.NopCommerce.BusinessLogic.Content.Forums;
 using NopSolutions.NopCommerce.BusinessLogic;
+using NopSolutions.NopCommerce.BusinessLogic.Content.Forums;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
+    using System.Web;
+    using System.Web.UI.WebControls;
+
     public partial class HeaderControl : BaseNopUserControl
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
 
+            if (!Page.IsPostBack && Request.Cookies["Currency"] != null)
+            {
+                ddlCur1.SelectedValue = Request.Cookies["Currency"].Value;
+            }
         }
 
         protected string GetUnreadPrivateMessages()
@@ -51,6 +48,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 }
             }
             return result;
+        }
+
+        protected void DdlCurSelectedValueChanged(object sender, EventArgs e)
+        {
+            Response.Cookies.Add(new HttpCookie("Currency", ((DropDownList)sender).SelectedValue));
+            Response.Redirect(Request.Url.ToString());
         }
     }
 }

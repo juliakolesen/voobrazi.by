@@ -103,6 +103,7 @@
         <siteMapNode title="Currencies" url="~/Administration/Currencies.aspx" description="Manage Store Currencies" nopResourceTitle="Admin.Sitemap.CurrenciesTitle" nopResourceDescription="Admin.Sitemap.CurrenciesDescription" />
         <siteMapNode title="Warehouses" url="~/Administration/Warehouses.aspx" description="Manage Warehouses" nopResourceTitle="Admin.Sitemap.WarehousesTitle" nopResourceDescription="Admin.Sitemap.WarehousesDescription" />
       </siteMapNode>
+      <siteMapNode title="Курс доллара" url="~/Administration/UsdRate.aspx" />
       <siteMapNode title="All Settings" url="~/Administration/Settings.aspx" description="Manage All Settings" nopResourceTitle="Admin.Sitemap.SettingsTitle" nopResourceDescription="Admin.Sitemap.SettingsDescription" />
     </siteMapNode>
     <!-- End Configuration -->

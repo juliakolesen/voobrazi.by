@@ -2994,6 +2994,13 @@
     <Compile Include="Administration\Tax\StrikeIron\ConfigureTax.ascx.designer.cs">
       <DependentUpon>ConfigureTax.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\UsdRate.aspx.cs">
+      <DependentUpon>UsdRate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\UsdRate.aspx.designer.cs">
+      <DependentUpon>UsdRate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\WarehouseAdd.aspx.cs">
       <DependentUpon>WarehouseAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4668,6 +4675,7 @@
     <Content Include="Administration\Tax\General\ConfigureTax.ascx" />
     <Content Include="Administration\Tax\General\TaxRates.ascx" />
     <Content Include="Administration\Tax\StrikeIron\ConfigureTax.ascx" />
+    <Content Include="Administration\UsdRate.aspx" />
     <Content Include="Administration\WarehouseAdd.aspx" />
     <Content Include="Administration\WarehouseDetails.aspx" />
     <Content Include="Administration\Warehouses.aspx" />

@@ -13,37 +13,27 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
-using System.Data;
 using System.Text;
-using System.Web;
-using System.Web.Caching;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
 using NopSolutions.NopCommerce.BusinessLogic.CustomerManagement;
 using NopSolutions.NopCommerce.BusinessLogic.Directory;
-using NopSolutions.NopCommerce.BusinessLogic.Localization;
+using NopSolutions.NopCommerce.BusinessLogic.Media;
 using NopSolutions.NopCommerce.BusinessLogic.Orders;
-using NopSolutions.NopCommerce.BusinessLogic.Payment;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Attributes;
 using NopSolutions.NopCommerce.BusinessLogic.Promo.Discounts;
 using NopSolutions.NopCommerce.BusinessLogic.SEO;
-using NopSolutions.NopCommerce.BusinessLogic.Shipping;
 using NopSolutions.NopCommerce.BusinessLogic.Tax;
 using NopSolutions.NopCommerce.Common.Utils;
-using NopSolutions.NopCommerce.BusinessLogic.Media;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
+    using BusinessLogic.Utils;
+
     public partial class OrderSummaryControl : BaseNopUserControl
     {
         protected override void OnInit(EventArgs e)
@@ -227,7 +217,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 }
             }
             return pictureUrl;
-         }
+        }
 
         public string GetProductURL(ShoppingCartItem shoppingCartItem)
         {
@@ -242,27 +232,45 @@ namespace NopSolutions.NopCommerce.Web.Modules
             string result = ProductAttributeHelper.FormatAttributes(shoppingCartItem.ProductVariant, shoppingCartItem.AttributesXML);
             return result;
         }
-        
+
         public string GetShoppingCartItemUnitPriceString(ShoppingCartItem shoppingCartItem)
         {
             StringBuilder sb = new StringBuilder();
             decimal shoppingCartUnitPriceWithDiscountBase = TaxManager.GetPrice(shoppingCartItem.ProductVariant, PriceHelper.GetUnitPrice(shoppingCartItem, true));
             decimal shoppingCartUnitPriceWithDiscount = CurrencyManager.ConvertCurrency(shoppingCartUnitPriceWithDiscountBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-            string unitPriceString = PriceHelper.FormatPrice(shoppingCartUnitPriceWithDiscount);
-            
+
+            string unitPriceString = "";
+            if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
+            {
+                unitPriceString = PriceHelper.FormatPrice(PriceConverter.ToUsd(shoppingCartUnitPriceWithDiscount)) + "$";
+            }
+            else
+            {
+                unitPriceString = PriceHelper.FormatPrice(shoppingCartUnitPriceWithDiscount);
+            }
+
             sb.Append("<span class=\"productPrice\">");
             sb.Append(unitPriceString);
             sb.Append("</span>");
             return sb.ToString();
         }
-        
+
         public string GetShoppingCartItemSubTotalString(ShoppingCartItem shoppingCartItem)
         {
             StringBuilder sb = new StringBuilder();
             decimal shoppingCartItemSubTotalWithDiscountBase = TaxManager.GetPrice(shoppingCartItem.ProductVariant, PriceHelper.GetSubTotal(shoppingCartItem, true));
             decimal shoppingCartItemSubTotalWithDiscount = CurrencyManager.ConvertCurrency(shoppingCartItemSubTotalWithDiscountBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-            string subTotalString = PriceHelper.FormatPrice(shoppingCartItemSubTotalWithDiscount);
-            
+
+            string subTotalString = "";
+            if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
+            {
+                subTotalString = PriceHelper.FormatPrice(PriceConverter.ToUsd(shoppingCartItemSubTotalWithDiscount)) + "$";
+            }
+            else
+            {
+                subTotalString = PriceHelper.FormatPrice(shoppingCartItemSubTotalWithDiscount);
+            }
+
             sb.Append("<span class=\"productPrice\">");
             sb.Append(subTotalString);
             sb.Append("</span>");
@@ -280,7 +288,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             }
             return sb.ToString();
         }
-        
+
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateShoppingCart();

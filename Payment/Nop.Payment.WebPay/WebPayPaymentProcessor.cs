@@ -13,6 +13,9 @@ using NopSolutions.NopCommerce.Common.Utils;
 
 namespace Nop.Payment.WebPay
 {
+    using System.Web;
+    using NopSolutions.NopCommerce.BusinessLogic.Utils;
+
     public class WebPayPaymentProcessor : IPaymentMethod
     {
         public static string Sk
@@ -64,7 +67,16 @@ namespace Nop.Payment.WebPay
             remotePostHelper.Add("wsb_storeid", StoreId);
             remotePostHelper.Add("wsb_store", "voobrazi.by");
             remotePostHelper.Add("wsb_order_num", order.OrderID.ToString());
-            remotePostHelper.Add("wsb_currency_id", CurrencyId);
+
+            if (HttpContext.Current.Request.Cookies["Currency"] != null && HttpContext.Current.Request.Cookies["Currency"].Value == "USD")
+            {
+                remotePostHelper.Add("wsb_currency_id", "USD");
+            }
+            else
+            {
+                remotePostHelper.Add("wsb_currency_id", CurrencyId);
+            }
+
             remotePostHelper.Add("wsb_version", "2");
             remotePostHelper.Add("wsb_language_id", "russian");
             string seed = ((int)(DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds).ToString();
@@ -75,7 +87,16 @@ namespace Nop.Payment.WebPay
             signatureBulder.Append(order.OrderID);
             signatureBulder.Append(UseSandBox ? "1" : "0");
             signatureBulder.Append(CurrencyId);
-            signatureBulder.Append(((int)CalculateTotalServiceFee(order.OrderProductVariants)).ToString());
+
+            if (HttpContext.Current.Request.Cookies["Currency"] != null && HttpContext.Current.Request.Cookies["Currency"].Value == "USD")
+            {
+                signatureBulder.Append(PriceConverter.ToUsd(((int)CalculateTotalServiceFee(order.OrderProductVariants))).ToString());
+            }
+            else
+            {
+                signatureBulder.Append(((int)CalculateTotalServiceFee(order.OrderProductVariants)).ToString());
+            }
+
             signatureBulder.Append(Sk);
 
             byte[] buffer = Encoding.Default.GetBytes(signatureBulder.ToString());
@@ -92,13 +113,38 @@ namespace Nop.Payment.WebPay
                 var pv = order.OrderProductVariants[i];
                 remotePostHelper.Add(string.Format("wsb_invoice_item_name[{0}]", i), pv.ProductVariant.Product.Name);
                 remotePostHelper.Add(string.Format("wsb_invoice_item_quantity[{0}]", i), pv.Quantity.ToString());
-                remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), AddServiceFee(pv.UnitPriceExclTax).ToString());
+
+                if (HttpContext.Current.Request.Cookies["Currency"] != null && HttpContext.Current.Request.Cookies["Currency"].Value == "USD")
+                {
+                    remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), PriceConverter.ToUsd(AddServiceFee(pv.UnitPriceExclTax)).ToString());
+                }
+                else
+                {
+                    remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), AddServiceFee(pv.UnitPriceExclTax).ToString());
+                }
             }
 
             remotePostHelper.Add("wsb_tax", "0");
             remotePostHelper.Add("wsb_shipping_name", "Доставка курьером");
-            remotePostHelper.Add("wsb_shipping_price", AddServiceFee(order.OrderShippingExclTax).ToString());
-            remotePostHelper.Add("wsb_total", ((int)CalculateTotalServiceFee(order.OrderProductVariants)).ToString());
+
+            if (HttpContext.Current.Request.Cookies["Currency"] != null && HttpContext.Current.Request.Cookies["Currency"].Value == "USD")
+            {
+                remotePostHelper.Add("wsb_shipping_price", PriceConverter.ToUsd(AddServiceFee(order.OrderShippingExclTax)).ToString());
+            }
+            else
+            {
+                remotePostHelper.Add("wsb_shipping_price", AddServiceFee(order.OrderShippingExclTax).ToString());
+            }
+
+            if (HttpContext.Current.Request.Cookies["Currency"] != null && HttpContext.Current.Request.Cookies["Currency"].Value == "USD")
+            {
+                remotePostHelper.Add("wsb_total", PriceConverter.ToUsd(((int)CalculateTotalServiceFee(order.OrderProductVariants))).ToString());
+            }
+            else
+            {
+                remotePostHelper.Add("wsb_total", ((int)CalculateTotalServiceFee(order.OrderProductVariants)).ToString());
+            }
+
             if (!string.IsNullOrEmpty(order.ShippingEmail))
                 remotePostHelper.Add("wsb_email", order.ShippingEmail);
             remotePostHelper.Add("wsb_phone", order.ShippingPhoneNumber);

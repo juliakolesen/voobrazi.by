@@ -314,6 +314,7 @@
     <Compile Include="Tax\TaxRateCollection.cs" />
     <Compile Include="Tax\TaxCategory.cs" />
     <Compile Include="Tax\TaxCategoryCollection.cs" />
+    <Compile Include="Utils\PriceConverter.cs" />
     <Compile Include="Utils\SiteHelper.cs" />
     <Compile Include="Utils\PDFHelper.cs" />
     <Compile Include="Utils\Html\EditorTypeEnum.cs" />
