@@ -11,7 +11,6 @@
 			href="<%=Page.ResolveUrl("~/Register.aspx")%>" title="Регистрация">Регистрация</a>
             <br /><br />
 		<div class="logo">
-
 <script type="text/javascript">
 
     var _gaq = _gaq || [];
@@ -37,29 +36,51 @@
 </script>
 			<a href="/" title="Воображение">
 				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" /></a></div>
-		
+                <div class="search">
+                    <table runat="server" id="tblSearch" cellpadding="0" cellspacing="0">
+						    <tr>
+							    <td>
+								    <asp:TextBox ID="tbSearchCriteria1" runat="server" />
+							    </td>
+							    <td style="padding-left: 5px;">
+								    <asp:LinkButton ID="btnSearch1" runat="server" CssClass="button-search" OnCommand="btnSearch1_Click" />
+							    </td>
+						    </tr>
+			        </table>
+                </div>
+           </br>
+           </br>
 		<span style="padding-right:15px;"><nopCommerce:Topic ID="ContactPhones" runat="server" TopicName="ContactPhones" /></span>
-		
 		<a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
 			<img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom"
-				title="Корзина" /> Корзина (<span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
-		<span class="amount_text">товаров</span>)</a>
+				title="Корзина" /> Корзина (<span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span><span class="amount_text">товаров</span>)</a>
 	</AnonymousTemplate>
 	<LoggedInTemplate>
-		<div class="logo">
+		Добро пожаловать, <span class="name">
+			<%=Page.User.Identity.Name %></span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;<a href="<%=Page.ResolveUrl("~/Logout.aspx")%>" title="Выйти">Выйти</a>
+            <br /><br />
+            <div class="logo">
 			<a href="/" title="Воображение">
 				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" width="299"
 					height="90" /></a></div>
-		Добро пожаловать, <span class="name">
-			<%=Page.User.Identity.Name %></span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;<a href="<%=Page.ResolveUrl("~/Logout.aspx")%>" title="Выйти">Выйти</a>
-            <br />
-		
+		  <div class="search">
+                    <table runat="server" id="tblSearch" cellpadding="0" cellspacing="0">
+						    <tr>
+							    <td>
+								    <asp:TextBox ID="tbSearchCriteria1" runat="server" />
+							    </td>
+							    <td style="padding-left: 5px;">
+								    <asp:LinkButton ID="btnSearch1" runat="server" CssClass="button-search" OnCommand="btnSearch1_Click" />
+							    </td>
+						    </tr>
+			        </table>
+           </div>
+           </br>
+           </br>
 		<span style="padding-right:15px;"><nopCommerce:Topic ID="ContactPhones2" runat="server" TopicName="ContactPhones2" /></span>
-		
 		<a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
 			<img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom"
-				title="Корзина" /> Корзина (<span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
-		<span class="amount_text">товаров</span>)</a>
+				title="Корзина" /> Корзина (<span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span><span class="amount_text">товаров</span>)</a>
 	</LoggedInTemplate>
 </asp:LoginView>
 <br />

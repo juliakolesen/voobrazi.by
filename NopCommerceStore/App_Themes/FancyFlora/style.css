@@ -659,6 +659,22 @@ a.button-order:hover
 	height: 28px;
 }
 
+a.button-search
+{
+	display: block;
+	background: url(../../images/ff_images/button-search.gif) 0 0;
+	width: 127px;
+	height: 28px;
+}
+
+a.button-search:hover
+{
+	display: block;
+	background: url(../../images/ff_images/button-search.gif) 0 -28px;
+	width: 127px;
+	height: 28px;
+}
+
 a.button-order2
 {
 	display: block;
@@ -711,4 +727,9 @@ a.button-order2:hover
 {
 	font-size: 14px;
 	padding: 0 25px;
+}
+
+.search
+{
+float: right;
 }

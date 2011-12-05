@@ -15,11 +15,13 @@
 using System;
 using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.BusinessLogic.Content.Forums;
+using NopSolutions.NopCommerce.BusinessLogic.Audit;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
     using System.Web;
     using System.Web.UI.WebControls;
+    using NopSolutions.NopCommerce.BusinessLogic.Products;
 
     public partial class HeaderControl : BaseNopUserControl
     {
@@ -54,6 +56,15 @@ namespace NopSolutions.NopCommerce.Web.Modules
         {
             Response.Cookies.Add(new HttpCookie("Currency", ((DropDownList)sender).SelectedValue));
             Response.Redirect(Request.Url.ToString());
+        }
+
+        protected void btnSearch1_Click(object sender, EventArgs e)
+        {
+            var tbSearchCriteria1 = (TextBox)topLoginView.FindControl("tbSearchCriteria1");
+            if (tbSearchCriteria1.Text.Length > 0)
+            {
+                Response.Redirect("~/SearchResults.aspx?searchParameter=" + tbSearchCriteria1.Text);
+            }
         }
     }
 }
