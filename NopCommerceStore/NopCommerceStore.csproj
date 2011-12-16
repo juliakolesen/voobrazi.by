@@ -3196,6 +3196,19 @@
     <Compile Include="Modules\PrivateMessagesView.ascx.designer.cs">
       <DependentUpon>PrivateMessagesView.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\SearchResultsControl.ascx.cs">
+      <DependentUpon>SearchResultsControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\SearchResultsControl.ascx.designer.cs">
+      <DependentUpon>SearchResultsControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResults.aspx.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResults.aspx.designer.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Templates\Payment\eWayUK\PaymentModule.ascx.cs">
       <DependentUpon>PaymentModule.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5259,6 +5272,7 @@
     <Content Include="images\VisaMastercard.gif" />
     <Content Include="images\zoom-icon7.gif" />
     <Content Include="Install\install.aspx" />
+    <Content Include="Modules\SearchResultsControl.ascx" />
     <Content Include="Scripts\slimbox2.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -5348,6 +5362,7 @@
     <Content Include="robots.txt" />
     <Content Include="Scripts\snowmaker.js" />
     <Content Include="Search.aspx" />
+    <Content Include="SearchResults.aspx" />
     <Content Include="ShippingInfo.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="SitemapSEO.aspx" />
@@ -5911,7 +5926,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>14123</DevelopmentServerPort>
+          <DevelopmentServerPort>18575</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/NopCommerceStore</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
