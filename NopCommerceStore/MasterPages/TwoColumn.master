@@ -4,6 +4,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="PriceRangeFilter" Src="~/Modules/PriceRangeFilter.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductSpecificationFilter" Src="~/Modules/ProductSpecificationFilter.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="SearchControl" Src="~/Modules/SearchControlDefault.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
 
@@ -36,6 +37,10 @@
 			<td align="center">
 				<asp:ContentPlaceHolder ID="cph2" runat="server">
 					<nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+				</asp:ContentPlaceHolder>
+                </br></br>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+					<nopCommerce:SearchControl ID="SearchControl" runat="server" />
 				</asp:ContentPlaceHolder>
 				<img src="<%= Page.ResolveUrl("~/images/ff_images/orchid.jpg") %>" alt="" /><br />
 				<span class="parameters">Подбор по параметрам:</span>

@@ -2,6 +2,7 @@
 	CodeBehind="OneColumn.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.OneColumn" %>
 
 <%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="SearchControl" Src="~/Modules/SearchControlDefault.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
 	<style type="text/css">
@@ -16,6 +17,10 @@
 			<td align="center" width="320">
 				<asp:ContentPlaceHolder ID="cph2" runat="server">
 					<nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+				</asp:ContentPlaceHolder>
+                </br></br>
+                <asp:ContentPlaceHolder ID="cphSearch" runat="server">
+					<nopCommerce:SearchControl ID="Search" runat="server" />
 				</asp:ContentPlaceHolder>
 				<div class="label" align="center">
 					<div class="label-text">

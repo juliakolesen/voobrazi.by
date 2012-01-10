@@ -65,7 +65,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
 
             int totalRecords = 0;
             ProductCollection products = ProductManager.GetAllProducts(categoryID, manufacturerID, null,
-                null, null, productName, false, 1000, 0, null, out totalRecords);
+                null, null, productName, false, 1000, 0, null, 0, true, out totalRecords);
             return products;
         }
 

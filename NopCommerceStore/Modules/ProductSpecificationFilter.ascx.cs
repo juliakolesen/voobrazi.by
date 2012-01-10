@@ -145,7 +145,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
 			for (int i=0; i<Request.QueryString.Keys.Count; i++)
 			{
-				if (Request.QueryString.Keys[i] == "CategoryID")
+                if (Request.QueryString.Keys[i] == "CategoryID" || Request.QueryString.Keys[i] == "pageSize")
 					continue;
 
 				string qsp = Request.QueryString.Keys[i];

@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.Master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.root" %>
 
 <%@ Register TagPrefix="nopCommerce" TagName="Header" Src="~/Modules/Header.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="InformationMenu" Src="~/Modules/InformationMenu.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="HeaderMenu" Src="~/Modules/HeaderMenu.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Footer" Src="~/Modules/Footer.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="WebAnalytics" Src="~/Modules/WebAnalytics.ascx" %>
@@ -24,6 +25,11 @@
 			<tr>
 				<td class="register">
 					<nopCommerce:Header ID="ctrlHeader" runat="server" />
+				</td>
+			</tr>
+            <tr>
+				<td>
+					<nopCommerce:InformationMenu ID="InformationMenu" runat="server" />
 				</td>
 			</tr>
 			<tr>

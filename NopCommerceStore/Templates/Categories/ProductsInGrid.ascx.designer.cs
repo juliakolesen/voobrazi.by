@@ -22,6 +22,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         protected global::System.Web.UI.WebControls.Repeater rptrCategoryBreadcrumb;
         
         /// <summary>
+        /// sortBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList sortBy;
+        
+        /// <summary>
         /// productsPager control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Controls.Pager productsPager;
+        
+        /// <summary>
+        /// productsCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList productsCount;
         
         /// <summary>
         /// dlProducts control.

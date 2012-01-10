@@ -49,6 +49,15 @@ namespace NopSolutions.NopCommerce.Web.MasterPages {
         protected global::NopSolutions.NopCommerce.Web.Modules.HeaderControl ctrlHeader;
         
         /// <summary>
+        /// InformationMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.InformationMenu InformationMenu;
+        
+        /// <summary>
         /// ctrlHeaderMenu control.
         /// </summary>
         /// <remarks>

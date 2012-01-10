@@ -117,6 +117,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutDelivery.aspx.cs">
+      <DependentUpon>AboutDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutDelivery.aspx.designer.cs">
+      <DependentUpon>AboutDelivery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AboutSalon.aspx.cs">
       <DependentUpon>AboutSalon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3161,6 +3168,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HowToOrder.aspx.cs">
+      <DependentUpon>HowToOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HowToOrder.aspx.designer.cs">
+      <DependentUpon>HowToOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HowToPay.aspx.cs">
+      <DependentUpon>HowToPay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HowToPay.aspx.designer.cs">
+      <DependentUpon>HowToPay.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\OneColumn.master.cs">
       <DependentUpon>OneColumn.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3174,6 +3195,13 @@
     </Compile>
     <Compile Include="MasterPages\OneColumnHome.master.designer.cs">
       <DependentUpon>OneColumnHome.master</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\InformationMenu.ascx.cs">
+      <DependentUpon>InformationMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\InformationMenu.ascx.designer.cs">
+      <DependentUpon>InformationMenu.ascx</DependentUpon>
     </Compile>
     <Compile Include="Modules\ProductSpecificationFilter.ascx.cs">
       <DependentUpon>ProductSpecificationFilter.ascx</DependentUpon>
@@ -3196,6 +3224,13 @@
     <Compile Include="Modules\PrivateMessagesView.ascx.designer.cs">
       <DependentUpon>PrivateMessagesView.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\SearchControlDefault.ascx.cs">
+      <DependentUpon>SearchControlDefault.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\SearchControlDefault.ascx.designer.cs">
+      <DependentUpon>SearchControlDefault.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\SearchResultsControl.ascx.cs">
       <DependentUpon>SearchResultsControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3205,6 +3240,7 @@
     </Compile>
     <Compile Include="SearchResults.aspx.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
@@ -4544,6 +4580,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutDelivery.aspx" />
     <Content Include="AboutUs.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="AddressEdit.aspx" />
@@ -5237,6 +5274,8 @@
     <Content Include="Google\sample-neworder.txt" />
     <Content Include="Google\sample-orderchangestate.txt" />
     <Content Include="Google\sample-risk.txt" />
+    <Content Include="HowToOrder.aspx" />
+    <Content Include="HowToPay.aspx" />
     <Content Include="images\AdminLogo.jpg" />
     <Content Include="images\button-order2.gif" />
     <Content Include="images\Calendar_scheduleHS.png" />
@@ -5272,6 +5311,8 @@
     <Content Include="images\VisaMastercard.gif" />
     <Content Include="images\zoom-icon7.gif" />
     <Content Include="Install\install.aspx" />
+    <Content Include="Modules\InformationMenu.ascx" />
+    <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />
     <Content Include="Scripts\slimbox2.js" />
     <Content Include="Login.aspx" />

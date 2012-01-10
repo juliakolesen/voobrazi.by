@@ -285,7 +285,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         public override DBProductCollection GetAllProducts(int CategoryID, int ManufacturerID,
             bool? FeaturedProducts, decimal? PriceMin, decimal? PriceMax, string Keywords,
             bool SearchDescriptions, int PageSize, int PageIndex,
-            List<int> FilteredSpecs, bool showHidden, out int TotalRecords)
+            List<int> FilteredSpecs, bool showHidden, int SortBy, bool SortTo, out int TotalRecords)
         {
             TotalRecords = 0;
             DBProductCollection productCollection = new DBProductCollection();
@@ -310,6 +310,8 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
             db.AddInParameter(dbCommand, "ShowHidden", DbType.Boolean, showHidden);
             db.AddInParameter(dbCommand, "PageSize", DbType.Int32, PageSize);
             db.AddInParameter(dbCommand, "PageIndex", DbType.Int32, PageIndex);
+            db.AddInParameter(dbCommand, "SortBy", DbType.Int32, SortBy);
+            db.AddInParameter(dbCommand, "SortTo", DbType.Boolean, SortTo);
 
             string commaSeparatedSpecIDs = string.Empty;
             if (FilteredSpecs != null)

@@ -13,6 +13,15 @@ namespace NopSolutions.NopCommerce.Web.Modules {
     public partial class SearchResultsControl {
         
         /// <summary>
+        /// sortBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList sortBy;
+        
+        /// <summary>
         /// productsPager control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Controls.Pager productsPager;
+        
+        /// <summary>
+        /// productsCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList productsCount;
         
         /// <summary>
         /// dlProducts control.

@@ -1,31 +1,36 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root.master" AutoEventWireup="true"
-	CodeBehind="OneColumnHome.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.OneColumnHome" %>
+    CodeBehind="OneColumnHome.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.OneColumnHome" %>
 
 <%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="SearchControl" Src="~/Modules/SearchControlDefault.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
-	<table width="100%" cellpadding="0" cellspacing="0">
-		<tr valign="top">
-			<td class="mainimg">
-				<nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
-			</td>
-		</tr>
-		<tr>
-			<td align="center">
-				<div class="container">
-					<div class="cont_top">
-						<div class="titl">
-							<%=Page.Title %></div>
-					</div>
-					<div class="cont_middle">
-						<div class="text">
-							<asp:ContentPlaceHolder ID="cph1" runat="server">
-							</asp:ContentPlaceHolder>
-						</div>
-					</div>
-					<div class="cont_bottom">
-					</div>
-				</div>
-			</td>
-		</tr>
-	</table>
+    <table width="100%" cellpadding="0" cellspacing="0">
+        <tr valign="top">
+            <td class="mainimg">
+                <nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+            </td>
+        </tr>
+        <tr>
+        </br></br>
+            <nopCommerce:SearchControl ID="SearchControl" runat="server" />
+        </tr>
+        <tr>
+            <td align="center">
+                <div class="container">
+                    <div class="cont_top">
+                        <div class="titl">
+                            <%=Page.Title %></div>
+                    </div>
+                    <div class="cont_middle">
+                        <div class="text">
+                            <asp:ContentPlaceHolder ID="cph1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <div class="cont_bottom">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
