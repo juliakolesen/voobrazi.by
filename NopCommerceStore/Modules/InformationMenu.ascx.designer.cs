@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web {
+namespace NopSolutions.NopCommerce.Web.Modules {
     
     
-    public partial class Default {
+    public partial class InformationMenu {
     }
 }
