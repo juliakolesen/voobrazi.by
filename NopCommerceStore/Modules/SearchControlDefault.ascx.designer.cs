@@ -7,63 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web.MasterPages {
+namespace NopSolutions.NopCommerce.Web.Modules {
     
     
-    public partial class OneColumn {
+    public partial class SearchControlDefault {
         
         /// <summary>
-        /// cph2 control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph2;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// ctrlCategoryNavigation control.
+        /// tblSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.CategoryNavigation ctrlCategoryNavigation;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblSearch;
         
         /// <summary>
-        /// cphSearch control.
+        /// tbSearchCriteria1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphSearch;
+        protected global::System.Web.UI.WebControls.TextBox tbSearchCriteria1;
         
         /// <summary>
-        /// Search control.
+        /// btnSearch1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.SearchControlDefault Search;
-        
-        /// <summary>
-        /// topic control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topic;
-        
-        /// <summary>
-        /// cph1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph1;
+        protected global::System.Web.UI.WebControls.LinkButton btnSearch1;
     }
 }

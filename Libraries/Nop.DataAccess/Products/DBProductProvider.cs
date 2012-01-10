@@ -49,7 +49,8 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         /// <returns>Product collection</returns>
         public abstract DBProductCollection GetAllProducts(int CategoryID, int ManufacturerID,
             bool? FeaturedProducts, decimal? PriceMin, decimal? PriceMax, string Keywords, bool SearchDescriptions,
-            int PageSize, int PageIndex, List<int> FilteredSpecs, bool showHidden, out int TotalRecords);
+            int PageSize, int PageIndex, List<int> FilteredSpecs, bool showHidden,
+            int SortBy, bool SortTo, out int TotalRecords);
 
         /// <summary>
         /// Gets all products displayed on the home page

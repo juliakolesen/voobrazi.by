@@ -118,7 +118,9 @@ namespace NopSolutions.NopCommerce.Controls
                 }
 
                 HyperLink child = new HyperLink();
-                child.Text = this.LastButtonText;
+                String lastButtonText = String.IsNullOrEmpty(this.LastButtonText) ? 
+                                        this.TotalPages.ToString() : this.LastButtonText;
+                child.Text = lastButtonText;
                 child.NavigateUrl = this.GetPageNavigateUrl(this.TotalPages);
                 control.Controls.Add(child);
             }

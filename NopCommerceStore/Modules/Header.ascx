@@ -36,18 +36,6 @@
 </script>
 			<a href="/" title="Воображение">
 				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" /></a></div>
-                <div class="search">
-                    <table runat="server" id="tblSearch" cellpadding="0" cellspacing="0">
-						    <tr>
-							    <td>
-								    <asp:TextBox ID="tbSearchCriteria1" runat="server" />
-							    </td>
-							    <td style="padding-left: 5px;">
-								    <asp:LinkButton ID="btnSearch1" runat="server" CssClass="button-search" OnCommand="btnSearch1_Click" />
-							    </td>
-						    </tr>
-			        </table>
-                </div>
            </br>
            </br>
 		<span style="padding-right:15px;"><nopCommerce:Topic ID="ContactPhones" runat="server" TopicName="ContactPhones" /></span>
@@ -63,18 +51,6 @@
 			<a href="/" title="Воображение">
 				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" width="299"
 					height="90" /></a></div>
-		  <div class="search">
-                    <table runat="server" id="tblSearch" cellpadding="0" cellspacing="0">
-						    <tr>
-							    <td>
-								    <asp:TextBox ID="tbSearchCriteria1" runat="server" />
-							    </td>
-							    <td style="padding-left: 5px;">
-								    <asp:LinkButton ID="btnSearch1" runat="server" CssClass="button-search" OnCommand="btnSearch1_Click" />
-							    </td>
-						    </tr>
-			        </table>
-           </div>
            </br>
            </br>
 		<span style="padding-right:15px;"><nopCommerce:Topic ID="ContactPhones2" runat="server" TopicName="ContactPhones2" /></span>

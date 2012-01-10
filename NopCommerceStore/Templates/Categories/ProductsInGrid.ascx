@@ -24,9 +24,28 @@
     </div>
     <div class="seccont_middle">
         <div class="navigator">
-            <div style="float:left;color:#000;font-size:0.8em;">&nbsp;&nbsp;&nbsp;Принимаем к оплате: <img width="87" src="/images/VisaMastercard.gif" height="28" /></div>
-            <nopCommerce:Pager runat="server" ID="productsPager" FirstButtonText="" LastButtonText=""
-                NextButtonText="»" PreviousButtonText="«" CurrentPageText="Pager.CurrentPage" />
+            <table>
+                <tr>
+                    <td width="125px">
+                    Сортировать:
+                    </td>
+                    <td width="150px">
+                        <asp:DropDownList ID="sortBy" AutoPostBack="true" runat="server" OnSelectedIndexChanged="productsCount_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                    <td width="200px">
+                        <nopCommerce:Pager runat="server" ID="productsPager" FirstButtonText="" LastButtonText=""
+                            NextButtonText="»" PreviousButtonText="«" CurrentPageText="Pager.CurrentPage" />
+                    </td>
+                    <td width="100px">
+                    Показать:
+                    </td>
+                    <td width="130px">
+                         <asp:DropDownList ID="productsCount" AutoPostBack="true" runat="server" OnSelectedIndexChanged="productsCount_SelectedIndexChanged">
+                         </asp:DropDownList>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="text">
             <p style="margin-top: 5px;">

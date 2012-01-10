@@ -729,7 +729,7 @@ a.button-order2:hover
 	padding: 0 25px;
 }
 
-.search
+.infomenu_tbl a
 {
-float: right;
+	text-decoration: none;
 }
