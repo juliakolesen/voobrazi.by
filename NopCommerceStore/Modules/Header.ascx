@@ -36,12 +36,6 @@
 </script>
 			<a href="/" title="Воображение">
 				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" /></a></div>
-           </br>
-           </br>
-		<span style="padding-right:15px;"><nopCommerce:Topic ID="ContactPhones" runat="server" TopicName="ContactPhones" /></span>
-		<a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
-			<img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom"
-				title="Корзина" /> Корзина (<span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span><span class="amount_text">товаров</span>)</a>
 	</AnonymousTemplate>
 	<LoggedInTemplate>
 		Добро пожаловать, <span class="name">
@@ -51,21 +45,19 @@
 			<a href="/" title="Воображение">
 				<img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" width="299"
 					height="90" /></a></div>
-           </br>
-           </br>
-		<span style="padding-right:15px;"><nopCommerce:Topic ID="ContactPhones2" runat="server" TopicName="ContactPhones2" /></span>
-		<a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
-			<img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom"
-				title="Корзина" /> Корзина (<span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span><span class="amount_text">товаров</span>)</a>
 	</LoggedInTemplate>
 </asp:LoginView>
-<br />
-Валюта:
+</br>
+<a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
+<img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom"
+	title="Корзина" /> Корзина (<span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span><span class="amount_text">товаров</span>)</a>
+<br/>
+<span style="padding-right:25px;"><nopCommerce:Topic ID="ContactPhones" runat="server" TopicName="ContactPhones" /></span>
+    Валюта:
 <asp:DropDownList id="ddlCur1" runat="server" OnSelectedIndexChanged="DdlCurSelectedValueChanged" AutoPostBack="true">
     <asp:ListItem Value="BYR" Text="Белорусские рубли" />
     <asp:ListItem Value="USD" Text="Доллары США" />
 </asp:DropDownList>
-
 <% if (Page.User.IsInRole("Admin"))
    { %>
 <li><a href="<%=Page.ResolveUrl("~/Administration/Default.aspx")%>" class="ico-admin">
