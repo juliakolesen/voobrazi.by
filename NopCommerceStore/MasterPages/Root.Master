@@ -15,7 +15,7 @@
 
 	<script src="http://code.jquery.com/jquery-1.4.3.min.js" type="text/javascript"></script>
 </head>
-<body>
+<body oncopy="return false">
 	<!--<script src="../Scripts/snowmaker.js" type="text/javascript"></script>-->
 	<form id="form1" runat="server">
 	<ajaxToolkit:ToolkitScriptManager runat="Server" EnableScriptGlobalization="true"
