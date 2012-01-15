@@ -36,7 +36,21 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         protected void BindData()
         {
             Category category = CategoryManager.GetCategoryByID(CategoryID);
+            //настройка видимости фильтра
+            Category baseCategory = category;
+            while (baseCategory.ParentCategory != null)
+            {
+                baseCategory = baseCategory.ParentCategory;
+            }
 
+            if (baseCategory.Name.ToLower() != "живые цветы")
+            {
+                designVariant.Visible = false;
+            }
+            else
+            {
+                designVariant.Visible = true;
+            }
             // настройка лидеров продаж
             List<BestSellersReportLine> report = OrderManager.BestSellersReport(720, 10, 1);
             if (report.Count == 0)
@@ -78,9 +92,12 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             }
 
             SortParameter sortParameter = GetSortParameter();
+            List<int> psoFilterOptions = new List<int>();
+            psoFilterOptions.AddRange(((TwoColumn)Page.Master).PSOFilterOption);
+            psoFilterOptions.AddRange(this.designVariant.GetDesignVariantIds());
             ProductCollection productCollection = ProductManager.GetAllProducts(CategoryID,
                 0, null, ((TwoColumn)Page.Master).MinPriceConverted, ((TwoColumn)Page.Master).MaxPriceConverted,
-                pageSize, CurrentPageIndex, ((TwoColumn)Page.Master).PSOFilterOption, (int)sortParameter.SortBy, sortParameter.Ascending, out totalRecords);
+                pageSize, CurrentPageIndex, psoFilterOptions, (int)sortParameter.SortBy, sortParameter.Ascending, out totalRecords);
 
             if (productCollection.Count > 0)
             {
@@ -196,9 +213,41 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
         protected void productsCount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Int32.TryParse(productsCount.SelectedItem.Text, out pageSize);
-            int sortByIndex = sortBy.SelectedIndex;
-            Response.Redirect(String.Format("{0}?pageSize={1}&sortBy={2}", HttpContext.Current.Request.Url.AbsolutePath, pageSize, sortByIndex));
+            DropDownList drList = (DropDownList)sender;
+            string url = CommonHelper.GetThisPageURL(true);
+            if (drList == sortBy)
+            {
+                url = CommonHelper.RemoveQueryString(url, "sortBy");
+                int sortByIndex = sortBy.SelectedIndex;
+                if (sortByIndex != 0)
+                {
+                    if (!url.Contains("?"))
+                        url += "?";
+                    else
+                        url += "&";
+
+                    Response.Redirect(String.Format("{0}sortBy={1}", url, sortByIndex));
+                }
+                else { Response.Redirect(url); }
+            }
+            else
+            {
+                url = CommonHelper.RemoveQueryString(url, "pageSize");
+                Int32.TryParse(productsCount.SelectedItem.Text, out pageSize);
+                if (pageSize != 0)
+                {
+                    if (!url.Contains("?"))
+                        url += "?";
+                    else
+                        url += "&";
+
+                    Response.Redirect(String.Format("{0}pageSize={1}", url, pageSize));
+                }
+                else
+                {
+                    Response.Redirect(url);
+                }
+            }
         }
 
         private SortParameter GetSortParameter()

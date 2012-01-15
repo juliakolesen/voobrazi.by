@@ -3196,6 +3196,13 @@
     <Compile Include="MasterPages\OneColumnHome.master.designer.cs">
       <DependentUpon>OneColumnHome.master</DependentUpon>
     </Compile>
+    <Compile Include="Modules\DesignVariant.ascx.cs">
+      <DependentUpon>DesignVariant.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\DesignVariant.ascx.designer.cs">
+      <DependentUpon>DesignVariant.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\InformationMenu.ascx.cs">
       <DependentUpon>InformationMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5311,6 +5318,7 @@
     <Content Include="images\VisaMastercard.gif" />
     <Content Include="images\zoom-icon7.gif" />
     <Content Include="Install\install.aspx" />
+    <Content Include="Modules\DesignVariant.ascx" />
     <Content Include="Modules\InformationMenu.ascx" />
     <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />
@@ -5944,7 +5952,9 @@
     <Content Include="Modules\Topic.ascx" />
     <Content Include="Modules\TierPrices.ascx" />
     <Content Include="Modules\TaxDisplayTypeSelector.ascx" />
-    <Content Include="UrlRewriting.config" />
+    <Content Include="UrlRewriting.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>

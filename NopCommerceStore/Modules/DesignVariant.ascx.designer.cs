@@ -7,81 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web.Templates.Categories {
+namespace NopSolutions.NopCommerce.Web.Modules {
     
     
-    public partial class ProductsInGrid {
+    public partial class DesignVariant {
         
         /// <summary>
-        /// rptrCategoryBreadcrumb control.
+        /// allTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrCategoryBreadcrumb;
+        protected global::System.Web.UI.HtmlControls.HtmlTable allTable;
         
         /// <summary>
-        /// sortBy control.
+        /// tblSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList sortBy;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblSearch;
         
         /// <summary>
-        /// productsPager control.
+        /// visoutDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Controls.Pager productsPager;
+        protected global::System.Web.UI.WebControls.DropDownList visoutDesign;
         
         /// <summary>
-        /// productsCount control.
+        /// wrapping control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList productsCount;
+        protected global::System.Web.UI.WebControls.DropDownList wrapping;
         
         /// <summary>
-        /// designVariant control.
+        /// bunch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.DesignVariant designVariant;
+        protected global::System.Web.UI.WebControls.DropDownList bunch;
         
         /// <summary>
-        /// dlProducts control.
+        /// composition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlProducts;
-        
-        /// <summary>
-        /// productsPagerBottom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Controls.Pager productsPagerBottom;
-        
-        /// <summary>
-        /// lDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lDescription;
+        protected global::System.Web.UI.WebControls.DropDownList composition;
     }
 }

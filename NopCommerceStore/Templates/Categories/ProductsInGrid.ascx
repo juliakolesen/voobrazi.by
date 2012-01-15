@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Templates.Categories.ProductsInGrid"
     CodeBehind="ProductsInGrid.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBox1" Src="~/Modules/ProductBox1.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="DesignVariant" Src="~/Modules/DesignVariant.ascx" %>
 <style>
     .seccont_middle .text
     {
@@ -47,6 +48,7 @@
                 </tr>
             </table>
         </div>
+        <nopCommerce:DesignVariant ID="designVariant" runat="server"/>
         <div class="text">
             <p style="margin-top: 5px;">
                 <img src="<%= Page.ResolveUrl("~/images/ff_images/horizontal-separator.gif") %>"

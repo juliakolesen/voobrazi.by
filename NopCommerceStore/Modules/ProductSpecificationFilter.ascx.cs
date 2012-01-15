@@ -25,7 +25,9 @@ namespace NopSolutions.NopCommerce.Web.Modules
 {
 	public partial class ProductSpecificationFilterControl : BaseNopUserControl
 	{
-		#region Utilities
+        private String[] excludeParamsForFilter = new String[] { "sortBy", "visoutDesign", "wrapping", "bunch", "composition" };
+        private String[] excludeFilteredOptions = new String[] { "оформление без оформления", "оформление упаковка", "оформление букет", "оформление композиция" };
+        #region Utilities
 		protected void BindData()
 		{
 			SpecificationAttributeOptionFilterCollection alreadyFilteredOptions = getAlreadyFilteredSpecs();
@@ -38,14 +40,31 @@ namespace NopSolutions.NopCommerce.Web.Modules
 					rptAlreadyFilteredPSO.DataSource = alreadyFilteredOptions;
 					rptAlreadyFilteredPSO.DataBind();
 
-					string url = CommonHelper.GetThisPageURL(true);
-					string[] alreadyFilteredSpecsQueryStringParams = getAlreadyFilteredSpecsQueryStringParams();
-					foreach (string qsp in alreadyFilteredSpecsQueryStringParams)
-					{
-						url = CommonHelper.RemoveQueryString(url, qsp);
-					}
-					url = excludeQueryStringParams(url);
-					hlRemoveFilter.NavigateUrl = CommonHelper.GetThisPageURL(false);
+                    String navigateUrl = CommonHelper.GetThisPageURL(false);
+                    bool first = true;
+                    foreach (var key in Request.QueryString.Keys)
+                    {
+                        if (key == null)
+                            continue;
+
+                        string skey = key.ToString();
+                        if (skey == "pageSize" || excludeParamsForFilter.Contains(skey))
+                        {
+                            if (first)
+                            {
+                                navigateUrl += "?";
+                                first = false;
+                            }
+                            else
+                            {
+                                navigateUrl += "&";
+                            }
+
+                            navigateUrl += key + "=" + CommonHelper.QueryStringInt(key.ToString());
+                        }
+                    }
+
+                    hlRemoveFilter.NavigateUrl = navigateUrl; 
 				}
 				else
 				{
@@ -129,6 +148,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
 					result.Remove(saof2);
 				}
 			}
+
+            result.RemoveAll(x => excludeFilteredOptions.Contains(x.SpecificationAttributeName.ToLower()));
 			result.Sort(new SpecificationAttributeOptionFilterComparer());
 			return result;
 		}
@@ -145,7 +166,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
 			for (int i=0; i<Request.QueryString.Keys.Count; i++)
 			{
-                if (Request.QueryString.Keys[i] == "CategoryID" || Request.QueryString.Keys[i] == "pageSize")
+                if (Request.QueryString.Keys[i] == "CategoryID" || excludeParamsForFilter.Contains(Request.QueryString.Keys[i]))
 					continue;
 
 				string qsp = Request.QueryString.Keys[i];

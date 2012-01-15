@@ -98,10 +98,41 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
         protected void productsCount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Int32.TryParse(productsCount.SelectedItem.Text, out pageSize);
-            string productName = CommonHelper.QueryString("searchParameter");
-            int sortByIndex = sortBy.SelectedIndex;
-            Response.Redirect(String.Format("~/SearchResults.aspx?searchParameter={0}&pageSize={1}&sortBy={2}", productName, pageSize, sortByIndex));
+            DropDownList drList = (DropDownList)sender;
+            string url = CommonHelper.GetThisPageURL(true);
+            if (drList == sortBy)
+            {
+                url = CommonHelper.RemoveQueryString(url, "sortBy");
+                int sortByIndex = sortBy.SelectedIndex;
+                if (sortByIndex != 0)
+                {
+                    if (!url.Contains("?"))
+                        url += "?";
+                    else
+                        url += "&";
+
+                    Response.Redirect(String.Format("{0}sortBy={1}", url, sortByIndex));
+                }
+                else { Response.Redirect(url); }
+            }
+            else
+            {
+                url = CommonHelper.RemoveQueryString(url, "pageSize");
+                Int32.TryParse(productsCount.SelectedItem.Text, out pageSize);
+                if (pageSize != 0)
+                {
+                    if (!url.Contains("?"))
+                        url += "?";
+                    else
+                        url += "&";
+
+                    Response.Redirect(String.Format("{0}pageSize={1}", url, pageSize));
+                }
+                else
+                {
+                    Response.Redirect(url);
+                }
+            }
         }
 
         private SortParameter GetSortParameter()
