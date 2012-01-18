@@ -25,7 +25,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 {
 	public partial class ProductSpecificationFilterControl : BaseNopUserControl
 	{
-        private String[] excludeParamsForFilter = new String[] { "sortBy", "visoutDesign", "wrapping", "bunch", "composition" };
+        private String[] excludeParamsForFilter = new String[] { "sortBy", "pageSize", "visoutDesign", "wrapping", "bunch", "composition" };
         private String[] excludeFilteredOptions = new String[] { "оформление без оформления", "оформление упаковка", "оформление букет", "оформление композиция" };
         #region Utilities
 		protected void BindData()
@@ -48,7 +48,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                             continue;
 
                         string skey = key.ToString();
-                        if (skey == "pageSize" || excludeParamsForFilter.Contains(skey))
+                        if (excludeParamsForFilter.Contains(skey))
                         {
                             if (first)
                             {
