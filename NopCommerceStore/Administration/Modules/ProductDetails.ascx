@@ -26,9 +26,59 @@
     <ajaxToolkit:TabPanel runat="server" ID="pnlProductInfo" HeaderText="<% $NopResources:Admin.ProductDetails.ProductInfo %>">
         <ContentTemplate>
             <nopCommerce:ProductInfoEdit ID="ctrlProductInfoEdit" runat="server" />
+            <div class="separator">&nbsp;</div>
+            <div class="productInfo_label">
+                <asp:Label runat="server" ID="lblValue1" Text="<%$NopResources:Admin.ProductDetails.SEO %>" />
+            </div>
+            <div class="productInfo">
+                <nopCommerce:ProductSEO ID="ctrlProductSEO" runat="server" />
+            </div>
+            <div class="separator">&nbsp;</div>
+            <div class="productInfo_label">
+                <asp:Label runat="server" ID="Label1" Text="<% $NopResources:Admin.ProductDetails.ProductVariants %>" />
+            </div>
+            <div class="productInfo">
+                <nopCommerce:ProductVariants ID="ctrlProductVariants" runat="server" />
+            </div>
+            <div class="separator">&nbsp;</div>
+            <div class="productInfo_label">
+                <asp:Label runat="server" ID="Label2" Text="<% $NopResources:Admin.ProductDetails.ManufacturerMappings %>" />
+            </div>
+            <div class="productInfo">
+                <nopCommerce:ProductManufacturer ID="ctrlProductManufacturer" runat="server" />
+            </div>
+            <div class="separator">&nbsp;</div>
+            <div class="productInfo_label">
+                <asp:Label runat="server" ID="Label3" Text="<% $NopResources:Admin.ProductDetails.RelatedProducts %>" />
+            </div>
+            <div class="productInfo">
+                <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />
+            </div>
+            <div class="separator">&nbsp;</div>
+            <div class="productInfo_label">
+                <asp:Label runat="server" ID="Label4" Text="<% $NopResources:Admin.ProductDetails.Pictures %>" />
+            </div>
+            <div class="productInfo">
+                <nopCommerce:ProductPictures ID="ctrlProductPictures" runat="server" />
+            </div>
+            <div class="separator">&nbsp;</div>
+            <div class="productInfo_label">
+                <asp:Label runat="server" ID="Label5" Text="<% $NopResources:Admin.ProductDetails.ProductSpecification %>" />
+            </div>
+            <div class="productInfo">
+                <nopCommerce:ProductSpecifications ID="ctrlProductSpecifications" runat="server" />
+            </div>
+            <div class="separator">&nbsp;</div>
+            <div class="productInfo_label">
+                <asp:Label runat="server" ID="Label6" Text="<% $NopResources:Admin.ProductDetails.CategoryMappings %>" />
+            </div>
+            <div class="productInfo">
+                <nopCommerce:ProductCategory ID="ctrlProductCategory" runat="server" />
+            </div>
+            </div>
         </ContentTemplate>
     </ajaxToolkit:TabPanel>
-    <ajaxToolkit:TabPanel runat="server" ID="pnlProductSEO" HeaderText="<% $NopResources:Admin.ProductDetails.SEO %>">
+    <%--<ajaxToolkit:TabPanel runat="server" ID="pnlProductSEO" HeaderText="<% $NopResources:Admin.ProductDetails.SEO %>">
         <ContentTemplate>
             <nopCommerce:ProductSEO ID="ctrlProductSEO" runat="server" />
         </ContentTemplate>
@@ -62,7 +112,7 @@
         <ContentTemplate>
             <nopCommerce:ProductSpecifications ID="ctrlProductSpecifications" runat="server" />
         </ContentTemplate>
-    </ajaxToolkit:TabPanel>
+    </ajaxToolkit:TabPanel>--%>
 </ajaxToolkit:TabContainer>
 <ajaxToolkit:ConfirmButtonExtender ID="ConfirmDeleteButtonExtender" runat="server"
     TargetControlID="DeleteButton" DisplayModalPopupID="ModalPopupExtenderDelete" />
@@ -76,8 +126,9 @@
         <%=GetLocaleResourceString("Admin.Common.AreYouSure")%>
         <br />
         <br />
-        <asp:Button ID="deleteButtonOk" runat="server" Text="<% $NopResources:Admin.Common.Yes %>" CssClass="adminButton" CausesValidation="false" />
-        <asp:Button ID="deleteButtonCancel" runat="server" Text="<% $NopResources:Admin.Common.No %>" CssClass="adminButton"
-            CausesValidation="false" />
+        <asp:Button ID="deleteButtonOk" runat="server" Text="<% $NopResources:Admin.Common.Yes %>"
+            CssClass="adminButton" CausesValidation="false" />
+        <asp:Button ID="deleteButtonCancel" runat="server" Text="<% $NopResources:Admin.Common.No %>"
+            CssClass="adminButton" CausesValidation="false" />
     </div>
 </asp:Panel>

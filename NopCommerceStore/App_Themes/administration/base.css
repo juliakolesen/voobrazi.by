@@ -595,6 +595,25 @@ forumtable .headerstyle th
 	text-align: center;
 }
 
+.productInfo
+{
+	margin :30px 0px;
+}
+
+.productInfo_label
+{
+	font-size :large;
+	color: Silver
+}
+
+.separator {
+  border-top:1px solid;
+  font-size:1px;
+  height:1px;
+  overflow:hidden;
+  width:1000px;
+} 
+
 
 
 
