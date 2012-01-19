@@ -34,10 +34,19 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
         private void SetSelectedIndexes()
         {
-            this.visoutDesign.SelectedIndex = CommonHelper.QueryStringInt("visoutDesign");
-            this.wrapping.SelectedIndex = CommonHelper.QueryStringInt("wrapping");
-            this.bunch.SelectedIndex = CommonHelper.QueryStringInt("bunch");
-            this.composition.SelectedIndex = CommonHelper.QueryStringInt("composition");
+            SetSelectedIndex(this.visoutDesign, "visoutDesign");
+            SetSelectedIndex(this.wrapping, "wrapping");
+            SetSelectedIndex(this.bunch, "bunch");
+            SetSelectedIndex(this.composition, "composition");
+        }
+
+        private void SetSelectedIndex(DropDownList dropDownList, String type)
+        {
+            dropDownList.SelectedIndex = CommonHelper.QueryStringInt(type);
+            if (dropDownList.SelectedIndex == 0)
+            {
+                dropDownList.BackColor = System.Drawing.Color.Gray;
+            }
         }
 
         private void FillDropDownList(DropDownList dropDownList, SpecificationAttributeCollection sa, 
@@ -101,7 +110,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
         private void ChangeDesignParameter(String parameter, DropDownList dropDownList)
         {
             string url = CommonHelper.GetThisPageURL(true);
-            url = CommonHelper.RemoveQueryString(url, parameter);
+            url = CommonHelper.RemoveQueryString(url, "visoutDesign");
+            url = CommonHelper.RemoveQueryString(url, "wrapping");
+            url = CommonHelper.RemoveQueryString(url, "bunch");
+            url = CommonHelper.RemoveQueryString(url, "composition");
             int index = dropDownList.SelectedIndex;
             if (index != 0)
             {
