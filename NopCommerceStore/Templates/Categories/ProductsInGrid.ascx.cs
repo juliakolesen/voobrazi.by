@@ -187,17 +187,23 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
         private void FillCounts()
         {
-            pageSize = CommonHelper.QueryStringInt("pageSize");
-            if (pageSize == 0)
-            {
-                pageSize = Int32.MaxValue;
-            }
-
+            pageSize = CommonHelper.QueryStringInt("pageSize", -1);
             this.productsCount.Items.Add("Показать все");
             this.productsCount.Items.Add("12");
             this.productsCount.Items.Add("24");
             this.productsCount.Items.Add("36");
             this.productsCount.Items.Add("48");
+
+            if (pageSize == -1)
+            {
+                pageSize = 24;
+            }
+
+            if (pageSize == 0)
+            {
+                pageSize = Int32.MaxValue;
+            }
+
             this.productsCount.SelectedIndex = pageSize / minPageSize;
         }
 
@@ -215,6 +221,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         {
             DropDownList drList = (DropDownList)sender;
             string url = CommonHelper.GetThisPageURL(true);
+            url = CommonHelper.RemoveQueryString(url, "PageIndex");
             if (drList == sortBy)
             {
                 url = CommonHelper.RemoveQueryString(url, "sortBy");
@@ -234,19 +241,12 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             {
                 url = CommonHelper.RemoveQueryString(url, "pageSize");
                 Int32.TryParse(productsCount.SelectedItem.Text, out pageSize);
-                if (pageSize != 0)
-                {
-                    if (!url.Contains("?"))
-                        url += "?";
-                    else
-                        url += "&";
-
-                    Response.Redirect(String.Format("{0}pageSize={1}", url, pageSize));
-                }
+                if (!url.Contains("?"))
+                    url += "?";
                 else
-                {
-                    Response.Redirect(url);
-                }
+                    url += "&";
+
+                Response.Redirect(String.Format("{0}pageSize={1}", url, pageSize));
             }
         }
 
