@@ -58,13 +58,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductInfoControl ctrlProductInfoEdit;
         
         /// <summary>
-        /// lblValue1 control.
+        /// pnlProductSEO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValue1;
+        protected global::AjaxControlToolkit.TabPanel pnlProductSEO;
         
         /// <summary>
         /// ctrlProductSEO control.
@@ -76,13 +76,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductSEOControl ctrlProductSEO;
         
         /// <summary>
-        /// Label1 control.
+        /// pnlProductVariants control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::AjaxControlToolkit.TabPanel pnlProductVariants;
         
         /// <summary>
         /// ctrlProductVariants control.
@@ -94,13 +94,31 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductVariantsControl ctrlProductVariants;
         
         /// <summary>
-        /// Label2 control.
+        /// pnlCategoryMappings control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::AjaxControlToolkit.TabPanel pnlCategoryMappings;
+        
+        /// <summary>
+        /// ctrlProductCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductCategoryControl ctrlProductCategory;
+        
+        /// <summary>
+        /// pnlManufacturerMappings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.TabPanel pnlManufacturerMappings;
         
         /// <summary>
         /// ctrlProductManufacturer control.
@@ -112,13 +130,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductManufacturerControl ctrlProductManufacturer;
         
         /// <summary>
-        /// Label3 control.
+        /// pnlRelatedProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::AjaxControlToolkit.TabPanel pnlRelatedProducts;
         
         /// <summary>
         /// ctrlRelatedProducts control.
@@ -130,13 +148,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.RelatedProductsControl ctrlRelatedProducts;
         
         /// <summary>
-        /// Label4 control.
+        /// pnlPictures control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::AjaxControlToolkit.TabPanel pnlPictures;
         
         /// <summary>
         /// ctrlProductPictures control.
@@ -148,13 +166,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductPicturesControl ctrlProductPictures;
         
         /// <summary>
-        /// Label5 control.
+        /// pnlProductSpecification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::AjaxControlToolkit.TabPanel pnlProductSpecification;
         
         /// <summary>
         /// ctrlProductSpecifications control.
@@ -164,24 +182,6 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductSpecificationsControl ctrlProductSpecifications;
-        
-        /// <summary>
-        /// Label6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
-        
-        /// <summary>
-        /// ctrlProductCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Administration.Modules.ProductCategoryControl ctrlProductCategory;
         
         /// <summary>
         /// ConfirmDeleteButtonExtender control.
