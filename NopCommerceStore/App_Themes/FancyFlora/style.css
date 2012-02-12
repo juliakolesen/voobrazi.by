@@ -740,3 +740,11 @@ a.button-order2:hover
 	color:Purple;
 }
 
+.popupControl {
+background-color: #eeeeee;
+border:outset 1px #c0c0c0;
+color: #444444;
+position:absolute;
+visibility:hidden;
+}
+

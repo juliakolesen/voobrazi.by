@@ -7,45 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web.MasterPages {
+namespace NopSolutions.NopCommerce.Web {
     
     
-    public partial class OneColumnHome {
+    public partial class IndividualOrder {
         
         /// <summary>
-        /// ctrlCategoryNavigation control.
+        /// indivOrderControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.CategoryNavigation ctrlCategoryNavigation;
+        protected global::NopSolutions.NopCommerce.Web.Modules.IndividualOrderControl indivOrderControl;
         
         /// <summary>
-        /// SearchControl control.
+        /// sentMessageLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.SearchControlDefault SearchControl;
+        protected global::System.Web.UI.WebControls.Label sentMessageLabel;
         
         /// <summary>
-        /// indivOrder control.
+        /// orderSenrTopic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink indivOrder;
-        
-        /// <summary>
-        /// cph1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph1;
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl orderSenrTopic;
     }
 }

@@ -108,6 +108,8 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -3182,6 +3184,13 @@
     <Compile Include="HowToPay.aspx.designer.cs">
       <DependentUpon>HowToPay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IndividualOrder.aspx.cs">
+      <DependentUpon>IndividualOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndividualOrder.aspx.designer.cs">
+      <DependentUpon>IndividualOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\OneColumn.master.cs">
       <DependentUpon>OneColumn.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3202,6 +3211,13 @@
     </Compile>
     <Compile Include="Modules\DesignVariant.ascx.designer.cs">
       <DependentUpon>DesignVariant.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\IndividualOrderControl.ascx.cs">
+      <DependentUpon>IndividualOrderControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\IndividualOrderControl.ascx.designer.cs">
+      <DependentUpon>IndividualOrderControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Modules\InformationMenu.ascx.cs">
       <DependentUpon>InformationMenu.ascx</DependentUpon>
@@ -5289,6 +5305,7 @@
     <Content Include="images\ff_images\bottom2.gif" />
     <Content Include="images\ff_images\button-order2.gif" />
     <Content Include="images\ff_images\header2.gif" />
+    <Content Include="images\ff_images\individualOrder.jpg" />
     <Content Include="images\ff_images\lider-banner2.jpg" />
     <Content Include="images\ff_images\logo_snow.gif" />
     <Content Include="images\ff_images\mainimg1.jpg" />
@@ -5317,8 +5334,10 @@
     <Content Include="images\UpdateProgress.gif" />
     <Content Include="images\VisaMastercard.gif" />
     <Content Include="images\zoom-icon7.gif" />
+    <Content Include="IndividualOrder.aspx" />
     <Content Include="Install\install.aspx" />
     <Content Include="Modules\DesignVariant.ascx" />
+    <Content Include="Modules\IndividualOrderControl.ascx" />
     <Content Include="Modules\InformationMenu.ascx" />
     <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />

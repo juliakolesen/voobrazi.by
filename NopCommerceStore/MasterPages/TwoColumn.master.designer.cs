@@ -49,6 +49,15 @@ namespace NopSolutions.NopCommerce.Web.MasterPages {
         protected global::NopSolutions.NopCommerce.Web.Modules.SearchControlDefault SearchControl;
         
         /// <summary>
+        /// indivOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink indivOrder;
+        
+        /// <summary>
         /// ctrlPriceRangeFilter control.
         /// </summary>
         /// <remarks>

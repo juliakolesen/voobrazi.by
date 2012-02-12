@@ -11,8 +11,21 @@
             </td>
         </tr>
         <tr>
-        </br></br>
-            <nopCommerce:SearchControl ID="SearchControl" runat="server" />
+            <td>
+                <div style="padding-top:20px; padding-left: 20px;">
+                    <nopCommerce:SearchControl ID="SearchControl" runat="server" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="left">
+                <div style="padding-top: 20px;">
+                    <asp:HyperLink runat="server" ID="indivOrder" title="Индивидуальный заказ цветов"
+                        NavigateUrl="~/IndividualOrder.aspx">
+					<img src="/images/ff_images/individualOrder.jpg" alt="" height="53" />
+                    </asp:HyperLink>
+                </div>
+            </td>
         </tr>
         <tr>
             <td align="center">

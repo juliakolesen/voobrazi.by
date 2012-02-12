@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root.Master" AutoEventWireup="true"
-	CodeBehind="TwoColumn.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.TwoColumn" %>
+    CodeBehind="TwoColumn.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.TwoColumn" %>
 
 <%@ Register TagPrefix="nopCommerce" TagName="PriceRangeFilter" Src="~/Modules/PriceRangeFilter.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductSpecificationFilter" Src="~/Modules/ProductSpecificationFilter.ascx" %>
@@ -7,107 +7,117 @@
 <%@ Register TagPrefix="nopCommerce" TagName="SearchControl" Src="~/Modules/SearchControlDefault.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
-
-<style>
-	div.label div.label-text p {
-		margin: 0;
-		padding: 0;
-	}
-	.seccontainer {
-		margin-top: 35px;
-	}
-	
-	.lider-banner {
-		float: none;
-	}
-	
-	.lider-banner {
-		display:block;
-		float:none;
-		margin: 20px 0 0;
-	}
-	
-	.label {
-		margin: 10px 0;
-	}
-</style>
-
-	<table cellpadding="0" cellspacing="0" width="290">
-		<tr valign="top">
-			<td align="center">
-				<asp:ContentPlaceHolder ID="cph2" runat="server">
-					<nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
-				</asp:ContentPlaceHolder>
+    <style>
+        div.label div.label-text p
+        {
+            margin: 0;
+            padding: 0;
+        }
+        .seccontainer
+        {
+            margin-top: 35px;
+        }
+        
+        .lider-banner
+        {
+            float: none;
+        }
+        
+        .lider-banner
+        {
+            display: block;
+            float: none;
+            margin: 20px 0 0;
+        }
+        
+        .label
+        {
+            margin: 10px 0;
+        }
+    </style>
+    <table cellpadding="0" cellspacing="0" width="290">
+        <tr valign="top">
+            <td align="center">
+                <asp:ContentPlaceHolder ID="cph2" runat="server">
+                    <nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+                </asp:ContentPlaceHolder>
                 </br></br>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-					<nopCommerce:SearchControl ID="SearchControl" runat="server" />
-				</asp:ContentPlaceHolder>
-				<img src="<%= Page.ResolveUrl("~/images/ff_images/orchid.jpg") %>" alt="" /><br />
-				<span class="parameters">Подбор по параметрам:</span>
-				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="podbor">
-					<tr valign="top">
-						<td>
-							<nopCommerce:PriceRangeFilter ID="ctrlPriceRangeFilter" runat="server" />
-							<nopCommerce:ProductSpecificationFilter ID="ctrlProductSpecificationFilter" runat="server" />
-						</td>
-					</tr>
-				</table>
-				<table cellspacing="0" cellpadding="0" style="margin-top:25px;">
-					<tr>
-						<td>
-							<div id="divLeader" runat="server">
-								<asp:HyperLink runat="server" ID="hlLeader" title="Лидеры продаж">
-									<table cellspacing="0" cellpadding="0">
-										<tr>
-											<td style="padding-left: 32px;">
-												<img src="/images/ff_images/lider-banner.jpg" alt="" height="53" />
-											</td>
-										</tr>	
-										<tr>
-											<td align="center">
-												<asp:Image runat="server" Height="184" ID="imgLeader" />
-											</td>
-										</tr>
-									</table>
-								</asp:HyperLink>
-							</div>
-						</td>
-					<tr>
-					<tr>
-						<td>
-							<div runat="server" id="divUnique"><!--class="uniq-banner"-->
-								<asp:HyperLink runat="server" ID="hlUnique" title="Уникальное предложение">
-									<table cellspacing="0" cellpadding="0">
-										<tr>
-											<td>
-												<img src="/images/ff_images/uniq-banner.jpg" height="53" alt="" />
-											</td>
-										</tr>	
-										<tr>
-											<td align="center">
-												<asp:Image runat="server" Height="184" ID="imgUnique" />
-											</td>
-										</tr>
-									</table>							
-								</asp:HyperLink>
-							</div>				
-						</td>
-					<tr>
-					<tr>
-						<td>
-							<div class="label" align="center">
-								<div class="label-text">
-									<nopCommerce:Topic ID="topic" runat="server" TopicName="MinskDelivery" />
-								</div>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</td>
-			<td class="second_cont">
-				<asp:ContentPlaceHolder ID="cph1" runat="server">
-				</asp:ContentPlaceHolder>
-			</td>
-		</tr>
-	</table>
+                    <nopCommerce:SearchControl ID="SearchControl" runat="server" />
+                </asp:ContentPlaceHolder>
+                <div style="padding-top: 20px">
+                    <asp:HyperLink runat="server" ID="indivOrder" title="Индивидуальный заказ цветов"
+                        NavigateUrl="~/IndividualOrder.aspx">
+					<img src="/images/ff_images/individualOrder.jpg" alt="" height="53" />
+                    </asp:HyperLink>
+                </div>
+                <img src="<%= Page.ResolveUrl("~/images/ff_images/orchid.jpg") %>" alt="" /><br />
+                <span class="parameters">Подбор по параметрам:</span>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="podbor">
+                    <tr valign="top">
+                        <td>
+                            <nopCommerce:PriceRangeFilter ID="ctrlPriceRangeFilter" runat="server" />
+                            <nopCommerce:ProductSpecificationFilter ID="ctrlProductSpecificationFilter" runat="server" />
+                        </td>
+                    </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" style="margin-top: 25px;">
+                    <tr>
+                        <td>
+                            <div id="divLeader" runat="server">
+                                <asp:HyperLink runat="server" ID="hlLeader" title="Лидеры продаж">
+                                    <table cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td style="padding-left: 32px;">
+                                                <img src="/images/ff_images/lider-banner.jpg" alt="" height="53" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <asp:Image runat="server" Height="184" ID="imgLeader" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </asp:HyperLink>
+                            </div>
+                        </td>
+                        <tr>
+                            <tr>
+                                <td>
+                                    <div runat="server" id="divUnique">
+                                        <!--class="uniq-banner"-->
+                                        <asp:HyperLink runat="server" ID="hlUnique" title="Уникальное предложение">
+                                            <table cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td>
+                                                        <img src="/images/ff_images/uniq-banner.jpg" height="53" alt="" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">
+                                                        <asp:Image runat="server" Height="184" ID="imgUnique" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </asp:HyperLink>
+                                    </div>
+                                </td>
+                                <tr>
+                                    <tr>
+                                        <td>
+                                            <div class="label" align="center">
+                                                <div class="label-text">
+                                                    <nopCommerce:Topic ID="topic" runat="server" TopicName="MinskDelivery" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                </table>
+            </td>
+            <td class="second_cont">
+                <asp:ContentPlaceHolder ID="cph1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
 </asp:Content>

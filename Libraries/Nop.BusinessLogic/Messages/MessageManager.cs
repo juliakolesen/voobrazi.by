@@ -899,6 +899,16 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Messages
             return queuedEmail.QueuedEmailID;
         }
 
+        public static int SendQuickOrderMessage(String message)
+        {
+            string subject = "Быстрый заказ";
+            string body = message;
+            MailAddress from = new MailAddress(AdminEmailAddress, AdminEmailDisplayName);
+            MailAddress to = new MailAddress(AdminEmailAddress, AdminEmailAddress);
+            QueuedEmail queuedEmail = InsertQueuedEmail(5, from, to, string.Empty, string.Empty, subject, body, DateTime.Now, 0, null);
+            return queuedEmail.QueuedEmailID;
+        }
+
         /// <summary>
         /// Sends a blog comment notification message to a store owner
         /// </summary>
