@@ -4,6 +4,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="SearchControl" Src="~/Modules/SearchControlDefault.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ViewedItems" Src="~/Modules/ViewedItems.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
     <style type="text/css">
         div.label div.label-text p
@@ -27,6 +28,7 @@
 					<img src="/images/ff_images/individualOrder.jpg" alt="" height="53" />
                     </asp:HyperLink>
                 </div>
+                <nopCommerce:ViewedItems ID="viewedItems" runat="server" />
                 <div class="label" align="center">
                     <div class="label-text">
                         <nopCommerce:Topic ID="topic" runat="server" TopicName="MinskDelivery" />

@@ -139,6 +139,9 @@
     <Compile Include="Orders\DBBestSellersReportLine.cs" />
     <Compile Include="Orders\DBOrderAverageReportLine.cs" />
     <Compile Include="Orders\DBOrderProvider.cs" />
+    <Compile Include="Orders\DBViewedItem.cs" />
+    <Compile Include="Orders\DBViewedItemProvider.cs" />
+    <Compile Include="Orders\DBViewedItemsCollection.cs" />
     <Compile Include="Products\DBTierPriceCollection.cs" />
     <Compile Include="Products\DBTierPrice.cs" />
     <Compile Include="Products\DBPricelist.cs" />

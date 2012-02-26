@@ -43,11 +43,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
             if (product != null)
             {
                 ProductVariantCollection productVariantCollection = product.ProductVariants;
+                ProductVariant productVariant = null;
                 if (productVariantCollection.Count > 0)
                 {
                     if (!product.HasMultipleVariants)
                     {
-                        ProductVariant productVariant = productVariantCollection[0];
+                        productVariant = productVariantCollection[0];
 
                         decimal finalPriceWithoutDiscountBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
 
@@ -63,7 +64,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     }
                     else
                     {
-                        ProductVariant productVariant = product.MinimalPriceProductVariant;
+                        productVariant = product.MinimalPriceProductVariant;
                         if (productVariant != null)
                         {
                             decimal fromPriceBase = TaxManager.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false));
@@ -117,6 +118,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 }
 
                 lblAttributes.Text += attributes.ToString();
+                if (NopContext.Current.Session == null)
+                    NopContext.Current.Session = NopContext.Current.GetSession(true);
+                Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
+                ViewedItemManager.InsertViewedItem(CustomerSessionGUID, productVariant.ProductVariantID, DateTime.Now); 
             }
             else
                 Visible = false;

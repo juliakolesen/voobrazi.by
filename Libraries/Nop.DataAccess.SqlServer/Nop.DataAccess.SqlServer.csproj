@@ -125,6 +125,7 @@
     <Compile Include="NopSqlDataHelper.cs" />
     <Compile Include="Orders\SQLOrderProvider.cs" />
     <Compile Include="Orders\SQLShoppingCartProvider.cs" />
+    <Compile Include="Orders\SQLViewedItemProvider.cs" />
     <Compile Include="Payment\SQLCreditCardTypeProvider.cs" />
     <Compile Include="Payment\SQLPaymentMethodProvider.cs" />
     <Compile Include="Payment\SQLPaymentStatusProvider.cs" />

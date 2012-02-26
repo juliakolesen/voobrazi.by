@@ -1391,6 +1391,9 @@ namespace NopSolutions.NopCommerce.BusinessLogic.CustomerManagement
             bool result = customer.PasswordHash.Equals(passwordHash);
             if (result)
             {
+                int totalItems = 0;
+                ViewedItemsCollection viewedItems = ViewedItemManager.GetCurrentViewedItem(10, 0, out totalItems);
+
                 CustomerSession registeredCustomerSession = GetCustomerSessionByCustomerID(customer.CustomerID);
                 if (registeredCustomerSession != null)
                 {
@@ -1417,6 +1420,14 @@ namespace NopSolutions.NopCommerce.BusinessLogic.CustomerManagement
                             ShoppingCartManager.AddToCart(item.ShoppingCartType, item.ProductVariantID, item.AttributesXML, item.Quantity);
                             ShoppingCartManager.DeleteShoppingCartItem(item.ShoppingCartItemID, true);
                         }
+
+                        foreach (ViewedItem item in viewedItems)
+                        {
+                            ViewedItemManager.InsertViewedItem(NopContext.Current.Session.CustomerSessionGUID,
+                                                               item.ProductVariantID, item.CreatedOn);
+                            ViewedItemManager.DeleteViewedItem(item.ViewedItemID, true);
+                        }
+                        
                     }
                 }
                 if (NopContext.Current.Session == null)

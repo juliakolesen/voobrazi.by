@@ -6,6 +6,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="SearchControl" Src="~/Modules/SearchControlDefault.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ViewedItems" Src="~/Modules/ViewedItems.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
     <style>
         div.label div.label-text p
@@ -51,6 +52,7 @@
 					<img src="/images/ff_images/individualOrder.jpg" alt="" height="53" />
                     </asp:HyperLink>
                 </div>
+                <nopCommerce:ViewedItems runat="server" ID="ctrlViewedItems"></nopCommerce:ViewedItems>
                 <img src="<%= Page.ResolveUrl("~/images/ff_images/orchid.jpg") %>" alt="" /><br />
                 <span class="parameters">Подбор по параметрам:</span>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="podbor">

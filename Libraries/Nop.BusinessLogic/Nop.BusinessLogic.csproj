@@ -108,6 +108,9 @@
     <Compile Include="Maintenance\DatabaseMaintanceTask.cs" />
     <Compile Include="Orders\BestSellersReportLine.cs" />
     <Compile Include="Orders\OrderAverageReportLine.cs" />
+    <Compile Include="Orders\ViewedItem.cs" />
+    <Compile Include="Orders\ViewedItemManager.cs" />
+    <Compile Include="Orders\ViewedItemsCollection.cs" />
     <Compile Include="Products\Attributes\ProductAttributeHelper.cs" />
     <Compile Include="Products\Specs\SpecificationAttributeOption.cs" />
     <Compile Include="Products\Specs\SpecificationAttributeOptionCollection.cs" />

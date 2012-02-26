@@ -3226,6 +3226,13 @@
     <Compile Include="Modules\InformationMenu.ascx.designer.cs">
       <DependentUpon>InformationMenu.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ProductBoxSmall.ascx.cs">
+      <DependentUpon>ProductBoxSmall.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\ProductBoxSmall.ascx.designer.cs">
+      <DependentUpon>ProductBoxSmall.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\ProductSpecificationFilter.ascx.cs">
       <DependentUpon>ProductSpecificationFilter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3261,6 +3268,13 @@
     <Compile Include="Modules\SearchResultsControl.ascx.designer.cs">
       <DependentUpon>SearchResultsControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ViewedItems.ascx.cs">
+      <DependentUpon>ViewedItems.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\ViewedItems.ascx.designer.cs">
+      <DependentUpon>ViewedItems.ascx</DependentUpon>
+    </Compile>
     <Compile Include="SearchResults.aspx.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3281,6 +3295,13 @@
     </Compile>
     <Compile Include="ToCorporateClients.aspx.designer.cs">
       <DependentUpon>ToCorporateClients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewedItems.aspx.cs">
+      <DependentUpon>ViewedItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewedItems.aspx.designer.cs">
+      <DependentUpon>ViewedItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewPM.aspx.cs">
       <DependentUpon>ViewPM.aspx</DependentUpon>
@@ -5339,8 +5360,10 @@
     <Content Include="Modules\DesignVariant.ascx" />
     <Content Include="Modules\IndividualOrderControl.ascx" />
     <Content Include="Modules\InformationMenu.ascx" />
+    <Content Include="Modules\ProductBoxSmall.ascx" />
     <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />
+    <Content Include="Modules\ViewedItems.ascx" />
     <Content Include="Scripts\slimbox2.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -5455,6 +5478,7 @@
     <Content Include="Templates\Payment\Worldpay\PaymentModule.ascx" />
     <Content Include="Templates\Products\VariantsInGrid.ascx" />
     <Content Include="TwoCheckoutReturn.aspx" />
+    <Content Include="ViewedItems.aspx" />
     <Content Include="WebPay.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="WorldpayReturn.aspx" />

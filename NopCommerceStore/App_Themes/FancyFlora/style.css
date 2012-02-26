@@ -356,6 +356,11 @@ a.contacts:hover
 	font-weight: bold;
 }
 
+.headers a
+{
+	text-decoration: none;
+}
+
 .podbor
 {
 	text-align: left;
