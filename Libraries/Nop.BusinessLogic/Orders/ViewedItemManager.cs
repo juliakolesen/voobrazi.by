@@ -179,7 +179,14 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
             if (ProductVariantID == 0)
                 return null;
 
-            DBViewedItem dbItem = DBProviderManager<DBViewedItemProvider>.Provider.ViewedItemLoadByProductVariantID(ProductVariantID);
+            if (NopContext.Current.Session == null)
+            {
+                return new ViewedItem();
+            }
+
+            Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
+
+            DBViewedItem dbItem = DBProviderManager<DBViewedItemProvider>.Provider.ViewedItemLoadByProductVariantID(ProductVariantID, CustomerSessionGUID);
             ViewedItem viewedItem = DBMapping(dbItem);
             return viewedItem;
         }

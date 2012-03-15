@@ -27,26 +27,29 @@ namespace NopSolutions.NopCommerce.Web.Modules
             {
                 this.dlProducts.DataSource = products;
                 this.dlProducts.DataBind();
-                this.viewedItemsLink.Visible = true;
+                this.viewedItemsLnk.Visible = true;
             }
             else
             {
-                this.viewedItemsLink.Visible = false;
+                this.viewedItemsLnk.Visible = false;
             }
         }
 
         private ProductCollection GetProducts()
         {
             int totalItems = 0;
-            ViewedItemsCollection collection = ViewedItemManager.GetCurrentViewedItem(10, 0, out totalItems);
-            List<int> productsIDs = collection.Select(x => x.ProductVariantID).ToList();
             ProductCollection productCollection = new ProductCollection();
-            foreach (var productID in productsIDs)
+            try
             {
-                ProductVariant product = ProductManager.GetProductVariantByID(productID);
-                productCollection.Add(product.Product);
+                ViewedItemsCollection collection = ViewedItemManager.GetCurrentViewedItem(10, 0, out totalItems);
+                List<int> productsIDs = collection.Select(x => x.ProductVariantID).ToList();
+                foreach (var productID in productsIDs)
+                {
+                    ProductVariant product = ProductManager.GetProductVariantByID(productID);
+                    productCollection.Add(product.Product);
+                }
             }
-
+            catch { }
             return productCollection;
         }
 

@@ -180,7 +180,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Orders
         /// </summary>
         /// <param name="ProductVariantID">The product variant identifier</param>
         /// <returns></returns>
-        public override DBViewedItem ViewedItemLoadByProductVariantID(int ProductVariantID)
+        public override DBViewedItem ViewedItemLoadByProductVariantID(int ProductVariantID, Guid CustomerSessionGUID)
         {
             DBViewedItem viewedItem = null;
             if (ProductVariantID == 0)
@@ -188,6 +188,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Orders
             Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("ViewedItemLoadByProductVariantID");
             db.AddInParameter(dbCommand, "ProductVariantID", DbType.Int32, ProductVariantID);
+            db.AddInParameter(dbCommand, "CustomerSessionGUID", DbType.Guid, CustomerSessionGUID);
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {
                 if (dataReader.Read())

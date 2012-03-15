@@ -57,7 +57,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Orders
         /// </summary>
         /// <param name="ProductVariantID">The product variant identifier</param>
         /// <returns></returns>
-        public abstract DBViewedItem ViewedItemLoadByProductVariantID(int ProductVariantID);
+        public abstract DBViewedItem ViewedItemLoadByProductVariantID(int ProductVariantID, Guid CustomerSessionGUID);
         #endregion
     }
 }

@@ -13,13 +13,13 @@ namespace NopSolutions.NopCommerce.Web.Modules {
     public partial class ViewedItems {
         
         /// <summary>
-        /// viewedItemsLink control.
+        /// viewedItemsLnk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton viewedItemsLink;
+        protected global::System.Web.UI.WebControls.Panel viewedItemsLnk;
         
         /// <summary>
         /// dlProducts control.
