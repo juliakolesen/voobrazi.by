@@ -53,6 +53,11 @@ namespace Nop.Payment.WebPay
 
         public string PostProcessPayment(Order order)
         {
+            return PostProcessPayment(order, new IndividualOrderCollection());
+        }
+
+        public string PostProcessPayment(Order order, IndividualOrderCollection indOrders)
+        {
             bool convertToUsd = HttpContext.Current.Request.Cookies["Currency"] != null && HttpContext.Current.Request.Cookies["Currency"].Value == "USD";
             shippingRate = SettingManager.GetSettingValueDecimalNative("ShippingRateComputationMethod.FixedRate.Rate");
             freeShippingBorder = SettingManager.GetSettingValueDecimalNative("Shipping.FreeShippingOverX.Value");
@@ -67,6 +72,7 @@ namespace Nop.Payment.WebPay
             }
 
             decimal totalWithFee = (int)CalculateTotalServiceFee(order.OrderProductVariants, prodVars, order, convertToUsd, out shippingPrice);
+            totalWithFee += AddServiceFee(IndividualOrderManager.GetTotalPriceIndOrders(indOrders), convertToUsd);
 
             var remotePostHelper = new RemotePost { FormName = "WebPeyForm", Url = GetWebPayUrl() };
 
@@ -122,11 +128,22 @@ namespace Nop.Payment.WebPay
                 remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), AddServiceFee(prodPrice, convertToUsd).ToString());
             }
 
+            int cartCount = order.OrderProductVariants.Count;
+            for (int i = order.OrderProductVariants.Count; i < indOrders.Count + cartCount; i++)
+            {
+                var opv = indOrders[i - cartCount];
+                remotePostHelper.Add(string.Format("wsb_invoice_item_name[{0}]", i), "Индивидуальный заказ");
+                remotePostHelper.Add(string.Format("wsb_invoice_item_quantity[{0}]", i), "1");
+
+                decimal prodPrice = !convertToUsd ? opv.Price : Math.Round(PriceConverter.ToUsd(opv.Price));
+
+                remotePostHelper.Add(string.Format("wsb_invoice_item_price[{0}]", i), AddServiceFee(prodPrice, convertToUsd).ToString());
+            }
+
             remotePostHelper.Add("wsb_tax", "0");
             remotePostHelper.Add("wsb_shipping_name", "Доставка курьером");
 
             remotePostHelper.Add("wsb_shipping_price", AddServiceFee(shippingPrice, convertToUsd).ToString());
-
             remotePostHelper.Add("wsb_total", totalWithFee.ToString());
 
             if (!string.IsNullOrEmpty(order.ShippingEmail))

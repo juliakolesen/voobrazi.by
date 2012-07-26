@@ -1,50 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="IndividualOrderControl.ascx.cs"
     Inherits="NopSolutions.NopCommerce.Web.Modules.IndividualOrderControl" %>
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
-<script language="javascript" type="text/javascript">
-    function ChangeControlVisibility(radioButList, drpId) {
-        var drpDownList;
-        var txtBox;
-        switch (drpId){
-            case "1":
-                drpDownList = document.getElementById("<%=UserVariants.ClientID %>");
-                txtBox = document.getElementById("<%=ownUser.ClientID %>");
-                break;
-            case "2":
-                drpDownList = document.getElementById("<%=reasonVar.ClientID %>");
-                txtBox = document.getElementById("<%=ownReason.ClientID %>");
-                break;
-            case "3":
-                drpDownList = document.getElementById("<%=flowerVar.ClientID %>");
-                txtBox = document.getElementById("<%=ownFlower.ClientID %>");
-                break;
-            case "4":
-                drpDownList = document.getElementById("<%=colourVar.ClientID %>");
-                txtBox = document.getElementById("<%=ownColour.ClientID %>");
-                break;
-            case "5":
-                drpDownList = document.getElementById("<%=bunchVar.ClientID %>");
-                txtBox = document.getElementById("<%=ownVariant.ClientID %>");
-                break;
-        }
-
-        if (radioButList.rows[0].cells[0].firstChild.checked)
-        {
-            drpDownList.style.visibility = "hidden";
-            txtBox.style.visibility = "hidden";
-        }
-       if (radioButList.rows[1].cells[0].firstChild.checked)
-        {
-            drpDownList.style.visibility = "visible";
-            txtBox.style.visibility = "hidden";
-        }
-        if (radioButList.rows[2].cells[0].firstChild.checked)
-        {
-            drpDownList.style.visibility = "hidden";
-            txtBox.style.visibility = "visible";
-        }
-    }
-</script>
 <nopCommerce:Topic ID="topicIndividualOrder" runat="server" TopicName="IndividualOrder">
 </nopCommerce:Topic>
 </br>
@@ -231,11 +187,10 @@
         </td>
         <td width="300">
             <asp:RequiredFieldValidator ID="priceValue1" ControlToValidate="Price" runat="server"
-                Display="Dynamic" Text="Поле обязательно для заполнения!" ValidationGroup="InfoGroup">
+                Display="Dynamic" Text="Поле обязательно для заполнения!">
             </asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="priceValue2" runat="server" ControlToValidate="Price"
-                ValidationExpression="[0-9]*" Text="Цена должна состоять только из цифр!" Display="Dynamic"
-                ValidationGroup="InfoGroup" />
+                ValidationExpression="[0-9]*" Text="Цена должна состоять только из цифр!" Display="Dynamic"/>
         </td>
         <td width="150">
             <asp:Label ID="popupLabel2" runat="server" Text="? Подсказка" ForeColor="Red" />
@@ -264,7 +219,7 @@
     </tr>
 </table>
 <br />
-<fieldset id="Fieldset1" class="group1" runat="server" style="width: 200px;">
+<fieldset id="Fieldset1" class="group1" runat="server" style="width: 300px;">
     <legend>Быстрый заказ:</legend>
     <table>
         <tr>
@@ -272,7 +227,7 @@
                 <asp:Label runat="server" Text="Имя" ID="nameLabel" />
             </td>
             <td>
-                <asp:TextBox runat="server" ID="nameTextBox" />
+                <asp:TextBox runat="server" ID="nameTextBox" Width="200px"/>
             </td>
         </tr>
         <tr>
@@ -288,7 +243,7 @@
                 <asp:Label runat="server" Text="Телефон" ID="phoneLabel" />
             </td>
             <td>
-                <asp:TextBox runat="server" ID="phoneTextBox" />
+                <asp:TextBox runat="server" ID="phoneTextBox" Width="200px"/>
             </td>
         </tr>
         <tr>
@@ -302,4 +257,21 @@
     </table>
     <asp:Button ID="fastOrder" runat="server" ValidationGroup="InfoGroup" Text="Отправить быстрый заказ"
         OnCommand="fastOrder_Click"></asp:Button>
+</fieldset>
+<fieldset id="Fieldset2" class="group1" runat="server" style="width: 630px;">
+    <legend>Заказ через корзину</legend>
+    <table>
+        <tr>
+            <td>
+                <nopCommerce:Topic ID="shopCartOrder" runat="server" TopicName="FastOrderShoppingCart">
+                </nopCommerce:Topic>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="fastOrderShCart" runat="server" 
+                Text="Отправить заказ в корзину и оформить" OnCommand="fastOrderShCart_Click"></asp:Button>
+            </td>
+        </tr>
+    </table>
 </fieldset>

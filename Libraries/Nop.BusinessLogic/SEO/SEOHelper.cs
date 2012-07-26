@@ -25,6 +25,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Content.NewsManagement;
 using NopSolutions.NopCommerce.BusinessLogic.Manufacturers;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.Common.Utils;
+using NopSolutions.NopCommerce.BusinessLogic.Orders;
 
 namespace NopSolutions.NopCommerce.BusinessLogic.SEO
 {
@@ -174,6 +175,21 @@ namespace NopSolutions.NopCommerce.BusinessLogic.SEO
                 seName = GetSEName(product.Name);
             }
             string url = string.Format(SettingManager.GetSettingValue("SEO.Product.UrlRewriteFormat"), CommonHelper.GetStoreLocation(), product.ProductID, seName);
+            return url;
+        }
+
+        /// <summary>
+        /// Gets individual order URL
+        /// </summary>
+        /// <param name="product">Product</param>
+        /// <returns>Product URL</returns>
+        public static string GetIndividualOrderURL(IndividualOrder indOrder)
+        {
+            if (indOrder == null)
+                throw new ArgumentNullException("indOrder");
+
+            string url = string.Format("{0}IndividualOrder.aspx?orderID={1}", 
+                                       CommonHelper.GetStoreLocation(), indOrder.IndividualOrderID);
             return url;
         }
 

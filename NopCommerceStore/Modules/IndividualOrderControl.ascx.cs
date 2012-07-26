@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NopSolutions.NopCommerce.Web;
 using NopSolutions.NopCommerce.BusinessLogic.Messages;
+using NopSolutions.NopCommerce.BusinessLogic.Products;
+using NopSolutions.NopCommerce.BusinessLogic.Orders;
+using NopSolutions.NopCommerce.BusinessLogic;
+using NopSolutions.NopCommerce.BusinessLogic.Utils;
 
 namespace  NopSolutions.NopCommerce.Web.Modules
 {
@@ -37,8 +41,8 @@ namespace  NopSolutions.NopCommerce.Web.Modules
 
         String messageTemplate = "<p>Индивидуальный заказ: <br/> 1. Для кого цветы: %user% <br/> 2.	Какой повод/праздник: %reason%<br/>" +
                          "3.Какие цветы предпочитаете: %flower% <br/> 4.Какая цветовая гамма: %colour% <br/>" +
-                         "5.Какой вариант букета/композиции предпочитаете: %bunch% <br/> 6. Цена: %price% <br/><br/>" +
-                         "Имя: %name% <br/> Телефон: %phone%</p>";
+                         "5.Какой вариант букета/композиции предпочитаете: %bunch% <br/> 6. Цена: %price% <br/><br/>";
+        String endQuickMessage = "Имя: %name% <br/> Телефон: %phone%</p>";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,13 +67,33 @@ namespace  NopSolutions.NopCommerce.Web.Modules
 
         protected void fastOrder_Click(object sender, EventArgs e)
         {
-            String message = GetMessage();
+            String message = GetMessage(true);
             MessageManager.SendQuickOrderMessage(message);
             Session.Add("quickOrderMessage", message);
             Response.Redirect("~/IndividualOrder.aspx?sentMessage=1");
         }
 
-        private string GetMessage()
+        protected void fastOrderShCart_Click(object sender, EventArgs e)
+        {
+            String message = GetMessage(false);
+            if (NopContext.Current.Session == null)
+            {
+                return ;
+            }
+
+            Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
+            long price = 0;
+            Int64.TryParse(this.Price.Text, out price);
+            if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
+            {
+                price = PriceConverter.ToBYR(price);
+            }
+
+            IndividualOrderManager.InsertIndividualOrder(CustomerSessionGUID, price, message);
+            Response.Redirect("~/ShoppingCart.aspx");
+        }
+
+        private string GetMessage(bool isQuickOrder)
         {
             String message = messageTemplate;
             message = ReplaceParameter(message, "%user%", this.userVarList, this.UserVariants, this.ownUser);
@@ -78,8 +102,14 @@ namespace  NopSolutions.NopCommerce.Web.Modules
             message = ReplaceParameter(message, "%colour%", this.colourVarList, this.colourVar, this.ownColour);
             message = ReplaceParameter(message, "%bunch%", this.bunchVarList, this.bunchVar, this.ownVariant);
             message = message.Replace("%price%", this.Price.Text);
-            message = message.Replace("%name%", this.nameTextBox.Text);
-            message = message.Replace("%phone%", this.phoneTextBox.Text);
+            if (isQuickOrder)
+            {
+                String end = endQuickMessage;
+                end = end.Replace("%name%", this.nameTextBox.Text);
+                end = end.Replace("%phone%", this.phoneTextBox.Text);
+                message += end;
+            }
+
             return message;
         }
 

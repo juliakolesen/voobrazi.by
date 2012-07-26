@@ -213,6 +213,22 @@ namespace NopSolutions.NopCommerce.DataAccess
         }
 
         /// <summary>
+        /// Gets an integer value of a data reader by a column name
+        /// </summary>
+        /// <param name="rdr">Data reader</param>
+        /// <param name="columnName">Column name</param>
+        /// <returns>An integer value</returns>
+        public static long GetLong(IDataReader rdr, string columnName)
+        {
+            int index = rdr.GetOrdinal(columnName);
+            if (rdr.IsDBNull(index))
+            {
+                return 0;
+            }
+            return (long)rdr[index];
+        }
+
+        /// <summary>
         /// Gets a nullable integer value of a data reader by a column name
         /// </summary>
         /// <param name="rdr">Data reader</param>

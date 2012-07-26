@@ -3226,6 +3226,13 @@
     <Compile Include="Modules\InformationMenu.ascx.designer.cs">
       <DependentUpon>InformationMenu.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\OrderIndividualOrders.ascx.cs">
+      <DependentUpon>OrderIndividualOrders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\OrderIndividualOrders.ascx.designer.cs">
+      <DependentUpon>OrderIndividualOrders.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\ProductBoxSmall.ascx.cs">
       <DependentUpon>ProductBoxSmall.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5360,6 +5367,7 @@
     <Content Include="Modules\DesignVariant.ascx" />
     <Content Include="Modules\IndividualOrderControl.ascx" />
     <Content Include="Modules\InformationMenu.ascx" />
+    <Content Include="Modules\OrderIndividualOrders.ascx" />
     <Content Include="Modules\ProductBoxSmall.ascx" />
     <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />

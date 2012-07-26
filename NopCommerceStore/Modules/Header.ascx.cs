@@ -22,6 +22,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
     using System.Web;
     using System.Web.UI.WebControls;
     using NopSolutions.NopCommerce.BusinessLogic.Products;
+    using NopSolutions.NopCommerce.BusinessLogic.Orders;
 
     public partial class HeaderControl : BaseNopUserControl
     {
@@ -56,6 +57,13 @@ namespace NopSolutions.NopCommerce.Web.Modules
         {
             Response.Cookies.Add(new HttpCookie("Currency", ((DropDownList)sender).SelectedValue));
             Response.Redirect(Request.Url.ToString());
+        }
+
+        protected int GetCount()
+        {
+            int cartCount = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count;
+            int indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders().Count;
+            return cartCount + indOrders;
         }
     }
 }

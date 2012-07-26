@@ -49,7 +49,8 @@ namespace NopSolutions.NopCommerce.Web
             Response.AddHeader("pragma", "no-cache");
 
             ShoppingCart cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
-            if (cart.Count == 0)
+            IndividualOrderCollection indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders();
+            if (cart.Count == 0 && indOrders.Count == 0)
                 Response.Redirect("~/ShoppingCart.aspx");
 
             if (NopContext.Current.User == null && CustomerManager.AnonymousCheckoutAllowed)

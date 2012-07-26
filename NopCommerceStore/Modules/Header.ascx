@@ -50,7 +50,7 @@
 </br>
 <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
 <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom"
-	title="Корзина" /> Корзина (<span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span><span class="amount_text">товаров</span>)</a>
+	title="Корзина" /> Корзина (<span class="amount"><%=GetCount()%></span><span class="amount_text">товаров</span>)</a>
 <br/>
 <span style="padding-right:25px;"><nopCommerce:Topic ID="ContactPhones" runat="server" TopicName="ContactPhones" /></span>
     Валюта:

@@ -2,6 +2,8 @@
 	CodeBehind="OrderSummary.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="GoogleCheckoutButton" Src="~/Modules/GoogleCheckoutButton.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="OrderTotals" Src="~/Modules/OrderTotals.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="OrderIndividualOrders" Src="~/Modules/OrderIndividualOrders.ascx" %>
+
 <asp:Panel class="OrderSummaryContent" runat="server" ID="pnlEmptyCart">
 	<%=GetLocaleResourceString("ShoppingCart.CartIsEmpty")%>
 </asp:Panel>
@@ -18,9 +20,12 @@
 	<div class="clear">
 	</div>
 	<%} %>
-	<table class="cart">
+    
+    <%if (!IsShoppingCartEmpty)
+	  { %>
+	<table class="cart" id="cartTable">
 		<tbody>
-			<tr class="cart-header-row">
+			<tr class="cart-header-row" id="cart_header_row">
 				<%if (IsShoppingCart)
 	  { %>
 				<td width="10%">
@@ -94,9 +99,15 @@
 			</asp:Repeater>
 		</tbody>
 	</table>
+    <%} %>
 	<div class="clear">
 	</div>
 	<div class="cart-footer">
+    <br />
+    <%if (!IsIndOrdersEmpty)
+      { %>
+    <nopCommerce:OrderIndividualOrders runat="server" ID="orderIndOrders"></nopCommerce:OrderIndividualOrders>
+     <%} %>
 		<%if (IsShoppingCart)
 	{ %>
 		<div class="clear">

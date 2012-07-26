@@ -20,6 +20,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Payment;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.BusinessLogic.Shipping;
 using NopSolutions.NopCommerce.BusinessLogic.Tax;
+using NopSolutions.NopCommerce.BusinessLogic.Utils;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
@@ -30,7 +31,15 @@ namespace NopSolutions.NopCommerce.Web.Modules
         {
             ShoppingCart Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
 
-            if (Cart.Count > 0)
+            Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
+            IndividualOrderCollection indOrders = IndividualOrderManager.GetIndividualOrderByCurrentUserSessionGuid(CustomerSessionGUID);
+            decimal indOrderTotal = IndividualOrderManager.GetTotalPriceIndOrders(indOrders);
+            if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
+            {
+                indOrderTotal = Math.Round(PriceConverter.ToUsd(indOrderTotal));
+            }
+
+            if (Cart.Count > 0 || indOrders.Count > 0)
             {
                 //payment method (if already selected)
                 int paymentMethodID = 0;
@@ -44,7 +53,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 if (String.IsNullOrEmpty(SubTotalError))
                 {
                     decimal shoppingCartSubTotal = CurrencyManager.ConvertCurrency(shoppingCartSubTotalBase, CurrencyManager.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
-
+                    shoppingCartSubTotal += indOrderTotal;
                     lblSubTotalAmount.Text = PriceHelper.FormatPrice(shoppingCartSubTotal);
                     if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
                     {
@@ -154,7 +163,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                     if (Session["SelfOrder"] != null)
                         shoppingCartTotal -= ShippingManager.GetShoppingCartShippingTotal(Cart).Value;
-
+                    shoppingCartTotal += indOrderTotal;
                     lblTotalAmount.Text = PriceHelper.FormatPrice(shoppingCartTotal);
                     if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
                     {

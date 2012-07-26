@@ -111,7 +111,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
             }
 
             Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
-            if (Cart.Count == 0)
+            IndividualOrderCollection indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders();
+            if (Cart.Count == 0 && indOrders.Count == 0)
                 Response.Redirect("~/ShoppingCart.aspx");
         }
 

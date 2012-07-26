@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NopSolutions.NopCommerce.Common.Utils;
+using NopSolutions.NopCommerce.BusinessLogic.Orders;
 
 namespace NopSolutions.NopCommerce.Web
 {
@@ -15,7 +16,8 @@ namespace NopSolutions.NopCommerce.Web
             if (!IsPostBack)
             {
                 int sentMessage = CommonHelper.QueryStringInt("sentMessage");
-                if (sentMessage == 0)
+                int indOrderID = CommonHelper.QueryStringInt("orderID", -1);
+                if (sentMessage == 0 && indOrderID == -1)
                 {
                     this.indivOrderControl.Visible = true;
                     this.sentMessageLabel.Visible = false;
@@ -26,8 +28,21 @@ namespace NopSolutions.NopCommerce.Web
                     this.indivOrderControl.Visible = false;
                     this.sentMessageLabel.Visible = true;
                     this.orderSenrTopic.Visible = true;
-                    String order = (String)Session["quickOrderMessage"];
-                    this.sentMessageLabel.Text = String.Format("{0}{1}", "Ваш индивидуальный  заказ цветов  отправлен. Вы заказали ", order);
+                    String order = String.Empty;
+                    String startText = String.Empty; 
+                    if (indOrderID == -1)
+                    {
+                        order = (String)Session["quickOrderMessage"];
+                        startText = "Ваш индивидуальный  заказ цветов  отправлен. Вы заказали ";
+                    }
+                    else
+                    {
+                        BusinessLogic.Orders.IndividualOrder indOrder = IndividualOrderManager.GetIndividualOrderByID(indOrderID);
+                        order = indOrder != null ? indOrder.OrderText: "удален.";
+                        startText = "Ваш индивидуальный заказ ";
+                    }
+
+                    this.sentMessageLabel.Text = String.Format("{0}{1}", startText, order);
                 }
             }
         }

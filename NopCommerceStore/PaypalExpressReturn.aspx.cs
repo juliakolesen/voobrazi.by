@@ -98,7 +98,8 @@ namespace NopSolutions.NopCommerce.Web
             }
 
             ShoppingCart Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
-            if (Cart.Count == 0)
+            IndividualOrderCollection indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders();
+            if (Cart.Count == 0 && indOrders.Count == 0)
                 Response.Redirect("~/ShoppingCart.aspx");
 
             this.btnNextStep.Attributes.Add("onclick", "this.disabled = true;" + Page.ClientScript.GetPostBackEventReference(this.btnNextStep, ""));

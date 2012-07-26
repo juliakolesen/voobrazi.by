@@ -54,6 +54,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 var shoppingCart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
                 foreach (ShoppingCartItem sc in shoppingCart)
                     ShoppingCartManager.DeleteShoppingCartItem(sc.ShoppingCartItemID, false);
+
+                var indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders();
+                foreach (BusinessLogic.Orders.IndividualOrder indOrder in indOrders)
+                    IndividualOrderManager.DeleteIndividualOrder(indOrder.IndividualOrderID);
             }
         }
 

@@ -38,28 +38,28 @@ namespace NopSolutions.NopCommerce.Web.Modules
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            this.orderIndOrders.IsShoppingCart = IsShoppingCart;
             this.BindData();
         }
 
         public void BindData()
         {
             ShoppingCart Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
-
-            if (Cart.Count > 0)
+            IndividualOrderCollection indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders();
+            if (Cart.Count == 0 && indOrders.Count == 0)
+            {
+                pnlEmptyCart.Visible = true;
+                pnlCart.Visible = false;
+            }
+            else
             {
                 pnlEmptyCart.Visible = false;
                 pnlCart.Visible = true;
-
                 phCoupon.Visible = DiscountManager.HasDiscountsWithCouponCode();
 
                 rptShoppingCart.DataSource = Cart;
                 rptShoppingCart.DataBind();
                 ValidateCart();
-            }
-            else
-            {
-                pnlEmptyCart.Visible = true;
-                pnlCart.Visible = false;
             }
 
             this.ctrlOrderTotals.BindData();
@@ -286,6 +286,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            orderIndOrders.UpdateIndividualOrders();
             UpdateShoppingCart();
         }
 
@@ -315,6 +316,24 @@ namespace NopSolutions.NopCommerce.Web.Modules
             set
             {
                 this.ViewState["IsShoppingCart"] = value;
+            }
+        }
+
+        public bool IsShoppingCartEmpty
+        {
+            get
+            {
+                ShoppingCart Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
+                return Cart.Count == 0;
+            }
+        }
+
+        public bool IsIndOrdersEmpty
+        {
+            get 
+            {
+                IndividualOrderCollection indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders();
+                return indOrders.Count == 0;
             }
         }
     }

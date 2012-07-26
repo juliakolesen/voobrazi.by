@@ -137,6 +137,9 @@
     <Compile Include="DBProviderSectionNameAttribute.cs" />
     <Compile Include="Maintenance\DBMaintenanceProvider.cs" />
     <Compile Include="Orders\DBBestSellersReportLine.cs" />
+    <Compile Include="Orders\DBIndividualOrder.cs" />
+    <Compile Include="Orders\DBIndividualOrderCollection.cs" />
+    <Compile Include="Orders\DBIndividualOrderProvider.cs" />
     <Compile Include="Orders\DBOrderAverageReportLine.cs" />
     <Compile Include="Orders\DBOrderProvider.cs" />
     <Compile Include="Orders\DBViewedItem.cs" />

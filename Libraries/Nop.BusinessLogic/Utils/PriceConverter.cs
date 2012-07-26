@@ -16,5 +16,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Utils
             decimal usdToByr = SettingManager.GetSettingValueDecimalNative("PaymentMethods.UsdRate");
             return amount / usdToByr;
         }
+
+        public static long ToBYR(decimal amount)
+        {
+            decimal byrToUsd = SettingManager.GetSettingValueDecimalNative("PaymentMethods.UsdRate");
+            return (long)(amount * byrToUsd);
+        }
     }
 }

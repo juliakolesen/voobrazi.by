@@ -123,6 +123,7 @@
     <Compile Include="Media\SQLPictureProvider.cs" />
     <Compile Include="Messages\SQLMessageTemplateProvider.cs" />
     <Compile Include="NopSqlDataHelper.cs" />
+    <Compile Include="Orders\SQLIndividualOrderProvider.cs" />
     <Compile Include="Orders\SQLOrderProvider.cs" />
     <Compile Include="Orders\SQLShoppingCartProvider.cs" />
     <Compile Include="Orders\SQLViewedItemProvider.cs" />

@@ -25,6 +25,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Payment;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.BusinessLogic.Shipping;
 using NopSolutions.NopCommerce.Common.Utils;
+using NopSolutions.NopCommerce.BusinessLogic.Utils;
 
 
 namespace NopSolutions.NopCommerce.Web.Modules
@@ -68,7 +69,18 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         order.PaymentMethodName = PaymentMethodManager.GetPaymentMethodByID(paymentInfo.PaymentMethodID).Name;
                     }
 
-                    PaymentManager.PostProcessPayment(order);
+                    Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
+                    IndividualOrderCollection indOrders = IndividualOrderManager.GetIndividualOrderByCurrentUserSessionGuid(CustomerSessionGUID);
+                    PaymentMethod pm = PaymentMethodManager.GetPaymentMethodByID(order.PaymentMethodID);
+                    if (pm.ClassName.Equals("Nop.Payment.WebPay.WebPayPaymentProcessor, Nop.Payment.WebPay"))
+                    {
+                        Nop.Payment.WebPay.WebPayPaymentProcessor webPayMethod = new Nop.Payment.WebPay.WebPayPaymentProcessor();
+                        webPayMethod.PostProcessPayment(order, indOrders);
+                    }
+                    else
+                    {
+                        PaymentManager.PostProcessPayment(order);
+                    }
 
                     string subj = "Заказ в магазине Voobrazi.by";
                     StringBuilder body = new StringBuilder();
@@ -79,6 +91,20 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     body.AppendFormat("Адрес: {0} {1}<br />", paymentInfo.BillingAddress.City, paymentInfo.BillingAddress.Address1).AppendLine();
                     body.AppendFormat("Email: {0}<br /><br />", !string.IsNullOrEmpty(NopContext.Current.User.BillingAddress.Email) ? NopContext.Current.User.BillingAddress.Email : NopContext.Current.User.Email).AppendLine();
                     body.AppendFormat("Комментарии: {0}<br /><br />", tbComments.Text).AppendLine();
+
+                    decimal total = 0;                
+                    decimal indOrderTotal = IndividualOrderManager.GetTotalPriceIndOrders(indOrders);
+                    if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
+                    {
+                        indOrderTotal = Math.Round(PriceConverter.ToUsd(indOrderTotal));
+                    }
+
+                    total += indOrderTotal;
+                    body.AppendFormat("Индивидуальные заказы:<br />");
+                    foreach (var indOrder in indOrders)
+                    {
+                        body.Append(indOrder.OrderText + "<br />");
+                    }
 
                     if (Session["fn"] != null)
                     {
@@ -93,7 +119,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                     body.AppendFormat("<br /><br /> Заказано:<br />");
 
-                    decimal total = 0;
                     foreach (OrderProductVariant variant in order.OrderProductVariants)
                     {
                         body.AppendFormat(" - {0} ({1}) x {2}шт. -- {3}; <br />", variant.ProductVariant.Product.Name, PriceHelper.FormatShippingPrice(variant.ProductVariant.Price, true), variant.Quantity, PriceHelper.FormatShippingPrice(variant.ProductVariant.Price * variant.Quantity, true));
@@ -118,7 +143,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     body.AppendFormat("<b>Итого:</b> {0}<br />", total).AppendLine();
 
                     body.AppendFormat("<br />Дополнительная информация: {0}<br />", Session["ai"]).AppendLine();
-
                     MessageManager.SendEmail(subj, body.ToString(), MessageManager.AdminEmailAddress, MessageManager.AdminEmailAddress);
                     Session.Remove("SelfOrder");
                     Response.Redirect("~/CheckoutCompleted.aspx");
@@ -141,7 +165,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
             }
 
             Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
-            if (Cart.Count == 0)
+            IndividualOrderCollection indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders();
+            if (Cart.Count == 0 && indOrders.Count == 0)
                 Response.Redirect("~/ShoppingCart.aspx");
 
             btnNextStep.Attributes.Add("onclick", "this.disabled = true;" + Page.ClientScript.GetPostBackEventReference(this.btnNextStep, ""));

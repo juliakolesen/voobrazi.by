@@ -107,6 +107,9 @@
     <Compile Include="Maintenance\MaintenanceManager.cs" />
     <Compile Include="Maintenance\DatabaseMaintanceTask.cs" />
     <Compile Include="Orders\BestSellersReportLine.cs" />
+    <Compile Include="Orders\IndividualOrder.cs" />
+    <Compile Include="Orders\IndividualOrderCollection.cs" />
+    <Compile Include="Orders\IndividualOrderManager.cs" />
     <Compile Include="Orders\OrderAverageReportLine.cs" />
     <Compile Include="Orders\ViewedItem.cs" />
     <Compile Include="Orders\ViewedItemManager.cs" />
