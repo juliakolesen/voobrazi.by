@@ -3167,6 +3167,13 @@
     <Compile Include="eWayMerchantReturn.aspx.designer.cs">
       <DependentUpon>eWayMerchantReturn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FlowersWholesale.aspx.cs">
+      <DependentUpon>FlowersWholesale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FlowersWholesale.aspx.designer.cs">
+      <DependentUpon>FlowersWholesale.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5318,6 +5325,7 @@
     <Content Include="editors\fckeditor\license.txt" />
     <Content Include="favicon.ico" />
     <Content Include="FileNotFound.htm" />
+    <Content Include="FlowersWholesale.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GooglePostHandler.aspx" />
     <Content Include="Google\google_log.txt" />
@@ -5332,6 +5340,7 @@
     <Content Include="images\Calendar_scheduleHS.png" />
     <Content Include="images\ff_images\bottom2.gif" />
     <Content Include="images\ff_images\button-order2.gif" />
+    <Content Include="images\ff_images\FlowersWholesale.gif" />
     <Content Include="images\ff_images\header2.gif" />
     <Content Include="images\ff_images\individualOrder.jpg" />
     <Content Include="images\ff_images\lider-banner2.jpg" />

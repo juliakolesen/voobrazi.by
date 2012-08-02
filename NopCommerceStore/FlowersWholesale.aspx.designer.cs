@@ -7,27 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web.Modules {
+namespace NopCommerceStore {
     
     
-    public partial class CategoryNavigation {
+    public partial class FlowersWholesale {
         
         /// <summary>
-        /// flowersWholesaleLink control.
+        /// topicFlowersWholesale control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink flowersWholesaleLink;
-        
-        /// <summary>
-        /// phCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phCategories;
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicFlowersWholesale;
     }
 }
