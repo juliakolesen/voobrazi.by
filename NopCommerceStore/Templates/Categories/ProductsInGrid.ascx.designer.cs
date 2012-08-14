@@ -67,6 +67,24 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         protected global::System.Web.UI.WebControls.DataList dlProducts;
         
         /// <summary>
+        /// indOrderBanner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image indOrderBanner;
+        
+        /// <summary>
+        /// dlProducts2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlProducts2;
+        
+        /// <summary>
         /// productsPagerBottom control.
         /// </summary>
         /// <remarks>

@@ -32,6 +32,8 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         private int pageSize = Int32.MaxValue;
         private int totalItemCount = 0;
         private const int minPageSize = 12;
+        private const int countLines = 2;
+        private const int rowCount = 3;
 
         protected void BindData()
         {
@@ -43,7 +45,9 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 baseCategory = baseCategory.ParentCategory;
             }
 
-            if (baseCategory.Name.ToLower() != "живые цветы")
+            string categoryName = baseCategory.Name.ToLower();
+
+            if (!categoryName.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase))
             {
                 designVariant.Visible = false;
             }
@@ -99,6 +103,11 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 0, null, ((TwoColumn)Page.Master).MinPriceConverted, ((TwoColumn)Page.Master).MaxPriceConverted,
                 pageSize, CurrentPageIndex, psoFilterOptions, (int)sortParameter.SortBy, sortParameter.Ascending, out totalRecords);
 
+            SetItemsToGrid(totalRecords, productCollection, categoryName);
+        }
+
+        private void SetItemsToGrid(int totalRecords, ProductCollection productCollection, string category)
+        {
             if (productCollection.Count > 0)
             {
                 productsPagerBottom.PageSize = productsPager.PageSize = pageSize;
@@ -106,12 +115,33 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 productsPagerBottom.PageIndex = productsPager.PageIndex = CurrentPageIndex;
                 Session.Add("productsPager", productsPager);
 
-                dlProducts.DataSource = productCollection;
-                dlProducts.DataBind();
+                if (productCollection.Count > countLines * rowCount
+                    && (category.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase) 
+                    || category.Equals("Букеты и композиции", StringComparison.CurrentCultureIgnoreCase)))
+                {
+                    int countFirstPart = countLines * rowCount;
+                    ProductCollection part1 = new ProductCollection();
+                    part1.AddRange(productCollection.GetRange(0, countFirstPart));
+                    ProductCollection part2 = new ProductCollection();
+                    part2.AddRange(productCollection.GetRange(countFirstPart, productCollection.Count - countFirstPart));
+                    dlProducts.DataSource = part1;
+                    dlProducts.DataBind();
+                    dlProducts2.DataSource = part2;
+                    dlProducts2.DataBind();
+                }
+                else
+                {
+                    dlProducts.DataSource = productCollection;
+                    dlProducts.DataBind();
+                    dlProducts2.Visible = false;
+                    indOrderBanner.Visible = false;
+                }
             }
             else
             {
                 dlProducts.Visible = false;
+                dlProducts2.Visible = false;
+                indOrderBanner.Visible = false;
             }
         }
 
@@ -128,6 +158,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
         protected void dlSubCategories_ItemDataBound(object sender, DataListItemEventArgs e)
         {
+            
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Category category = e.Item.DataItem as Category;

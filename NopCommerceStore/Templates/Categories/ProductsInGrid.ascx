@@ -59,7 +59,15 @@
                     <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>'
                         runat="server" />
                 </ItemTemplate>
-            </asp:DataList>
+           </asp:DataList>
+           <asp:Image ID="indOrderBanner" runat="server" ImageUrl="~/images/ff_images/individualOderBanner.gif" Visible="true"/>
+           <asp:DataList ID="dlProducts2" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
+                RepeatLayout="Table" ItemStyle-CssClass="flow_item" ItemStyle-VerticalAlign="top">
+                <ItemTemplate>
+                    <nopCommerce:ProductBox1 ID="ctrlProductBox2" Product='<%# Container.DataItem %>'
+                        runat="server" />
+                </ItemTemplate>
+           </asp:DataList>
         </div>
         <div class="navigator">
             <nopCommerce:Pager runat="server" ID="productsPagerBottom" FirstButtonText="" LastButtonText=""
