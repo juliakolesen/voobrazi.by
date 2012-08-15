@@ -3289,6 +3289,13 @@
     <Compile Include="Modules\ViewedItems.ascx.designer.cs">
       <DependentUpon>ViewedItems.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\WeddingBunchVariant.ascx.cs">
+      <DependentUpon>WeddingBunchVariant.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\WeddingBunchVariant.ascx.designer.cs">
+      <DependentUpon>WeddingBunchVariant.ascx</DependentUpon>
+    </Compile>
     <Compile Include="SearchResults.aspx.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5382,6 +5389,7 @@
     <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />
     <Content Include="Modules\ViewedItems.ascx" />
+    <Content Include="Modules\WeddingBunchVariant.ascx" />
     <Content Include="Scripts\slimbox2.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />

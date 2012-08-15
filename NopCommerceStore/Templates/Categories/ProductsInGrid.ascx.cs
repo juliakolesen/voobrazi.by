@@ -40,21 +40,26 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             Category category = CategoryManager.GetCategoryByID(CategoryID);
             //настройка видимости фильтра
             Category baseCategory = category;
+            Category prevCat = category;
             while (baseCategory.ParentCategory != null)
             {
+                prevCat = baseCategory;
                 baseCategory = baseCategory.ParentCategory;
             }
 
             string categoryName = baseCategory.Name.ToLower();
 
-            if (!categoryName.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase))
-            {
-                designVariant.Visible = false;
-            }
-            else
+            if (categoryName.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase))
             {
                 designVariant.Visible = true;
             }
+
+            if (categoryName.Equals("Свадебная флористика", StringComparison.CurrentCultureIgnoreCase)
+                && prevCat.Name.Equals("букет невесты", StringComparison.CurrentCultureIgnoreCase))
+            {
+                weddingBunchVariant.Visible = true;
+            }
+            
             // настройка лидеров продаж
             List<BestSellersReportLine> report = OrderManager.BestSellersReport(720, 10, 1);
             if (report.Count == 0)
@@ -99,6 +104,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             List<int> psoFilterOptions = new List<int>();
             psoFilterOptions.AddRange(((TwoColumn)Page.Master).PSOFilterOption);
             psoFilterOptions.AddRange(this.designVariant.GetDesignVariantIds());
+            psoFilterOptions.AddRange(this.weddingBunchVariant.GetDesignVariantIds());
             ProductCollection productCollection = ProductManager.GetAllProducts(CategoryID,
                 0, null, ((TwoColumn)Page.Master).MinPriceConverted, ((TwoColumn)Page.Master).MaxPriceConverted,
                 pageSize, CurrentPageIndex, psoFilterOptions, (int)sortParameter.SortBy, sortParameter.Ascending, out totalRecords);

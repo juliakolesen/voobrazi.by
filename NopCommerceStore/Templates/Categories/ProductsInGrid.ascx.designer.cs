@@ -58,6 +58,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         protected global::NopSolutions.NopCommerce.Web.Modules.DesignVariant designVariant;
         
         /// <summary>
+        /// weddingBunchVariant control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.WeddingBunchVariant weddingBunchVariant;
+        
+        /// <summary>
         /// dlProducts control.
         /// </summary>
         /// <remarks>
