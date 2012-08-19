@@ -59,6 +59,11 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             {
                 weddingBunchVariant.Visible = true;
             }
+
+            if (categoryName.Equals("комнатные растения", StringComparison.CurrentCultureIgnoreCase))
+            {
+                houseFlowersVariant.Visible = true;
+            }
             
             // настройка лидеров продаж
             List<BestSellersReportLine> report = OrderManager.BestSellersReport(720, 10, 1);
@@ -105,6 +110,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             psoFilterOptions.AddRange(((TwoColumn)Page.Master).PSOFilterOption);
             psoFilterOptions.AddRange(this.designVariant.GetDesignVariantIds());
             psoFilterOptions.AddRange(this.weddingBunchVariant.GetDesignVariantIds());
+            psoFilterOptions.AddRange(this.houseFlowersVariant.GetDesignVariantIds());
             ProductCollection productCollection = ProductManager.GetAllProducts(CategoryID,
                 0, null, ((TwoColumn)Page.Master).MinPriceConverted, ((TwoColumn)Page.Master).MaxPriceConverted,
                 pageSize, CurrentPageIndex, psoFilterOptions, (int)sortParameter.SortBy, sortParameter.Ascending, out totalRecords);

@@ -3219,6 +3219,13 @@
     <Compile Include="Modules\DesignVariant.ascx.designer.cs">
       <DependentUpon>DesignVariant.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\HouseFlowersVariant.ascx.cs">
+      <DependentUpon>HouseFlowersVariant.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\HouseFlowersVariant.ascx.designer.cs">
+      <DependentUpon>HouseFlowersVariant.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\IndividualOrderControl.ascx.cs">
       <DependentUpon>IndividualOrderControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5382,6 +5389,7 @@
     <Content Include="IndividualOrder.aspx" />
     <Content Include="Install\install.aspx" />
     <Content Include="Modules\DesignVariant.ascx" />
+    <Content Include="Modules\HouseFlowersVariant.ascx" />
     <Content Include="Modules\IndividualOrderControl.ascx" />
     <Content Include="Modules\InformationMenu.ascx" />
     <Content Include="Modules\OrderIndividualOrders.ascx" />
