@@ -64,7 +64,10 @@
                         runat="server" />
                 </ItemTemplate>
            </asp:DataList>
-           <asp:Image ID="indOrderBanner" runat="server" ImageUrl="~/images/ff_images/individualOderBanner.gif" Visible="true"/>
+           <asp:HyperLink runat="server" ID="indOrderBanner" title="Оформите индивидуальный заказ"
+                NavigateUrl="~/IndividualOrder.aspx">
+					<img src="../../images/ff_images/individualOderBanner.gif" alt="" height="100"/>
+           </asp:HyperLink>
            <asp:DataList ID="dlProducts2" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
                 RepeatLayout="Table" ItemStyle-CssClass="flow_item" ItemStyle-VerticalAlign="top">
                 <ItemTemplate>
