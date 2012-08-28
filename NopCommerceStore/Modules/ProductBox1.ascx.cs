@@ -66,7 +66,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                 lShortDescription.Text = product.ShortDescription;
 
-                ProductVariantCollection productVariantCollection = product.ProductVariants;
+                ProductVariantCollection productVariantCollection = product.ProductVariants;            
+
                 if (productVariantCollection.Count > 0)
                 {
                     if (!product.HasMultipleVariants)
@@ -98,7 +99,13 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 }
 
                 #region scjaarge's change
-                if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty)
+                int totalStockQuantity = 0;
+                foreach (var productVariant in productVariantCollection)
+                {
+                    totalStockQuantity += productVariant.StockQuantity;
+                }
+
+                if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty || totalStockQuantity == 0)
                     litOrderOrNa.Text = "Нет в наличии";
                 #endregion scjaarge's change
             }
