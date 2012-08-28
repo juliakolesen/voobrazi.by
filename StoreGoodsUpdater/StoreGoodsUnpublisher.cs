@@ -45,8 +45,8 @@ namespace Scjaarge.NopTasks
 
                     using (var command = new SqlCommand(string.Format(PublishProductQuery, categoryIDsToSkip.Value.Replace(";", ",")), connection))
                         command.ExecuteNonQuery();
-                    using (var command = new SqlCommand(string.Format(UnpublishProductQuery, categoryIDsToSkip.Value.Replace(";", ",")), connection))
-                        command.ExecuteNonQuery();
+                    //using (var command = new SqlCommand(string.Format(UnpublishProductQuery, categoryIDsToSkip.Value.Replace(";", ",")), connection))
+                    //    command.ExecuteNonQuery();
                 }
             }
             catch (Exception exc)
