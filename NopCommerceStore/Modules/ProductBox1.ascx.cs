@@ -99,13 +99,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 }
 
                 #region scjaarge's change
-                int totalStockQuantity = 0;
-                foreach (var productVariant in productVariantCollection)
-                {
-                    totalStockQuantity += productVariant.StockQuantity;
-                }
-
-                if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty || totalStockQuantity == 0)
+                if (!lblPrice.Visible || lblPrice.Text.Trim() == string.Empty)
                     litOrderOrNa.Text = "Нет в наличии";
                 #endregion scjaarge's change
             }

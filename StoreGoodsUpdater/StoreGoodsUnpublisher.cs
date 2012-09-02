@@ -16,7 +16,7 @@ namespace Scjaarge.NopTasks
         private const string PublishProductQuery = @"UPDATE p SET p.Published=1 FROM Nop_Product p INNER JOIN Nop_ProductVariant pv 
                                                         ON (p.ProductId = pv.ProductId 
                                                             AND pv.StockQuantity > 0 
-                                                            AND p.ProductId IN (SELECT DISTINCT ProductID FROM Nop_Product_Category_Mapping WHERE CategoryId IN ({0})))";
+                                                            AND p.ProductId NOT IN (SELECT DISTINCT ProductID FROM Nop_Product_Category_Mapping WHERE CategoryId IN ({0})))";
 
         private const string UnpublishProductQuery = @"UPDATE p SET p.Published = 0 FROM Nop_Product p INNER JOIN Nop_ProductVariant pv 
                                                         ON (p.ProductId = pv.ProductId 
@@ -45,8 +45,8 @@ namespace Scjaarge.NopTasks
 
                     using (var command = new SqlCommand(string.Format(PublishProductQuery, categoryIDsToSkip.Value.Replace(";", ",")), connection))
                         command.ExecuteNonQuery();
-                    //using (var command = new SqlCommand(string.Format(UnpublishProductQuery, categoryIDsToSkip.Value.Replace(";", ",")), connection))
-                    //    command.ExecuteNonQuery();
+                    using (var command = new SqlCommand(string.Format(UnpublishProductQuery, categoryIDsToSkip.Value.Replace(";", ",")), connection))
+                        command.ExecuteNonQuery();
                 }
             }
             catch (Exception exc)
