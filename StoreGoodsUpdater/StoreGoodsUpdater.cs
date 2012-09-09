@@ -160,17 +160,6 @@ namespace Scjaarge.NopTasks
                                         {
                                             InsertSao(connection, product.Id, saoDiameterId);
                                         }
-
-                                        List<int> cat = GetCategoriesList(connection, product.Id);
-                                        if (cat.Contains(flowersCategory))
-                                        {
-                                            List<Product> productsFromBase = GetRelatedProductsFromBase(connection);
-                                            List<Product> neededRelatedProducts = GetNeededRelatedProducts(productsFromBase, diameter);
-                                            if (product != null)
-                                            {
-                                                UpdateRelatedProducts(connection, neededRelatedProducts, product);
-                                            }
-                                        }
                                     }
 
                                     if (product != null)
