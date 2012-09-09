@@ -1748,6 +1748,19 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
         }
 
         /// <summary>
+        /// Gets a related product collection by product identifier
+        /// </summary>
+        /// <param name="ProductID1">The first product identifier</param>
+        /// <returns>Related product collection</returns>
+        public static RelatedProductCollection GetRelatedProductsByProductID1Paged(int ProductID1, int PageIndex, int PageSize, 
+            ref int TotalRecords)
+        {
+            bool showHidden = NopContext.Current.IsAdmin;
+            DBRelatedProductCollection dbCollection = DBProviderManager<DBProductProvider>.Provider.GetRelatedProductsByProductID1Paged(ProductID1, showHidden, PageIndex, PageSize, ref TotalRecords);
+            RelatedProductCollection relatedProducts = DBMapping(dbCollection);
+            return relatedProducts;
+        }
+        /// <summary>
         /// Gets a related product
         /// </summary>
         /// <param name="RelatedProductID">Related product identifer</param>

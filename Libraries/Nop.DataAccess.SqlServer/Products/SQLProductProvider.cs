@@ -1233,6 +1233,37 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         }
 
         /// <summary>
+        /// Gets a related product collection by product identifier
+        /// </summary>
+        /// <param name="ProductID1">The first product identifier</param>
+        /// <param name="showHidden">A value indicating whether to show hidden records</param>
+        /// <returns>Related product collection</returns>
+        public override DBRelatedProductCollection GetRelatedProductsByProductID1Paged(int ProductID1, bool showHidden, int PageIndex,
+            int PageSize, ref int TotalRecords)
+        {
+            DBRelatedProductCollection relatedProductCollection = new DBRelatedProductCollection();
+            Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("Nop_RelatedProductLoadByProductID1Paged");
+            db.AddInParameter(dbCommand, "ProductID1", DbType.Int32, ProductID1);
+            db.AddInParameter(dbCommand, "ShowHidden", DbType.Boolean, showHidden);
+            db.AddInParameter(dbCommand, "PageIndex", DbType.Int32, PageIndex);
+            db.AddInParameter(dbCommand, "PageSize", DbType.Int32, PageSize);
+            db.AddOutParameter(dbCommand, "TotalRecords", DbType.Int32, 0);
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    DBRelatedProduct relatedProduct = GetRelatedProductFromReader(dataReader);
+                    relatedProductCollection.Add(relatedProduct);
+                }
+            }
+
+            TotalRecords = Convert.ToInt32(db.GetParameterValue(dbCommand, "@TotalRecords"));
+
+            return relatedProductCollection;
+        }
+
+        /// <summary>
         /// Gets a related product
         /// </summary>
         /// <param name="RelatedProductID">Related product identifer</param>

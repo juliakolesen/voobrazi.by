@@ -528,6 +528,14 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 	text-align: center;
 	padding: 10px 0;
 }
+
+.navigatorRelatedProducts
+{
+	font-size: 16px;
+	color: #fd3355;
+	text-align: center;
+}
+
 .navigator a, .navigator a:visited
 {
 	font-size: 16px;
@@ -703,7 +711,7 @@ a.button-order2:hover
 }
 .small_preview
 {
-	padding: 18px 0 0 0;
+	padding: 0 0 0 0;
 }
 .small-price
 {

@@ -417,6 +417,15 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         public abstract DBRelatedProductCollection GetRelatedProductsByProductID1(int ProductID1, bool showHidden);
 
         /// <summary>
+        /// Gets a related product collection by product identifier
+        /// </summary>
+        /// <param name="ProductID1">The first product identifier</param>
+        /// <param name="showHidden">A value indicating whether to show hidden records</param>
+        /// <returns>Related product collection</returns>
+        public abstract DBRelatedProductCollection GetRelatedProductsByProductID1Paged(int ProductID1, bool showHidden, int PageIndex,
+            int PageSize, ref int TotalRecords);
+        
+        /// <summary>
         /// Gets a related product
         /// </summary>
         /// <param name="RelatedProductID">Related product identifer</param>

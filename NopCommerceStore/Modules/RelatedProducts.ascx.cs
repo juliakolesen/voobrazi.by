@@ -22,11 +22,19 @@ using NopSolutions.NopCommerce.BusinessLogic.SEO;
 using NopSolutions.NopCommerce.BusinessLogic.Tax;
 using NopSolutions.NopCommerce.Common.Utils;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
+using NopSolutions.NopCommerce.BusinessLogic.Categories;
+using NopSolutions.NopCommerce.Web.MasterPages;
+using System.Collections.Generic;
+using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
+using System.Text.RegularExpressions;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
 	public partial class RelatedProductsControl : BaseNopUserControl
 	{
+        private int pageSize = 6;
+        private int totalItemCount = 0;
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (!Page.IsPostBack)
@@ -38,12 +46,18 @@ namespace NopSolutions.NopCommerce.Web.Modules
 			Product product = ProductManager.GetProductByID(ProductID);
 			if (product != null)
 			{
-				RelatedProductCollection relatedProducts = product.RelatedProducts;
+                int totalRecords = 0;
+                RelatedProductCollection relatedProducts = ProductManager.GetRelatedProductsByProductID1Paged(ProductID, 
+                    CurrentPageIndex, pageSize, ref totalRecords);
+                
 				if (relatedProducts.Count > 0)
 				{
 					this.Visible = true;
 					dlRelatedProducts.DataSource = relatedProducts;
 					dlRelatedProducts.DataBind();
+                    this.relatedProductPager.PageSize = pageSize;
+                    this.relatedProductPager.TotalRecords = totalRecords;
+                    this.relatedProductPager.PageIndex = CurrentPageIndex;
 				}
 				else
 					this.Visible = false;
@@ -51,6 +65,18 @@ namespace NopSolutions.NopCommerce.Web.Modules
 			else
 				this.Visible = false;
 		}
+
+        public int CurrentPageIndex
+        {
+            get
+            {
+                int _pageIndex = CommonHelper.QueryStringInt(relatedProductPager.QueryStringProperty);
+                _pageIndex--;
+                if (_pageIndex < 0)
+                    _pageIndex = 0;
+                return _pageIndex;
+            }
+        }
 
 		protected void dlRelatedProducts_ItemDataBound(object sender, RepeaterItemEventArgs e)
 		{
