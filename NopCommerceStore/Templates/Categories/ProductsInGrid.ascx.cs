@@ -191,14 +191,17 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         private void AdjustColorsFilter(string categoryName, Category category)
         {
             SpecificationAttribute specAttrColor = ColorManager.GetColorSpecificationAttribute();
-            List<int> saOptions = ProductManager.GetProductSpecificationAttributeOptionsByCategory(category.CategoryID, specAttrColor.SpecificationAttributeID);
-
-            if (saOptions.Count > 0)
+            if (specAttrColor != null)
             {
-                colorsFilter.Visible = true;
-                List<ColorItem> colors = ColorManager.GetColorsBySAOID(saOptions);
-                colorsFilter.Colors = colors;
-                colorsFilter.CategoryName = categoryName;
+                List<int> saOptions = ProductManager.GetProductSpecificationAttributeOptionsByCategory(category.CategoryID, specAttrColor.SpecificationAttributeID);
+
+                if (saOptions.Count > 0)
+                {
+                    colorsFilter.Visible = true;
+                    List<ColorItem> colors = ColorManager.GetColorsBySAOID(saOptions);
+                    colorsFilter.Colors = colors;
+                    colorsFilter.CategoryName = categoryName;
+                }
             }
         }
 
