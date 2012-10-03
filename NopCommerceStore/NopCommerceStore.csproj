@@ -3212,6 +3212,20 @@
     <Compile Include="MasterPages\OneColumnHome.master.designer.cs">
       <DependentUpon>OneColumnHome.master</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ColorCell.ascx.cs">
+      <DependentUpon>ColorCell.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\ColorCell.ascx.designer.cs">
+      <DependentUpon>ColorCell.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ColorsFilterControl.ascx.cs">
+      <DependentUpon>ColorsFilterControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\ColorsFilterControl.ascx.designer.cs">
+      <DependentUpon>ColorsFilterControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\DesignVariant.ascx.cs">
       <DependentUpon>DesignVariant.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5388,6 +5402,8 @@
     <Content Include="images\zoom-icon7.gif" />
     <Content Include="IndividualOrder.aspx" />
     <Content Include="Install\install.aspx" />
+    <Content Include="Modules\ColorCell.ascx" />
+    <Content Include="Modules\ColorsFilterControl.ascx" />
     <Content Include="Modules\DesignVariant.ascx" />
     <Content Include="Modules\HouseFlowersVariant.ascx" />
     <Content Include="Modules\IndividualOrderControl.ascx" />
@@ -6054,7 +6070,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>18575</DevelopmentServerPort>
+          <DevelopmentServerPort>18832</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/NopCommerceStore</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

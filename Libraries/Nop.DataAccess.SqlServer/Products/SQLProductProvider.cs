@@ -1847,6 +1847,31 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
             return tierPrice;
         }
 
+        /// <summary>
+        /// Get List of specification attribute options of products with category categoryID
+        /// </summary>
+        /// <param name="categoryID">category identifier</param>
+        /// <param name="specificationAttributeID">specification attribute identifier</param>
+        /// <returns></returns>
+        public override List<int> GetProductSpecificationAttributeOptionsByCategory(int categoryID, int specificationAttributeID)
+        {
+            List<int> saOptions = new List<int>();
+            Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("Nop_ProductLoadSpecificationAttributesOptionsByCategory");
+            db.AddInParameter(dbCommand, "CategoryID", DbType.Int32, categoryID);
+            db.AddInParameter(dbCommand, "SpecificationAttributeID", DbType.Int32, specificationAttributeID);
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    int saOption = NopSqlDataHelper.GetInt(dataReader, "SpecificationAttributeOptionID"); ;
+                    saOptions.Add(saOption);
+                }
+            }
+
+            return saOptions;
+        }
+
         #endregion
     }
 }

@@ -17,6 +17,7 @@ using System.Web.UI;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
 using NopSolutions.NopCommerce.Common.Utils;
 using System.Web.UI.WebControls;
+using NopSolutions.NopCommerce.BusinessLogic.Colors;
 
 namespace NopSolutions.NopCommerce.Web.Administration.Modules
 {
@@ -60,11 +61,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             if (specificationAttribute != null)
             {
                 specificationAttribute = SpecificationAttributeManager.UpdateSpecificationAttribute(specificationAttribute.SpecificationAttributeID, txtName.Text, txtDisplayOrder.Value);
+                ColorManager.UpdateColor(specificationAttribute.Name, txtName.Text);
             }
             else
             {
                 specificationAttribute = SpecificationAttributeManager.InsertSpecificationAttribute(txtName.Text, txtDisplayOrder.Value);
             }
+
             return specificationAttribute;
         }
 
@@ -84,7 +87,10 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
 
                 SpecificationAttributeOption sao = SpecificationAttributeManager.GetSpecificationAttributeOptionByID(saoID);
                 if (sao != null)
+                {
                     SpecificationAttributeManager.UpdateSpecificationAttributeOptions(saoID, SpecificationAttributeID, name, displayOrder);
+                    ColorManager.UpdateColor(sao.Name, name);
+                }
 
                 BindData();
             }
@@ -97,6 +103,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             if (sao != null)
             {
                 SpecificationAttributeManager.DeleteSpecificationAttributeOption(sao.SpecificationAttributeOptionID);
+                ColorManager.DeleteColor(sao.Name);
                 BindData();
             }
         }

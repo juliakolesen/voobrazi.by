@@ -644,6 +644,14 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         /// <returns>Tier price</returns>
         public abstract DBTierPrice UpdateTierPrice(int TierPriceID, int ProductVariantID, int Quantity, decimal Price);
 
+        /// <summary>
+        /// Get List of specification attribute options of products with category categoryID
+        /// </summary>
+        /// <param name="categoryID">category identifier</param>
+        /// <param name="specificationAttributeID">specification attribute identifier</param>
+        /// <returns></returns>
+        public abstract List<int> GetProductSpecificationAttributeOptionsByCategory(int categoryID, int specificationAttributeID);
+
         #endregion
     }
 }

@@ -2160,6 +2160,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             return Text;
         }
 
+        public static List<int> GetProductSpecificationAttributeOptionsByCategory(int categoryID, int specificationAttributeID)
+        {
+            return DBProviderManager<DBProductProvider>.Provider.GetProductSpecificationAttributeOptionsByCategory(categoryID, specificationAttributeID);
+        }
+
         /// <summary>
         /// Formats the email a friend text
         /// </summary>

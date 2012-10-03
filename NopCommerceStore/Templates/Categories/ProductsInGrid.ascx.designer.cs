@@ -76,6 +76,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         protected global::NopSolutions.NopCommerce.Web.Modules.HouseFlowersVariant houseFlowersVariant;
         
         /// <summary>
+        /// colorsFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.ColorsFilterControl colorsFilter;
+        
+        /// <summary>
         /// dlProducts control.
         /// </summary>
         /// <remarks>

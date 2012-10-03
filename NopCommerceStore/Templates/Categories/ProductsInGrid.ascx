@@ -4,6 +4,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="DesignVariant" Src="~/Modules/DesignVariant.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="WeddingBunchVariant" Src="~/Modules/WeddingBunchVariant.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="HouseFlowersVariant" Src="~/Modules/HouseFlowersVariant.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ColorsFilterControl" Src="~/Modules/ColorsFilterControl.ascx" %>
 <style>
     .seccont_middle .text
     {
@@ -30,7 +31,7 @@
             <table>
                 <tr>
                     <td width="125px">
-                    Сортировать:
+                        Сортировать:
                     </td>
                     <td width="150px">
                         <asp:DropDownList ID="sortBy" AutoPostBack="true" runat="server" OnSelectedIndexChanged="productsCount_SelectedIndexChanged">
@@ -41,18 +42,19 @@
                             NextButtonText="»" PreviousButtonText="«" CurrentPageText="Pager.CurrentPage" />
                     </td>
                     <td width="100px">
-                    Показать:
+                        Показать:
                     </td>
                     <td width="130px">
-                         <asp:DropDownList ID="productsCount" AutoPostBack="true" runat="server" OnSelectedIndexChanged="productsCount_SelectedIndexChanged">
-                         </asp:DropDownList>
+                        <asp:DropDownList ID="productsCount" AutoPostBack="true" runat="server" OnSelectedIndexChanged="productsCount_SelectedIndexChanged">
+                        </asp:DropDownList>
                     </td>
                 </tr>
             </table>
         </div>
-        <nopCommerce:DesignVariant ID="designVariant" runat="server" Visible="false"/>
-        <nopCommerce:WeddingBunchVariant ID="weddingBunchVariant" runat="server" Visible = "false" />
-        <nopCommerce:HouseFlowersVariant ID="houseFlowersVariant" runat="server" Visible = "false" />
+        <nopCommerce:DesignVariant ID="designVariant" runat="server" Visible="false" />
+        <nopCommerce:WeddingBunchVariant ID="weddingBunchVariant" runat="server" Visible="false" />
+        <nopCommerce:HouseFlowersVariant ID="houseFlowersVariant" runat="server" Visible="false" />
+        <nopCommerce:ColorsFilterControl ID="colorsFilter" runat="server"/>
         <div class="text">
             <p style="margin-top: 5px;">
                 <img src="<%= Page.ResolveUrl("~/images/ff_images/horizontal-separator.gif") %>"
@@ -63,18 +65,18 @@
                     <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>'
                         runat="server" />
                 </ItemTemplate>
-           </asp:DataList>
-           <asp:HyperLink runat="server" ID="indOrderBanner" title="Оформите индивидуальный заказ"
+            </asp:DataList>
+            <asp:HyperLink runat="server" ID="indOrderBanner" title="Оформите индивидуальный заказ"
                 NavigateUrl="~/IndividualOrder.aspx">
 					<img src="../../images/ff_images/individualOderBanner.gif" alt="" height="100"/>
-           </asp:HyperLink>
-           <asp:DataList ID="dlProducts2" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
+            </asp:HyperLink>
+            <asp:DataList ID="dlProducts2" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
                 RepeatLayout="Table" ItemStyle-CssClass="flow_item" ItemStyle-VerticalAlign="top">
                 <ItemTemplate>
                     <nopCommerce:ProductBox1 ID="ctrlProductBox2" Product='<%# Container.DataItem %>'
                         runat="server" />
                 </ItemTemplate>
-           </asp:DataList>
+            </asp:DataList>
         </div>
         <div class="navigator">
             <nopCommerce:Pager runat="server" ID="productsPagerBottom" FirstButtonText="" LastButtonText=""

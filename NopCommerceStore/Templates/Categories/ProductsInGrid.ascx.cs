@@ -24,6 +24,8 @@ using NopSolutions.NopCommerce.BusinessLogic.SEO;
 using NopSolutions.NopCommerce.Common.Utils;
 using NopSolutions.NopCommerce.Web.MasterPages;
 using System.Web;
+using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
+using NopSolutions.NopCommerce.BusinessLogic.Colors;
 
 namespace NopSolutions.NopCommerce.Web.Templates.Categories
 {
@@ -48,23 +50,9 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             }
 
             string categoryName = baseCategory.Name.ToLower();
+            AdjustFilters(prevCat, categoryName);
+            AdjustColorsFilter(categoryName, category);
 
-            if (categoryName.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase))
-            {
-                designVariant.Visible = true;
-            }
-
-            if (categoryName.Equals("Свадебная флористика", StringComparison.CurrentCultureIgnoreCase)
-                && prevCat.Name.Equals("букет невесты", StringComparison.CurrentCultureIgnoreCase))
-            {
-                weddingBunchVariant.Visible = true;
-            }
-
-            if (categoryName.Equals("комнатные растения", StringComparison.CurrentCultureIgnoreCase))
-            {
-                houseFlowersVariant.Visible = true;
-            }
-            
             // настройка лидеров продаж
             List<BestSellersReportLine> report = OrderManager.BestSellersReport(720, 10, 1);
             if (report.Count == 0)
@@ -118,6 +106,25 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             SetItemsToGrid(totalRecords, productCollection, categoryName);
         }
 
+        private void AdjustFilters(Category prevCat, string categoryName)
+        {
+            if (categoryName.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase))
+            {
+                designVariant.Visible = true;
+            }
+
+            if (categoryName.Equals("свадебная флористика", StringComparison.CurrentCultureIgnoreCase)
+                && prevCat.Name.Equals("букет невесты", StringComparison.CurrentCultureIgnoreCase))
+            {
+                weddingBunchVariant.Visible = true;
+            }
+
+            if (categoryName.Equals("комнатные растения", StringComparison.CurrentCultureIgnoreCase))
+            {
+                houseFlowersVariant.Visible = true;
+            }
+        }
+
         private void SetItemsToGrid(int totalRecords, ProductCollection productCollection, string category)
         {
             if (productCollection.Count > 0)
@@ -165,6 +172,33 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 FillCounts();
                 FillSortBy();
                 BindData();
+            }
+        }
+
+        private void AdjustColorsFilter()
+        {
+            Category curCategory = CategoryManager.GetCategoryByID(CategoryID);
+            Category category = curCategory;
+            while (category.ParentCategory != null)
+            {
+                category = category.ParentCategory;
+            }
+
+            string categoryName = category.Name.ToLower();
+            AdjustColorsFilter(categoryName, curCategory);
+        }
+
+        private void AdjustColorsFilter(string categoryName, Category category)
+        {
+            SpecificationAttribute specAttrColor = ColorManager.GetColorSpecificationAttribute();
+            List<int> saOptions = ProductManager.GetProductSpecificationAttributeOptionsByCategory(category.CategoryID, specAttrColor.SpecificationAttributeID);
+
+            if (saOptions.Count > 0)
+            {
+                colorsFilter.Visible = true;
+                List<ColorItem> colors = ColorManager.GetColorsBySAOID(saOptions);
+                colorsFilter.Colors = colors;
+                colorsFilter.CategoryName = categoryName;
             }
         }
 

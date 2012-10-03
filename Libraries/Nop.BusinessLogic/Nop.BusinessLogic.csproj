@@ -85,6 +85,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colors\Color.cs" />
+    <Compile Include="Colors\ColorManager.cs" />
     <Compile Include="Content\Forums\ForumSubscription.cs" />
     <Compile Include="Content\Forums\ForumSubscriptionCollection.cs" />
     <Compile Include="Content\Forums\ForumTopicTypeEnum.cs" />

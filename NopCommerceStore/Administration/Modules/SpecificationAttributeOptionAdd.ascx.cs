@@ -24,13 +24,30 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
 using NopSolutions.NopCommerce.Common.Utils;
+using NopSolutions.NopCommerce.BusinessLogic.Colors;
 
 namespace NopSolutions.NopCommerce.Web.Administration.Modules
 {
     public partial class SpecificationAttributeOptionAddControl : BaseNopAdministrationUserControl
     {
+        private bool IsColor
+        {
+            get 
+            {
+                SpecificationAttribute sa = SpecificationAttributeManager.GetSpecificationAttributeByID(SpecificationAttributeID);
+                return (sa != null && sa.Name.Equals("цвет", StringComparison.CurrentCultureIgnoreCase));
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsColor)
+            {
+                ToolTipLabelColor.Visible = true;
+                txtColorArgb.Visible = true;
+                cusCustom.Enabled = true;
+            }
+
             hlBack.NavigateUrl = "~/Administration/SpecificationAttributeDetails.aspx?SpecificationAttributeID=" + SpecificationAttributeID;
         }
 
@@ -41,6 +58,10 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 try
                 {
                     SpecificationAttributeOption sao = null;
+                    if(IsColor)
+                    {
+                        ColorManager.InsertColor(txtNewOptionName.Text, Int32.Parse(txtColorArgb.Text, System.Globalization.NumberStyles.AllowHexSpecifier));
+                    }
                     sao = SpecificationAttributeManager.InsertSpecificationAttributeOption(SpecificationAttributeID, txtNewOptionName.Text, txtNewOptionDisplayOrder.Value);
                     Response.Redirect("SpecificationAttributeDetails.aspx?SpecificationAttributeID=" + sao.SpecificationAttributeID.ToString());
                 }
@@ -57,6 +78,14 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             {
                 return CommonHelper.QueryStringInt("SpecificationAttributeID");
             }
+        }
+
+        protected void cusCustom_ServerValidate(object sender, ServerValidateEventArgs e)
+        {
+            if (ColorManager.GetColorByColorName(txtNewOptionName.Text) == null)
+                e.IsValid = true;
+            else
+                e.IsValid = false;
         }
     }
 }

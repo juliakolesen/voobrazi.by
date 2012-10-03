@@ -89,6 +89,8 @@
     <Compile Include="Categories\DBCategoryCollection.cs" />
     <Compile Include="Categories\DBProductCategory.cs" />
     <Compile Include="Categories\DBProductCategoryCollection.cs" />
+    <Compile Include="Colors\DBColors.cs" />
+    <Compile Include="Colors\DBColorsProvider.cs" />
     <Compile Include="Configuration\Settings\DBSetting.cs" />
     <Compile Include="Configuration\Settings\DBSettingCollection.cs" />
     <Compile Include="Content\Blog\DBBlogComment.cs" />

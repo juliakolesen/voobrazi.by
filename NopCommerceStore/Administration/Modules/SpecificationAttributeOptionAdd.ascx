@@ -3,6 +3,12 @@
 <%@ Register TagPrefix="nopCommerce" TagName="SimpleTextBox" Src="SimpleTextBox.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="NumericTextBox" Src="NumericTextBox.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ToolTipLabel" Src="ToolTipLabelControl.ascx" %>
+<script type="text/javascript" language="javascript">
+    function colorChanged(sender) {
+        sender.get_element().style.color =
+       "#" + sender.get_selectedColor();
+    }
+</script>
 <div class="section-header">
     <div class="title">
         <img src="Common/ico-catalog.png" alt="<%=GetLocaleResourceString("Admin.SpecificationAttributeOptionAdd.Title")%>" />
@@ -38,6 +44,28 @@
                     Value="1" RequiredErrorMessage="<% $NopResources:Admin.SpecificationAttributeOptionAdd.DisplayOrder.RequiredErrorMessage %>"
                     RangeErrorMessage="<% $NopResources:Admin.SpecificationAttributeOptionAdd.DisplayOrder.RangeErrorMessage %>"
                     MinimumValue="-99999" MaximumValue="99999" />
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                <nopCommerce:ToolTipLabel runat="server" ID="ToolTipLabelColor" Text="«начение цвета"
+                    ToolTip="«начение цвета" ToolTipImage="~/Administration/Common/ico-help.gif"
+                    Visible="false" />
+            </td>
+            <td class="adminData">
+                <asp:TextBox runat="server" ID="txtColorArgb" CssClass="adminInput" Visible="false" />
+            </td>
+            <td>
+                <ajaxToolkit:ColorPickerExtender runat="server" ID="colorPicker" TargetControlID="txtColorArgb"
+                    OnClientColorSelectionChanged="colorChanged">
+                </ajaxToolkit:ColorPickerExtender>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:CustomValidator runat="server" ID="cusCustom" ControlToValidate="txtColorArgb"
+                    OnServerValidate="cusCustom_ServerValidate" ErrorMessage="÷вет с таким именем уже существует!"
+                    Enabled="false"></asp:CustomValidator>
             </td>
         </tr>
     </tbody>

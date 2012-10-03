@@ -104,6 +104,7 @@
     <Compile Include="Audit\SQLLogProvider.cs" />
     <Compile Include="Audit\SQLSearchLogProvider.cs" />
     <Compile Include="Categories\SQLCategoryProvider.cs" />
+    <Compile Include="Colors\SqlColorsProvider.cs" />
     <Compile Include="Configuration\Settings\SQLSettingProvider.cs" />
     <Compile Include="Content\Blog\SQLBlogProvider.cs" />
     <Compile Include="Content\Forums\SQLForumProvider.cs" />
