@@ -171,7 +171,13 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     {
                         Product product = ProductManager.GetProductByID(ProductID);
                         if (product != null)
-                            categoryId = product.ProductCategories.Find(p => p.Category.ParentCategory != null).CategoryID;
+                        {
+                            ProductCategory prodCategory = product.ProductCategories.Find(p => p.Category.ParentCategory != null);
+                            if (prodCategory != null)
+                            {
+                                categoryId = prodCategory.CategoryID;
+                            }
+                        }
                     }
                 }
                 else

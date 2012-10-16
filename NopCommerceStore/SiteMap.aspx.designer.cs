@@ -7,27 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web.Templates.Products {
+namespace NopSolutions.NopCommerce.Web {
     
     
-    public partial class VariantsInGrid {
+    public partial class SiteMap {
         
         /// <summary>
-        /// siteMapPath control.
+        /// lSitemapContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SiteMapPath siteMapPath;
-        
-        /// <summary>
-        /// ctrlProductInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.ProductInfoControl ctrlProductInfo;
+        protected global::System.Web.UI.WebControls.Literal lSitemapContent;
     }
 }

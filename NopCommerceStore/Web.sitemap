@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Default.aspx" title="Главная"  description="Главная">
+    <siteMapNode url="~/HowToOrder.aspx" title="Как заказать"  description="Как заказать" />
+    <siteMapNode url="AboutDelivery.aspx" title="О доставке"  description="О доставке" />
+    <siteMapNode url="HowToPay.aspx" title="Как оплатить"  description="Как оплатить" />
+    <siteMapNode url="ShoppingCart.aspx" title="Корзина"  description="Корзина" />
+    <siteMapNode url="AboutSalon.aspx" title="О салоне"  description="О салоне" />
+    <siteMapNode url="ToCorporateClients.aspx" title="Корпоративным клиентам"  description="Корпоративным клиентам" />
+    <siteMapNode url="Contacts.aspx" title="Контакты"  description="Контакты" />
+    <siteMapNode url="FlowersWholesale.aspx" title="Цветы оптом"  description="Цветы оптом" />
+    <siteMapNode url="IndividualOrder.aspx" title="Индивидуальный заказ цветов"  description="Индивидуальный заказ цветов" />
+    <siteMapNode url="ViewedItems.aspx" title="Вы смотрели"  description="Выс мотрели" />
+    <siteMapNode url="SiteMap.aspx" title="Карта сайта"  description="Карта сайта" />
+    <siteMapNode url="SearchResults.aspx" title="Результаты поиска"  description="Результаты поиска" />
+    <siteMapNode url="~/Sitemap-Categories.aspx" title="Категория"  description="Категория" >
+      <siteMapNode url="~/Sitemap-Products.aspx" title="Продукт"  description="Продукт"/>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

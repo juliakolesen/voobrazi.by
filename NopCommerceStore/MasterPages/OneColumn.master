@@ -18,13 +18,17 @@
             <td align="center" width="320">
                 <asp:ContentPlaceHolder ID="cph2" runat="server">
                     <nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+                    <div style="padding-top: 20px">
+                        <a title="Карта сайта" href="../SiteMap.aspx">Карта сайта</a>
+                    </div>
                 </asp:ContentPlaceHolder>
-                </br></br>
+                <br/>
                 <asp:ContentPlaceHolder ID="cphSearch" runat="server">
                     <nopCommerce:SearchControl ID="Search" runat="server" />
                 </asp:ContentPlaceHolder>
                 <div style="padding-top: 20px">
-                    <asp:HyperLink runat="server" ID="indivOrder" title="Индивидуальный заказ цветов" NavigateUrl="~/IndividualOrder.aspx">
+                    <asp:HyperLink runat="server" ID="indivOrder" title="Индивидуальный заказ цветов"
+                        NavigateUrl="~/IndividualOrder.aspx">
 					<img src="/images/ff_images/individualOrder.jpg" alt="" height="53" />
                     </asp:HyperLink>
                 </div>
@@ -39,7 +43,10 @@
                 <div class="container" style="margin-top: 20px; width: 705px;">
                     <div class="cont_top" style="width: 705px; background: transparent url(../../images/ff_images/header2.gif) no-repeat scroll center left;">
                         <div class="titl">
-                            <%=Page.Title %></div>
+                            <asp:SiteMapPath ID="siteMapPath" runat="server" SiteMapProvider="NopDefaultXmlSiteMapProvider"
+                                PathSeparator=" / ">
+                            </asp:SiteMapPath>
+                        </div>
                     </div>
                     <div class="cont_middle" style="width: 705px; background: transparent url(../../images/ff_images/middle2.gif) repeat-y scroll center center;">
                         <div class="text">

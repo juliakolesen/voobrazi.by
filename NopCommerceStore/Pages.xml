@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <Page>
+    <Name>Как заказать</Name>
+    <Url>HowToOrder.aspx</Url>
+  </Page>
+  <Page>
+    <Name>О доставке</Name>
+    <Url>AboutDelivery.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Как оплатить</Name>
+    <Url>HowToPay.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Корзина</Name>
+    <Url>ShoppingCart.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Главная</Name>
+    <Url>Default.aspx</Url>
+  </Page>
+  <Page>
+    <Name>О салоне</Name>
+    <Url>AboutSalon.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Корпоративным клиентам</Name>
+    <Url>ToCorporateClients.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Контакты</Name>
+    <Url>Contacts.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Цветы оптом</Name>
+    <Url>FlowersWholesale.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Индивидуальный заказ цветов</Name>
+    <Url>IndividualOrder.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Вы смотрели</Name>
+    <Url>ViewedItems.aspx</Url>
+  </Page>
+  <Page>
+    <Name>Карта сайта</Name>
+    <Url>SiteMap.aspx</Url>
+  </Page>
+</Pages>

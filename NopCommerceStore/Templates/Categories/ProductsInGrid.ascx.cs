@@ -14,6 +14,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 using NopSolutions.NopCommerce.BusinessLogic.Categories;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
@@ -36,6 +37,78 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         private const int minPageSize = 12;
         private const int countLines = 2;
         private const int rowCount = 3;
+
+        private void Page_Load(object sender, EventArgs e)
+        {
+            System.Web.SiteMap.Providers["NopDefaultXmlSiteMapProvider"].SiteMapResolve += this.ExpandCategoryPaths;
+        }
+
+        private SiteMapNode ExpandCategoryPaths(Object sender, SiteMapResolveEventArgs e)
+        {
+            SiteMapNode currentNode = null;
+            if (e.Provider.CurrentNode == null)
+            {
+                currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Categories.aspx").Clone(true);
+            }
+            else
+            {
+                currentNode = e.Provider.CurrentNode.Clone(true);
+            }
+
+            ChangeCategoryMap(e, currentNode);
+            if (0 != ProductID)
+            {
+                currentNode = ChangeProductMap(e, currentNode);
+            }
+
+            return currentNode;
+        }
+
+        private SiteMapNode ChangeProductMap(SiteMapResolveEventArgs e, SiteMapNode parent)
+        {
+
+            SiteMapNode currentProductNode = e.Provider.FindSiteMapNode("~/Sitemap-Products.aspx").Clone(true);
+            try
+            {
+                SiteMapNode tempNode = currentProductNode;
+                Product product = ProductManager.GetProductByID(ProductID);
+                tempNode.Url = SEOHelper.GetProductURL(product.ProductID);
+                tempNode.Description = product.Name;
+                tempNode.Title = product.Name;
+                tempNode.ParentNode = parent;
+            }
+            catch
+            {
+            }
+
+            return currentProductNode;
+        }
+
+        private void ChangeCategoryMap(SiteMapResolveEventArgs e, SiteMapNode currentNode)
+        {
+            try
+            {
+                SiteMapNode tempNode = currentNode;
+                Category category = CategoryManager.GetCategoryByID(CategoryID);
+                if (0 != CategoryID)
+                {
+                    tempNode.Url = SEOHelper.GetCategoryURL(category.CategoryID);
+                    CategoryCollection categCollection = CategoryManager.GetBreadCrumb(category.CategoryID);
+                    string categoryPath = categCollection.Aggregate(String.Empty,
+                                                                    (current, c) =>
+                                                                    current +
+                                                                    String.Format(
+                                                                        String.IsNullOrEmpty(current) ? "{0}" : "/{0}",
+                                                                        c.Name));
+
+                    tempNode.Title = categoryPath;
+                    tempNode.Description = categoryPath;
+                }
+            }
+            catch
+            {
+            }
+        }
 
         protected void BindData()
         {
@@ -80,9 +153,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             }
             else
                 ((TwoColumn)Page.Master).Unique.Visible = false;
-
-            rptrCategoryBreadcrumb.DataSource = CategoryManager.GetBreadCrumb(CategoryID);
-            rptrCategoryBreadcrumb.DataBind();
 
             lDescription.Text = category.Description;
 
@@ -135,7 +205,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 Session.Add("productsPager", productsPager);
 
                 if (productCollection.Count > countLines * rowCount
-                    && (category.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase) 
+                    && (category.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase)
                     || category.Equals("Букеты и композиции", StringComparison.CurrentCultureIgnoreCase)))
                 {
                     int countFirstPart = countLines * rowCount;
@@ -207,7 +277,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
         protected void dlSubCategories_ItemDataBound(object sender, DataListItemEventArgs e)
         {
-            
+
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 Category category = e.Item.DataItem as Category;

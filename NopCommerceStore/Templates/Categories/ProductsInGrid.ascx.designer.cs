@@ -13,13 +13,13 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
     public partial class ProductsInGrid {
         
         /// <summary>
-        /// rptrCategoryBreadcrumb control.
+        /// siteMapPath control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptrCategoryBreadcrumb;
+        protected global::System.Web.UI.WebControls.SiteMapPath siteMapPath;
         
         /// <summary>
         /// sortBy control.

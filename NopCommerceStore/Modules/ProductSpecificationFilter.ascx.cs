@@ -20,6 +20,7 @@ using System.Web.UI.WebControls;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.BusinessLogic.Products.Specs;
 using NopSolutions.NopCommerce.Common.Utils;
+using NopSolutions.NopCommerce.BusinessLogic.Categories;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
@@ -344,7 +345,14 @@ namespace NopSolutions.NopCommerce.Web.Modules
 					if (categoryId == 0)
 					{
 						Product product = ProductManager.GetProductByID(ProductID);
-						categoryId = product.ProductCategories.Find(p => p.Category.ParentCategory != null).CategoryID;
+                        if (product != null)
+                        {
+                            ProductCategory prodCategory = product.ProductCategories.Find(p => p.Category.ParentCategory != null);
+                            if (prodCategory != null)
+                            {
+                                categoryId = prodCategory.CategoryID;
+                            }
+                        }
 					}
 				}
 				else

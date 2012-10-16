@@ -15,14 +15,8 @@
     <div class="seccont_top">
         <div class="titl">
             <h2>
-                <asp:Repeater ID="rptrCategoryBreadcrumb" runat="server">
-                    <ItemTemplate>
-                        <%#Server.HtmlEncode(Eval("Name").ToString()) %>
-                    </ItemTemplate>
-                    <SeparatorTemplate>
-                        /
-                    </SeparatorTemplate>
-                </asp:Repeater>
+                <asp:SiteMapPath ID="siteMapPath" runat="server" PathSeparator=" / " SiteMapProvider="NopDefaultXmlSiteMapProvider">
+                </asp:SiteMapPath>
             </h2>
         </div>
     </div>
