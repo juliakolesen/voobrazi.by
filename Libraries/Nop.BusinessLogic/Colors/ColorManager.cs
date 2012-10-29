@@ -79,7 +79,10 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Colors
             {
                 SpecificationAttributeOption sao = SpecificationAttributeManager.GetSpecificationAttributeOptionByID(id);
                 ColorItem colorItem = ColorManager.GetColorByColorName(sao.Name);
-                colors.Add(colorItem);
+				if (colorItem != null)
+				{
+					colors.Add(colorItem);
+				}
             }
 
             return colors;
