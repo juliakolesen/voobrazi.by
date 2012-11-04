@@ -64,8 +64,13 @@
         <tr>
             <td>
                 <asp:CustomValidator runat="server" ID="cusCustom" ControlToValidate="txtColorArgb"
-                    OnServerValidate="cusCustom_ServerValidate" ErrorMessage="÷вет с таким именем уже существует!"
-                    Enabled="false"></asp:CustomValidator>
+                    OnServerValidate="cusCustom_ServerValidate" Enabled="false" 
+                    ErrorMessage = "÷вет с таким именем уже существует!"></asp:CustomValidator>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:FileUpload ID="FileUploadControl" runat="server" Visible="false"/>
             </td>
         </tr>
     </tbody>

@@ -103,7 +103,8 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             if (sao != null)
             {
                 SpecificationAttributeManager.DeleteSpecificationAttributeOption(sao.SpecificationAttributeOptionID);
-                ColorManager.DeleteColor(sao.Name);
+                string paletteFolderPath = Server.MapPath("~/images/palette/");
+                ColorManager.DeleteColor(sao.Name, paletteFolderPath);
                 BindData();
             }
         }

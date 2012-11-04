@@ -16,6 +16,7 @@ using System;
 using System.Collections;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -32,7 +33,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
     {
         private bool IsColor
         {
-            get 
+            get
             {
                 SpecificationAttribute sa = SpecificationAttributeManager.GetSpecificationAttributeByID(SpecificationAttributeID);
                 return (sa != null && sa.Name.Equals("цвет", StringComparison.CurrentCultureIgnoreCase));
@@ -46,6 +47,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 ToolTipLabelColor.Visible = true;
                 txtColorArgb.Visible = true;
                 cusCustom.Enabled = true;
+                FileUploadControl.Visible = true;
             }
 
             hlBack.NavigateUrl = "~/Administration/SpecificationAttributeDetails.aspx?SpecificationAttributeID=" + SpecificationAttributeID;
@@ -53,14 +55,21 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
 
         protected void AddButton_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            if (Page.IsValid && IsValidUpload())
             {
                 try
                 {
                     SpecificationAttributeOption sao = null;
-                    if(IsColor)
+                    if (IsColor)
                     {
-                        ColorManager.InsertColor(txtNewOptionName.Text, Int32.Parse(txtColorArgb.Text, System.Globalization.NumberStyles.AllowHexSpecifier));
+                        int colorArgb = -1;
+                        if(!String.IsNullOrEmpty(txtColorArgb.Text))
+                        {
+                            colorArgb = Int32.Parse(txtColorArgb.Text, System.Globalization.NumberStyles.AllowHexSpecifier);
+                        }
+                        ColorManager.InsertColor(txtNewOptionName.Text, colorArgb);
+                        ColorItem colorItem = ColorManager.GetColorByColorName(txtNewOptionName.Text);
+                        Upload(colorItem);
                     }
                     sao = SpecificationAttributeManager.InsertSpecificationAttributeOption(SpecificationAttributeID, txtNewOptionName.Text, txtNewOptionDisplayOrder.Value);
                     Response.Redirect("SpecificationAttributeDetails.aspx?SpecificationAttributeID=" + sao.SpecificationAttributeID.ToString());
@@ -82,10 +91,63 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
 
         protected void cusCustom_ServerValidate(object sender, ServerValidateEventArgs e)
         {
-            if (ColorManager.GetColorByColorName(txtNewOptionName.Text) == null)
-                e.IsValid = true;
-            else
-                e.IsValid = false;
+            e.IsValid = ColorManager.GetColorByColorName(txtNewOptionName.Text) == null;
+        }
+
+        private bool IsValidUpload()
+        {
+            if (IsColor)
+            {
+                if (FileUploadControl.HasFile)
+                {
+                    if (FileUploadControl.PostedFile.ContentType != "image/jpeg")
+                    {
+                        ProcessException(new Exception("Допустим только файлы jpeg!"));
+                        return false;
+                    }
+
+                    if (FileUploadControl.PostedFile.ContentLength > 5242880)
+                    {
+                        ProcessException(new Exception("Файл должен быть меньше чем 5 Mb!"));
+                        return false;
+                    }
+                }
+                else if (String.IsNullOrEmpty(txtColorArgb.Text))
+                {
+                    ProcessException(new Exception("Выберите цвет или палитру"));
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        protected void Upload(ColorItem item)
+        {
+            try
+            {
+                if (FileUploadControl.HasFile)
+                {
+                    string directory = Server.MapPath("~/images/palette/");
+                    if (!Directory.Exists(directory))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+
+                    string newFileName = String.Format("{0}{1}{2}", directory, item.ColorID,
+                                                       Path.GetExtension(FileUploadControl.FileName));
+                    if(File.Exists(newFileName))
+                    {
+                        File.Delete(newFileName);
+                    }
+
+                    FileUploadControl.SaveAs(newFileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                ProcessException(ex);
+            }
         }
     }
 }

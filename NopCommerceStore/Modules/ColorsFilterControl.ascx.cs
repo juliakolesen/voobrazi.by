@@ -21,7 +21,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
             get
             {
                 string currentUrl = CommonHelper.GetThisPageURL(false);
-                List<string> parameters = new List<string>();
                 bool first = true;
                 for (int i = 0; i < Request.QueryString.Keys.Count; i++)
                 {
@@ -29,7 +28,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     if (key != null && key != "Цвет" && key != "CategoryID")
                     {
                         currentUrl = String.Format("{0}{1}{2}={3}", currentUrl, first ? "?" : "&",
-                                            key, CommonHelper.QueryStringInt(key.ToString()));
+                                            key, CommonHelper.QueryStringInt(key));
                         first = false;
                     }
                 }
@@ -41,10 +40,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
-            if (!String.IsNullOrEmpty(CategoryName) &&
-               ( CategoryName.Equals("живые цветы", StringComparison.CurrentCultureIgnoreCase)
-            || CategoryName.Equals("cвадебная флористика", StringComparison.CurrentCultureIgnoreCase)
-            || CategoryName.Equals("букеты и композиции", StringComparison.CurrentCultureIgnoreCase)))
+            if (!String.IsNullOrEmpty(CategoryName))
             {
                 BindData();
             }

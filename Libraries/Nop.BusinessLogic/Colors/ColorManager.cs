@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using NopSolutions.NopCommerce.DataAccess.Colors;
@@ -31,12 +32,17 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Colors
         private const string Color = "цвет";
 
         #region Methods
-        public static void DeleteColor(string colorName)
+        public static void DeleteColor(string colorName, string paletteFolderPath)
         {
             ColorItem color = GetColorByColorName(colorName);
             if (color != null)
             {
                 DBProviderManager<DBColorsProvider>.Provider.DeleteColor(colorName);
+                string palettePath = String.Format("{0}{1}.jpeg", paletteFolderPath, color.ColorID);
+                if (File.Exists(palettePath))
+                {
+                    File.Delete(palettePath);
+                }
             }
         }
 
@@ -50,7 +56,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Colors
 
         public static bool InsertColor(string colorName, int colorArgb)
         {
-            if (String.IsNullOrEmpty(colorName)|| colorArgb == null)
+            if (String.IsNullOrEmpty(colorName))
                 return false;
 
             bool result = DBProviderManager<DBColorsProvider>.Provider.InsertColor(colorName, colorArgb);
