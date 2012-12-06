@@ -11,13 +11,6 @@
         </tr>
         <tr>
             <td>
-                <div style="padding-top: 20px; padding-left: 115px;">
-                    <a title="Карта сайта" href="../SiteMap.aspx">Карта сайта</a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 <div style="padding-top: 20px; padding-left: 20px;">
                     <nopCommerce:SearchControl ID="SearchControl" runat="server" />
                 </div>

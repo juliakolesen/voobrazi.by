@@ -18,9 +18,6 @@
             <td align="center" width="320">
                 <asp:ContentPlaceHolder ID="cph2" runat="server">
                     <nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
-                    <div style="padding-top: 20px">
-                        <a title="Карта сайта" href="../SiteMap.aspx">Карта сайта</a>
-                    </div>
                 </asp:ContentPlaceHolder>
                 <br/>
                 <asp:ContentPlaceHolder ID="cphSearch" runat="server">

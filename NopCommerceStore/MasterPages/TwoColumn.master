@@ -43,9 +43,6 @@
                     <nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
                 </asp:ContentPlaceHolder>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    <div style="padding-top: 20px">
-                        <a title="Карта сайта" href="../SiteMap.aspx">Карта сайта</a>
-                    </div>
                     <br />
                     <nopCommerce:SearchControl ID="SearchControl" runat="server" />
                 </asp:ContentPlaceHolder>
