@@ -75,6 +75,7 @@ jQuery(document).ready(function () {
 
         if (key == 13) {
             changeMax();
+            reloadPage();
             return false;
         }
 
