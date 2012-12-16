@@ -47,7 +47,6 @@
 					height="90" /></a></div>
 	</LoggedInTemplate>
 </asp:LoginView>
-</br>
 <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
 <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom"
 	title="Корзина" /> Корзина (<span class="amount"><%=GetCount()%></span><span class="amount_text">товаров</span>)</a>

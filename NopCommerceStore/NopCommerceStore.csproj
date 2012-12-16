@@ -3261,6 +3261,13 @@
     <Compile Include="Modules\OrderIndividualOrders.ascx.designer.cs">
       <DependentUpon>OrderIndividualOrders.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\PriceFilterControl.ascx.cs">
+      <DependentUpon>PriceFilterControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\PriceFilterControl.ascx.designer.cs">
+      <DependentUpon>PriceFilterControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\ProductBoxSmall.ascx.cs">
       <DependentUpon>ProductBoxSmall.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4940,6 +4947,7 @@
     <Content Include="Contacts.aspx" />
     <Content Include="css\closelabel.gif" />
     <Content Include="css\loading.gif" />
+    <Content Include="css\main.css" />
     <Content Include="css\nextlabel.gif" />
     <Content Include="css\prevlabel.gif" />
     <Content Include="css\slimbox2-rtl.css" />
@@ -5385,6 +5393,7 @@
     <Content Include="images\ff_images\mainimg1_snow.jpg" />
     <Content Include="images\ff_images\middle2.gif" />
     <Content Include="images\ff_images\sitemap.png" />
+    <Content Include="images\ff_images\slider\slider.jpg" />
     <Content Include="images\ff_images\submenu\letter.jpg" />
     <Content Include="images\ff_images\submenu\ny.jpg" />
     <Content Include="images\ff_images\submenu\vd.jpg" />
@@ -5417,12 +5426,16 @@
     <Content Include="Modules\IndividualOrderControl.ascx" />
     <Content Include="Modules\InformationMenu.ascx" />
     <Content Include="Modules\OrderIndividualOrders.ascx" />
+    <Content Include="Modules\PriceFilterControl.ascx" />
     <Content Include="Modules\ProductBoxSmall.ascx" />
     <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />
     <Content Include="Modules\ViewedItems.ascx" />
     <Content Include="Modules\WeddingBunchVariant.ascx" />
     <Content Include="Pages.xml" />
+    <Content Include="Scripts\jquery-1.6.1.min.js" />
+    <Content Include="Scripts\jquery.main.js" />
+    <Content Include="Scripts\jquery.ui-slider.js" />
     <Content Include="Scripts\slimbox2.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />

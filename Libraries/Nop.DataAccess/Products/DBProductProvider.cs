@@ -652,6 +652,8 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         /// <returns></returns>
         public abstract List<int> GetProductSpecificationAttributeOptionsByCategory(int categoryID, int specificationAttributeID);
 
+        public abstract decimal GetMaxPrice(int categoryId);
+
         #endregion
     }
 }

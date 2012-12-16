@@ -424,6 +424,10 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Products
             return products;
         }
 
+        public static decimal GetMaxPrice(int categoryId)
+        {
+            return DBProviderManager<DBProductProvider>.Provider.GetMaxPrice(categoryId);
+        }
         /// <summary>
         /// Gets all products
         /// </summary>

@@ -526,7 +526,7 @@ a.textInp, a.textInp:visited, a.textInp:hover, a.textInp:visited:hover
 	font-size: 16px;
 	color: #fd3355;
 	text-align: center;
-	padding: 10px 0;
+	padding: 10px 0 0px;
 }
 
 .navigatorRelatedProducts

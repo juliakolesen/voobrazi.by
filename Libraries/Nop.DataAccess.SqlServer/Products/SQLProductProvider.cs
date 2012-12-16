@@ -266,6 +266,22 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
             return productCollection;
         }
 
+        public override decimal GetMaxPrice(int categoryId)
+        {
+            decimal maxPrice = 0;
+            Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("Nop_ProductGetMaxPriceByCategory");
+            db.AddInParameter(dbCommand, "CategoryID", DbType.Int32, categoryId);
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                if (dataReader.Read())
+                {
+                    maxPrice = NopSqlDataHelper.GetDecimal(dataReader, "Price");
+                }
+            }
+            return maxPrice;
+        }
+
         /// <summary>
         /// Gets all products
         /// </summary>

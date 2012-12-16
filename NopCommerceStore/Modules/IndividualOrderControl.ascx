@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <nopCommerce:Topic ID="topicIndividualOrder" runat="server" TopicName="IndividualOrder">
 </nopCommerce:Topic>
-</br>
+<br/>
 <table>
     <tr>
         <td colspan="3">

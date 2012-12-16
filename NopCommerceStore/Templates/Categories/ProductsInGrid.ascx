@@ -5,6 +5,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="WeddingBunchVariant" Src="~/Modules/WeddingBunchVariant.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="HouseFlowersVariant" Src="~/Modules/HouseFlowersVariant.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ColorsFilterControl" Src="~/Modules/ColorsFilterControl.ascx" %>
+<%@ Register TagPrefix="nopCommerce" tagName="PriceFilterControl" src="~/Modules/PriceFilterControl.ascx" %>
 <style>
     .seccont_middle .text
     {
@@ -43,12 +44,19 @@
                         </asp:DropDownList>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <th colspan="4" style="height: 10px">
+                        <nopCommerce:PriceFilterControl ID="priceFilter" runat="server"></nopCommerce:PriceFilterControl>
+                    </th>
+                </tr>
             </table>
         </div>
         <nopCommerce:DesignVariant ID="designVariant" runat="server" Visible="false" />
         <nopCommerce:WeddingBunchVariant ID="weddingBunchVariant" runat="server" Visible="false" />
         <nopCommerce:HouseFlowersVariant ID="houseFlowersVariant" runat="server" Visible="false" />
-        <nopCommerce:ColorsFilterControl ID="colorsFilter" runat="server"/>
+        <nopCommerce:ColorsFilterControl ID="colorsFilter" runat="server" />
         <div class="text">
             <p style="margin-top: 5px;">
                 <img src="<%= Page.ResolveUrl("~/images/ff_images/horizontal-separator.gif") %>"

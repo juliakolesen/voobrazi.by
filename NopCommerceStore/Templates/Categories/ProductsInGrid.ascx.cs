@@ -169,8 +169,21 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             psoFilterOptions.AddRange(this.designVariant.GetDesignVariantIds());
             psoFilterOptions.AddRange(this.weddingBunchVariant.GetDesignVariantIds());
             psoFilterOptions.AddRange(this.houseFlowersVariant.GetDesignVariantIds());
+            decimal? priceMin = CommonHelper.QueryStringInt("minCost", 0);
+            if (priceMin == 0)
+            {
+                var twoColumn = (TwoColumn) Page.Master;
+                if (twoColumn != null) priceMin = twoColumn.MinPriceConverted;
+            }
+            decimal? priceMax = CommonHelper.QueryStringInt("maxCost", 0);
+            if(priceMax == 0)
+            {
+                var twoColumn = (TwoColumn) Page.Master;
+                if (twoColumn != null) priceMax = twoColumn.MaxPriceConverted;
+            }
+
             ProductCollection productCollection = ProductManager.GetAllProducts(CategoryID,
-                0, null, ((TwoColumn)Page.Master).MinPriceConverted, ((TwoColumn)Page.Master).MaxPriceConverted,
+                0, null, priceMin, priceMax,
                 pageSize, CurrentPageIndex, psoFilterOptions, (int)sortParameter.SortBy, sortParameter.Ascending, out totalRecords);
 
             SetItemsToGrid(totalRecords, productCollection, categoryName);
@@ -364,7 +377,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             this.sortBy.Items.Add("По цене вниз");
             this.sortBy.Items.Add("По цене вверх");
             this.sortBy.Items.Add("По новизне");
-            this.sortBy.SelectedIndex = CommonHelper.QueryStringInt("sortBy");
+            this.sortBy.SelectedIndex = CommonHelper.QueryStringInt("sortBy", 1);
         }
 
         protected void productsCount_SelectedIndexChanged(object sender, EventArgs e)
@@ -376,7 +389,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             {
                 url = CommonHelper.RemoveQueryString(url, "sortBy");
                 int sortByIndex = sortBy.SelectedIndex;
-                if (sortByIndex != 0)
+                if (sortByIndex != 1)
                 {
                     if (!url.Contains("?"))
                         url += "?";
