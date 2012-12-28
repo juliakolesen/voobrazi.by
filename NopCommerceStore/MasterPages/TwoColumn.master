@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Root.Master" AutoEventWireup="true"
     CodeBehind="TwoColumn.master.cs" Inherits="NopSolutions.NopCommerce.Web.MasterPages.TwoColumn" %>
 
-<%@ Register TagPrefix="nopCommerce" TagName="PriceRangeFilter" Src="~/Modules/PriceRangeFilter.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductSpecificationFilter" Src="~/Modules/ProductSpecificationFilter.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="SearchControl" Src="~/Modules/SearchControlDefault.ascx" %>
@@ -58,7 +57,6 @@
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="podbor">
                     <tr valign="top">
                         <td>
-                            <nopCommerce:PriceRangeFilter ID="ctrlPriceRangeFilter" runat="server" />
                             <nopCommerce:ProductSpecificationFilter ID="ctrlProductSpecificationFilter" runat="server" />
                         </td>
                     </tr>
@@ -83,7 +81,6 @@
                                 </asp:HyperLink>
                             </div>
                         </td>
-                        <tr>
                             <tr>
                                 <td>
                                     <div runat="server" id="divUnique">
@@ -104,7 +101,6 @@
                                         </asp:HyperLink>
                                     </div>
                                 </td>
-                                <tr>
                                     <tr>
                                         <td>
                                             <div class="label" align="center">

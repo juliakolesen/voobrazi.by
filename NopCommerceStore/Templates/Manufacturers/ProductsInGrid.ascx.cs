@@ -59,39 +59,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Manufacturers
                 pnlFeaturedProducts.Visible = false;
             }
 
-            this.ctrlPriceRangeFilter.PriceRanges = manufacturer.PriceRanges;
-
-            if (string.IsNullOrEmpty(ctrlPriceRangeFilter.PriceRanges))
-                this.pnlFilters.Visible = false;
-
             int totalRecords = 0;
             int pageSize = 10;
             if (manufacturer.PageSize > 0)
             {
                 pageSize = manufacturer.PageSize;
             }
-
-            decimal? minPrice = null;
-            decimal? maxPrice = null;
-            decimal? minPriceConverted = null;
-            decimal? maxPriceConverted = null;
-            if (ctrlPriceRangeFilter.SelectedPriceRange != null)
-            {
-                minPrice = ctrlPriceRangeFilter.SelectedPriceRange.From;
-                if (minPrice.HasValue)
-                {
-                    minPriceConverted = CurrencyManager.ConvertCurrency(minPrice.Value, NopContext.Current.WorkingCurrency, CurrencyManager.PrimaryStoreCurrency);
-                }
-
-                maxPrice = ctrlPriceRangeFilter.SelectedPriceRange.To;
-                if (maxPrice.HasValue)
-                {
-                    maxPriceConverted = CurrencyManager.ConvertCurrency(maxPrice.Value, NopContext.Current.WorkingCurrency, CurrencyManager.PrimaryStoreCurrency);
-                }
-            }
-
+            
             ProductCollection productCollection = ProductManager.GetAllProducts(0,
-            this.ManufacturerID, false, minPriceConverted, maxPriceConverted, pageSize,
+            this.ManufacturerID, false, null, null, pageSize,
             this.CurrentPageIndex, null, out totalRecords);
 
             if (productCollection.Count > 0)
@@ -107,12 +83,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Manufacturers
             {
                 this.dlProducts.Visible = false;
             }
-        }
-
-        protected override void OnInit(EventArgs e)
-        {
-            base.OnInit(e);
-            ctrlPriceRangeFilter.ExcludedQueryStringParams = productsPager.QueryStringProperty;
         }
 
         public int CurrentPageIndex

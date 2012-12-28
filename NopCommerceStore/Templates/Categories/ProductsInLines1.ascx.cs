@@ -77,8 +77,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 pnlFeaturedProducts.Visible = false;
             }
 
-            this.ctrlPriceRangeFilter.PriceRanges = category.PriceRanges;
-
             int totalRecords = 0;
             int pageSize = 10;
             if (category.PageSize > 0)
@@ -86,29 +84,10 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 pageSize = category.PageSize;
             }
 
-            decimal? minPrice = null;
-            decimal? maxPrice = null;
-            decimal? minPriceConverted = null;
-            decimal? maxPriceConverted = null;
-            if (ctrlPriceRangeFilter.SelectedPriceRange != null)
-            {
-                minPrice = ctrlPriceRangeFilter.SelectedPriceRange.From;
-                if (minPrice.HasValue)
-                {
-                    minPriceConverted = CurrencyManager.ConvertCurrency(minPrice.Value, NopContext.Current.WorkingCurrency, CurrencyManager.PrimaryStoreCurrency);
-                }
-
-                maxPrice = ctrlPriceRangeFilter.SelectedPriceRange.To;
-                if (maxPrice.HasValue)
-                {
-                    maxPriceConverted = CurrencyManager.ConvertCurrency(maxPrice.Value, NopContext.Current.WorkingCurrency, CurrencyManager.PrimaryStoreCurrency);
-                }
-            }
-
             List<int> psoFilterOption = ctrlProductSpecificationFilter.GetAlreadyFilteredSpecOptionIDs();
             
             ProductCollection productCollection = ProductManager.GetAllProducts(this.CategoryID,
-                0, false, minPriceConverted, maxPriceConverted, pageSize, this.CurrentPageIndex, psoFilterOption, out totalRecords);
+                0, false, null, null, pageSize, this.CurrentPageIndex, psoFilterOption, out totalRecords);
 
             if (productCollection.Count > 0)
             {
@@ -128,13 +107,11 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            ctrlPriceRangeFilter.ExcludedQueryStringParams = catalogPager.QueryStringProperty;
 
             ctrlProductSpecificationFilter.ExcludedQueryStringParams = catalogPager.QueryStringProperty;
             ctrlProductSpecificationFilter.CategoryID = this.CategoryID;
 
             ctrlProductSpecificationFilter.ReservedQueryStringParams = "CategoryID,";
-            ctrlProductSpecificationFilter.ReservedQueryStringParams += ctrlPriceRangeFilter.QueryStringProperty;
             ctrlProductSpecificationFilter.ReservedQueryStringParams += ",";
             ctrlProductSpecificationFilter.ReservedQueryStringParams += catalogPager.QueryStringProperty;
         
@@ -142,7 +119,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
         protected override void OnPreRender(EventArgs e)
         {
-            this.pnlFilters.Visible = ctrlPriceRangeFilter.Visible || ctrlProductSpecificationFilter.Visible;
+            this.pnlFilters.Visible = ctrlProductSpecificationFilter.Visible;
             base.OnPreRender(e);
         }
 

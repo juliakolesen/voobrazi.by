@@ -60,24 +60,10 @@ namespace NopSolutions.NopCommerce.Web.MasterPages
 			Category category = CategoryManager.GetCategoryByID(CategoryID);
 			if (category == null)
 				return;
-			ctrlPriceRangeFilter.PriceRanges = category.PriceRanges;
 
 			decimal? minPrice;
 			decimal? maxPrice;
-			if (ctrlPriceRangeFilter.SelectedPriceRange != null)
-			{
-				minPrice = ctrlPriceRangeFilter.SelectedPriceRange.From;
-				if (minPrice.HasValue)
-				{
-					MinPriceConverted = CurrencyManager.ConvertCurrency(minPrice.Value, NopContext.Current.WorkingCurrency, CurrencyManager.PrimaryStoreCurrency);
-				}
-
-				maxPrice = ctrlPriceRangeFilter.SelectedPriceRange.To;
-				if (maxPrice.HasValue)
-				{
-					MaxPriceConverted = CurrencyManager.ConvertCurrency(maxPrice.Value, NopContext.Current.WorkingCurrency, CurrencyManager.PrimaryStoreCurrency);
-				}
-			}
+			
 
 			PSOFilterOption = ctrlProductSpecificationFilter.GetAlreadyFilteredSpecOptionIDs();
 		}
@@ -89,18 +75,14 @@ namespace NopSolutions.NopCommerce.Web.MasterPages
 			if (Session["productsPager"] != null)
 			{
 				Pager productsPager = Session["productsPager"] as Pager;
-				ctrlPriceRangeFilter.ExcludedQueryStringParams = productsPager.QueryStringProperty;
 
 				ctrlProductSpecificationFilter.ExcludedQueryStringParams = productsPager.QueryStringProperty;
 				ctrlProductSpecificationFilter.CategoryID = CategoryID;
 
 				ctrlProductSpecificationFilter.ReservedQueryStringParams = "CategoryID,";
-				ctrlProductSpecificationFilter.ReservedQueryStringParams += ctrlPriceRangeFilter.QueryStringProperty;
 				ctrlProductSpecificationFilter.ReservedQueryStringParams += ",";
 				ctrlProductSpecificationFilter.ReservedQueryStringParams += productsPager.QueryStringProperty;
 			}
-
-
 		}
 
 		public int CategoryID

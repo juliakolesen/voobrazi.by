@@ -1,7 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Templates.Manufacturers.ProductsInGrid"
     CodeBehind="ProductsInGrid.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductBox1" Src="~/Modules/ProductBox1.ascx" %>
-<%@ Register TagPrefix="nopCommerce" TagName="PriceRangeFilter" Src="~/Modules/PriceRangeFilter.ascx" %>
 <div class="ManufacturerPage">
     <div class="ManufacturerTitle">
         <asp:Literal runat="server" ID="lName"></asp:Literal>
@@ -35,10 +34,7 @@
                 <%=GetLocaleResourceString("Products.FilterOptionsTitle")%>
             </asp:Label>
         </div>
-        <div class="FilterItem">
-            <nopCommerce:PriceRangeFilter ID="ctrlPriceRangeFilter" runat="server" />
-        </div>
-    </asp:Panel>
+ </asp:Panel>
     <div class="clear">
     </div>
     <div class="ProductGrid">

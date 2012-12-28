@@ -66,9 +66,6 @@
             </asp:Label>
         </div>
         <div class="FilterItem">
-            <nopCommerce:PriceRangeFilter ID="ctrlPriceRangeFilter" runat="server" />
-        </div>
-        <div class="FilterItem">
             <nopCommerce:ProductSpecificationFilter ID="ctrlProductSpecificationFilter" runat="server" />
         </div>
     </asp:Panel>
