@@ -1,0 +1,25 @@
+#minHeight,#maxHeight {
+	border:1px solid #074776;
+	padding:5px;
+	width:80px;
+}
+
+#minWidth,#maxWidth {
+	border:1px solid #074776;
+	padding:5px;
+	width:80px;
+}
+
+
+#slider_height {
+	margin-top:10px;
+	height: 180px;
+	width: 5px;
+	float: left;
+}
+#slider_width {
+	margin-top:10px;
+	height: 5px;
+	width: 180px;
+	left: 30px;
+}

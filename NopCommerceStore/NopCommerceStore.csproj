@@ -3275,6 +3275,13 @@
     <Compile Include="Modules\ProductBoxSmall.ascx.designer.cs">
       <DependentUpon>ProductBoxSmall.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\ProductSize.ascx.cs">
+      <DependentUpon>ProductSize.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\ProductSize.ascx.designer.cs">
+      <DependentUpon>ProductSize.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\ProductSpecificationFilter.ascx.cs">
       <DependentUpon>ProductSpecificationFilter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4946,12 +4953,14 @@
     <Content Include="ConditionsInfo.aspx" />
     <Content Include="Contacts.aspx" />
     <Content Include="css\closelabel.gif" />
+    <Content Include="css\jquery-ui-1.8.19.custom.css" />
     <Content Include="css\loading.gif" />
     <Content Include="css\main.css" />
     <Content Include="css\nextlabel.gif" />
     <Content Include="css\prevlabel.gif" />
     <Content Include="css\slimbox2-rtl.css" />
     <Content Include="css\slimbox2.css" />
+    <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="ErrorPage.htm" />
     <Content Include="editors\fckeditor\editor\css\behaviors\disablehandles.htc" />
@@ -5393,6 +5402,7 @@
     <Content Include="images\ff_images\mainimg1_snow.jpg" />
     <Content Include="images\ff_images\middle2.gif" />
     <Content Include="images\ff_images\sitemap.png" />
+    <Content Include="images\ff_images\slider\flowers.jpg" />
     <Content Include="images\ff_images\slider\slider.jpg" />
     <Content Include="images\ff_images\submenu\letter.jpg" />
     <Content Include="images\ff_images\submenu\ny.jpg" />
@@ -5428,12 +5438,16 @@
     <Content Include="Modules\OrderIndividualOrders.ascx" />
     <Content Include="Modules\PriceFilterControl.ascx" />
     <Content Include="Modules\ProductBoxSmall.ascx" />
+    <Content Include="Modules\ProductSize.ascx" />
     <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />
     <Content Include="Modules\ViewedItems.ascx" />
     <Content Include="Modules\WeddingBunchVariant.ascx" />
     <Content Include="Pages.xml" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.19.custom.min.js" />
+    <Content Include="Scripts\jquery.dual_slider.js" />
     <Content Include="Scripts\jquery.main.js" />
     <Content Include="Scripts\jquery.ui-slider.js" />
     <Content Include="Scripts\slimbox2.js" />

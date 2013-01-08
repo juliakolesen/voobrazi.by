@@ -182,9 +182,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 if (twoColumn != null) priceMax = twoColumn.MaxPriceConverted;
             }
 
+            int minHeight = CommonHelper.QueryStringInt("minHeight", 0);
+            int maxHeight = CommonHelper.QueryStringInt("maxHeight", int.MaxValue);
+            int minWidth = CommonHelper.QueryStringInt("minWidth", 0);
+            int maxWidth = CommonHelper.QueryStringInt("maxWidth", int.MaxValue);
+
             ProductCollection productCollection = ProductManager.GetAllProducts(CategoryID,
                 0, null, priceMin, priceMax,
-                pageSize, CurrentPageIndex, psoFilterOptions, (int)sortParameter.SortBy, sortParameter.Ascending, out totalRecords);
+                pageSize, CurrentPageIndex, psoFilterOptions, (int)sortParameter.SortBy, sortParameter.Ascending,
+                minHeight, maxHeight, minWidth, maxWidth, out totalRecords);
 
             SetItemsToGrid(totalRecords, productCollection, categoryName);
         }

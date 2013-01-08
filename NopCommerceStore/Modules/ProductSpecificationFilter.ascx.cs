@@ -27,11 +27,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
 	public partial class ProductSpecificationFilterControl : BaseNopUserControl
 	{
         private String[] excludeParamsForFilter = new[] { "sortBy", "pageSize", "visoutDesign", "wrapping", "bunch", 
-                                                                 "composition", "flowers", "bunchForm", "light" };
+                                                                 "composition", "flowers", "bunchForm", "light",
+                                                         "minHeight", "maxHeight", "minWidth", "maxWidth"};
         private String[] excludeFilteredOptions = new[] { "оформление без оформления", "оформление упаковка", 
                                                                  "оформление букет", "оформление композиция", 
                                                                  "по основным цветам", "форма букета", "требование к освещению",
-                                                                  "цвет"};
+                                                                  "цвет", "диаметр", "высота"};
         #region Utilities
 		protected void BindData()
 		{

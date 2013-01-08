@@ -50,7 +50,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         public abstract DBProductCollection GetAllProducts(int CategoryID, int ManufacturerID,
             bool? FeaturedProducts, decimal? PriceMin, decimal? PriceMax, string Keywords, bool SearchDescriptions,
             int PageSize, int PageIndex, List<int> FilteredSpecs, bool showHidden,
-            int SortBy, bool SortTo, out int TotalRecords);
+            int SortBy, bool SortTo, int minHeight, int maxHeight, int minWidth, int maxWidth, out int TotalRecords);
 
         /// <summary>
         /// Gets all products displayed on the home page
@@ -655,5 +655,8 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         public abstract decimal GetMaxPrice(int categoryId);
 
         #endregion
+
+        public abstract decimal GetMaxHeight(int categoryId);
+        public abstract decimal GetMaxWidth(int categoryId);
     }
 }

@@ -282,6 +282,38 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
             return maxPrice;
         }
 
+        public override decimal GetMaxHeight(int categoryId)
+        {
+            decimal maxHeight = 0;
+            Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("Nop_ProductGetMaxHeightByCategory");
+            db.AddInParameter(dbCommand, "CategoryID", DbType.Int32, categoryId);
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                if (dataReader.Read())
+                {
+                    maxHeight = NopSqlDataHelper.GetDecimal(dataReader, "height");
+                }
+            }
+            return maxHeight;
+        }
+
+        public override decimal GetMaxWidth(int categoryId)
+        {
+            decimal maxHeight = 0;
+            Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("Nop_ProductGetMaxWidthByCategory");
+            db.AddInParameter(dbCommand, "CategoryID", DbType.Int32, categoryId);
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                if (dataReader.Read())
+                {
+                    maxHeight = NopSqlDataHelper.GetDecimal(dataReader, "width");
+                }
+            }
+            return maxHeight;
+        }
+
         /// <summary>
         /// Gets all products
         /// </summary>
@@ -301,7 +333,8 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
         public override DBProductCollection GetAllProducts(int CategoryID, int ManufacturerID,
             bool? FeaturedProducts, decimal? PriceMin, decimal? PriceMax, string Keywords,
             bool SearchDescriptions, int PageSize, int PageIndex,
-            List<int> FilteredSpecs, bool showHidden, int SortBy, bool SortTo, out int TotalRecords)
+            List<int> FilteredSpecs, bool showHidden, int SortBy, bool SortTo,
+            int minHeight, int maxHeight, int minWidth, int maxWidth, out int TotalRecords)
         {
             TotalRecords = 0;
             DBProductCollection productCollection = new DBProductCollection();
@@ -328,6 +361,10 @@ namespace NopSolutions.NopCommerce.DataAccess.Products
             db.AddInParameter(dbCommand, "PageIndex", DbType.Int32, PageIndex);
             db.AddInParameter(dbCommand, "SortBy", DbType.Int32, SortBy);
             db.AddInParameter(dbCommand, "SortTo", DbType.Boolean, SortTo);
+            db.AddInParameter(dbCommand, "HeightMin", DbType.Decimal, minHeight);
+            db.AddInParameter(dbCommand, "WidthMin", DbType.Decimal, minWidth);
+            db.AddInParameter(dbCommand, "HeightMax", DbType.Decimal, maxHeight);
+            db.AddInParameter(dbCommand, "WidthMax", DbType.Decimal, maxWidth);
 
             string commaSeparatedSpecIDs = string.Empty;
             if (FilteredSpecs != null)

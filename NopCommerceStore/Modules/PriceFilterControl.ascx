@@ -12,7 +12,7 @@
         <div id="slider" class="ui-slider ui-slider-horizontal ui-widget-content ui-corner-all">
             <div class="ui-slider-range ui-widget-header" style="left: 100%; width: 0%;">
             </div>
-            <a class="ui-slider-handle ui-corner-all" href="#" style="left: 48.199999999999996%;">
+            <a class="ui-slider-handle ui-corner-all" href="#" style="left: 0%;">
             </a><a class="ui-slider-handle ui-corner-all" href="#" style="left: 100%;"></a>
         </div>
     </div>
