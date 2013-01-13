@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web.Modules
-{
-
-
-    public partial class HouseFlowersVariant
-    {
-
+namespace NopSolutions.NopCommerce.Web.Modules {
+    
+    
+    public partial class HouseFlowersVariant {
+        
         /// <summary>
         /// allTable control.
         /// </summary>
@@ -22,16 +20,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTable allTable;
-
-        /// <summary>
-        /// light control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList light;
-
+        
         /// <summary>
         /// productSize control.
         /// </summary>
@@ -40,5 +29,14 @@ namespace NopSolutions.NopCommerce.Web.Modules
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::NopSolutions.NopCommerce.Web.Modules.ProductSize productSize;
+        
+        /// <summary>
+        /// light control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList light;
     }
 }

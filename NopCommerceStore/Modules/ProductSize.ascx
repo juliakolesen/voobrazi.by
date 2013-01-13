@@ -8,14 +8,15 @@
 <div class="div_size">
     <table>
         <tr>
-            <td width="40%">
+            <td width="120">
                 <div id="slider_height">
                 </div>
-                <img src="../images/ff_images/slider/flowers.jpg" width="180" height="180" />
+                <img src="../images/ff_images/slider/flowers.jpg" 
+                    style="height: 90px; width: 104px" />
                 <div id="slider_width">
                 </div>
             </td>
-            <td width="400">
+            <td width="450">
                 <div>
                     Высота:
                     <label for="minHeight">

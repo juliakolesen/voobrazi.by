@@ -13,13 +13,13 @@
 
 #slider_height {
 	margin-top:10px;
-	height: 180px;
+	height: 70px;
 	width: 5px;
 	float: left;
 }
 #slider_width {
 	margin-top:10px;
 	height: 5px;
-	width: 180px;
+	width: 70px;
 	left: 30px;
 }
