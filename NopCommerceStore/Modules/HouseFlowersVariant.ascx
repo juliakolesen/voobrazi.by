@@ -4,7 +4,7 @@
 <div class="design">
     <table runat="server" id="allTable" cellpadding="0" cellspacing="0">
         <tr>
-            <td width="500">
+            <td width="480">
                 <nopCommerce:ProductSize ID="productSize" runat="server" />
             </td>
             <td align="center" width="200">
