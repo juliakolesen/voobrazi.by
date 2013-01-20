@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Web;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.BusinessLogic.Utils;
@@ -24,7 +25,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 }
 
                 int maxPriceInt = Convert.ToInt32(maxPrice);
-                return maxPriceInt.ToString();
+                return maxPriceInt.ToString("#,###", CultureInfo.InvariantCulture);
             }
         }
 

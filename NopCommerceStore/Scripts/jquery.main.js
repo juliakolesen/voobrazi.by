@@ -1,15 +1,15 @@
 ﻿
-jQuery(document).ready(function () {
 
+jQuery(document).ready(function () {
 
     /* слайдер цен */
     var curSearch = document.location.search.substr(1);
-    var maxValue = jQuery("input#maxCostConst").val();
+    var maxValue = getNumberFromString(jQuery("input#maxCostConst").val());
     var curMax = getParam('maxCost');
     var curMin = getParam('minCost');
     if (curMax == 0) curMax = maxValue;
-    jQuery("input#minCost").val(curMin);
-    jQuery("input#maxCost").val(curMax);
+    jQuery("input#minCost").val(numberWithCommas(curMin));
+    jQuery("input#maxCost").val(numberWithCommas(curMax));
 
     jQuery("#slider").slider({
         min: 0,
@@ -17,13 +17,13 @@ jQuery(document).ready(function () {
         values: [0, maxValue],
         range: true,
         stop: function (event, ui) {
-            jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
-            jQuery("input#maxCost").val(jQuery("#slider").slider("values", 1));
+            jQuery("input#minCost").val(numberWithCommas(jQuery("#slider").slider("values", 0)));
+            jQuery("input#maxCost").val(numberWithCommas(jQuery("#slider").slider("values", 1)));
             reloadPage();
         },
         slide: function (event, ui) {
-            jQuery("input#minCost").val(jQuery("#slider").slider("values", 0));
-            jQuery("input#maxCost").val(jQuery("#slider").slider("values", 1));
+            jQuery("input#minCost").val(numberWithCommas(jQuery("#slider").slider("values", 0)));
+            jQuery("input#maxCost").val(numberWithCommas(jQuery("#slider").slider("values", 1)));
         }
     });
 
@@ -35,12 +35,12 @@ jQuery(document).ready(function () {
     });
 
     function changeMin() {
-        var value1 = jQuery("input#minCost").val();
-        var value2 = jQuery("input#maxCost").val();
+        var value1 = getNumberFromString(jQuery("input#minCost").val());
+        var value2 = getNumberFromString(jQuery("input#maxCost").val());
 
         if (parseInt(value1) > parseInt(value2)) {
             value1 = value2;
-            jQuery("input#minCost").val(value1);
+            jQuery("input#minCost").val(numberWithCommas(value1));
         }
         jQuery("#slider").slider("values", 0, value1);
     }
@@ -50,17 +50,17 @@ jQuery(document).ready(function () {
     });
 
     function changeMax() {
-        var value1 = jQuery("input#minCost").val();
-        var value2 = jQuery("input#maxCost").val();
+        var value1 = getNumberFromString(jQuery("input#minCost").val());
+        var value2 = getNumberFromString(jQuery("input#maxCost").val());
 
         if (parseInt(value2) > parseInt(maxValue)) {
             value2 = maxValue;
-            jQuery("input#maxCost").val(maxValue);
+            jQuery("input#maxCost").val(numberWithCommas(maxValue));
         }
 
         if (parseInt(value1) > parseInt(value2)) {
             value2 = value1;
-            jQuery("input#maxCost").val(value2);
+            jQuery("input#maxCost").val(numberWithCommas(value2));
         }
         jQuery("#slider").slider("values", 1, value2);
     }
@@ -113,8 +113,8 @@ jQuery(document).ready(function () {
     });
 
     function reloadPage() {
-        var minVal = jQuery("input#minCost").val();
-        var maxVal = jQuery("input#maxCost").val();
+        var minVal = getNumberFromString(jQuery("input#minCost").val());
+        var maxVal = getNumberFromString(jQuery("input#maxCost").val());
 
         insertParam('minCost', minVal);
         insertParam('maxCost', maxVal);
@@ -163,4 +163,31 @@ jQuery(document).ready(function () {
         }
         return 0;
     }
+
+    function getNumberFromString(stringWithCommas) {
+        var str = stringWithCommas.replace(/,/g, "");
+        if (str.length == 0)
+            return 0;
+        return parseInt(str);
+    }
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    jQuery("input#minCost").on('click', (function () {
+        this.value = getNumberFromString(this.value);
+    }));
+
+    jQuery("input#maxCost").on('click', (function () {
+        this.value = getNumberFromString(this.value);
+    }));
+
+    jQuery("input#minCost").blur(function () {
+        this.value = numberWithCommas(this.value);
+    });
+
+    jQuery("input#maxCost").blur(function () {
+        this.value = numberWithCommas(this.value);
+    });
 });
