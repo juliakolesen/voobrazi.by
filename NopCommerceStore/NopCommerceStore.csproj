@@ -5444,6 +5444,7 @@
     <Content Include="Modules\ViewedItems.ascx" />
     <Content Include="Modules\WeddingBunchVariant.ascx" />
     <Content Include="Pages.xml" />
+    <Content Include="Scripts\daGallery.js" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.19.custom.min.js" />

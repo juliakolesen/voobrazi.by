@@ -67,22 +67,31 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         protected global::System.Web.UI.WebControls.Literal lblPrice2;
         
         /// <summary>
-        /// aImg control.
+        /// imgProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aImg;
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgProduct;
         
         /// <summary>
-        /// defaultImage control.
+        /// dlImages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image defaultImage;
+        protected global::System.Web.UI.WebControls.DataList dlImages;
+        
+        /// <summary>
+        /// bigImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor bigImage;
         
         /// <summary>
         /// tblOrderButtons control.

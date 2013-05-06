@@ -31,6 +31,14 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
     public partial class ProductInfoControl : BaseNopUserControl
     {
+        protected string AlternateText { get; set; }
+
+        protected int smallImageSize = 100;
+
+        protected int middleImageSize = 335;
+
+        protected int largeImageSize = 500;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -78,29 +86,23 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 lProductName.Text = Server.HtmlEncode(product.Name);
                 lShortDescription.Text = product.ShortDescription;
                 lFullDescription.Text = product.FullDescription;
+                imgProduct.Alt = AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
 
-                ProductPictureCollection productPictures = product.ProductPictures;
-                if (productPictures.Count > 1)
+                if (product.ProductPictures.Count > 0)
                 {
-                    defaultImage.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].PictureID, 335);
-                    defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                    defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-
-                    aImg.HRef = PictureManager.GetPictureUrl(productPictures[0].PictureID);
-                }
-                else if (productPictures.Count == 1)
-                {
-                    defaultImage.ImageUrl = PictureManager.GetPictureUrl(productPictures[0].PictureID, 335);
-                    defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                    defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-
-                    aImg.HRef = PictureManager.GetPictureUrl(productPictures[0].PictureID);
+                    imgProduct.Src = PictureManager.GetPictureUrl(product.ProductPictures[0].PictureID, middleImageSize);
+                    bigImage.HRef = PictureManager.GetPictureUrl(product.ProductPictures[0].PictureID, largeImageSize);
                 }
                 else
                 {
-                    defaultImage.ImageUrl = PictureManager.GetDefaultPictureUrl(335);
-                    defaultImage.ToolTip = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
-                    defaultImage.AlternateText = String.Format(GetLocaleResourceString("Media.Product.ImageAlternateTextFormat"), product.Name);
+                    imgProduct.Src = PictureManager.GetDefaultPictureUrl(middleImageSize);
+                    bigImage.HRef = PictureManager.GetDefaultPictureUrl(largeImageSize); ;
+                }
+                ProductPictureCollection productPictures = product.ProductPictures;
+                if (productPictures.Count > 1)
+                {
+                    this.dlImages.DataSource = productPictures;
+                    this.dlImages.DataBind();
                 }
 
                 lbOrder.CommandArgument = product.ProductID.ToString();
@@ -168,9 +170,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
             if (ProductManager.DirectAddToCartAllowed(productID, out productVariantID))
                 ShoppingCartManager.AddToCart(ShoppingCartTypeEnum.ShoppingCart, productVariantID, string.Empty, 1);
 
-            string productURL = SEOHelper.GetProductURL(productID);
             Response.Redirect("/ShoppingCart.aspx");
         }
 
+        protected string GetPictureUrl(ProductPicture picture, int size)
+        {
+            return PictureManager.GetPictureUrl(picture.PictureID, size);
+        }
     }
 }
