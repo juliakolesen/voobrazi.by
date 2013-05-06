@@ -31,12 +31,17 @@ namespace NopSolutions.NopCommerce.Web.Modules
         {
             ShoppingCart Cart = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart);
 
-            Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
-            IndividualOrderCollection indOrders = IndividualOrderManager.GetIndividualOrderByCurrentUserSessionGuid(CustomerSessionGUID);
-            decimal indOrderTotal = IndividualOrderManager.GetTotalPriceIndOrders(indOrders);
-            if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
+            decimal indOrderTotal = 0;
+            IndividualOrderCollection indOrders = new IndividualOrderCollection();
+            if (NopContext.Current.Session != null)
             {
-                indOrderTotal = Math.Round(PriceConverter.ToUsd(indOrderTotal));
+                Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
+                indOrders = IndividualOrderManager.GetIndividualOrderByCurrentUserSessionGuid(CustomerSessionGUID);
+                indOrderTotal = IndividualOrderManager.GetTotalPriceIndOrders(indOrders);
+                if (Request.Cookies["Currency"] != null && Request.Cookies["Currency"].Value == "USD")
+                {
+                    indOrderTotal = Math.Round(PriceConverter.ToUsd(indOrderTotal));
+                }
             }
 
             if (Cart.Count > 0 || indOrders.Count > 0)

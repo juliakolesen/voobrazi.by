@@ -383,7 +383,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             this.sortBy.Items.Add("По цене вниз");
             this.sortBy.Items.Add("По цене вверх");
             this.sortBy.Items.Add("По новизне");
-            this.sortBy.SelectedIndex = CommonHelper.QueryStringInt("sortBy", 1);
+            this.sortBy.SelectedIndex = CommonHelper.QueryStringInt("sortBy", 4);
         }
 
         protected void productsCount_SelectedIndexChanged(object sender, EventArgs e)
