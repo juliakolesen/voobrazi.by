@@ -37,6 +37,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         private const int minPageSize = 12;
         private const int countLines = 2;
         private const int rowCount = 3;
+        private const int defaultIndexSortBy = 4;
 
         private void Page_Load(object sender, EventArgs e)
         {
@@ -383,7 +384,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             this.sortBy.Items.Add("По цене вниз");
             this.sortBy.Items.Add("По цене вверх");
             this.sortBy.Items.Add("По новизне");
-            this.sortBy.SelectedIndex = CommonHelper.QueryStringInt("sortBy", 4);
+            this.sortBy.SelectedIndex = CommonHelper.QueryStringInt("sortBy", defaultIndexSortBy);
         }
 
         protected void productsCount_SelectedIndexChanged(object sender, EventArgs e)
@@ -395,7 +396,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             {
                 url = CommonHelper.RemoveQueryString(url, "sortBy");
                 int sortByIndex = sortBy.SelectedIndex;
-                if (sortByIndex != 1)
+                if (sortByIndex != defaultIndexSortBy)
                 {
                     if (!url.Contains("?"))
                         url += "?";
