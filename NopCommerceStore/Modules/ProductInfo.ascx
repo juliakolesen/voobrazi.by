@@ -51,22 +51,24 @@
                         </div>
                         <div style="text-align: center;">
                             <div class="page-wrap">
+                             <asp:Panel ID="PanelImages" runat="server">
                                 <article>
 		                        	<section id="basic">
-                                       <ul>
-                                            <asp:DataList ID="dlImages" runat="server" RepeatDirection="Horizontal"
-                                                RepeatLayout="Table" ItemStyle-VerticalAlign="top" HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <li><a class="gPic" rel="galI" target="_blank" href='<%# GetPictureUrl((ProductPicture)Container.DataItem, largeImageSize)  %>'
-                                                        title='<%# AlternateText %>'>
-                                                        <img src='<%# GetPictureUrl((ProductPicture)Container.DataItem, smallImageSize)  %>'
-                                                            onmouseover="document.imgProduct.src = '<%# GetPictureUrl((ProductPicture)Container.DataItem, middleImageSize)  %>'">
-                                                    </a></li>
-                                                </ItemTemplate>
-                                            </asp:DataList>
-                                        </ul>
+                                           <ul>
+                                                <asp:DataList ID="dlImages" runat="server" RepeatDirection="Horizontal"
+                                                    RepeatLayout="Table" ItemStyle-VerticalAlign="top" HorizontalAlign="Center">
+                                                    <ItemTemplate>
+                                                        <li><a class="gPic" rel="galI" target="_blank" href='<%# GetPictureUrl((ProductPicture)Container.DataItem, largeImageSize)  %>'
+                                                            title='<%# AlternateText %>'>
+                                                            <img src='<%# GetPictureUrl((ProductPicture)Container.DataItem, smallImageSize)  %>'
+                                                                onmouseover="document.imgProduct.src = '<%# GetPictureUrl((ProductPicture)Container.DataItem, middleImageSize)  %>'">
+                                                        </a></li>
+                                                    </ItemTemplate>
+                                                </asp:DataList>
+                                            </ul>
                                       </section>
 		                       </article>
+                              </asp:Panel>
                             </div>
                             <a class="gPic" rel="galI" target="_blank" style="color: rgb(242, 78, 0);" runat="server"
                                 id="bigImage">Увеличить</a>

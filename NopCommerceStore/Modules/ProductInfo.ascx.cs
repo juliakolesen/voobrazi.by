@@ -104,6 +104,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     this.dlImages.DataSource = productPictures;
                     this.dlImages.DataBind();
                 }
+                else
+                {
+                    PanelImages.Visible = false;
+                }
 
                 lbOrder.CommandArgument = product.ProductID.ToString();
                 lbOrderAndCheckout.CommandArgument = product.ProductID.ToString();
