@@ -4954,10 +4954,12 @@
     <Content Include="Contacts.aspx" />
     <Content Include="css\closelabel.gif" />
     <Content Include="css\jquery-ui-1.8.19.custom.css" />
+    <Content Include="css\jquery.scroller.css" />
     <Content Include="css\loading.gif" />
     <Content Include="css\main.css" />
     <Content Include="css\nextlabel.gif" />
     <Content Include="css\prevlabel.gif" />
+    <Content Include="css\ScrollerImagesTemplate.css" />
     <Content Include="css\slimbox2-rtl.css" />
     <Content Include="css\slimbox2.css" />
     <Content Include="css\style.css" />
@@ -5449,7 +5451,9 @@
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.19.custom.min.js" />
     <Content Include="Scripts\jquery.dual_slider.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.main.js" />
+    <Content Include="Scripts\jquery.scroller.js" />
     <Content Include="Scripts\jquery.ui-slider.js" />
     <Content Include="Scripts\slimbox2.js" />
     <Content Include="Login.aspx" />

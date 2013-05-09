@@ -1,12 +1,16 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.ProductInfoControl"
     CodeBehind="ProductInfo.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RelatedProducts" Src="~/Modules/RelatedProducts.ascx" %>
-<%--<script language="javascript" type="text/javascript">
-    function UpdateMainImage(url) {
-        var imgMain = document.getElementById('<%=defaultImage.ClientID%>');
-        imgMain.src = url;
-    }
-</script>--%>
+<script src="../Scripts/jquery.js" type="text/javascript"></script>
+<script src="../Scripts/daGallery.js" type="text/javascript"></script>
+<script src="../Scripts/jquery.scroller.js" type="text/javascript"></script>
+<link href="../css/jquery.scroller.css" rel="stylesheet" type="text/css" />
+<link href="../css/ScrollerImagesTemplate.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript">
+    $(function () {
+        $('#basic').scroller();
+    });
+</script>
 <style>
     .seccont_top .titl
     {
@@ -42,47 +46,55 @@
 						</a>
 					</div>--%>
                     <div class="daGallery">
-                        <script src="../Scripts/daGallery.js" type="text/javascript"></script>
                         <div class="gPicSpace">
                             <img id="imgProduct" name="imgProduct" runat="server" class="daGalleryImage" />
                         </div>
                         <div style="text-align: center;">
-                            <asp:DataList ID="dlImages" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
-                                RepeatLayout="Table" ItemStyle-VerticalAlign="top" HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <a class="gPic" rel="galI" target="_blank" href='<%# GetPictureUrl((ProductPicture)Container.DataItem, largeImageSize)  %>'
-                                        title='<%# AlternateText %>'>
-                                        <img src='<%# GetPictureUrl((ProductPicture)Container.DataItem, smallImageSize)  %>'
-                                            onmouseover="document.imgProduct.src = '<%# GetPictureUrl((ProductPicture)Container.DataItem, middleImageSize)  %>'">
-                                    </a>
-                                </ItemTemplate>
-                            </asp:DataList>
+                            <div class="page-wrap">
+                                <article>
+		                        	<section id="basic">
+                                       <ul>
+                                            <asp:DataList ID="dlImages" runat="server" RepeatDirection="Horizontal"
+                                                RepeatLayout="Table" ItemStyle-VerticalAlign="top" HorizontalAlign="Center">
+                                                <ItemTemplate>
+                                                    <li><a class="gPic" rel="galI" target="_blank" href='<%# GetPictureUrl((ProductPicture)Container.DataItem, largeImageSize)  %>'
+                                                        title='<%# AlternateText %>'>
+                                                        <img src='<%# GetPictureUrl((ProductPicture)Container.DataItem, smallImageSize)  %>'
+                                                            onmouseover="document.imgProduct.src = '<%# GetPictureUrl((ProductPicture)Container.DataItem, middleImageSize)  %>'">
+                                                    </a></li>
+                                                </ItemTemplate>
+                                            </asp:DataList>
+                                        </ul>
+                                      </section>
+		                       </article>
+                            </div>
                             <a class="gPic" rel="galI" target="_blank" style="color: rgb(242, 78, 0);" runat="server"
                                 id="bigImage">Увеличить</a>
                         </div>
-                    <script type="text/javascript">
-                        DaGallery.init();
-                    </script>
-    </div>
-    <table runat="server" id="tblOrderButtons" cellpadding="0" cellspacing="0">
-        <tr>
-            <td>
-                <asp:LinkButton ID="lbOrder" runat="server" CssClass="button-order" OnCommand="btnAddToCart_Click" />
-            </td>
-            <td style="padding-left: 10px;">
-                <asp:LinkButton ID="lbOrderAndCheckout" runat="server" CssClass="button-order2" OnCommand="lbOrderAndCheckout_Click" />
-            </td>
-        </tr>
-    </table>
-    </td> </tr>
-    <tr>
-        <td colspan="2">
-            <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />
-        </td>
-    </tr>
-    </table>
-    <div class="post">
-        <asp:Literal ID="lFullDescription" runat="server" />
+                        <script type="text/javascript">
+                            DaGallery.init();
+                        </script>
+                    </div>
+                    <table runat="server" id="tblOrderButtons" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td>
+                                <asp:LinkButton ID="lbOrder" runat="server" CssClass="button-order" OnCommand="btnAddToCart_Click" />
+                            </td>
+                            <td style="padding-left: 10px;">
+                                <asp:LinkButton ID="lbOrderAndCheckout" runat="server" CssClass="button-order2" OnCommand="lbOrderAndCheckout_Click" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <nopCommerce:RelatedProducts ID="ctrlRelatedProducts" runat="server" />
+                </td>
+            </tr>
+        </table>
+        <div class="post">
+            <asp:Literal ID="lFullDescription" runat="server" />
+        </div>
     </div>
 </div>
-</div> 

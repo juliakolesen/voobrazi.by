@@ -1,0 +1,34 @@
+﻿/*** --- Wrap --- ***/
+.page-wrap {
+	width:300px;
+	padding:10px;
+	margin:0 auto;
+}
+
+section {
+	position:relative;
+	overflow:hidden;
+	height:100px;
+	margin-bottom:25px;
+	border:2px solid #FFF;
+	/* box-shadow */
+	-webkit-box-shadow:0 1px 4px #999;
+	-moz-box-shadow:0 1px 4px #999;
+	box-shadow:0 1px 4px #999;
+}
+article section ul {
+	margin:0;
+}
+article section ul li {
+	float:left;
+	overflow:hidden;
+	width:100px;
+	height:100px;
+	margin:0;
+	padding:0;
+	list-style:none;
+	border-right:2px solid #FFF;
+}
+article section ul li.last {
+	border-right:none;
+}
