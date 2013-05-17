@@ -7,7 +7,7 @@
 <link href="../css/jquery.scroller.css" rel="stylesheet" type="text/css" />
 <link href="../css/ScrollerImagesTemplate.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript">
-    $(function () {
+    $(function() {
         $('#basic').scroller();
     });
 </script>
@@ -47,12 +47,14 @@
 					</div>--%>
                     <div class="daGallery">
                         <div class="gPicSpace">
-                            <img id="imgProduct" name="imgProduct" runat="server" class="daGalleryImage" />
+                            <a id="a_imgProduct" name="a_imgProduct" rel="galI1" target="_blank">
+                                <img id="imgProduct" name="imgProduct" runat="server" class="daGalleryImage" />
+                            </a>
                         </div>
                         <div style="text-align: center;">
                             <div class="page-wrap">
-                             <asp:Panel ID="PanelImages" runat="server">
-                                <article>
+                                <asp:Panel ID="PanelImages" runat="server">
+                                    <article>
 		                        	<section id="basic">
                                            <ul>
                                                 <asp:DataList ID="dlImages" runat="server" RepeatDirection="Horizontal"
@@ -61,17 +63,16 @@
                                                         <li><a class="gPic" rel="galI" target="_blank" href='<%# GetPictureUrl((ProductPicture)Container.DataItem, largeImageSize)  %>'
                                                             title='<%# AlternateText %>'>
                                                             <img src='<%# GetPictureUrl((ProductPicture)Container.DataItem, smallImageSize)  %>'
-                                                                onmouseover="document.imgProduct.src = '<%# GetPictureUrl((ProductPicture)Container.DataItem, middleImageSize)  %>'">
+                                                                onmouseover="document.imgProduct.src = '<%# GetPictureUrl((ProductPicture)Container.DataItem, middleImageSize)  %>';
+                                                                             a_imgProduct.href = '<%# GetPictureUrl((ProductPicture)Container.DataItem, largeImageSize)  %>';">
                                                         </a></li>
                                                     </ItemTemplate>
                                                 </asp:DataList>
                                             </ul>
                                       </section>
 		                       </article>
-                              </asp:Panel>
+                                </asp:Panel>
                             </div>
-                            <a class="gPic" rel="galI" target="_blank" style="color: rgb(242, 78, 0);" runat="server"
-                                id="bigImage">Увеличить</a>
                         </div>
                         <script type="text/javascript">
                             DaGallery.init();

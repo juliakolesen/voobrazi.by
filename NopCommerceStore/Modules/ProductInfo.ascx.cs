@@ -39,6 +39,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
         protected int largeImageSize = 500;
 
+        protected string DefaultHref = String.Empty;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -91,12 +93,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 if (product.ProductPictures.Count > 0)
                 {
                     imgProduct.Src = PictureManager.GetPictureUrl(product.ProductPictures[0].PictureID, middleImageSize);
-                    bigImage.HRef = PictureManager.GetPictureUrl(product.ProductPictures[0].PictureID, largeImageSize);
+                    DefaultHref = PictureManager.GetPictureUrl(product.ProductPictures[0].PictureID, largeImageSize);
                 }
                 else
                 {
                     imgProduct.Src = PictureManager.GetDefaultPictureUrl(middleImageSize);
-                    bigImage.HRef = PictureManager.GetDefaultPictureUrl(largeImageSize); ;
+                    DefaultHref = PictureManager.GetDefaultPictureUrl(largeImageSize); ;
                 }
                 ProductPictureCollection productPictures = product.ProductPictures;
                 if (productPictures.Count > 1)

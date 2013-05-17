@@ -20,11 +20,12 @@ DaGallery.init = function () {
     $('.daGallery a[rel]').bind('click', DaGallery.start);
     $('head').append(DaGallery.styles);
 }
+
 DaGallery.start = function () {
     if (DaGallery.isStarted) return;
     DaGallery.isStarted = true;
     if ($(this).attr('rel') == '') return;
-    DaGallery.imgList = $('.daGallery a[rel="' + $(this).attr('rel') + '"]');
+    DaGallery.imgList = $('.daGallery a[rel=galI]');
     for (var i = 0; $(DaGallery.imgList[i]).attr('href') != $(this).attr('href'); DaGallery.curImg = ++i);
     $('body').append('<table id="daGalContainer" cellpadding="0" cellspacing="0"><tr><td><div class="daImgDiv"><a href="#" class="daPrev misc"></a><a href="#" class="daPrevArea misc"></a><a href="#" class="daNext misc"></a><a href="#" class="daNextArea misc"></a><div class="daGalLoad"></div></div><div class="daBottom"><a href="#" class="daClose misc"></a><a href="#" target="_blank" class="daLupa misc"></a></div></td></tr></table>').append('<div id="daGalBg"></div>');
     DaGallery.container = $('#daGalContainer');
