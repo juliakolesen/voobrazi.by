@@ -47,7 +47,7 @@
 					</div>--%>
                     <div class="daGallery">
                         <div class="gPicSpace">
-                            <a id="a_imgProduct" name="a_imgProduct" rel="galI1" target="_blank">
+                            <a id="a_imgProduct" name="a_imgProduct" rel="galI1" target="_blank" runat="server">
                                 <img id="imgProduct" name="imgProduct" runat="server" class="daGalleryImage" />
                             </a>
                         </div>
@@ -64,7 +64,7 @@
                                                             title='<%# AlternateText %>'>
                                                             <img src='<%# GetPictureUrl((ProductPicture)Container.DataItem, smallImageSize)  %>'
                                                                 onmouseover="document.imgProduct.src = '<%# GetPictureUrl((ProductPicture)Container.DataItem, middleImageSize)  %>';
-                                                                             a_imgProduct.href = '<%# GetPictureUrl((ProductPicture)Container.DataItem, largeImageSize)  %>';">
+                                                                             document.getElementById('<%# a_imgProduct.ClientID%>').href = '<%# GetPictureUrl((ProductPicture)Container.DataItem, largeImageSize)  %>';">
                                                         </a></li>
                                                     </ItemTemplate>
                                                 </asp:DataList>

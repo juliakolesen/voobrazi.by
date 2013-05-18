@@ -93,12 +93,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 if (product.ProductPictures.Count > 0)
                 {
                     imgProduct.Src = PictureManager.GetPictureUrl(product.ProductPictures[0].PictureID, middleImageSize);
-                    DefaultHref = PictureManager.GetPictureUrl(product.ProductPictures[0].PictureID, largeImageSize);
+                    a_imgProduct.HRef = DefaultHref = PictureManager.GetPictureUrl(product.ProductPictures[0].PictureID, largeImageSize);
                 }
                 else
                 {
                     imgProduct.Src = PictureManager.GetDefaultPictureUrl(middleImageSize);
-                    DefaultHref = PictureManager.GetDefaultPictureUrl(largeImageSize); ;
+                    a_imgProduct.HRef = DefaultHref = PictureManager.GetDefaultPictureUrl(largeImageSize); ;
                 }
                 ProductPictureCollection productPictures = product.ProductPictures;
                 if (productPictures.Count > 1)
