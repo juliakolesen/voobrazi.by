@@ -1,8 +1,4 @@
 /* это правила оформления. К скрипту отношения не имеют */
-form {
-	width: 250px;
-	position: relative;
-}
 
 .formCost {
 	float: left;
