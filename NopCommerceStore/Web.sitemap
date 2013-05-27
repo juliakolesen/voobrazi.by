@@ -16,5 +16,6 @@
     <siteMapNode url="~/Sitemap-Categories.aspx" title="Категория"  description="Категория" >
       <siteMapNode url="~/Sitemap-Products.aspx" title="Продукт"  description="Продукт"/>
     </siteMapNode>
+    <siteMapNode url="~/Sitemap-Topics.aspx" title="Тема"  description="Тема"/>
   </siteMapNode>
 </siteMap>
