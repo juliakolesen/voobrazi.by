@@ -16,8 +16,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
+using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.BusinessLogic.Categories;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
+using NopSolutions.NopCommerce.BusinessLogic.Content.Topics;
 using NopSolutions.NopCommerce.BusinessLogic.Media;
 using NopSolutions.NopCommerce.BusinessLogic.Orders;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
@@ -47,21 +49,28 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         private SiteMapNode ExpandCategoryPaths(Object sender, SiteMapResolveEventArgs e)
         {
             SiteMapNode currentNode = null;
-            if (e.Provider.CurrentNode == null)
+
+            if (TopicID != 0)
             {
-                currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Categories.aspx").Clone(true);
+                currentNode = ChangeTopicMap(e);
             }
             else
             {
-                currentNode = e.Provider.CurrentNode.Clone(true);
-            }
+                if (e.Provider.CurrentNode == null)
+                {
+                    currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Categories.aspx").Clone(true);
+                }
+                else
+                {
+                    currentNode = e.Provider.CurrentNode.Clone(true);
+                }
 
-            ChangeCategoryMap(e, currentNode);
-            if (0 != ProductID)
-            {
-                currentNode = ChangeProductMap(e, currentNode);
+                ChangeCategoryMap(e, currentNode);
+                if (0 != ProductID)
+                {
+                    currentNode = ChangeProductMap(e, currentNode);
+                }
             }
-
             return currentNode;
         }
 
@@ -83,6 +92,36 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             }
 
             return currentProductNode;
+        }
+
+        private SiteMapNode ChangeTopicMap(SiteMapResolveEventArgs e)
+        {
+            SiteMapNode currentNode = null;
+            try
+            {
+                currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Topics.aspx").Clone(true);
+                LocalizedTopic localizedTopic =
+                TopicManager.GetLocalizedTopic(this.TopicID, NopContext.Current.WorkingLanguage.LanguageID);
+                if (localizedTopic != null)
+                {
+                    currentNode.Url = SEOHelper.GetTopicUrl(TopicID, localizedTopic.Title);
+                    currentNode.Description = localizedTopic.Title;
+                    currentNode.Title = localizedTopic.Title;
+                }
+            }
+            catch
+            {
+            }
+
+            return currentNode;
+        }
+
+        public int TopicID
+        {
+            get
+            {
+                return CommonHelper.QueryStringInt("TopicID");
+            }
         }
 
         private void ChangeCategoryMap(SiteMapResolveEventArgs e, SiteMapNode currentNode)

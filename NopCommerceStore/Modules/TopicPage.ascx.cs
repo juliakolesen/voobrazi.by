@@ -37,7 +37,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
     {
         private void Page_Load(object sender, EventArgs e)
         {
-            System.Web.SiteMap.Providers["NopDefaultXmlSiteMapProvider"].SiteMapResolve += this.ExpandCategoryPaths;
         }
 
         protected override void OnInit(EventArgs e)
@@ -78,41 +77,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
             get
             {
                 return CommonHelper.QueryStringInt("TopicID");
-            }
-        }
-
-        private SiteMapNode ExpandCategoryPaths(Object sender, SiteMapResolveEventArgs e)
-        {
-            SiteMapNode currentNode = null;
-            if (e.Provider.CurrentNode != null)
-            {
-                currentNode = e.Provider.CurrentNode.Clone(true);
-            }
-            else
-            {
-                currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Topics.aspx").Clone(true);
-            }
-
-            ChangeTopicMap(e, currentNode);
-
-            return currentNode;
-        }
-
-        private void ChangeTopicMap(SiteMapResolveEventArgs e, SiteMapNode tempNode)
-        {
-            try
-            {
-                LocalizedTopic localizedTopic =
-                TopicManager.GetLocalizedTopic(this.TopicID, NopContext.Current.WorkingLanguage.LanguageID);
-                if (localizedTopic != null)
-                {
-                    tempNode.Url = SEOHelper.GetTopicUrl(TopicID, localizedTopic.Title);
-                    tempNode.Description = localizedTopic.Title;
-                    tempNode.Title = localizedTopic.Title;
-                }
-            }
-            catch
-            {
             }
         }
     }
