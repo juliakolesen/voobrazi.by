@@ -36,45 +36,14 @@ namespace NopSolutions.NopCommerce.Web.Modules
             {
                 if (Level == 0)
                 {
-                    if (ParentId <= 10)
+                    if (ParentId <= MaxCount)
                     {
-                        int hSpace = 0;
-                        switch (ParentId)
-                        {
-                            case 1:
-                                hSpace = 10;
-                                break;
-                            case 2:
-                                hSpace = 4;
-                                break;
-                            case 3:
-                                hSpace = 6;
-                                break;
-                            case 4:
-                            case 5:
-                            case 6:
-                                hSpace = 10;
-                                break;
-                            case 7:
-                                hSpace = 8;
-                                break;
-                            case 8:
-                                hSpace = 14;
-                                break;
-                            case 9:
-                            case 10:
-                                hSpace = 7;
-                                break;
-                            default:
-                                break;
-                        }
-
                         writer.WriteLine(string.Format("<div class=\"item_{0}\">", ParentId - 1));
                         writer.WriteLine(string.Format("<a href=\"javascript:void(0);\" onclick=\"show_div('div_{0}')\" title=\"{1}\">",ParentId - 1, Title));
                         string url = Picture != null
                                          ? PictureManager.GetPictureUrl(Picture.PictureID, 35)
                                          : Page.ResolveUrl("~/images/ff_images/submenu/subitem.jpg");
-                        writer.WriteLine(string.Format("<img src=\"" + url + "\" alt=\"\" hspace=\"{0}\" {1} />{2}</a></div>", hSpace,
+                        writer.WriteLine(string.Format("<img src=\"" + url + "\" alt=\"\" {0} />{1}</a></div>",
                                           ParentId == MaxCount ? "align=\"absmiddle\"" : "", Title));
                     }
                 }
@@ -231,7 +200,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     link.Title = Server.HtmlEncode(category.Name);
                     link.NavigateUrl = categoryURL;
                     link.Picture = category.Picture;
-                    link.MaxCount = rootCategories.Count - 1;
+                    link.MaxCount = rootCategories.Count;
 
                     CreateChildMenu(breadCrumb, category.CategoryID, currentCategory, level + 1);
                     id++;
