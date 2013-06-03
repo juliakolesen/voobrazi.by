@@ -14,9 +14,11 @@
 
 
 using System;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NopSolutions.NopCommerce.BusinessLogic.Categories;
+using NopSolutions.NopCommerce.BusinessLogic.Media;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
 using NopSolutions.NopCommerce.BusinessLogic.SEO;
 using NopSolutions.NopCommerce.Common.Utils;
@@ -68,8 +70,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         }
 
                         writer.WriteLine(string.Format("<div class=\"item_{0}\">", ParentId - 1));
-                        writer.WriteLine(string.Format("<a href=\"javascript:void(0);\" onclick=\"show_div('div_{0}')\" title=\"{1}\">", ParentId - 1, Title));
-                        writer.WriteLine(string.Format("<img src=\"" + Page.ResolveUrl("~/images/ff_images/submenu/{0}.jpg") + "\" alt=\"\" hspace=\"{1}\" {2} />{3}</a></div>", firstLevelImages[ParentId - 1], hSpace, ParentId == 9 ? "align=\"absmiddle\"" : "", Title));
+                        writer.WriteLine(string.Format("<a href=\"javascript:void(0);\" onclick=\"show_div('div_{0}')\" title=\"{1}\">",ParentId - 1, Title));
+                        string url = Picture != null
+                                         ? PictureManager.GetPictureUrl(Picture.PictureID, 35)
+                                         : Page.ResolveUrl("~/images/ff_images/submenu/subitem.jpg");
+                        writer.WriteLine(string.Format("<img src=\"" + url + "\" alt=\"\" hspace=\"{0}\" {1} />{2}</a></div>", hSpace,
+                                          ParentId == MaxCount ? "align=\"absmiddle\"" : "", Title));
                     }
                 }
                 else if (Level == 1)
@@ -93,8 +99,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
             public int TotalMenuItems { get; set; }
             public string Title { get; set; }
             public string NavigateUrl { get; set; }
+            public Picture Picture { get; set; }
+            public int MaxCount { get; set; }
         }
         #endregion
+
+        private CategoryCollection rootCategories = new CategoryCollection();
 
         #region Handlers
         protected void Page_Load(object sender, EventArgs e)
@@ -107,39 +117,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
             int catId = 0;
             if (cat != null)
-                switch (cat.ParentCategory.Name)
-                {
-                    case "Живые цветы":
-                        catId = 1;
-                        break;
-                    case "Свадебная флористика":
-                        catId = 2;
-                        break;
-                    case "Букеты и композиции":
-                        catId = 3;
-                        break;
-                    case "Комнатные растения":
-                        catId = 4;
-                        break;
-                    case "Горшки для растений":
-                        catId = 5;
-                        break;
-                    case "Грунты / Уход":
-                        catId = 6;
-                        break;
-                    case "Вазы":
-                        catId = 7;
-                        break;
-                    case "Подарки":
-                        catId = 8;
-                        break;
-                    case "Открытки":
-                        catId = 9;
-                        break;
-                    default:
-                        catId = 0;
-                        break;
-                }
+            {
+                Category categoryFromList = rootCategories.FirstOrDefault(category => category.CategoryID == cat.ParentCategory.CategoryID); 
+                if(categoryFromList != null)
+                    catId = rootCategories.IndexOf(categoryFromList);
+            }
+            
             if (catId != 0)
                 ScriptManager.RegisterStartupScript(Page, GetType(), "menu_autoOpen", string.Format("show_div('div_{0}');", catId), true);
 
@@ -229,6 +212,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
             {
                 int id = 1;
                 CategoryCollection categoryCollection = CategoryManager.GetAllCategories(rootCategoryID);
+                if(level == 0)
+                {
+                    rootCategories = categoryCollection;
+                }
 
                 foreach (Category category in categoryCollection)
                 {
@@ -243,6 +230,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     link.TotalMenuItems = categoryCollection.Count;
                     link.Title = Server.HtmlEncode(category.Name);
                     link.NavigateUrl = categoryURL;
+                    link.Picture = category.Picture;
+                    link.MaxCount = rootCategories.Count - 1;
 
                     CreateChildMenu(breadCrumb, category.CategoryID, currentCategory, level + 1);
                     id++;
