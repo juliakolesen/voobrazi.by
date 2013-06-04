@@ -38,13 +38,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 {
                     if (ParentId <= MaxCount)
                     {
-                        writer.WriteLine(string.Format("<div class=\"item_{0}\">", ParentId - 1));
+                        writer.WriteLine("<div class=\"item\">");
                         writer.WriteLine(string.Format("<a href=\"javascript:void(0);\" onclick=\"show_div('div_{0}')\" title=\"{1}\">",ParentId - 1, Title));
                         string url = Picture != null
                                          ? PictureManager.GetPictureUrl(Picture.PictureID, 35)
                                          : Page.ResolveUrl("~/images/ff_images/submenu/subitem.jpg");
-                        writer.WriteLine(string.Format("<img src=\"" + url + "\" alt=\"\" {0} />{1}</a></div>",
-                                          ParentId == MaxCount ? "align=\"absmiddle\"" : "", Title));
+                        writer.WriteLine(string.Format("<img src=\"" + url + "\" alt=\"\" />{0}</a></div>", Title));
                     }
                 }
                 else if (Level == 1)

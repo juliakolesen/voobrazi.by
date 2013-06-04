@@ -141,39 +141,7 @@ a.contacts:hover
 	color: #fc4074;
 }
 
-.item_1
-{
-	margin-top: 10px;
-}
-.item_2
-{
-	margin-top: 15px;
-}
-.item_3
-{
-	margin-top: 0px;
-}
-.item_4
-{
-	margin-top: 0px;
-}
-.item_5
-{
-	margin-top: 5px;
-}
-.item_6
-{
-	margin-top: 13px;
-}
-.item_7
-{
-	margin-top: 4px;
-}
-.item_8
-{
-	margin-top: 15px;
-}
-.item_0 a, .item_1 a, .item_2 a, .item_3 a, .item_4 a, .item_5 a, .item_6 a, .item_7 a, .item_8 a
+.item a
 {
 	outline: none;
 }
