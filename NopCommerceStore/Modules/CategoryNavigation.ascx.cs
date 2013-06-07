@@ -30,8 +30,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
         #region Classes
         public class NopCommerceLi : WebControl, INamingContainer
         {
-            readonly string[] firstLevelImages = new[] { "vd", "flowers", "svadba", "bouquets", "plants", "gorshok", "care", "vase", "gifts", "letter" };
-
             protected override void Render(HtmlTextWriter writer)
             {
                 if (Level == 0)
@@ -39,7 +37,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     if (ParentId <= MaxCount)
                     {
                         writer.WriteLine("<div class=\"item\">");
-                        writer.WriteLine(string.Format("<a href=\"javascript:void(0);\" onclick=\"show_div('div_{0}')\" title=\"{1}\">",ParentId - 1, Title));
+                        string navigateUrl = ChildCategoryUrl;
+                        if (String.IsNullOrEmpty(navigateUrl))
+                            navigateUrl = "javascript:void(0);";
+                        writer.WriteLine(string.Format("<a href=\"{0}\" onclick=\"show_div('div_{1}')\" title=\"{2}\">", navigateUrl, ParentId - 1, Title));
                         string url = Picture != null
                                          ? PictureManager.GetPictureUrl(Picture.PictureID, 35)
                                          : Page.ResolveUrl("~/images/ff_images/submenu/subitem.jpg");
@@ -69,6 +70,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             public string NavigateUrl { get; set; }
             public Picture Picture { get; set; }
             public int MaxCount { get; set; }
+            public string ChildCategoryUrl { get; set; }
         }
         #endregion
 
@@ -200,6 +202,11 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     link.NavigateUrl = categoryURL;
                     link.Picture = category.Picture;
                     link.MaxCount = rootCategories.Count;
+                    CategoryCollection subCategories = CategoryManager.GetAllCategories(category.CategoryID, false);
+                    if(subCategories.Count > 0)
+                    {
+                        link.ChildCategoryUrl = SEOHelper.GetCategoryURL(subCategories[0].CategoryID);
+                    }
 
                     CreateChildMenu(breadCrumb, category.CategoryID, currentCategory, level + 1);
                     id++;
