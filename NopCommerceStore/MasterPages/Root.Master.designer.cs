@@ -49,15 +49,6 @@ namespace NopSolutions.NopCommerce.Web.MasterPages {
         protected global::NopSolutions.NopCommerce.Web.Modules.HeaderControl ctrlHeader;
         
         /// <summary>
-        /// InformationMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.InformationMenu InformationMenu;
-        
-        /// <summary>
         /// ctrlHeaderMenu control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace NopSolutions.NopCommerce.Web.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder cph1;
+        
+        /// <summary>
+        /// payFooter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::NopSolutions.NopCommerce.Web.Modules.PayFooter payFooter;
         
         /// <summary>
         /// ctrlFooter control.

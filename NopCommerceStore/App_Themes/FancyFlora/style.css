@@ -291,11 +291,31 @@ a.contacts:hover
 	text-decoration: none;
 }
 
+.payFooter
+{
+    margin-top: 10px;
+    width: 1250px;
+    height: 30px;
+    background: url(../../images/ff_images/background-pay-menu.gif) left center;
+}
+
+.payFooter a
+{
+    text-decoration: none;
+    color: #3b3b3b;
+}
+
 .logo
 {
 	float: left;
 	width: 300px;
 	margin-left: 20px;
+}
+
+.logo_main
+{
+	float: left;
+	width: 100px;
 }
 .name
 {
@@ -305,7 +325,6 @@ a.contacts:hover
 .amount
 {
 	font-size: 24px;
-	color: #fc4074;
 }
 .amount_text
 {
@@ -710,11 +729,6 @@ a.button-order2:hover
 	padding: 0 25px;
 }
 
-.infomenu_tbl a
-{
-	text-decoration: none;
-}
-
 .design
 {
 	font-size: 14px;
@@ -736,3 +750,8 @@ visibility:hidden;
 .daGalleryImage{ margin-top: 10px;}
 
 .gPicSpace{ min-height:350px;}
+
+.shoppingCart img
+{
+    vertical-align: middle;
+}

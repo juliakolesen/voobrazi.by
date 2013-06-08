@@ -15,27 +15,11 @@
 using System;
 using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.BusinessLogic.Content.Forums;
-using NopSolutions.NopCommerce.BusinessLogic.Audit;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
-    using System.Web;
-    using System.Web.UI.WebControls;
-    using NopSolutions.NopCommerce.BusinessLogic.Products;
-    using NopSolutions.NopCommerce.BusinessLogic.Orders;
-
     public partial class HeaderControl : BaseNopUserControl
     {
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            if (!Page.IsPostBack && Request.Cookies["Currency"] != null)
-            {
-                ddlCur1.SelectedValue = Request.Cookies["Currency"].Value;
-            }
-        }
-
         protected string GetUnreadPrivateMessages()
         {
             string result = string.Empty;
@@ -51,19 +35,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 }
             }
             return result;
-        }
-
-        protected void DdlCurSelectedValueChanged(object sender, EventArgs e)
-        {
-            Response.Cookies.Add(new HttpCookie("Currency", ((DropDownList)sender).SelectedValue));
-            Response.Redirect(Request.Url.ToString());
-        }
-
-        protected int GetCount()
-        {
-            int cartCount = ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count;
-            int indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders().Count;
-            return cartCount + indOrders;
         }
     }
 }

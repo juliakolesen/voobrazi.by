@@ -35,44 +35,44 @@
 
             </script>
             <a href="/" title="Воображение">
-                <img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" /></a></div>
+                <img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" />
+            </a>
+        </div>
+        <div class="logo_main">
+            <a href="/" title="Воображение">
+                <img src="<%=Page.ResolveUrl("~/images/ff_images/mainimg_logo.jpg")%>" alt="" height="90px" />
+            </a>
+        </div>
     </AnonymousTemplate>
     <LoggedInTemplate>
         Добро пожаловать, <span class="name">
             <%=Page.User.Identity.Name %></span>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;<a href="<%=Page.ResolveUrl("~/Logout.aspx")%>"
                 title="Выйти">Выйти</a>
         <br />
+        <% if (Page.User.IsInRole("Admin"))
+           { %>
+        <li><a href="<%=Page.ResolveUrl("~/Administration/Default.aspx")%>" class="ico-admin">
+            <%=GetLocaleResourceString("Account.Administration")%></a> </li>
+        <%} %>
         <br />
         <div class="logo">
             <a href="/" title="Воображение">
                 <img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" width="299"
-                    height="90" /></a></div>
+                    height="90" />
+        </div>
+        <div class="logo_main">
+            <a href="/" title="Воображение">
+                <img src="<%=Page.ResolveUrl("~/images/ff_images/mainimg_logo.jpg")%>" alt="" height="90px" />
+            </a>
+        </div>
     </LoggedInTemplate>
 </asp:LoginView>
-<table width="715px">
+<table width="600px">
     <tr>
-        <td width="480px">
+        <td width="500px">
             <span style="padding-right: 25px;">
                 <nopCommerce:Topic ID="ContactPhones" runat="server" TopicName="ContactPhones" />
             </span>
-        </td>
-        <td width="235px">
-            <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
-                <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom"
-                    title="Корзина" />
-                Корзина (<span class="amount"><%=GetCount()%></span><span class="amount_text">товаров</span>)</a>
-            <br />
-            Валюта:
-            <asp:DropDownList ID="ddlCur1" runat="server" OnSelectedIndexChanged="DdlCurSelectedValueChanged"
-                AutoPostBack="true">
-                <asp:ListItem Value="BYR" Text="Белорусские рубли" />
-                <asp:ListItem Value="USD" Text="Доллары США" />
-            </asp:DropDownList>
-            <% if (Page.User.IsInRole("Admin"))
-               { %>
-            <li><a href="<%=Page.ResolveUrl("~/Administration/Default.aspx")%>" class="ico-admin">
-                <%=GetLocaleResourceString("Account.Administration")%></a> </li>
-            <%} %>
         </td>
     </tr>
 </table>

@@ -3247,12 +3247,12 @@
     <Compile Include="Modules\IndividualOrderControl.ascx.designer.cs">
       <DependentUpon>IndividualOrderControl.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Modules\InformationMenu.ascx.cs">
-      <DependentUpon>InformationMenu.ascx</DependentUpon>
+    <Compile Include="Modules\PayFooter.ascx.cs">
+      <DependentUpon>PayFooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Modules\InformationMenu.ascx.designer.cs">
-      <DependentUpon>InformationMenu.ascx</DependentUpon>
+    <Compile Include="Modules\PayFooter.ascx.designer.cs">
+      <DependentUpon>PayFooter.ascx</DependentUpon>
     </Compile>
     <Compile Include="Modules\OrderIndividualOrders.ascx.cs">
       <DependentUpon>OrderIndividualOrders.ascx</DependentUpon>
@@ -5436,7 +5436,7 @@
     <Content Include="Modules\DesignVariant.ascx" />
     <Content Include="Modules\HouseFlowersVariant.ascx" />
     <Content Include="Modules\IndividualOrderControl.ascx" />
-    <Content Include="Modules\InformationMenu.ascx" />
+    <Content Include="Modules\PayFooter.ascx" />
     <Content Include="Modules\OrderIndividualOrders.ascx" />
     <Content Include="Modules\PriceFilterControl.ascx" />
     <Content Include="Modules\ProductBoxSmall.ascx" />
