@@ -13,17 +13,7 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Text;
 using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
@@ -31,7 +21,26 @@ namespace NopSolutions.NopCommerce.Web.Modules
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            string sPagePath = HttpContext.Current.Request.Url.AbsolutePath;
+            Action.Style.Add("background",
+                             sPagePath.Contains("Actions.aspx")
+                                 ? "url(../../images/ff_images/menu/action2.gif) center no-repeat"
+                                 : "url(../../images/ff_images/menu/action.gif) center no-repeat");
+
+            Clients.Style.Add("background",
+                             sPagePath.Contains("ToCorporateClients.aspx")
+                                 ? "url(../../images/ff_images/menu/client2.gif) center no-repeat"
+                                 : "url(../../images/ff_images/menu/client.gif) center no-repeat");
+
+            Green.Style.Add("background",
+                            sPagePath.Contains("Greening.aspx")
+                                ? "url(../../images/ff_images/menu/landscaping2.gif) center no-repeat"
+                                : "url(../../images/ff_images/menu/landscaping.gif) center no-repeat");
+
+            News.Style.Add("background",
+                            sPagePath.Contains("News")
+                                ? "url(../../images/ff_images/menu/news2.gif) center no-repeat"
+                                : "url(../../images/ff_images/menu/news.gif) center no-repeat");
         }
     }
 }

@@ -13,6 +13,11 @@
     <siteMapNode url="ViewedItems.aspx" title="Вы смотрели"  description="Выс мотрели" />
     <siteMapNode url="SiteMap.aspx" title="Карта сайта"  description="Карта сайта" />
     <siteMapNode url="SearchResults.aspx" title="Результаты поиска"  description="Результаты поиска" />
+    <siteMapNode url="NewsAll.aspx" title="Новости"  description="Новости" >
+      <siteMapNode url="~/Sitemap-News.aspx" title="Новость"  description="Новость"/>
+    </siteMapNode>
+    <siteMapNode url="Actions.aspx" title="Акции"  description="Акции" />
+    <siteMapNode url="Greening.aspx" title="Озеленение, оформление цветами"  description="Озеленение, оформление цветами" />
     <siteMapNode url="~/Sitemap-Categories.aspx" title="Категория"  description="Категория" >
       <siteMapNode url="~/Sitemap-Products.aspx" title="Продукт"  description="Продукт"/>
     </siteMapNode>

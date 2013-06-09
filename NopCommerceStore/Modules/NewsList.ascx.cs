@@ -13,20 +13,9 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections;
 using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Text;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.BusinessLogic.Content.NewsManagement;
-using NopSolutions.NopCommerce.Common.Utils;
 using NopSolutions.NopCommerce.BusinessLogic.SEO;
 
 namespace NopSolutions.NopCommerce.Web.Modules
@@ -48,7 +37,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
         protected void BindData()
         {
-            NewsCollection newsCollection = NewsManager.GetNews(NopContext.Current.WorkingLanguage.LanguageID, NewsCount);
+            NewsCollection newsCollection = NewsManager.GetAllNews(0);
             if (newsCollection.Count > 0)
             {
                 rptrNews.DataSource = newsCollection;

@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NopSolutions.NopCommerce.Web {
+namespace NopCommerceStore {
     
     
-    public partial class NewsPage {
+    public partial class Greening {
         
         /// <summary>
-        /// ctrlNewsItem control.
+        /// topicGreening control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.NewsItemControl ctrlNewsItem;
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicGreening;
     }
 }

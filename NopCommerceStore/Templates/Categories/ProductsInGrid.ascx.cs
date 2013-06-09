@@ -16,10 +16,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
-using NopSolutions.NopCommerce.BusinessLogic;
 using NopSolutions.NopCommerce.BusinessLogic.Categories;
 using NopSolutions.NopCommerce.BusinessLogic.Configuration.Settings;
-using NopSolutions.NopCommerce.BusinessLogic.Content.Topics;
 using NopSolutions.NopCommerce.BusinessLogic.Media;
 using NopSolutions.NopCommerce.BusinessLogic.Orders;
 using NopSolutions.NopCommerce.BusinessLogic.Products;
@@ -35,7 +33,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
     public partial class ProductsInGrid : BaseNopUserControl
     {
         private int pageSize = Int32.MaxValue;
-        private int totalItemCount = 0;
         private const int minPageSize = 12;
         private const int countLines = 2;
         private const int rowCount = 3;
@@ -43,111 +40,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
         private void Page_Load(object sender, EventArgs e)
         {
-            System.Web.SiteMap.Providers["NopDefaultXmlSiteMapProvider"].SiteMapResolve += this.ExpandCategoryPaths;
-        }
-
-        private SiteMapNode ExpandCategoryPaths(Object sender, SiteMapResolveEventArgs e)
-        {
-            SiteMapNode currentNode = null;
-
-            if (TopicID != 0)
-            {
-                currentNode = ChangeTopicMap(e);
-            }
-            else
-            {
-                if (e.Provider.CurrentNode == null)
-                {
-                    currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Categories.aspx").Clone(true);
-                }
-                else
-                {
-                    currentNode = e.Provider.CurrentNode.Clone(true);
-                }
-
-                ChangeCategoryMap(e, currentNode);
-                if (0 != ProductID)
-                {
-                    currentNode = ChangeProductMap(e, currentNode);
-                }
-            }
-            return currentNode;
-        }
-
-        private SiteMapNode ChangeProductMap(SiteMapResolveEventArgs e, SiteMapNode parent)
-        {
-
-            SiteMapNode currentProductNode = e.Provider.FindSiteMapNode("~/Sitemap-Products.aspx").Clone(true);
-            try
-            {
-                SiteMapNode tempNode = currentProductNode;
-                Product product = ProductManager.GetProductByID(ProductID);
-                tempNode.Url = SEOHelper.GetProductURL(product.ProductID);
-                tempNode.Description = product.Name;
-                tempNode.Title = product.Name;
-                tempNode.ParentNode = parent;
-            }
-            catch
-            {
-            }
-
-            return currentProductNode;
-        }
-
-        private SiteMapNode ChangeTopicMap(SiteMapResolveEventArgs e)
-        {
-            SiteMapNode currentNode = null;
-            try
-            {
-                currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Topics.aspx").Clone(true);
-                LocalizedTopic localizedTopic =
-                TopicManager.GetLocalizedTopic(this.TopicID, NopContext.Current.WorkingLanguage.LanguageID);
-                if (localizedTopic != null)
-                {
-                    currentNode.Url = SEOHelper.GetTopicUrl(TopicID, localizedTopic.Title);
-                    currentNode.Description = localizedTopic.Title;
-                    currentNode.Title = localizedTopic.Title;
-                }
-            }
-            catch
-            {
-            }
-
-            return currentNode;
-        }
-
-        public int TopicID
-        {
-            get
-            {
-                return CommonHelper.QueryStringInt("TopicID");
-            }
-        }
-
-        private void ChangeCategoryMap(SiteMapResolveEventArgs e, SiteMapNode currentNode)
-        {
-            try
-            {
-                SiteMapNode tempNode = currentNode;
-                Category category = CategoryManager.GetCategoryByID(CategoryID);
-                if (0 != CategoryID)
-                {
-                    tempNode.Url = SEOHelper.GetCategoryURL(category.CategoryID);
-                    CategoryCollection categCollection = CategoryManager.GetBreadCrumb(category.CategoryID);
-                    string categoryPath = categCollection.Aggregate(String.Empty,
-                                                                    (current, c) =>
-                                                                    current +
-                                                                    String.Format(
-                                                                        String.IsNullOrEmpty(current) ? "{0}" : "/{0}",
-                                                                        c.Name));
-
-                    tempNode.Title = categoryPath;
-                    tempNode.Description = categoryPath;
-                }
-            }
-            catch
-            {
-            }
         }
 
         protected void BindData()
@@ -302,19 +194,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 FillSortBy();
                 BindData();
             }
-        }
-
-        private void AdjustColorsFilter()
-        {
-            Category curCategory = CategoryManager.GetCategoryByID(CategoryID);
-            Category category = curCategory;
-            while (category.ParentCategory != null)
-            {
-                category = category.ParentCategory;
-            }
-
-            string categoryName = category.Name.ToLower();
-            AdjustColorsFilter(categoryName, curCategory);
         }
 
         private void AdjustColorsFilter(string categoryName, Category category)

@@ -1,61 +1,23 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.HeaderMenuControl"
-	CodeBehind="HeaderMenu.ascx.cs" %>
-<%--<%@ Register TagPrefix="nopCommerce" TagName="SearchBox" Src="~/Modules/SearchBox.ascx" %>--%>
-<div class="menu">
-	<table width="690" border="0" cellspacing="0" cellpadding="0" align="center" class="menu_tbl">
-		<tr valign="middle">
-			<td>
-				<a class="about" title="О нас" href="<%=Page.ResolveUrl("~/Default.aspx")%>"></a>
-			</td>
-			<td>
-				<img src="<%=Page.ResolveUrl("~/images/ff_images/menu/sep.gif")%>" alt="" width="32" height="32" />
-			</td>
-			<td>
-				<a class="salon" title="О салоне" href="<%=Page.ResolveUrl("~/AboutSalon.aspx")%>"></a>
-			</td>
-			<td>
-				<img src="<%=Page.ResolveUrl("~/images/ff_images/menu/sep.gif")%>" alt="" width="32" height="32" />
-			</td>
-			<td>
-				<a class="clients" title="Корпоративным клиентам" href="<%=Page.ResolveUrl("~/ToCorporateClients.aspx")%>"></a>
-			</td>
-			<td>
-				<img src="<%=Page.ResolveUrl("~/images/ff_images/menu/sep.gif")%>" alt="" width="32" height="32" />
-			</td>
-			<td>
-				<a class="contacts" title="Контакты" href="<%=Page.ResolveUrl("~/Contacts.aspx")%>"></a>
-			</td>
-		</tr>
-	</table>
-</div>
-<%--<div class="headermenu">
-    <div class="searchbox">
-        <nopCommerce:SearchBox runat="server" ID="ctrlSearchBox">
-        </nopCommerce:SearchBox>
-    </div>
-    <ul>
-        <li><a href="<%=Page.ResolveUrl("~/Default.aspx")%>">
-            <%=GetLocaleResourceString("Content.HomePage")%></a> </li>
-        <% if (ProductManager.RecentlyAddedProductsEnabled)
-           { %>
-        <li><a href="<%=Page.ResolveUrl("~/RecentlyAddedProducts.aspx")%>">
-            <%=GetLocaleResourceString("Products.NewProducts")%></a> </li>
-        <%} %>
-        <li><a href="<%=Page.ResolveUrl("~/Search.aspx")%>">
-            <%=GetLocaleResourceString("Search.Search")%></a> </li>
-        <li><a href="<%=Page.ResolveUrl("~/Account.aspx")%>">
-            <%=GetLocaleResourceString("Account.MyAccount")%></a> </li>
-        <% if (BlogManager.BlogEnabled)
-           { %>
-        <li><a href="<%=Page.ResolveUrl("~/Blog.aspx")%>">
-            <%=GetLocaleResourceString("Blog.Blog")%></a> </li>
-        <%} %>
-        <% if (ForumManager.ForumsEnabled)
-           { %>
-        <li><a href="<%= SEOHelper.GetForumMainURL()%> ">
-            <%=GetLocaleResourceString("Forum.Forums")%></a></li>
-        <%} %>
-        <li><a href="<%=Page.ResolveUrl("~/ContactUs.aspx")%>">
-            <%=GetLocaleResourceString("ContactUs.ContactUs")%></a> </li>
-    </ul>
-</div>--%>
+    CodeBehind="HeaderMenu.ascx.cs" %>
+<table align="center">
+    <tr>
+        <td>
+            <a id="Action" class="amenu" title="Акции" href="~/Actions.aspx" runat="server">
+            </a>
+        </td>
+        <td>
+            <a id="Clients" class="amenu" title="Корпоративным клиентам" href="~/ToCorporateClients.aspx" runat="server">
+            </a>
+        </td>
+        <td>
+            <a id="Green" class="amenu" title="Озеленение, оформление цветами" href="~/Greening.aspx" runat="server">
+            </a>
+        </td>
+        <td>
+            <a id="News" class="amenu" title="Новости, информация" href="~/NewsAll.aspx" runat="server">
+            </a>
+        </td>
+    </tr>
+</table>
+<img src="<%=Page.ResolveUrl("~/images/ff_images/menu/menu_footer.gif")%>" alt="" width="1050" height="30"/>

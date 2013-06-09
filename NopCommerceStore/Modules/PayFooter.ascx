@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PayFooter.ascx.cs" Inherits="NopSolutions.NopCommerce.Web.Modules.PayFooter" %>
-<table width="1250" border="0" cellspacing="0" cellpadding="0" align="center" class="payFooter">
+<table width="1050" border="0" cellspacing="0" cellpadding="0" align="center" class="payFooter">
     <tr valign="middle">
         <td width="100px" align="center">
             <a class="pay" title="ОПЛАТА" href="../HowToPay.aspx">ОПЛАТА</a>
@@ -15,7 +15,7 @@
 					<img src="../images/ff_images/sitemap.png" alt=""/>
             </asp:HyperLink>
         </td>
-        <td width="500px" align="right">
+        <td width="300px" align="right">
             <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>" class="shoppingCart">
                 <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" align="absbottom" title="Корзина"/>
                 Корзина (<span class="amount"><%=GetCount()%></span><span class="amount_text">товаров</span>)</a>

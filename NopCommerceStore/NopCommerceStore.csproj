@@ -147,6 +147,13 @@
     <Compile Include="Account.aspx.designer.cs">
       <DependentUpon>Account.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Actions.aspx.cs">
+      <DependentUpon>Actions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actions.aspx.designer.cs">
+      <DependentUpon>Actions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddressEdit.aspx.cs">
       <DependentUpon>AddressEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3177,6 +3184,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Greening.aspx.cs">
+      <DependentUpon>Greening.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Greening.aspx.designer.cs">
+      <DependentUpon>Greening.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HowToOrder.aspx.cs">
       <DependentUpon>HowToOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3330,6 +3344,13 @@
     </Compile>
     <Compile Include="Modules\WeddingBunchVariant.ascx.designer.cs">
       <DependentUpon>WeddingBunchVariant.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAll.aspx.cs">
+      <DependentUpon>NewsAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewsAll.aspx.designer.cs">
+      <DependentUpon>NewsAll.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchResults.aspx.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
@@ -4690,6 +4711,7 @@
     <Content Include="AboutDelivery.aspx" />
     <Content Include="AboutUs.aspx" />
     <Content Include="Account.aspx" />
+    <Content Include="Actions.aspx" />
     <Content Include="AddressEdit.aspx" />
     <Content Include="Administration\AddressAdd.aspx" />
     <Content Include="Administration\AddressDetails.aspx" />
@@ -5387,6 +5409,7 @@
     <Content Include="Google\sample-neworder.txt" />
     <Content Include="Google\sample-orderchangestate.txt" />
     <Content Include="Google\sample-risk.txt" />
+    <Content Include="Greening.aspx" />
     <Content Include="HowToOrder.aspx" />
     <Content Include="HowToPay.aspx" />
     <Content Include="images\AdminLogo.jpg" />
@@ -5445,6 +5468,7 @@
     <Content Include="Modules\SearchResultsControl.ascx" />
     <Content Include="Modules\ViewedItems.ascx" />
     <Content Include="Modules\WeddingBunchVariant.ascx" />
+    <Content Include="NewsAll.aspx" />
     <Content Include="Pages.xml" />
     <Content Include="Scripts\daGallery.js" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />

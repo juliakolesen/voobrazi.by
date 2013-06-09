@@ -45,7 +45,6 @@ h2 {	font-size: 12px;}
 
 .menu
 {
-	background: url(../../images/ff_images/menu.gif) center no-repeat;
 	width: 1062px;
 	height: 117px;
 }
@@ -56,62 +55,15 @@ h2 {	font-size: 12px;}
 	text-align: left;
 }
 
-a.about
+.amenu
 {
-	display: block;
-	background: url(../../images/ff_images/menu/about.gif) 0 0;
-	width: 89px;
-	height: 21px;
-}
-a.about:hover
-{
-	display: block;
-	background: url(../../images/ff_images/menu/about.gif) 0 21px;
-	width: 89px;
-	height: 21px;
-}
-a.salon
-{
-	display: block;
-	background: url(../../images/ff_images/menu/salon.gif) 0 0;
-	width: 84px;
-	height: 20px;
-}
-a.salon:hover
-{
-	display: block;
-	background: url(../../images/ff_images/menu/salon.gif) 0 20px;
-	width: 84px;
-	height: 20px;
-}
-a.clients
-{
-	display: block;
-	background: url(../../images/ff_images/menu/clients.gif) 0 0;
-	width: 280px;
-	height: 27px;
-	margin-top: 8px;
-}
-a.clients:hover
-{
-	display: block;
-	background: url(../../images/ff_images/menu/clients.gif) 0 27px;
-	width: 280px;
-	height: 27px;
-}
-a.contacts
-{
-	display: block;
-	background: url(../../images/ff_images/menu/contacts.gif) 0 0;
-	width: 125px;
-	height: 20px;
-}
-a.contacts:hover
-{
-	display: block;
-	background: url(../../images/ff_images/menu/contacts.gif) 0 20px;
-	width: 125px;
-	height: 20px;
+    display: block;
+	-moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+	background-size: 100%;
+	width: 250px;
+	height: 50px;
 }
 
 .mainimg
@@ -294,7 +246,7 @@ a.contacts:hover
 .payFooter
 {
     margin-top: 10px;
-    width: 1250px;
+    width: 1050px;
     height: 30px;
     background: url(../../images/ff_images/background-pay-menu.gif) left center;
 }
