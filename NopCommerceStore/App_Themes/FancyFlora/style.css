@@ -245,10 +245,13 @@ h2 {	font-size: 12px;}
 
 .payFooter
 {
-    margin-top: 10px;
+    position: fixed;
+    bottom: 0px;
     width: 1050px;
     height: 30px;
     background: url(../../images/ff_images/background-pay-menu.gif) left center;
+	left: 50%;
+    margin-left: -520px;
 }
 
 .payFooter a
