@@ -13,12 +13,12 @@ namespace NopCommerceStore {
     public partial class NewsAll {
         
         /// <summary>
-        /// newsList control.
+        /// topicNews control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.NewsListControl newsList;
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicNews;
     }
 }
