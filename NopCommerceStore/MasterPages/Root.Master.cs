@@ -33,21 +33,26 @@ namespace NopSolutions.NopCommerce.Web.MasterPages
             }
             else
             {
-                if (e.Provider.CurrentNode == null)
+                if (CategoryId != 0)
                 {
-                    currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Categories.aspx").Clone(true);
-                }
-                else
-                {
-                    currentNode = e.Provider.CurrentNode.Clone(true);
+                    if (e.Provider.CurrentNode == null)
+                    {
+                        currentNode = e.Provider.FindSiteMapNode("~/Sitemap-Categories.aspx").Clone(true);
+                    }
+                    else
+                    {
+                        currentNode = e.Provider.CurrentNode.Clone(true);
+                    }
+
+                    ChangeCategoryMap(e, currentNode);
                 }
 
-                ChangeCategoryMap(e, currentNode);
                 if (0 != ProductId)
                 {
                     currentNode = ChangeProductMap(e, currentNode);
                 }
             }
+
             return currentNode;
         }
 
@@ -145,10 +150,15 @@ namespace NopSolutions.NopCommerce.Web.MasterPages
             get
             {
                 int categoryId = CommonHelper.QueryStringInt("CategoryID");
-                if (categoryId == 0)
+                try
                 {
-                    Product product = ProductManager.GetProductByID(ProductId);
-                    categoryId = product.ProductCategories.Find(p => p.Category.ParentCategory != null).CategoryID;
+                    if (categoryId == 0)
+                    {
+                        Product product = ProductManager.GetProductByID(ProductId);
+                        categoryId = product.ProductCategories.Find(p => p.Category.ParentCategory != null).CategoryID;
+                    }
+                }
+                catch{//do nothing
                 }
                 return categoryId;
             }
