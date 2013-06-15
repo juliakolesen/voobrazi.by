@@ -13,14 +13,18 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
             if (!Page.IsPostBack && Request.Cookies["Currency"] != null)
             {
-                ddlCur1.SelectedValue = Request.Cookies["Currency"].Value;
+                SetActiveCurrency(Request.Cookies["Currency"].Value != "BYR");
+            }
+            else
+            {
+                SetActiveCurrency(false);
             }
         }
 
-        protected void DdlCurSelectedValueChanged(object sender, EventArgs e)
+        private void SetActiveCurrency(bool isUsd)
         {
-            Response.Cookies.Add(new HttpCookie("Currency", ((DropDownList)sender).SelectedValue));
-            Response.Redirect(Request.Url.ToString());
+            lbtnUSD.Font.Bold = isUsd;
+            lbtnBr.Font.Bold = !isUsd;
         }
 
         protected int GetCount()
@@ -29,5 +33,12 @@ namespace NopSolutions.NopCommerce.Web.Modules
             int indOrders = IndividualOrderManager.GetCurrentUserIndividualOrders().Count;
             return cartCount + indOrders;
         }
+
+        protected void OnCurrencyChange(object sender, EventArgs e)
+        {
+            Response.Cookies.Add(new HttpCookie("Currency", (sender as LinkButton).Text));
+            Response.Redirect(Request.Url.ToString());
+        }
+
     }
 }

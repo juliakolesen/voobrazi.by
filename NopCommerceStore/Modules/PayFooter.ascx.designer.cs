@@ -13,6 +13,24 @@ namespace NopSolutions.NopCommerce.Web.Modules {
     public partial class PayFooter {
         
         /// <summary>
+        /// flowersWholesaleLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink flowersWholesaleLink;
+        
+        /// <summary>
+        /// flowersWholesaleLinkSmall control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink flowersWholesaleLinkSmall;
+        
+        /// <summary>
         /// sitemapLink control.
         /// </summary>
         /// <remarks>
@@ -22,12 +40,21 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         protected global::System.Web.UI.WebControls.HyperLink sitemapLink;
         
         /// <summary>
-        /// ddlCur1 control.
+        /// lbtnBr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCur1;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnBr;
+        
+        /// <summary>
+        /// lbtnUSD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtnUSD;
     }
 }

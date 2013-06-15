@@ -248,16 +248,30 @@ h2 {	font-size: 12px;}
     position: fixed;
     bottom: 0px;
     width: 1050px;
-    height: 30px;
-    background: url(../../images/ff_images/background-pay-menu.gif) left center;
 	left: 50%;
     margin-left: -520px;
+    height: 50px;
+    background: url(../../images/ff_images/background-pay-menu.gif) no-repeat center center;
+    background-size: 100% 100%;
+    
+    color: #3b3b3b;
+    font-family: Arial;
+    font-size: 25px;
+    color: #FFFFFF;
 }
 
 .payFooter a
 {
     text-decoration: none;
-    color: #3b3b3b;
+    color: inherit;
+}
+
+.flowersWholesale
+{
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -500px;
 }
 
 .logo
@@ -283,7 +297,7 @@ h2 {	font-size: 12px;}
 }
 .amount_text
 {
-	font-size: 12px;
+	font-size: 15px;
 }
 .parameters
 {
