@@ -94,8 +94,8 @@
     </tr>
     <tr>
         <td class="adminTitle">
-            <nopCommerce:ToolTipLabel runat="server" ID="ttSmallDescription" Text="SmallDescription"
-                ToolTip="ToolTip!!!" ToolTipImage="~/Administration/Common/ico-help.gif" />
+            <nopCommerce:ToolTipLabel runat="server" ID="ttSmallDescription" Text="<% $NopResources:Admin.CategoryInfo.SmallDescription %>"
+                ToolTip="<% $NopResources:Admin.CategoryInfo.SmallDescription.Tooltip %>" ToolTipImage="~/Administration/Common/ico-help.gif" />
         </td>
         <td class="adminData">
             <FCKeditorV2:FCKeditor ID="txtSmallDescription" runat="server" AutoDetectLanguage="false"

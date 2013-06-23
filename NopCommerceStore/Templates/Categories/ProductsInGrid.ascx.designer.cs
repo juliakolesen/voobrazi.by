@@ -13,15 +13,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
     public partial class ProductsInGrid {
         
         /// <summary>
-        /// SmallDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal SmallDescription;
-        
-        /// <summary>
         /// siteMapPath control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SiteMapPath siteMapPath;
+        
+        /// <summary>
+        /// SmallDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal SmallDescription;
         
         /// <summary>
         /// sortBy control.

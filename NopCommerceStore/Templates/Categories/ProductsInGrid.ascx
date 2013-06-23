@@ -5,16 +5,13 @@
 <%@ Register TagPrefix="nopCommerce" TagName="WeddingBunchVariant" Src="~/Modules/WeddingBunchVariant.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="HouseFlowersVariant" Src="~/Modules/HouseFlowersVariant.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ColorsFilterControl" Src="~/Modules/ColorsFilterControl.ascx" %>
-<%@ Register TagPrefix="nopCommerce" tagName="PriceFilterControl" src="~/Modules/PriceFilterControl.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="PriceFilterControl" Src="~/Modules/PriceFilterControl.ascx" %>
 <style>
     .seccont_middle .text
     {
         padding: 0 40px 1px;
     }
 </style>
-<p>
-     <asp:Literal runat="server" ID="SmallDescription"></asp:Literal>
-</p>
 <div class="seccontainer">
     <div class="seccont_top">
         <div class="titl">
@@ -26,6 +23,9 @@
     </div>
     <div class="seccont_middle">
         <div class="navigator">
+            <p>
+                <asp:Literal runat="server" ID="SmallDescription"></asp:Literal>
+            </p>
             <table>
                 <tr>
                     <td width="125px">
