@@ -45,6 +45,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             {
                 this.txtName.Text = category.Name;
                 this.txtDescription.Value = category.Description;
+                this.txtSmallDescription.Value = category.SmallDescription;
                 CommonHelper.SelectListItem(this.ddlTemplate, category.TemplateID);
                 ParentCategory.SelectedCategoryId = category.ParentCategoryID;
 
@@ -111,7 +112,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
 
                 category = CategoryManager.UpdateCategory(category.CategoryID, txtName.Text, txtDescription.Value, int.Parse(this.ddlTemplate.SelectedItem.Value),
                      category.MetaKeywords, category.MetaDescription, category.MetaTitle, category.SEName, ParentCategory.SelectedCategoryId,
-                    categoryPictureID, category.PageSize, txtPriceRanges.Text, cbPublished.Checked, category.Deleted, txtDisplayOrder.Value, category.CreatedOn, DateTime.Now);
+                    categoryPictureID, category.PageSize, txtPriceRanges.Text, cbPublished.Checked, category.Deleted, txtDisplayOrder.Value, category.CreatedOn, DateTime.Now, txtSmallDescription.Value);
             }
             else
             {
@@ -129,7 +130,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                 DateTime nowDT = DateTime.Now;
                 category = CategoryManager.InsertCategory(txtName.Text, txtDescription.Value, int.Parse(this.ddlTemplate.SelectedItem.Value),
                          string.Empty, string.Empty, string.Empty, string.Empty, ParentCategory.SelectedCategoryId,
-                         categoryPictureID, 10, txtPriceRanges.Text, cbPublished.Checked, false, txtDisplayOrder.Value, nowDT, nowDT);
+                         categoryPictureID, 10, txtPriceRanges.Text, cbPublished.Checked, false, txtDisplayOrder.Value, nowDT, nowDT, txtSmallDescription.Value);
             }
             return category;
         }

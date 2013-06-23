@@ -115,6 +115,11 @@ namespace NopSolutions.NopCommerce.DataAccess.Categories
         /// Gets or sets the date and time of instance update
         /// </summary>
         public DateTime UpdatedOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets the description
+        /// </summary>
+        public string SmallDescription { get; set; }
         #endregion
     }
 }

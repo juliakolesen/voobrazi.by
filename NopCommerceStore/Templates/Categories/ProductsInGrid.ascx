@@ -12,6 +12,9 @@
         padding: 0 40px 1px;
     }
 </style>
+<p>
+     <asp:Literal runat="server" ID="SmallDescription"></asp:Literal>
+</p>
 <div class="seccontainer">
     <div class="seccont_top">
         <div class="titl">

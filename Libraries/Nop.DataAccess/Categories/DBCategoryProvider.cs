@@ -58,11 +58,12 @@ namespace NopSolutions.NopCommerce.DataAccess.Categories
         /// <param name="DisplayOrder">The display order</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="smallDescription">The small description(banner)</param>
         /// <returns>Category</returns>
         public abstract DBCategory InsertCategory(string Name, string Description,
             int TemplateID, string MetaKeywords, string MetaDescription, string MetaTitle,
             string SEName, int ParentCategoryID, int PictureID, int PageSize, string PriceRanges, bool Published, bool Deleted,
-            int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn);
+            int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn, string smallDescription);
 
         /// <summary>
         /// Updates the category
@@ -84,11 +85,12 @@ namespace NopSolutions.NopCommerce.DataAccess.Categories
         /// <param name="DisplayOrder">The display order</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="smallDescription">The small description(banner)</param>
         /// <returns>Category</returns>
         public abstract DBCategory UpdateCategory(int CategoryID, string Name, string Description,
             int TemplateID, string MetaKeywords, string MetaDescription, string MetaTitle,
             string SEName, int ParentCategoryID, int PictureID, int PageSize, string PriceRanges, bool Published, bool Deleted,
-            int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn);
+            int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn, string smallDescription);
 
         /// <summary>
         /// Deletes a product category mapping

@@ -121,6 +121,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Categories
         /// Gets or sets the date and time of instance update
         /// </summary>
         public DateTime UpdatedOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets the small description
+        /// </summary>
+        public string SmallDescription { get; set; }
         #endregion
 
         #region Custom Properties

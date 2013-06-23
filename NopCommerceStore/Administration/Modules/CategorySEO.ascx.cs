@@ -66,7 +66,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             {
                 category = CategoryManager.UpdateCategory(category.CategoryID, category.Name, category.Description, category.TemplateID,
                      txtMetaKeywords.Text, txtMetaDescription.Text, txtMetaTitle.Text, txtSEName.Text, category.ParentCategoryID,
-                     category.PictureID, txtPageSize.Value, category.PriceRanges, category.Published, category.Deleted, category.DisplayOrder, category.CreatedOn, DateTime.Now);
+                     category.PictureID, txtPageSize.Value, category.PriceRanges, category.Published, category.Deleted, category.DisplayOrder, category.CreatedOn, DateTime.Now, category.SmallDescription);
             }
         }
 

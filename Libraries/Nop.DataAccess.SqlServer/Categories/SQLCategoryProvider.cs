@@ -51,6 +51,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Categories
             category.DisplayOrder = NopSqlDataHelper.GetInt(dataReader, "DisplayOrder");
             category.CreatedOn = NopSqlDataHelper.GetUtcDateTime(dataReader, "CreatedOn");
             category.UpdatedOn = NopSqlDataHelper.GetUtcDateTime(dataReader, "UpdatedOn");
+            category.SmallDescription = NopSqlDataHelper.GetString(dataReader, "SmallDescription");
             return category;
         }
 
@@ -170,11 +171,12 @@ namespace NopSolutions.NopCommerce.DataAccess.Categories
         /// <param name="DisplayOrder">The display order</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="smallDescription">The small description(banner)</param>
         /// <returns>Category</returns>
         public override DBCategory InsertCategory(string Name, string Description,
             int TemplateID, string MetaKeywords, string MetaDescription, string MetaTitle,
             string SEName, int ParentCategoryID, int PictureID, int PageSize, string PriceRanges, bool Published, bool Deleted,
-            int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn)
+            int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn, string smallDescription)
         {
             DBCategory category = null;
             Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
@@ -196,6 +198,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Categories
             db.AddInParameter(dbCommand, "DisplayOrder", DbType.Int32, DisplayOrder);
             db.AddInParameter(dbCommand, "CreatedOn", DbType.DateTime, CreatedOn);
             db.AddInParameter(dbCommand, "UpdatedOn", DbType.DateTime, UpdatedOn);
+            db.AddInParameter(dbCommand, "SmallDescription", DbType.String, smallDescription);
             if (db.ExecuteNonQuery(dbCommand) > 0)
             {
                 int CategoryID = Convert.ToInt32(db.GetParameterValue(dbCommand, "@CategoryID"));
@@ -224,11 +227,12 @@ namespace NopSolutions.NopCommerce.DataAccess.Categories
         /// <param name="DisplayOrder">The display order</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="smallDescription">The small description (banner)</param>
         /// <returns>Category</returns>
         public override DBCategory UpdateCategory(int CategoryID, string Name, string Description,
             int TemplateID, string MetaKeywords, string MetaDescription, string MetaTitle,
             string SEName, int ParentCategoryID, int PictureID, int PageSize, string PriceRanges, bool Published, bool Deleted,
-            int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn)
+            int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn, string smallDescription)
         {
             DBCategory category = null;
             Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
@@ -250,6 +254,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Categories
             db.AddInParameter(dbCommand, "DisplayOrder", DbType.Int32, DisplayOrder);
             db.AddInParameter(dbCommand, "CreatedOn", DbType.DateTime, CreatedOn);
             db.AddInParameter(dbCommand, "UpdatedOn", DbType.DateTime, UpdatedOn);
+            db.AddInParameter(dbCommand, "SmallDescription", DbType.String, smallDescription);
             if (db.ExecuteNonQuery(dbCommand) > 0)
                 category = GetCategoryByID(CategoryID);
 

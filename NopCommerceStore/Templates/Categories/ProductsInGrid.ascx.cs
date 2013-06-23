@@ -87,7 +87,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 ((TwoColumn)Page.Master).Unique.Visible = false;
 
             lDescription.Text = category.Description;
-
+            SmallDescription.Text = category.SmallDescription;
             int totalRecords;
             Int32.TryParse(productsCount.SelectedItem.Text, out pageSize);
             if (pageSize == 0)

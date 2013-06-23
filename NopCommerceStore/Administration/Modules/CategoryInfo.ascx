@@ -92,4 +92,15 @@
                 MinimumValue="-99999" MaximumValue="99999"></nopCommerce:NumericTextBox>
         </td>
     </tr>
+    <tr>
+        <td class="adminTitle">
+            <nopCommerce:ToolTipLabel runat="server" ID="ttSmallDescription" Text="SmallDescription"
+                ToolTip="ToolTip!!!" ToolTipImage="~/Administration/Common/ico-help.gif" />
+        </td>
+        <td class="adminData">
+            <FCKeditorV2:FCKeditor ID="txtSmallDescription" runat="server" AutoDetectLanguage="false"
+                Height="350" Width="800px">
+            </FCKeditorV2:FCKeditor>
+        </td>
+    </tr>
 </table>

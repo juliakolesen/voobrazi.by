@@ -76,6 +76,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Categories
             item.DisplayOrder = dbItem.DisplayOrder;
             item.CreatedOn = dbItem.CreatedOn;
             item.UpdatedOn = dbItem.UpdatedOn;
+            item.SmallDescription = dbItem.SmallDescription;
 
             return item;
         }
@@ -125,7 +126,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Categories
                      category.MetaDescription, category.MetaTitle, category.SEName, category.ParentCategoryID,
                      category.PictureID, category.PageSize, category.PriceRanges, 
                      category.Published, true, category.DisplayOrder,
-                     category.CreatedOn, category.UpdatedOn);
+                     category.CreatedOn, category.UpdatedOn, category.SmallDescription);
             }
         }
 
@@ -142,7 +143,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Categories
                    category.MetaDescription, category.MetaTitle, category.SEName, category.ParentCategoryID,
                    0, category.PageSize, category.PriceRanges, 
                    category.Published, category.Deleted, category.DisplayOrder,
-                   category.CreatedOn, category.UpdatedOn);
+                   category.CreatedOn, category.UpdatedOn, category.SmallDescription);
             }
         }
 
@@ -244,11 +245,12 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Categories
         /// <param name="DisplayOrder">The display order</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="smallDescription">The small description(banner)</param>
         /// <returns>Category</returns>
         public static Category InsertCategory(string Name, string Description,
             int TemplateID, string MetaKeywords, string MetaDescription, string MetaTitle,
             string SEName, int ParentCategoryID, int PictureID, int PageSize, string PriceRanges,
-            bool Published, bool Deleted, int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn)
+            bool Published, bool Deleted, int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn, string smallDescription)
         {
             CreatedOn = DateTimeHelper.ConvertToUtcTime(CreatedOn);
             UpdatedOn = DateTimeHelper.ConvertToUtcTime(UpdatedOn);
@@ -256,7 +258,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Categories
             DBCategory dbItem = DBProviderManager<DBCategoryProvider>.Provider.InsertCategory(Name, Description,
                 TemplateID, MetaKeywords, MetaDescription, MetaTitle,
                 SEName, ParentCategoryID, PictureID, PageSize,PriceRanges, Published, Deleted,
-                DisplayOrder, CreatedOn, UpdatedOn);
+                DisplayOrder, CreatedOn, UpdatedOn, smallDescription);
 
             Category category = DBMapping(dbItem);
 
@@ -289,11 +291,12 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Categories
         /// <param name="DisplayOrder">The display order</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="smallDescription">The small description(banner)</param>
         /// <returns>Category</returns>
         public static Category UpdateCategory(int CategoryID, string Name, string Description,
             int TemplateID, string MetaKeywords, string MetaDescription, string MetaTitle,
             string SEName, int ParentCategoryID, int PictureID, int PageSize, string PriceRanges,
-            bool Published, bool Deleted, int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn)
+            bool Published, bool Deleted, int DisplayOrder, DateTime CreatedOn, DateTime UpdatedOn, string smallDescription)
         {
             CreatedOn = DateTimeHelper.ConvertToUtcTime(CreatedOn);
             UpdatedOn = DateTimeHelper.ConvertToUtcTime(UpdatedOn);
@@ -313,7 +316,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Categories
             DBCategory dbItem = DBProviderManager<DBCategoryProvider>.Provider.UpdateCategory(CategoryID, Name, Description,
             TemplateID, MetaKeywords, MetaDescription, MetaTitle,
             SEName, ParentCategoryID, PictureID, PageSize, PriceRanges, Published, Deleted,
-            DisplayOrder, CreatedOn, UpdatedOn);
+            DisplayOrder, CreatedOn, UpdatedOn, smallDescription);
 
             Category category = DBMapping(dbItem);
             if (CategoryManager.CategoriesCacheEnabled || CategoryManager.MappingsCacheEnabled)
