@@ -2,21 +2,21 @@
 <table class="flowersWholesale" style="margin-bottom:5px;">
     <tr>
         <td>
-            <div id="banner" style="display:none;">
+            <div id="banner">
                 <asp:HyperLink runat="server" ID="flowersWholesaleLink" title="Цветы оптом" NavigateUrl="~/FlowersWholesale.aspx">
-					<img id = "mainImg" src="../images/ff_images/FlowersWholesale.gif" alt="" height="150px"/>
+					<img id = "mainImg" src="../images/ff_images/FlowersWholesale.gif" alt="" height="113px"/>
                 </asp:HyperLink>
             </div>
             <asp:HyperLink runat="server" ID="flowersWholesaleLinkSmall" title="Цветы оптом"
                 NavigateUrl="~/FlowersWholesale.aspx" >
-					<img id = "mainImgSmall" src="../images/ff_images/FlowersWholesaleSmall.gif" alt="" height="30px"/>
+					<img id = "mainImgSmall" src="../images/ff_images/FlowersWholesaleSmall.gif" alt="" height="22px" style="display: none;"/>
             </asp:HyperLink>
         </td>
         <td valign="top" style="padding-top:5px;">
             <a id="openA" href="javascript:void(0);" onclick="toggle()">
-                <img id="imgClose" src="../images/ff_images/arrow_down.gif" alt="" style="display:none;"
+                <img id="imgClose" src="../images/ff_images/arrow_down.gif" alt="" style="display:block;"
                     title="Свернуть" />
-                <img id="imgOpen" src="../images/ff_images/arrow_up.gif" alt="" style="display:block;"
+                <img id="imgOpen" src="../images/ff_images/arrow_up.gif" alt="" style="display:none;"
                     title="Развернуть" />
             </a>
         </td>

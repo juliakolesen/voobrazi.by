@@ -198,7 +198,7 @@ h2 {	font-size: 12px;}
 	text-align: left;
 	line-height: 18px;
 	padding-left: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 .footer_1 a, .footer_1 a:visited
 {
@@ -273,6 +273,12 @@ h2 {	font-size: 12px;}
     bottom: 40px;
     left: 50%;
     margin-left: -500px;
+}
+
+.arrows
+{
+	float: right;
+	position: absolute;
 }
 
 .logo
