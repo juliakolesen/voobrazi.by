@@ -93,7 +93,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     catId = rootCategories.IndexOf(categoryFromList);
             }
             
-            if (catId != 0)
+            if (catId >= 0)
                 ScriptManager.RegisterStartupScript(Page, GetType(), "menu_autoOpen", string.Format("show_div('div_{0}');", catId), true);
 
             base.OnPreRender(e);
