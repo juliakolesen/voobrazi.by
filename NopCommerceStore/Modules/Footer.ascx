@@ -10,7 +10,6 @@
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="~/Modules/Topic.ascx" %>
 <div class="footer_1">
 	<nopCommerce:Topic ID="topicAboutUs" runat="server" TopicName="FooterLeft" />
-    <br />
 </div>
 <div class="footer_2">
 	<nopCommerce:Topic ID="topic1" runat="server" TopicName="FooterRight" />
