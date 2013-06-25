@@ -198,7 +198,7 @@ h2 {	font-size: 12px;}
 	text-align: left;
 	line-height: 18px;
 	padding-left: 50px;
-    padding-bottom: 30px;
+    padding-bottom: 45px;
 }
 .footer_1 a, .footer_1 a:visited
 {
@@ -251,13 +251,13 @@ h2 {	font-size: 12px;}
     width: 1050px;
 	left: 50%;
     margin-left: -520px;
-    height: 50px;
+    height: 45px;
     background: url(../../images/ff_images/background-pay-menu.gif) no-repeat center center;
     background-size: 100% 100%;
     
     color: #3b3b3b;
     font-family: Arial;
-    font-size: 25px;
+    font-size: 23px;
     color: #FFFFFF;
 }
 
@@ -301,10 +301,20 @@ h2 {	font-size: 12px;}
 .amount
 {
 	font-size: 24px;
+    color: #fc4074;
 }
 .amount_text
 {
 	font-size: 15px;
+    color:  #901f78
+}
+
+.shCart a{
+    color: #fc4074
+}
+
+.shCart img {
+    vertical-align: middle;
 }
 .parameters
 {
@@ -721,13 +731,6 @@ visibility:hidden;
 
 .div_size{ margin-left: 30px;}
 
-.daGallery{}
-
 .daGalleryImage{ margin-top: 10px;}
 
 .gPicSpace{ min-height:350px;}
-
-.shoppingCart img
-{
-    vertical-align: middle;
-}

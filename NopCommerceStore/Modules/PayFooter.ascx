@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PayFooter.ascx.cs" Inherits="NopSolutions.NopCommerce.Web.Modules.PayFooter" %>
-<table class="flowersWholesale" style="margin-bottom:5px;">
+<table class="flowersWholesale" style="margin-bottom: 5px;">
     <tr>
         <td>
             <div id="banner">
@@ -8,15 +8,15 @@
                 </asp:HyperLink>
             </div>
             <asp:HyperLink runat="server" ID="flowersWholesaleLinkSmall" title="Цветы оптом"
-                NavigateUrl="~/FlowersWholesale.aspx" >
+                NavigateUrl="~/FlowersWholesale.aspx">
 					<img id = "mainImgSmall" src="../images/ff_images/FlowersWholesaleSmall.gif" alt="" height="22px" style="display: none;"/>
             </asp:HyperLink>
         </td>
-        <td valign="top" style="padding-top:5px;">
+        <td valign="top" style="padding-top: 5px;">
             <a id="openA" href="javascript:void(0);" onclick="toggle()">
-                <img id="imgClose" src="../images/ff_images/arrow_down.gif" alt="" style="display:block;"
+                <img id="imgClose" src="../images/ff_images/arrow_down.gif" alt="" style="display: block;"
                     title="Свернуть" />
-                <img id="imgOpen" src="../images/ff_images/arrow_up.gif" alt="" style="display:none;"
+                <img id="imgOpen" src="../images/ff_images/arrow_up.gif" alt="" style="display: none;"
                     title="Развернуть" />
             </a>
         </td>
@@ -24,36 +24,31 @@
 </table>
 <table width="1050" border="0" cellspacing="0" cellpadding="0" align="center" class="payFooter">
     <tr valign="middle">
-        <td width="120px" align="center">
-            <a class="pay" title="Оплата" href="../HowToPay.aspx">Оплата</a> |
+        <td width="150px" align="center">
+            <a class="delivery" title="Контакты" href="../Contacts.aspx">Контакты</a>
         </td>
-        <td width="215px" align="center">
-            <a class="delivery" title="Доставка" href="../AboutDelivery.aspx">Доставка</a> |
-            Безнал
+        <td width="150px" align="center">
+            <a class="delivery" title="Доставка" href="../AboutDelivery.aspx">Доставка</a>
         </td>
-        <td width="80px">
-            <img width="86px" src="/images/VisaMastercard.gif" height="28" alt="" style="padding-top: 2px;" />
+        <td width="390px" align="left">
+            <a class="pay" title="Оплата" href="../HowToPay.aspx">Оплата</a>
         </td>
-        <td width="1px">
-            |
-        </td>
-        <td width="60px" align="center">
+        <%--        <td width="60px" align="center">
             <asp:HyperLink runat="server" ID="sitemapLink" title="Карта сайта" NavigateUrl="~/SiteMap.aspx">
 					<img src="../images/ff_images/sitemap.gif" alt="" height="40px" style="padding-top: 7px;"/>
             </asp:HyperLink>
+        </td>--%>
+        <td width="150px" align="left">
+            <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>" class="shCart">
+                <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" title="Корзина" height="30px"/>
+                <span class="amount_text">(</span><span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
+                <span class="amount_text">товаров)</span></a>
         </td>
-        <td width="1px">
-            |
-        </td>
-        <td width="200px" align="right">
-            <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>" class="shoppingCart">Корзина:
-                (<span class="amount"><%=GetCount()%></span><span class="amount_text">товаров</span>)</a>
-        </td>
-        <td width="230px" align="center">
+        <td width="240px" align="center">
             <a>Валюта:</a>
-            <asp:LinkButton ID="lbtnBr" runat="server" onclick="OnCurrencyChange">BYR</asp:LinkButton>
+            <asp:LinkButton ID="lbtnBr" runat="server" OnClick="OnCurrencyChange">BYR</asp:LinkButton>
             /
-            <asp:LinkButton ID="lbtnUSD" runat="server" onclick="OnCurrencyChange">USD</asp:LinkButton>
+            <asp:LinkButton ID="lbtnUSD" runat="server" OnClick="OnCurrencyChange">USD</asp:LinkButton>
         </td>
     </tr>
 </table>
