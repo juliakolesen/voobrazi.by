@@ -88,13 +88,14 @@ namespace NopSolutions.NopCommerce.Web.Modules
             int catId = 0;
             if (cat != null)
             {
-                Category categoryFromList = rootCategories.FirstOrDefault(category => category.CategoryID == cat.ParentCategory.CategoryID); 
-                if(categoryFromList != null)
+                Category categoryFromList =
+                    rootCategories.FirstOrDefault(category => category.CategoryID == cat.ParentCategory.CategoryID);
+                if (categoryFromList != null)
                     catId = rootCategories.IndexOf(categoryFromList);
+                if (catId >= 0)
+                    ScriptManager.RegisterStartupScript(Page, GetType(), "menu_autoOpen",
+                                                        string.Format("show_div('div_{0}');", catId), true);
             }
-            
-            if (catId >= 0)
-                ScriptManager.RegisterStartupScript(Page, GetType(), "menu_autoOpen", string.Format("show_div('div_{0}');", catId), true);
 
             base.OnPreRender(e);
         }

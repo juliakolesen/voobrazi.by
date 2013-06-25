@@ -246,19 +246,20 @@ h2 {	font-size: 12px;}
 
 .payFooter
 {
-    position: fixed;
-    bottom: 0px;
-    width: 1050px;
+	position: fixed;
+	bottom: 0px;
+	width: 1050px;
 	left: 50%;
-    margin-left: -520px;
-    height: 45px;
-    background: url(../../images/ff_images/background-pay-menu.gif) no-repeat center center;
-    background-size: 100% 100%;
-    
-    color: #3b3b3b;
-    font-family: Arial;
-    font-size: 23px;
-    color: #FFFFFF;
+	margin-left: -520px;
+	height: 45px;
+	background: url(../../images/ff_images/background-pay-menu.gif) no-repeat center center;
+	background-size: 100% 100%;
+	color: #3b3b3b;
+	font-family: 'Comic Sans MS';
+	font-size: 29px;
+	color: #FFFFFF;
+	font-weight: 500;
+	font-style: normal;
 }
 
 .payFooter a
@@ -300,17 +301,21 @@ h2 {	font-size: 12px;}
 }
 .amount
 {
-	font-size: 24px;
+	font-size: 15px;
     color: #fc4074;
+    font-family: Arial;
+	font-style: italic;
 }
 .amount_text
 {
 	font-size: 15px;
-    color:  #901f78
+	color: #901f78;
+    font-family: Arial;
+	font-style: italic;
 }
 
 .shCart a{
-    color: #fc4074
+	color: #fc4074;
 }
 
 .shCart img {
@@ -727,6 +732,14 @@ border:outset 1px #c0c0c0;
 color: #444444;
 position:absolute;
 visibility:hidden;
+}
+
+.count {
+	font-family: Arial;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 15px;
+    color: Purple;
 }
 
 .div_size{ margin-left: 30px;}

@@ -24,31 +24,37 @@
 </table>
 <table width="1050" border="0" cellspacing="0" cellpadding="0" align="center" class="payFooter">
     <tr valign="middle">
-        <td width="150px" align="center">
+        <td width="145px" align="center">
             <a class="delivery" title="Контакты" href="../Contacts.aspx">Контакты</a>
         </td>
-        <td width="150px" align="center">
+        <td width="145px" align="center">
             <a class="delivery" title="Доставка" href="../AboutDelivery.aspx">Доставка</a>
         </td>
-        <td width="390px" align="left">
-            <a class="pay" title="Оплата" href="../HowToPay.aspx">Оплата</a>
+        <td width="355px" align="left">
+            <a class="pay" title="Оплата" href="../HowToPay.aspx">Оплата
+                <img src="../images/VisaMastercard.gif" alt="" height="25px" style="padding-top: 9px;
+                    padding-left: 13px;" />
+            </a>
         </td>
         <%--        <td width="60px" align="center">
             <asp:HyperLink runat="server" ID="sitemapLink" title="Карта сайта" NavigateUrl="~/SiteMap.aspx">
 					<img src="../images/ff_images/sitemap.gif" alt="" height="40px" style="padding-top: 7px;"/>
             </asp:HyperLink>
         </td>--%>
-        <td width="150px" align="left">
-            <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>" class="shCart">
-                <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.jpg")%>" alt="" title="Корзина" height="30px"/>
+        <td width="165px" align="left">
+            <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>" class="shCart" style="margin-left: 15px;">
+                <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.gif")%>" alt="" title="Корзина"
+                    height="40px" style="margin-bottom: 2px;" />
                 <span class="amount_text">(</span><span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
                 <span class="amount_text">товаров)</span></a>
         </td>
-        <td width="240px" align="center">
-            <a>Валюта:</a>
-            <asp:LinkButton ID="lbtnBr" runat="server" OnClick="OnCurrencyChange">BYR</asp:LinkButton>
-            /
-            <asp:LinkButton ID="lbtnUSD" runat="server" OnClick="OnCurrencyChange">USD</asp:LinkButton>
+        <td width="230px" align="center">
+            <div style="font-size: 24px;">
+                <a>Валюта:</a>
+                <asp:LinkButton ID="lbtnBr" runat="server" OnClick="OnCurrencyChange">BYR</asp:LinkButton>
+                /
+                <asp:LinkButton ID="lbtnUSD" runat="server" OnClick="OnCurrencyChange">USD</asp:LinkButton>
+            </div>
         </td>
     </tr>
 </table>
