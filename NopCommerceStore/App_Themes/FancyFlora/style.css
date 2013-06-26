@@ -308,10 +308,11 @@ h2 {	font-size: 12px;}
 }
 .amount_text
 {
-	font-size: 15px;
+	font-size: 13px;
 	color: #901f78;
     font-family: Arial;
 	font-style: italic;
+    font-weight: bold;
 }
 
 .shCart a{

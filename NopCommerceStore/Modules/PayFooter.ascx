@@ -1,4 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PayFooter.ascx.cs" Inherits="NopSolutions.NopCommerce.Web.Modules.PayFooter" %>
+<style type="text/css">
+    .inline
+    {
+        float: left;
+    }
+</style>
 <table class="flowersWholesale" style="margin-bottom: 5px;">
     <tr>
         <td>
@@ -30,7 +36,7 @@
         <td width="145px" align="center">
             <a class="delivery" title="Доставка" href="../AboutDelivery.aspx">Доставка</a>
         </td>
-        <td width="355px" align="left">
+        <td width="365px" align="left">
             <a class="pay" title="Оплата" href="../HowToPay.aspx">Оплата
                 <img src="../images/VisaMastercard.gif" alt="" height="25px" style="padding-top: 9px;
                     padding-left: 13px;" />
@@ -41,11 +47,14 @@
 					<img src="../images/ff_images/sitemap.gif" alt="" height="40px" style="padding-top: 7px;"/>
             </asp:HyperLink>
         </td>--%>
-        <td width="165px" align="left">
-            <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>" class="shCart" style="margin-left: 15px;">
-                <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.gif")%>" alt="" title="Корзина"
-                    height="40px" style="margin-bottom: 2px;" />
-                <span class="amount_text">(</span><span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
+        <td width="155px" style="font-size:12px; font-family:Arial;">
+            <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>" class="shCart">
+                 <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.gif")%>" alt="" title="Корзина"
+                        height="35px" style="margin-bottom: 2px;" class="inline"/>
+                <span class="amount_text">
+                    <%=GetShoppingCartSum()%></span> <br/>
+                <span class="amount_text">(</span>
+                <span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
                 <span class="amount_text">товаров)</span></a>
         </td>
         <td width="230px" align="center">
