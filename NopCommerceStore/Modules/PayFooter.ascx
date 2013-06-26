@@ -1,10 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PayFooter.ascx.cs" Inherits="NopSolutions.NopCommerce.Web.Modules.PayFooter" %>
-<style type="text/css">
-    .inline
-    {
-        float: left;
-    }
-</style>
+
 <table class="flowersWholesale" style="margin-bottom: 5px;">
     <tr>
         <td>
@@ -47,15 +42,18 @@
 					<img src="../images/ff_images/sitemap.gif" alt="" height="40px" style="padding-top: 7px;"/>
             </asp:HyperLink>
         </td>--%>
-        <td width="155px" style="font-size:12px; font-family:Arial;">
+        <td width="155px" style="font-size:12px; font-family:Arial; text-align:center;">
             <a href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>" class="shCart">
                  <img src="<%=Page.ResolveUrl("~/images/ff_images/recycle.gif")%>" alt="" title="Корзина"
-                        height="35px" style="margin-bottom: 2px;" class="inline"/>
+                        height="40px" style="margin-bottom: 2px;"/>
+                        <div style="display:inline-block; vertical-align:middle;">
                 <span class="amount_text">
                     <%=GetShoppingCartSum()%></span> <br/>
                 <span class="amount_text">(</span>
                 <span class="amount"><%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
-                <span class="amount_text">товаров)</span></a>
+                <span class="amount_text">товаров)</span>
+                </div>
+                </a>
         </td>
         <td width="230px" align="center">
             <div style="font-size: 24px;">
