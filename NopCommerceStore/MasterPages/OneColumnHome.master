@@ -10,7 +10,7 @@
                 <nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
         </tr>
         <tr>
-            <td>
+            <td width="100px;">
                 <div style="padding-top: 20px; padding-left: 20px;">
                     <nopCommerce:SearchControl ID="SearchControl" runat="server" />
                 </div>

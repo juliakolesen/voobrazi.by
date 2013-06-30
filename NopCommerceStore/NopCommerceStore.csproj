@@ -5415,6 +5415,8 @@
     <Content Include="images\AdminLogo.jpg" />
     <Content Include="images\button-order2.gif" />
     <Content Include="images\Calendar_scheduleHS.png" />
+    <Content Include="images\ff_images\background-pay-menu-left.gif" />
+    <Content Include="images\ff_images\background-pay-menu-right.gif" />
     <Content Include="images\ff_images\bottom2.gif" />
     <Content Include="images\ff_images\button-order2.gif" />
     <Content Include="images\ff_images\FlowersWholesale.gif" />
