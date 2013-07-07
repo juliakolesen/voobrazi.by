@@ -155,7 +155,11 @@ namespace NopSolutions.NopCommerce.Web.MasterPages
                     if (categoryId == 0)
                     {
                         Product product = ProductManager.GetProductByID(ProductId);
-                        categoryId = product.ProductCategories.Find(p => p.Category.ParentCategory != null).CategoryID;
+                        if (product != null)
+                        {
+                            categoryId =
+                                product.ProductCategories.Find(p => p.Category.ParentCategory != null).CategoryID;
+                        }
                     }
                 }
                 catch{//do nothing

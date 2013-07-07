@@ -399,6 +399,13 @@
     <Compile Include="Administration\Modules\ManufacturerProductAdd.ascx.designer.cs">
       <DependentUpon>ManufacturerProductAdd.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\Payment\Assist\ConfigurePaymentMethod.ascx.cs">
+      <DependentUpon>ConfigurePaymentMethod.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Payment\Assist\ConfigurePaymentMethod.ascx.designer.cs">
+      <DependentUpon>ConfigurePaymentMethod.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\Payment\WebPay\ConfigurePaymentMethod.ascx.cs">
       <DependentUpon>ConfigurePaymentMethod.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3038,6 +3045,13 @@
     <Compile Include="Administration\Warehouses.aspx.designer.cs">
       <DependentUpon>Warehouses.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Assist.aspx.cs">
+      <DependentUpon>Assist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assist.aspx.designer.cs">
+      <DependentUpon>Assist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Blog.aspx.designer.cs">
       <DependentUpon>Blog.aspx</DependentUpon>
     </Compile>
@@ -4590,6 +4604,10 @@
       <Project>{44697772-09C1-4B28-B3F5-C28B693B06F7}</Project>
       <Name>UrlRewritingNet.UrlRewriter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Payment\Nop.Payment.Assist\Nop.Payment.Assist.csproj">
+      <Project>{9DA341BB-8459-40C2-BD69-7748CC6AAFF4}</Project>
+      <Name>Nop.Payment.Assist</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Payment\Nop.Payment.AuthorizeNet\Nop.Payment.AuthorizeNet.csproj">
       <Project>{9DE22C67-7C2A-4321-8501-68F024E541D5}</Project>
       <Name>Nop.Payment.AuthorizeNet</Name>
@@ -4633,6 +4651,10 @@
     <ProjectReference Include="..\Payment\Nop.Payment.PayPal\Nop.Payment.PayPal.csproj">
       <Project>{D62E5B76-9561-48BC-864A-F934DA28736C}</Project>
       <Name>Nop.Payment.PayPal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Payment\Nop.Payment.PostPaymentCommon\Nop.Payment.PostPaymentCommon.csproj">
+      <Project>{56845AE8-CA2F-41C8-BF30-8BC56F94B8A6}</Project>
+      <Name>Nop.Payment.PostPaymentCommon</Name>
     </ProjectReference>
     <ProjectReference Include="..\Payment\Nop.Payment.PSIGate\Nop.Payment.PSIGate.csproj">
       <Project>{2C573ADD-4B09-4CE1-9849-E25732938960}</Project>
@@ -4790,6 +4812,7 @@
     <Content Include="Administration\PaymentMethodAdd.aspx" />
     <Content Include="Administration\PaymentMethodDetails.aspx" />
     <Content Include="Administration\PaymentMethods.aspx" />
+    <Content Include="Administration\Payment\Assist\ConfigurePaymentMethod.ascx" />
     <Content Include="Administration\Payment\AuthorizeNET\ConfigurePaymentMethod.ascx" />
     <Content Include="Administration\Payment\CashOnDelivery\ConfigurePaymentMethod.ascx" />
     <Content Include="Administration\Payment\CDGcommerce\ConfigurePaymentMethod.ascx" />
@@ -4958,6 +4981,7 @@
     <Content Include="App_Themes\nopClassic\product.css" />
     <Content Include="App_Themes\nopClassic\servercontrols.css" />
     <Content Include="App_Themes\Print\print.css" />
+    <Content Include="Assist.aspx" />
     <Content Include="Blog.aspx" />
     <Content Include="BlogPost.aspx" />
     <Content Include="BlogRSS.aspx" />

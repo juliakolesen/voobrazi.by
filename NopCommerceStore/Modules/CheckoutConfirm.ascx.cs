@@ -71,16 +71,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                     Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
                     IndividualOrderCollection indOrders = IndividualOrderManager.GetIndividualOrderByCurrentUserSessionGuid(CustomerSessionGUID);
-                    PaymentMethod pm = PaymentMethodManager.GetPaymentMethodByID(order.PaymentMethodID);
-                    if (pm.ClassName.Equals("Nop.Payment.WebPay.WebPayPaymentProcessor, Nop.Payment.WebPay"))
-                    {
-                        Nop.Payment.WebPay.WebPayPaymentProcessor webPayMethod = new Nop.Payment.WebPay.WebPayPaymentProcessor();
-                        webPayMethod.PostProcessPayment(order, indOrders);
-                    }
-                    else
-                    {
-                        PaymentManager.PostProcessPayment(order);
-                    }
+                    StartPaymentMethod(indOrders, order);
 
                     string subj = "Заказ в магазине Voobrazi.by";
                     StringBuilder body = new StringBuilder();
@@ -153,6 +144,25 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     LogManager.InsertLog(LogTypeEnum.OrderError, exc.Message, exc);
                     lError.Text = Server.HtmlEncode("Во время обработки заказа произошла ошибка. Для выполнения заказа, пожалуйста, свяжитесь с администратором. Контактную информацию можно найти на странице Контакты.");
                 }
+            }
+        }
+
+        private static void StartPaymentMethod(IndividualOrderCollection indOrders, Order order)
+        {
+            PaymentMethod pm = PaymentMethodManager.GetPaymentMethodByID(order.PaymentMethodID);
+            if (pm.ClassName.Equals("Nop.Payment.WebPay.WebPayPaymentProcessor, Nop.Payment.WebPay"))
+            {
+                var webPayMethod = new Nop.Payment.WebPay.WebPayPaymentProcessor();
+                webPayMethod.PostProcessPayment(order, indOrders);
+            }
+            else if (pm.ClassName.Equals("Nop.Payment.Assist.AssistPaymentProcessor, Nop.Payment.Assist"))
+            {
+                var assistPaymentProcessor = new Nop.Payment.Assist.AssistPaymentProcessor();
+                assistPaymentProcessor.PostProcessPayment(order, indOrders, NopContext.Current.User);
+            }
+            else
+            {
+                PaymentManager.PostProcessPayment(order);
             }
         }
 
