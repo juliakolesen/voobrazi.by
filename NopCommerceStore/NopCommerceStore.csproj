@@ -3387,6 +3387,13 @@
     <Compile Include="Templates\Payment\eWayUK\PaymentModule.ascx.designer.cs">
       <DependentUpon>PaymentModule.ascx</DependentUpon>
     </Compile>
+    <Compile Include="TestPage.aspx.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPage.aspx.designer.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ToCorporateClients.aspx.cs">
       <DependentUpon>ToCorporateClients.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5619,6 +5626,7 @@
     <Content Include="Templates\Payment\TwoCheckout\PaymentModule.ascx" />
     <Content Include="Templates\Payment\Worldpay\PaymentModule.ascx" />
     <Content Include="Templates\Products\VariantsInGrid.ascx" />
+    <Content Include="TestPage.aspx" />
     <Content Include="TwoCheckoutReturn.aspx" />
     <Content Include="ViewedItems.aspx" />
     <Content Include="WebPay.aspx" />

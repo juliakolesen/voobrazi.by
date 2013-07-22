@@ -22,40 +22,46 @@
         </td>
     </tr>
 </table>
-<div class="payFooterCommon payFooterLeft">
+<div class="payFooterSides payFooterLeft">
 </div>
-<div class="payFooterCommon payFooterRight">
+<div class="payFooterSides payFooterRight">
 </div>
-<div class="payFooterCommon payFooter">
-    <div style="margin-left: -535px;">
-    <a style="margin-right:-5px" title="Контакты" href="../Contacts.aspx">Контакты</a> | 
-    <a style="margin-right:-5px; margin-left:-5px;" title="Доставка" href="../AboutDelivery.aspx">Доставка</a> |
-    <a style="margin-left:-5px;" title="Оплата" href="../HowToPay.aspx">Оплата </a>
-    </div>
-    <div style="margin-left: -125px;">
-        <a title="Оплата" href="../HowToPay.aspx">
-       <img src="../images/ff_images/background-pay-menu-white-background.gif" style="margin-top: 6px;" alt=""  /></a>
-    </div>
-    <div style="margin-left: 125px;">|</div>
-    <div style="margin-left: 137px;">
-    <a title="Корзина" href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
-       <img style="margin-top: 1px;" src="../images/ff_images/background-pay-menu-white-background_recycle.gif" alt=""  /></a>
-    </div>
-    <div class="payFooterCurrency" style="margin-left: 195px; margin-top: 3px;">
-    <a title="Корзина" href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
-        <span class="amount_text"> <%=GetShoppingCartSum()%></span>
-        <br />
-        <span class="amount_text">(</span> <span class="amount">
-                <%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
-        <span class="amount_text">товаров)</span>
-        </a>
-    </div>
-    <div style="margin-left: 304px;">|</div>
-    <div style="margin-left: 316px; font-size: 24px; margin-top: 3px;">
-        <a>Валюта:</a>
-        <asp:LinkButton ID="lbtnBr" runat="server" OnClick="OnCurrencyChange">BYR</asp:LinkButton>
-        /
-        <asp:LinkButton ID="lbtnUSD" runat="server" OnClick="OnCurrencyChange">USD</asp:LinkButton>
+<div class="payFooterCommon">
+    <div class="payFooter">
+        <div style="float: left; margin-left: 5px;">
+            <a style="margin-right: -5px" title="Контакты" href="../Contacts.aspx">Контакты</a>
+            | <a style="margin-right: -5px; margin-left: -5px;" title="Доставка" href="../AboutDelivery.aspx">
+                Доставка</a> | <a style="margin-left: -5px;" title="Оплата" href="../HowToPay.aspx">
+                    Оплата</a>
+        </div>
+        <div style="float: left">
+            <a title="Оплата" href="../HowToPay.aspx">
+                <img src="../images/ff_images/background-pay-menu-white-background.gif" style="margin-top: 6px;
+                    margin-left: 5px;" alt="" /></a>
+        </div>
+        <div style="float: left;">
+            |</div>
+        <div style="float: left;">
+            <a title="Корзина" href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>">
+                <img style="margin-top: 1px;" src="../images/ff_images/background-pay-menu-white-background_recycle.gif"
+                    alt="" /></a>
+        </div>
+        <div class="payFooterCurrency" style="margin-top: 3px; margin-left: -115px; float: left;">
+            <a title="Корзина" href="<%=Page.ResolveUrl("~/ShoppingCart.aspx")%>"><span class="amount_text">
+                <%=GetShoppingCartSum()%></span>
+                <br />
+                <span class="amount_text">(</span> <span class="amount">
+                    <%=ShoppingCartManager.GetCurrentShoppingCart(ShoppingCartTypeEnum.ShoppingCart).Count%></span>
+                <span class="amount_text">товаров)</span> </a>
+        </div>
+        <div style="float: left;">
+            |</div>
+        <div style="float: left; font-size: 24px; margin-top: 3px;">
+            <a>Валюта:</a>
+            <asp:LinkButton ID="lbtnBr" runat="server" OnClick="OnCurrencyChange">BYR</asp:LinkButton>
+            /
+            <asp:LinkButton ID="lbtnUSD" runat="server" OnClick="OnCurrencyChange">USD</asp:LinkButton>
+        </div>
     </div>
 </div>
 <script language="javascript" type="text/javascript">

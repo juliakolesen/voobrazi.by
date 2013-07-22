@@ -250,24 +250,6 @@ h2
     text-decoration: none;
 }
 
-.payFooterCommon
-{
-    float: left;
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    color: #3b3b3b;
-    font-family: 'Comic Sans MS';
-    font-size: 29px;
-    color: #FFFFFF;
-    font-weight: 500;
-    font-style: normal;
-}
-.payFooterCommon div
-{
-    position: fixed;
-    left: 50%;
-}
 .payFooterLeft
 {
     background: url(../../images/ff_images/background-pay-menu-left.gif);
@@ -284,14 +266,42 @@ h2
     width: 27px;
     margin-left: 525px;
 }
+
+.payFooterCommon
+{
+    width: 100%;
+    height: 45px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 500;
+    font-family: 'Comic Sans MS';
+    font-size: 26px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.payFooterSides
+{
+    float: left;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    color: #3b3b3b;
+    font-family: 'Comic Sans MS';
+    font-size: 29px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-style: normal;
+}
 .payFooter
 {
-    width: 1050px;
-    height: 45px;
-    left: 50%;
-    margin-left: -525px;
-    background: url(../../images/ff_images/background-pay-menu.gif) repeat-x center center;
-    background-size: 100% 100%;
+   width: 1050px;
+   height: 45px;
+   margin: 0 auto;
+   background: url(../../images/ff_images/background-pay-menu.gif) repeat-x center center;
+   z-index: 500;
 }
 .payFooterCurrency
 {
