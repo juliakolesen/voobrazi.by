@@ -45,7 +45,11 @@ namespace Nop.Payment.Assist
 
         protected override decimal AddServiceFee(decimal totalPrice, bool convertToUsd)
         {
-            return totalPrice;
+            decimal priceWithFee = totalPrice + ((totalPrice / 100) * SettingManager.GetSettingValueInteger("PaymentMethod.Assist.ServiceFee"));
+            if (!convertToUsd)
+                return Math.Ceiling((priceWithFee / 100) * 100);
+
+            return Math.Round((priceWithFee / 100) * 100);
         }
 
         protected override decimal CalculateTotalOrderServiceFee(OrderProductVariantCollection orderProducts, List<ProductVariant> prodVars, Order order, out object shippingPrice)
@@ -57,11 +61,8 @@ namespace Nop.Payment.Assist
                                       orderProducts.First(op => op.ProductVariantID == prodVar.ProductVariantID).Quantity));
             if (ShoppingCartRequiresShipping)
             {
-                shippingPrice = retVal > FreeShippingBorder ? 0 : ShippingRate;
-                if (ConvertToUsd)
-                {
-                    shippingPrice = Math.Round(PriceConverter.ToUsd((decimal) shippingPrice));
-                }
+                shippingPrice = AddServiceFee(((FreeShippingEnabled && retVal > FreeShippingBorder) ? 0 : ShippingRate), 
+                                                ConvertToUsd);
             }
             else
             {

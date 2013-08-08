@@ -17,6 +17,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Payment.Assist
                     SettingManager.AddSetting("PaymentMethod.Assist.NoUrl", string.Format("{0}{1}", Request.Url.GetLeftPart(UriPartial.Authority), "\\Assist.aspx?status=failed&orderId={0}"), string.Empty);
                     SettingManager.AddSetting("PaymentMethod.Assist.TestMode", "true", string.Empty);
                     SettingManager.AddSetting("PaymentMethod.Assist.PaymentUrl", "https://test.paysec.by/pay/order.cfm", string.Empty);
+                    SettingManager.AddSetting("PaymentMethod.Assist.ServiceFee", "5", string.Empty);
                 }
                 
                 BindData();
@@ -29,6 +30,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Payment.Assist
             tbNoUrl.Text = SettingManager.GetSettingValue("PaymentMethod.Assist.NoUrl");
             tbTestMode.Text = SettingManager.GetSettingValue("PaymentMethod.Assist.TestMode");
             tbUrl.Text = SettingManager.GetSettingValue("PaymentMethod.Assist.PaymentUrl");
+            tbServiceFee.Text = SettingManager.GetSettingValue("PaymentMethod.Assist.ServiceFee");
         }
 
         public void Save()
@@ -37,6 +39,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Payment.Assist
             SettingManager.SetParam("PaymentMethod.Assist.NoUrl", tbNoUrl.Text);
             SettingManager.SetParam("PaymentMethod.Assist.TestMode", tbTestMode.Text);
             SettingManager.SetParam("PaymentMethod.Assist.PaymentUrl", tbUrl.Text);
+            SettingManager.SetParam("PaymentMethod.Assist.ServiceFee", tbServiceFee.Text);
         }
     }
 }

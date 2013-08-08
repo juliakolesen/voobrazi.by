@@ -42,6 +42,11 @@ namespace Nop.Payment.PostPaymentCommon
             }
         }
 
+        protected bool FreeShippingEnabled
+        {
+            get { return SettingManager.GetSettingValueBoolean("Shipping.FreeShippingOverX.Enabled"); }
+        }
+
         protected decimal ShippingPrice { get; set; }
 
         protected bool ShoppingCartRequiresShipping
@@ -76,7 +81,7 @@ namespace Nop.Payment.PostPaymentCommon
         public string PostProcessPayment(Order order, IndividualOrderCollection indOrders, Customer customer)
         {
             object shippingPrice;
-            decimal totalWithFee = CalculatePricaWithFee(order, indOrders, out shippingPrice);
+            decimal totalWithFee = CalculatePriceWithFee(order, indOrders, out shippingPrice);
             OrderManager.UpdateOrder(order.OrderID, order.OrderGUID, order.CustomerID, order.CustomerLanguageID, order.CustomerTaxDisplayType, order.OrderSubtotalInclTax, order.OrderSubtotalExclTax, order.OrderShippingInclTax,
                 order.OrderShippingExclTax, order.PaymentMethodAdditionalFeeInclTax, order.PaymentMethodAdditionalFeeExclTax, order.OrderTax, order.OrderTotal, order.OrderDiscount, order.OrderSubtotalInclTaxInCustomerCurrency,
                 order.OrderShippingExclTaxInCustomerCurrency, order.OrderShippingInclTaxInCustomerCurrency, order.OrderShippingExclTaxInCustomerCurrency, order.PaymentMethodAdditionalFeeInclTaxInCustomerCurrency,
@@ -95,7 +100,7 @@ namespace Nop.Payment.PostPaymentCommon
 
         protected abstract void BuildPostForm(Order order, IndividualOrderCollection indOrders, decimal price, decimal shipping, Customer customer);
 
-        private decimal CalculatePricaWithFee(Order order, IndividualOrderCollection indOrders, out object shippingPrice)
+        private decimal CalculatePriceWithFee(Order order, IndividualOrderCollection indOrders, out object shippingPrice)
         {
             var prodVars = order.OrderProductVariants.Select(opv => ProductManager.GetProductVariantByID(opv.ProductVariantID)).ToList();
             decimal totalWithFee = CalculateTotalOrderServiceFee(order.OrderProductVariants, prodVars, order, out shippingPrice);
