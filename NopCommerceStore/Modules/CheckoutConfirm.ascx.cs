@@ -69,10 +69,9 @@ namespace NopSolutions.NopCommerce.Web.Modules
                         order.PaymentMethodName = PaymentMethodManager.GetPaymentMethodByID(paymentInfo.PaymentMethodID).Name;
                     }
 
-                    Guid CustomerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
-                    IndividualOrderCollection indOrders = IndividualOrderManager.GetIndividualOrderByCurrentUserSessionGuid(CustomerSessionGUID);
-                    StartPaymentMethod(indOrders, order);
-
+                    Guid customerSessionGUID = NopContext.Current.Session.CustomerSessionGUID;
+                    IndividualOrderCollection indOrders = IndividualOrderManager.GetIndividualOrderByCurrentUserSessionGuid(customerSessionGUID);
+                    
                     string subj = "Заказ в магазине Voobrazi.by";
                     StringBuilder body = new StringBuilder();
                     body.AppendFormat("Доставка: {0}<br /><br />", ((bool)Session["Delivery"]) ? "Курьером" : "Самовывоз").AppendLine();
@@ -82,6 +81,11 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     body.AppendFormat("Адрес: {0} {1}<br />", paymentInfo.BillingAddress.City, paymentInfo.BillingAddress.Address1).AppendLine();
                     body.AppendFormat("Email: {0}<br /><br />", !string.IsNullOrEmpty(NopContext.Current.User.BillingAddress.Email) ? NopContext.Current.User.BillingAddress.Email : NopContext.Current.User.Email).AppendLine();
                     body.AppendFormat("Комментарии: {0}<br /><br />", tbComments.Text).AppendLine();
+                    PaymentMethod pm = PaymentMethodManager.GetPaymentMethodByID(order.PaymentMethodID);
+                    if(pm != null)
+                    {
+                        body.AppendFormat("Способ оплаты: {0}<br /><br />", pm.Name).AppendLine();
+                    }
 
                     decimal total = 0;                
                     decimal indOrderTotal = IndividualOrderManager.GetTotalPriceIndOrders(indOrders);
@@ -135,6 +139,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                     body.AppendFormat("<br />Дополнительная информация: {0}<br />", Session["ai"]).AppendLine();
                     MessageManager.SendEmail(subj, body.ToString(), MessageManager.AdminEmailAddress, MessageManager.AdminEmailAddress);
+                    StartPaymentMethod(indOrders, order);
                     Session.Remove("SelfOrder");
                     Response.Redirect("~/CheckoutCompleted.aspx");
                 }
