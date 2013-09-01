@@ -3275,6 +3275,13 @@
     <Compile Include="Modules\IndividualOrderControl.ascx.designer.cs">
       <DependentUpon>IndividualOrderControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\MainPage.ascx.cs">
+      <DependentUpon>MainPage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\MainPage.ascx.designer.cs">
+      <DependentUpon>MainPage.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\PayFooter.ascx.cs">
       <DependentUpon>PayFooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3344,6 +3351,13 @@
     </Compile>
     <Compile Include="Modules\SearchResultsControl.ascx.designer.cs">
       <DependentUpon>SearchResultsControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SlideShow.ascx.cs">
+      <DependentUpon>SlideShow.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\SlideShow.ascx.designer.cs">
+      <DependentUpon>SlideShow.ascx</DependentUpon>
     </Compile>
     <Compile Include="Modules\ViewedItems.ascx.cs">
       <DependentUpon>ViewedItems.ascx</DependentUpon>
@@ -5013,6 +5027,7 @@
     <Content Include="css\nextlabel.gif" />
     <Content Include="css\prevlabel.gif" />
     <Content Include="css\ScrollerImagesTemplate.css" />
+    <Content Include="css\slideshow.css" />
     <Content Include="css\slimbox2-rtl.css" />
     <Content Include="css\slimbox2.css" />
     <Content Include="css\style.css" />
@@ -5460,6 +5475,8 @@
     <Content Include="images\ff_images\mainimg1_snow.jpg" />
     <Content Include="images\ff_images\middle2.gif" />
     <Content Include="images\ff_images\sitemap.png" />
+    <Content Include="images\ff_images\slider\arrow_left.jpg" />
+    <Content Include="images\ff_images\slider\arrow_right.jpg" />
     <Content Include="images\ff_images\slider\flowers.jpg" />
     <Content Include="images\ff_images\slider\slider.jpg" />
     <Content Include="images\ff_images\submenu\letter.jpg" />
@@ -5492,6 +5509,7 @@
     <Content Include="Modules\DesignVariant.ascx" />
     <Content Include="Modules\HouseFlowersVariant.ascx" />
     <Content Include="Modules\IndividualOrderControl.ascx" />
+    <Content Include="Modules\MainPage.ascx" />
     <Content Include="Modules\PayFooter.ascx" />
     <Content Include="Modules\OrderIndividualOrders.ascx" />
     <Content Include="Modules\PriceFilterControl.ascx" />
@@ -5499,6 +5517,7 @@
     <Content Include="Modules\ProductSize.ascx" />
     <Content Include="Modules\SearchControlDefault.ascx" />
     <Content Include="Modules\SearchResultsControl.ascx" />
+    <Content Include="Modules\SlideShow.ascx" />
     <Content Include="Modules\ViewedItems.ascx" />
     <Content Include="Modules\WeddingBunchVariant.ascx" />
     <Content Include="NewsAll.aspx" />
@@ -5512,6 +5531,7 @@
     <Content Include="Scripts\jquery.main.js" />
     <Content Include="Scripts\jquery.scroller.js" />
     <Content Include="Scripts\jquery.ui-slider.js" />
+    <Content Include="Scripts\slideshow.js" />
     <Content Include="Scripts\slimbox2.js" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />

@@ -13,17 +13,6 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Text;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using NopSolutions.NopCommerce.BusinessLogic.Content.Topics;
 using NopSolutions.NopCommerce.BusinessLogic.Directory;
 using NopSolutions.NopCommerce.BusinessLogic.Profile;
@@ -55,6 +44,7 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                     this.pnlUpdatedOn.Visible = true;
                     this.lblCreatedOn.Text = DateTimeHelper.ConvertToUserTime(localizedTopic.CreatedOn).ToString();
                     this.lblUpdatedOn.Text = DateTimeHelper.ConvertToUserTime(localizedTopic.UpdatedOn).ToString();
+                    this.ShowOnHomePage.Value = localizedTopic.ShowOnHomePage;
                 }
                 else
                 {
@@ -90,13 +80,13 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
                         if (localizedTopic != null)
                         {
                             localizedTopic = TopicManager.UpdateLocalizedTopic(localizedTopic.TopicLocalizedID,
-                                localizedTopic.TopicID, localizedTopic.LanguageID, txtTitle.Text, txtBody.Value, localizedTopic.CreatedOn, nowDT);
+                                localizedTopic.TopicID, localizedTopic.LanguageID, txtTitle.Text, txtBody.Value, localizedTopic.CreatedOn, nowDT, ShowOnHomePage.Value);
                             Response.Redirect("TopicLocalizedDetails.aspx?TopicID=" + localizedTopic.TopicID.ToString() + "&LanguageID=" + localizedTopic.LanguageID.ToString());
                         }
                         else
                         {
                             localizedTopic = TopicManager.InsertLocalizedTopic(this.TopicID,
-                                this.LanguageID, txtTitle.Text, txtBody.Value, nowDT, nowDT);
+                                this.LanguageID, txtTitle.Text, txtBody.Value, nowDT, nowDT, ShowOnHomePage.Value);
                             Response.Redirect("TopicLocalizedDetails.aspx?TopicID=" + this.TopicID.ToString() + "&LanguageID=" + this.LanguageID.ToString());
                         }
                     }

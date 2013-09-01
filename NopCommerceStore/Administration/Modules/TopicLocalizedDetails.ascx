@@ -1,8 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Administration.Modules.TopicLocalizedDetailsControl"
     CodeBehind="TopicLocalizedDetails.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ToolTipLabel" Src="ToolTipLabelControl.ascx" %>
-<%@ Register TagPrefix="nopCommerce" TagName="SimpleTextBox" Src="SimpleTextBox.ascx" %>
-<%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
+<%@ Register TagPrefix="nopCommerce" TagName="NumericTextBox" Src="NumericTextBox.ascx" %>
 <div class="section-header">
     <div class="title">
         <img src="Common/ico-content.png" alt="<%=GetLocaleResourceString("Admin.TopicLocalizedDetails.Title")%>" />
@@ -84,6 +83,12 @@
             <asp:Label ID="lblUpdatedOn" runat="server"></asp:Label>
         </td>
     </tr>
+    <tr>
+        <td colspan="2">
+            <asp:Label ID="lblShowOnHomePage" Text="Порядок отображения на главной странице. 0 - не отображать. 1-7 - маленькие ячейки, 8 - ... большие." runat="server"></asp:Label>
+            <nopCommerce:NumericTextBox runat="server" ID="ShowOnHomePage" MaximumValue="10" MinimumValue="0" />
+        </td>
+    </tr>
 </table>
 <ajaxToolkit:ConfirmButtonExtender ID="ConfirmDeleteButtonExtender" runat="server"
     TargetControlID="DeleteButton" DisplayModalPopupID="ModalPopupExtenderDelete" />
@@ -97,8 +102,9 @@
         <%=GetLocaleResourceString("Admin.Common.AreYouSure")%>
         <br />
         <br />
-        <asp:Button ID="deleteButtonOk" runat="server" Text="<% $NopResources:Admin.Common.Yes %>" CssClass="adminButton" CausesValidation="false" />
-        <asp:Button ID="deleteButtonCancel" runat="server" Text="<% $NopResources:Admin.Common.No %>" CssClass="adminButton"
-            CausesValidation="false" />
+        <asp:Button ID="deleteButtonOk" runat="server" Text="<% $NopResources:Admin.Common.Yes %>"
+            CssClass="adminButton" CausesValidation="false" />
+        <asp:Button ID="deleteButtonCancel" runat="server" Text="<% $NopResources:Admin.Common.No %>"
+            CssClass="adminButton" CausesValidation="false" />
     </div>
 </asp:Panel>

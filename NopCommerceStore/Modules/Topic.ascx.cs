@@ -20,10 +20,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
 {
 	public partial class TopicControl : BaseNopUserControl
 	{
-		protected override void OnInit(EventArgs e)
+		protected override void OnLoad(EventArgs e)
 		{
 			BindData();
-			base.OnInit(e);
+			base.OnLoad(e);
 		}
 
 		private void BindData()

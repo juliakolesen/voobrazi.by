@@ -3,11 +3,16 @@
 
 <%@ Register TagPrefix="nopCommerce" TagName="CategoryNavigation" Src="~/Modules/CategoryNavigation.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="SearchControl" Src="~/Modules/SearchControlDefault.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="MainPageControl" Src="~/Modules/MainPage.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="server">
     <table width="100%" cellpadding="0" cellspacing="0">
         <tr valign="top">
-            <td class="mainimg">
+            <td>
                 <nopCommerce:CategoryNavigation ID="ctrlCategoryNavigation" runat="server" />
+            </td>
+            <td rowspan="3" align="center">
+                <nopCommerce:MainPageControl ID="mainPage" runat="server"/>
+            </td>
         </tr>
         <tr>
             <td width="100px;">
@@ -25,9 +30,10 @@
                     </asp:HyperLink>
                 </div>
             </td>
+            <td></td>
         </tr>
         <tr>
-            <td align="center">
+            <td align="center" colspan="2">
                 <div class="container">
                     <div class="cont_top">
                         <div class="titl">

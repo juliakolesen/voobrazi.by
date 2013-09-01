@@ -810,3 +810,35 @@ a.button-order2:hover
 {
     min-height: 350px;
 }
+
+.mainTable
+{
+	border-color: black;
+	width: 600px;
+	height: 600px;
+	border-width: 1px;
+	table-layout:fixed;
+	overflow: hidden;
+}
+
+.mainTableDiv {
+	overflow: hidden;
+    height: 150px;
+}
+
+.mainTableTd{
+	width: 150px;
+	height: 150px;
+}
+
+.mainTableBigCell {
+	width: 450px;
+	height: 450px;
+}
+
+.mainTableCentering {
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}

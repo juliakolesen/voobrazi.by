@@ -1,0 +1,43 @@
+﻿#slideshow {
+	margin:0 auto;
+	width:450px;
+	height:450px;
+	position: relative;
+}
+
+#slideshow #slidesContainer {
+  margin:0 auto;
+  width:450px;
+  height:450px;
+  overflow:auto; /* allow scrollbar */
+}
+
+#slideshow #slidesContainer .slide {
+  margin:0 auto;
+  width:430px; /* reduce by 20 pixels to avoid horizontal scroll */
+  height:450px;
+}
+
+/** 
+ * Slideshow controls style rules.
+ */
+.control {
+  display:block;
+  width:39px;
+  height:450px;
+  text-indent:-10000px;
+  position:absolute;
+  cursor: pointer;
+}
+#leftControl 
+{
+  top: 0;
+  left:0;
+  background:transparent url(../images/ff_images/slider/arrow_left.gif) no-repeat 0 0;
+}
+#rightControl 
+{
+  top: 0;
+  right: 0;
+  background:transparent url(../images/ff_images/slider/arrow_right.gif) no-repeat 0 0;
+}
