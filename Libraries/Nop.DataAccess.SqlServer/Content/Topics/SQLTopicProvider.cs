@@ -49,6 +49,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
             localizedTopic.Body = NopSqlDataHelper.GetString(dataReader, "Body");
             localizedTopic.CreatedOn = NopSqlDataHelper.GetUtcDateTime(dataReader, "CreatedOn");
             localizedTopic.UpdatedOn = NopSqlDataHelper.GetUtcDateTime(dataReader, "UpdatedOn");
+            localizedTopic.ShowOnHomePage = NopSqlDataHelper.GetInt(dataReader, "ShowOnHomePage");
             return localizedTopic;
         }
 
@@ -299,7 +300,7 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
         /// <returns>Localized topic</returns>
         public override DBLocalizedTopic InsertLocalizedTopic(int TopicID,
             int LanguageID, string Title, string Body,
-            DateTime CreatedOn, DateTime UpdatedOn)
+            DateTime CreatedOn, DateTime UpdatedOn, int ShowOnHomePage)
         {
             DBLocalizedTopic localizedTopic = null;
             Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
@@ -311,6 +312,8 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
             db.AddInParameter(dbCommand, "Body", DbType.String, Body);
             db.AddInParameter(dbCommand, "CreatedOn", DbType.DateTime, CreatedOn);
             db.AddInParameter(dbCommand, "UpdatedOn", DbType.DateTime, UpdatedOn);
+            db.AddInParameter(dbCommand, "ShowOnHomePage", DbType.Int32, ShowOnHomePage);
+
             if (db.ExecuteNonQuery(dbCommand) > 0)
             {
                 int TopicLocalizedID = Convert.ToInt32(db.GetParameterValue(dbCommand, "@TopicLocalizedID"));
@@ -329,11 +332,12 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
         /// <param name="Body">The body</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="ShowOnHomePage">The state of showing topic on the main page</param>
         /// <returns>Localized topic</returns>
         public override DBLocalizedTopic UpdateLocalizedTopic(int TopicLocalizedID,
             int TopicID, int LanguageID,
             string Title, string Body,
-            DateTime CreatedOn, DateTime UpdatedOn)
+            DateTime CreatedOn, DateTime UpdatedOn, int ShowOnHomePage)
         {
             DBLocalizedTopic localizedTopic = null;
             Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
@@ -345,11 +349,34 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
             db.AddInParameter(dbCommand, "Body", DbType.String, Body);
             db.AddInParameter(dbCommand, "CreatedOn", DbType.DateTime, CreatedOn);
             db.AddInParameter(dbCommand, "UpdatedOn", DbType.DateTime, UpdatedOn);
+            db.AddInParameter(dbCommand, "ShowOnHomePage", DbType.Int32, ShowOnHomePage);
             if (db.ExecuteNonQuery(dbCommand) > 0)
                 localizedTopic = GetLocalizedTopicByID(TopicLocalizedID);
 
             return localizedTopic;
         }
+
+        /// <summary>
+        /// Gets all topics shows on the home page
+        /// </summary>
+        /// <returns>Localized topic collection</returns>
+        public override DBLocalizedTopicCollection TopicLocalizedLoadAllOnHomePage()
+        {
+            DBLocalizedTopicCollection localizedTopics = new DBLocalizedTopicCollection();
+            Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("Nop_TopicLocalizedLoadAllOnHomePage");
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    DBLocalizedTopic localizedTopic = GetLocalizedTopicFromReader(dataReader);
+                    localizedTopics.Add(localizedTopic);
+                }
+            }
+            return localizedTopics;
+        }
+
         #endregion
     }
 }

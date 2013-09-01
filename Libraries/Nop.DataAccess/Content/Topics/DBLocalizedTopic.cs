@@ -65,6 +65,11 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
         /// Gets or sets the date and time of instance update
         /// </summary>
         public DateTime UpdatedOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets show on home page or not
+        /// </summary>
+        public int ShowOnHomePage { get; set; }
         #endregion
     }
 

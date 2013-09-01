@@ -67,6 +67,11 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Content.Topics
         /// Gets or sets the date and time of instance update
         /// </summary>
         public DateTime UpdatedOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets use or not on homePage
+        /// </summary>
+        public int ShowOnHomePage { get; set; }
         #endregion
 
         #region Custom Properties

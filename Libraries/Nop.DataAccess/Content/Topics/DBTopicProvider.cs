@@ -103,10 +103,11 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
         /// <param name="Body">The body</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="showOnHomePage">State of showing topic on the home page</param>
         /// <returns>Localized topic</returns>
         public abstract DBLocalizedTopic InsertLocalizedTopic(int TopicID,
             int LanguageID, string Title, string Body,
-            DateTime CreatedOn, DateTime UpdatedOn);
+            DateTime CreatedOn, DateTime UpdatedOn, int showOnHomePage);
 
         /// <summary>
         /// Updates the localized topic
@@ -118,11 +119,18 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
         /// <param name="Body">The body</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="showOnHomePage">The state of showing on the home page</param>
         /// <returns>Localized topic</returns>
         public abstract DBLocalizedTopic UpdateLocalizedTopic(int TopicLocalizedID,
             int TopicID, int LanguageID,
             string Title, string Body,
-            DateTime CreatedOn, DateTime UpdatedOn);
+            DateTime CreatedOn, DateTime UpdatedOn, int showOnHomePage);
+
+        /// <summary>
+        /// Gets all topics shows on the home page
+        /// </summary>
+        /// <returns>Localized topic collection</returns>
+        public abstract DBLocalizedTopicCollection TopicLocalizedLoadAllOnHomePage();
 
         #endregion
     }

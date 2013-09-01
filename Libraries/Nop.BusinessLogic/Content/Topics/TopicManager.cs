@@ -81,6 +81,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Content.Topics
             item.Body = dbItem.Body;
             item.CreatedOn = dbItem.CreatedOn;
             item.UpdatedOn = dbItem.UpdatedOn;
+            item.ShowOnHomePage = dbItem.ShowOnHomePage;
 
             return item;
         }
@@ -220,16 +221,17 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Content.Topics
         /// <param name="Body">The body</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="showOnHomePage">State of showing topic on the home page</param>
         /// <returns>Localized topic</returns>
         public static LocalizedTopic InsertLocalizedTopic(int TopicID,
-            int LanguageID, string Title, string Body, 
-            DateTime CreatedOn, DateTime UpdatedOn)
+            int LanguageID, string Title, string Body,
+            DateTime CreatedOn, DateTime UpdatedOn, int showOnHomePage)
         {
             CreatedOn = DateTimeHelper.ConvertToUtcTime(CreatedOn);
             UpdatedOn = DateTimeHelper.ConvertToUtcTime(UpdatedOn);
 
             DBLocalizedTopic dbItem = DBProviderManager<DBTopicProvider>.Provider.InsertLocalizedTopic(TopicID,
-                LanguageID, Title, Body, CreatedOn,UpdatedOn);
+                LanguageID, Title, Body, CreatedOn,UpdatedOn, showOnHomePage);
             LocalizedTopic localizedTopic = DBMapping(dbItem);
             return localizedTopic;
         }
@@ -244,19 +246,28 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Content.Topics
         /// <param name="Body">The body</param>
         /// <param name="CreatedOn">The date and time of instance creation</param>
         /// <param name="UpdatedOn">The date and time of instance update</param>
+        /// <param name="showOnHomePage">The state of showing on the home page</param>
         /// <returns>Localized topic</returns>
         public static LocalizedTopic UpdateLocalizedTopic(int TopicLocalizedID,
             int TopicID, int LanguageID,
-            string Title, string Body, 
-            DateTime CreatedOn, DateTime UpdatedOn)
+            string Title, string Body,
+            DateTime CreatedOn, DateTime UpdatedOn, int showOnHomePage)
         {
             CreatedOn = DateTimeHelper.ConvertToUtcTime(CreatedOn);
             UpdatedOn = DateTimeHelper.ConvertToUtcTime(UpdatedOn);
 
             DBLocalizedTopic dbItem = DBProviderManager<DBTopicProvider>.Provider.UpdateLocalizedTopic(TopicLocalizedID,
-                TopicID, LanguageID, Title, Body, CreatedOn, UpdatedOn);
+                TopicID, LanguageID, Title, Body, CreatedOn, UpdatedOn, showOnHomePage);
             LocalizedTopic localizedTopic = DBMapping(dbItem);
             return localizedTopic;
+        }
+
+        public static LocalizedTopicCollection TopicLocalizedLoadAllOnHomePage()
+        {
+            DBLocalizedTopicCollection dbItemCollection =
+                DBProviderManager<DBTopicProvider>.Provider.TopicLocalizedLoadAllOnHomePage();
+            LocalizedTopicCollection localizedTopicCollection = DBMapping(dbItemCollection);
+            return localizedTopicCollection;
         }
 
         #endregion
