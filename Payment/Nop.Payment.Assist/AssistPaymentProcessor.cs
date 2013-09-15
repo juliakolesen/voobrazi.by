@@ -61,8 +61,9 @@ namespace Nop.Payment.Assist
                                       orderProducts.First(op => op.ProductVariantID == prodVar.ProductVariantID).Quantity));
             if (ShoppingCartRequiresShipping)
             {
-                shippingPrice = AddServiceFee(((FreeShippingEnabled && retVal > FreeShippingBorder) ? 0 : ShippingRate), 
+                decimal shippingBlr = AddServiceFee(((FreeShippingEnabled && retVal > FreeShippingBorder) ? 0 : ShippingRate), 
                                                 ConvertToUsd);
+                shippingPrice = ConvertToUsd ? Math.Round(PriceConverter.ToUsd(shippingBlr)) : shippingBlr;
             }
             else
             {
