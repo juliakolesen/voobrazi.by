@@ -94,57 +94,21 @@ namespace NopSolutions.NopCommerce.Web.Modules {
         protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicDefaultPage4;
         
         /// <summary>
-        /// div5 control.
+        /// topic1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div5;
+        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topic1;
         
         /// <summary>
-        /// topicDefaultPage5 control.
+        /// indivOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicDefaultPage5;
-        
-        /// <summary>
-        /// div6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div6;
-        
-        /// <summary>
-        /// topicDefaultPage6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicDefaultPage6;
-        
-        /// <summary>
-        /// div7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div7;
-        
-        /// <summary>
-        /// topicDefaultPage7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.TopicControl topicDefaultPage7;
+        protected global::System.Web.UI.WebControls.HyperLink indivOrder;
     }
 }

@@ -24,9 +24,6 @@ namespace NopSolutions.NopCommerce.Web.Modules
             SetTopicName(topicDefaultPage2, 2, div2);
             SetTopicName(topicDefaultPage3, 3, div3);
             SetTopicName(topicDefaultPage4, 4, div4);
-            SetTopicName(topicDefaultPage5, 5, div5);
-            SetTopicName(topicDefaultPage6, 6, div6);
-            SetTopicName(topicDefaultPage7, 7, div7);
         }
 
         private void SetTopicName(TopicControl topic, int number, HtmlGenericControl div)
@@ -35,10 +32,17 @@ namespace NopSolutions.NopCommerce.Web.Modules
             if (lTopic != null)
             {
                 topic.TopicName = lTopic.Topic.Name;
+                if (number == 1)
+                {
+                    div.Attributes.Add("style", "background: url(../../images/ff_images/mainimg_logo_big_background.gif) center center no-repeat ;");
+                }
             }
             else
             {
-                div.Attributes.Add("style", "background: url(../../images/ff_images/mainimg_logo.jpg) center center no-repeat ;");
+                div.Attributes.Add("style",
+                                   number == 1
+                                       ? "background: url(../../images/ff_images/mainimg_logo_big.gif) center center no-repeat ;"
+                                       : "background: url(../../images/ff_images/mainimg_logo.gif) center center no-repeat ;");
             }
         }
     }

@@ -1,21 +1,26 @@
-﻿#slideshow {
+﻿.divSlider {
+	width:550px;
+	height:400px;
+}
+
+#slideshow {
 	margin:0 auto;
-	width:450px;
-	height:450px;
+	width:510px;
+	height:360px;
 	position: relative;
 }
 
 #slideshow #slidesContainer {
   margin:0 auto;
-  width:450px;
-  height:450px;
+  width:510px;
+  height:360px;
   overflow:auto; /* allow scrollbar */
 }
 
 #slideshow #slidesContainer .slide {
-  margin:0 auto;
-  width:430px; /* reduce by 20 pixels to avoid horizontal scroll */
-  height:450px;
+  margin:20px auto;
+  width:490px; /* reduce by 20 pixels to avoid horizontal scroll */
+  height:360px;
 }
 
 /** 
@@ -24,7 +29,7 @@
 .control {
   display:block;
   width:39px;
-  height:450px;
+  height:360px;
   text-indent:-10000px;
   position:absolute;
   cursor: pointer;

@@ -59,6 +59,7 @@
             <a href="/" title="Воображение">
                 <img src="<%=Page.ResolveUrl("~/images/ff_images/logo.gif")%>" alt="" width="299"
                     height="90" />
+            </a>
         </div>
         <div class="logo_main">
             <a href="/" title="Воображение">

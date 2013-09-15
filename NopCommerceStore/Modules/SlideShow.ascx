@@ -3,7 +3,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="Topic" Src="./Topic.ascx" %>
 <script src="../Scripts/slideshow.js" type="text/javascript"></script>
 <link href="../css/slideshow.css" rel="stylesheet" type="text/css" />
-<div id="divSlider" runat="server">
+<div id="divSlider" runat="server" class="divSlider">
     <div id="slideshow">
         <div id="slidesContainer">
             <asp:DataList ID="topics" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table"

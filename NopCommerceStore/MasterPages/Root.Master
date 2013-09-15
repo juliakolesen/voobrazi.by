@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="/css/slimbox2.css" type="text/css" media="screen" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-
     <script src="http://code.jquery.com/jquery-1.4.3.min.js" type="text/javascript"></script>
 </head>
 <body oncopy="return false">
@@ -44,7 +43,8 @@
     </script>
     <noscript>
         <div>
-            <img src="//mc.yandex.ru/watch/11791306" style="position: absolute; left: -9999px;"alt="" />
+            <img src="//mc.yandex.ru/watch/11791306" style="position: absolute; left: -9999px;"
+                alt="" />
         </div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
@@ -70,7 +70,9 @@
                 </td>
             </tr>
             <tr>
-                <nopCommerce:PayFooter ID="payFooter" runat="server" />
+                <td>
+                    <nopCommerce:PayFooter ID="payFooter" runat="server" />
+                </td>
             </tr>
             <tr valign="middle">
                 <td class="footer">
