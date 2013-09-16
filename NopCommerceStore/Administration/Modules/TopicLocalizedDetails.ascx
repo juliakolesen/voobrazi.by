@@ -85,7 +85,7 @@
     </tr>
     <tr>
         <td colspan="2">
-            <asp:Label ID="lblShowOnHomePage" Text="ѕор€док отображени€ на главной странице. 0 - не отображать. 1-7 - маленькие €чейки, 8 - ... большие." runat="server"></asp:Label>
+            <asp:Label ID="lblShowOnHomePage" Text="ѕор€док отображени€ на главной странице. 0 - не отображать. 1- права€ €чейка, 2-4 - маленькие €чейки, 5 - ... большие." runat="server"></asp:Label>
             <nopCommerce:NumericTextBox runat="server" ID="ShowOnHomePage" MaximumValue="10" MinimumValue="0" />
         </td>
     </tr>
