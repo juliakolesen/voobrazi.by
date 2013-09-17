@@ -20,7 +20,7 @@
         </td>
     </tr>
 </table>
-<div style="margin-left:50px;">
+<div>
     <img src="<%=Page.ResolveUrl("~/images/ff_images/menu/menu_footer.gif")%>" alt=""
         width="1050" height="30" />
 </div>
