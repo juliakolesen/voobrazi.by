@@ -28,8 +28,8 @@
  */
 .control {
   display:block;
-  width:39px;
-  height:330px;
+  width:50px;
+  height:50px;
   text-indent:-10000px;
   position:absolute;
   cursor: pointer;
