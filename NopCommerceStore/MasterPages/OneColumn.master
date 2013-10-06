@@ -26,7 +26,7 @@
                 <div style="padding-top: 20px">
                     <asp:HyperLink runat="server" ID="indivOrder" title="Индивидуальный заказ цветов"
                         NavigateUrl="~/IndividualOrder.aspx">
-					<img src="/images/ff_images/individualOrder.jpg" alt="" height="53" />
+					<img src="/images/ff_images/individualOrder.jpg" alt="" height="38px" />
                     </asp:HyperLink>
                 </div>
                 <nopCommerce:ViewedItems ID="viewedItems" runat="server" />
