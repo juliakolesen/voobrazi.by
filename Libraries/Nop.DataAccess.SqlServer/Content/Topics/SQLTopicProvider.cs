@@ -36,6 +36,9 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
             DBTopic topic = new DBTopic();
             topic.TopicID = NopSqlDataHelper.GetInt(dataReader, "TopicID");
             topic.Name = NopSqlDataHelper.GetString(dataReader, "Name");
+            topic.MetaDescription = NopSqlDataHelper.GetString(dataReader, "MetaDescription");
+            topic.MetaKeywords = NopSqlDataHelper.GetString(dataReader, "MetaKeywords");
+            topic.MetaTitle = NopSqlDataHelper.GetString(dataReader, "MetaTitle");
             return topic;
         }
 
@@ -73,14 +76,20 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
         /// Inserts a topic
         /// </summary>
         /// <param name="Name">The name</param>
+        /// <param name="metaKeywords">Key words adds to title (SEO)</param>
+        /// <param name="metaDescription">Description for SEO</param>
+        /// <param name="metaTitle">Title for SEO</param>
         /// <returns>Topic</returns>
-        public override DBTopic InsertTopic(string Name)
+        public override DBTopic InsertTopic(string Name, string metaKeywords, string metaDescription, string metaTitle)
         {
             DBTopic topic = null;
             Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("Nop_TopicInsert");
             db.AddOutParameter(dbCommand, "TopicID", DbType.Int32, 0);
             db.AddInParameter(dbCommand, "Name", DbType.String, Name);
+            db.AddInParameter(dbCommand, "MetaKeywords", DbType.String, metaKeywords);
+            db.AddInParameter(dbCommand, "MetaDescription", DbType.String, metaDescription);
+            db.AddInParameter(dbCommand, "MetaTitle", DbType.String, metaTitle);
             if (db.ExecuteNonQuery(dbCommand) > 0)
             {
                 int TopicID = Convert.ToInt32(db.GetParameterValue(dbCommand, "@TopicID"));
@@ -93,15 +102,21 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
         /// Updates the topic
         /// </summary>
         /// <param name="TopicID">The topic identifier</param>
+        /// <param name="metaKeywords">Key words adds to title (SEO)</param>
+        /// <param name="metaDescription">Description for SEO</param>
+        /// <param name="metaTitle">Title for SEO</param>
         /// <param name="Name">The name</param>
         /// <returns>Topic</returns>
-        public override DBTopic UpdateTopic(int TopicID, string Name)
+        public override DBTopic UpdateTopic(int TopicID, string Name, string metaKeywords, string metaDescription, string metaTitle)
         {
             DBTopic topic = null;
             Database db = NopSqlDataHelper.CreateConnection(_sqlConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("Nop_TopicUpdate");
             db.AddInParameter(dbCommand, "TopicID", DbType.Int32, TopicID);
             db.AddInParameter(dbCommand, "Name", DbType.String, Name);
+            db.AddInParameter(dbCommand, "MetaKeywords", DbType.String, metaKeywords);
+            db.AddInParameter(dbCommand, "MetaDescription", DbType.String, metaDescription);
+            db.AddInParameter(dbCommand, "MetaTitle", DbType.String, metaTitle);
             if (db.ExecuteNonQuery(dbCommand) > 0)
                 topic = GetTopicByID(TopicID);
 

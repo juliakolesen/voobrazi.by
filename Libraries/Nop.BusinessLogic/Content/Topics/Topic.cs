@@ -40,6 +40,21 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Content.Topics
         /// Gets or sets the name
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Key words adds to title (SEO)
+        /// </summary>
+        public string MetaKeywords { get; set; }
+
+        /// <summary>
+        /// Description for SEO
+        /// </summary>
+        public string MetaDescription { get; set; }
+
+        ///<summary>
+        /// Title for SEO
+        /// </summary>
+        public string MetaTitle { get; set; }
         #endregion
     }
 

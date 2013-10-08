@@ -49,6 +49,9 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Content.Topics
             Topic item = new Topic();
             item.TopicID = dbItem.TopicID;
             item.Name = dbItem.Name;
+            item.MetaDescription = dbItem.MetaDescription;
+            item.MetaKeywords = dbItem.MetaKeywords;
+            item.MetaTitle = dbItem.MetaTitle;
 
             return item;
         }
@@ -103,10 +106,13 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Content.Topics
         /// Inserts a topic
         /// </summary>
         /// <param name="Name">The name</param>
+        /// <param name="metaKeywords">Key words adds to title (SEO)</param>
+        /// <param name="metaDescription">Description for SEO</param>
+        /// <param name="metaTitle">Title for SEO</param>
         /// <returns>Topic</returns>
-        public static Topic InsertTopic(string Name)
+        public static Topic InsertTopic(string Name, string metaKeywords, string metaDescription, string metaTitle)
         {
-            DBTopic dbItem = DBProviderManager<DBTopicProvider>.Provider.InsertTopic(Name);
+            DBTopic dbItem = DBProviderManager<DBTopicProvider>.Provider.InsertTopic(Name, metaKeywords, metaDescription, metaTitle);
             Topic topic = DBMapping(dbItem);
             return topic;
         }
@@ -115,11 +121,14 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Content.Topics
         /// Updates the topic
         /// </summary>
         /// <param name="TopicID">The topic identifier</param>
+        /// /// <param name="metaKeywords">Key words adds to title (SEO)</param>
+        /// <param name="metaDescription">Description for SEO</param>
+        /// <param name="metaTitle">Title for SEO</param>
         /// <param name="Name">The name</param>
         /// <returns>Topic</returns>
-        public static Topic UpdateTopic(int TopicID, string Name)
+        public static Topic UpdateTopic(int TopicID, string Name, string metaKeywords, string metaDescription, string metaTitle)
         {
-            DBTopic dbItem = DBProviderManager<DBTopicProvider>.Provider.UpdateTopic(TopicID, Name);
+            DBTopic dbItem = DBProviderManager<DBTopicProvider>.Provider.UpdateTopic(TopicID, Name, metaKeywords, metaDescription, metaTitle);
             Topic topic = DBMapping(dbItem);
             return topic;
         }

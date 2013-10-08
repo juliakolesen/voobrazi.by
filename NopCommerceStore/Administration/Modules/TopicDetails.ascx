@@ -1,6 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Administration.Modules.TopicDetailsControl"
     CodeBehind="TopicDetails.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="TopicInfo" Src="TopicInfo.ascx" %>
+
 <div class="section-header">
     <div class="title">
         <img src="Common/ico-content.png" alt="<%=GetLocaleResourceString("Admin.TopicDetails.Title")%>" />

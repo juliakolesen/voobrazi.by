@@ -34,16 +34,22 @@ namespace NopSolutions.NopCommerce.DataAccess.Content.Topics
         /// Inserts a topic
         /// </summary>
         /// <param name="Name">The name</param>
+        /// /// <param name="metaKeywords">Key words adds to title (SEO)</param>
+        /// <param name="metaDescription">Description for SEO</param>
+        /// <param name="metaTitle">Title for SEO</param>
         /// <returns>Topic</returns>
-        public abstract DBTopic InsertTopic(string Name);
+        public abstract DBTopic InsertTopic(string Name, string metaKeywords, string metaDescription, string metaTitle);
 
         /// <summary>
         /// Updates the topic
         /// </summary>
         /// <param name="TopicID">The topic identifier</param>
         /// <param name="Name">The name</param>
+        /// <param name="metaKeywords">Key words adds to title (SEO)</param>
+        /// <param name="metaDescription">Description for SEO</param>
+        /// <param name="metaTitle">Title for SEO</param>
         /// <returns>Topic</returns>
-        public abstract DBTopic UpdateTopic(int TopicID, string Name);
+        public abstract DBTopic UpdateTopic(int TopicID, string Name, string metaKeywords, string metaDescription, string metaTitle);
 
         /// <summary>
         /// Gets a topic by template identifier

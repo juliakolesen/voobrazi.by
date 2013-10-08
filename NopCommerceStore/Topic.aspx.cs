@@ -25,6 +25,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using NopSolutions.NopCommerce.BusinessLogic;
+using NopSolutions.NopCommerce.BusinessLogic.Content.Topics;
+using NopSolutions.NopCommerce.BusinessLogic.SEO;
 using NopSolutions.NopCommerce.Common.Utils;
 namespace NopSolutions.NopCommerce.Web
 {
@@ -35,6 +37,20 @@ namespace NopSolutions.NopCommerce.Web
             if (!Page.IsPostBack)
             {
                 CommonHelper.EnsureNonSSL();
+            }
+
+            Topic topic =  TopicManager.GetTopicByID(this.TopicID);
+            string title = CommonHelper.IIF(!string.IsNullOrEmpty(topic.MetaTitle), topic.MetaTitle ?? String.Empty, topic.Name ?? String.Empty);
+            SEOHelper.RenderTitle(this, title, true);
+            SEOHelper.RenderMetaTag(this, "description", topic.MetaDescription ?? String.Empty, true);
+            SEOHelper.RenderMetaTag(this, "keywords", topic.MetaKeywords ?? String.Empty, true);
+        }
+
+        public int TopicID
+        {
+            get
+            {
+                return CommonHelper.QueryStringInt("TopicID");
             }
         }
     }

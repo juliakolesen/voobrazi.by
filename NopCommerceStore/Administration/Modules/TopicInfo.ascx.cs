@@ -35,6 +35,9 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             if (topic != null)
             {
                 this.txtName.Text = topic.Name;
+                this.txtMetaDescription.Text = topic.MetaDescription ?? String.Empty;
+                this.txtMetaKeywords.Text = topic.MetaKeywords ?? String.Empty;
+                this.txtMetaTitle.Text = topic.MetaTitle ?? String.Empty;
             }
         }
 
@@ -51,11 +54,11 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             Topic topic = TopicManager.GetTopicByID(this.TopicID);
             if (topic != null)
             {
-                topic = TopicManager.UpdateTopic(topic.TopicID, txtName.Text);
+                topic = TopicManager.UpdateTopic(topic.TopicID, txtName.Text, txtMetaKeywords.Text, txtMetaKeywords.Text, txtMetaTitle.Text);
             }
             else
             {
-                topic = TopicManager.InsertTopic(txtName.Text);
+                topic = TopicManager.InsertTopic(txtName.Text, txtMetaKeywords.Text, txtMetaKeywords.Text, txtMetaTitle.Text);
             }
 
             return topic;
