@@ -54,11 +54,11 @@ namespace NopSolutions.NopCommerce.Web.Administration.Modules
             Topic topic = TopicManager.GetTopicByID(this.TopicID);
             if (topic != null)
             {
-                topic = TopicManager.UpdateTopic(topic.TopicID, txtName.Text, txtMetaKeywords.Text, txtMetaKeywords.Text, txtMetaTitle.Text);
+                topic = TopicManager.UpdateTopic(topic.TopicID, txtName.Text, txtMetaKeywords.Text, txtMetaDescription.Text, txtMetaTitle.Text);
             }
             else
             {
-                topic = TopicManager.InsertTopic(txtName.Text, txtMetaKeywords.Text, txtMetaKeywords.Text, txtMetaTitle.Text);
+                topic = TopicManager.InsertTopic(txtName.Text, txtMetaKeywords.Text, txtMetaDescription.Text, txtMetaTitle.Text);
             }
 
             return topic;
